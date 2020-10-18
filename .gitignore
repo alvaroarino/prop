@@ -1,0 +1,45 @@
+# Created by .ignore support plugin (hsz.mobi)
+
+# Compiled class file
+*.class
+
+# Log file
+*.log
+
+# BlueJ files
+*.ctxt
+
+# Mobile Tools for Java (J2ME)
+.mtj.tmp/
+
+# Package Files #
+*.jar
+*.war
+*.nar
+*.ear
+*.zip
+*.tar.gz
+*.rar
+
+# virtual machine crash logs, see http://www.java.com/en/download/help/error_hotspot.xml
+hs_err_pid*
+
+# IntelliJ project files
+.idea
+*.iml
+out
+gen
+.gitignore
+.idea/.gitignore
+.idea/.name
+".idea/Icon\r"
+.idea/aws.xml
+.idea/codeStyles/
+.idea/intellij-javadocs-4.0.1.xml
+.idea/misc.xml
+.idea/modules.xml
+.idea/scala_settings.xml
+.idea/vcs.xml
+"Icon\r"
+Project.iml
+src/
