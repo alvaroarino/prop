@@ -1,5 +1,7 @@
+package domain;
+
 /**
- * The type Usuari.
+ * The type domain.Usuari.
  */
 public class Usuari {
     /**
@@ -7,7 +9,7 @@ public class Usuari {
      */
     String _nom;
     /**
-     * The Usuari.
+     * The domain.Usuari.
      */
 // Imatge _fotoPerfil;
     String _usuari;
@@ -17,7 +19,7 @@ public class Usuari {
     String _contrasenya;
 
     /**
-     * Instantiates a new Usuari.
+     * Instantiates a new domain.Usuari.
      *
      * @param nom         the nom
      * @param usuari      the usuari
