@@ -1,33 +1,30 @@
 package domain;
 
-/**
- * The type domain.Usuari.
- */
+import java.util.ArrayList;
+
 public class Usuari {
-    /**
-     * The Nom.
-     */
+    String _id;
     String _nom;
-    /**
-     * The domain.Usuari.
-     */
-// Imatge _fotoPerfil;
+    // Imatge _fotoPerfil;
     String _usuari;
-    /**
-     * The Contrasenya.
-     */
     String _contrasenya;
 
-    /**
-     * Instantiates a new domain.Usuari.
-     *
-     * @param nom         the nom
-     * @param usuari      the usuari
-     * @param contrasenya the contrasenya
-     */
+    ArrayList<Perfil> perfils;
+
+    Usuari() {
+        _nom = "";
+        _usuari = "";
+        _contrasenya = "";
+    }
+
     Usuari(String nom, String usuari, String contrasenya) {
         this._nom = nom;
         this._usuari = usuari;
         this._contrasenya = contrasenya;
+        perfils = new ArrayList<>();
+    }
+
+    public String getId() {
+        return _id;
     }
 }
