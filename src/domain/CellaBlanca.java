@@ -1,4 +1,9 @@
 package domain;
 
-public class CellaBlanca {
+public class CellaBlanca extends Cella{
+
+    private int valor;
+
+
+
 }
