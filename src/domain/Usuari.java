@@ -3,6 +3,7 @@ package domain;
 import java.util.ArrayList;
 
 public class Usuari {
+    String _id;
     String _nom;
     // Imatge _fotoPerfil;
     String _usuari;
@@ -21,5 +22,9 @@ public class Usuari {
         this._usuari = usuari;
         this._contrasenya = contrasenya;
         perfils = new ArrayList<>();
+    }
+
+    public String getId() {
+        return _id;
     }
 }
