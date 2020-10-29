@@ -4,7 +4,7 @@ import domain.Usuari;
 
 import java.util.ArrayList;
 
-public class Usuarios {
+public class CtrlDomainUsuarios {
     ArrayList<Usuari> _usuaris;
 
     void crearUsuari(Usuari user) {
