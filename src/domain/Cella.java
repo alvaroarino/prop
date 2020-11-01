@@ -14,5 +14,9 @@ public class Cella {
         return posj;
     }
 
+    public void intro_valor(int z){
+
+    }
+
 
 }
