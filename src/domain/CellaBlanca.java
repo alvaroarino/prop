@@ -12,4 +12,11 @@ public class CellaBlanca extends Cella{
     public int getValor() {
         return valor;
     }
+
+    @Override
+    public void intro_valor(int z) {
+        super.intro_valor(z);
+
+        this.valor = z;
+    }
 }

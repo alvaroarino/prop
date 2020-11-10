@@ -6,10 +6,21 @@ public class CellaNegra extends Cella{
     private int valorEsquerre;
 
 
+    public CellaNegra () {
+
+        valorDret = -1;
+        valorEsquerre = -1;
+    }
+
     public CellaNegra (int x, int y) {
 
         valorDret = x;
         valorEsquerre = y;
+    }
+
+    @Override
+    public void intro_valor(int z) {
+        super.intro_valor(z);
     }
 
     public int getValorDret() {
@@ -20,3 +31,4 @@ public class CellaNegra extends Cella{
         return valorEsquerre;
     }
 }
+
