@@ -14,7 +14,7 @@ public class CellaBlanca extends Cella{
     }
 
     @Override
-    public void intro_valor(int z) {
+    public void intro_valor_blanca(int z) {
         super.intro_valor(z);
 
         this.valor = z;

@@ -19,7 +19,7 @@ public class CellaNegra extends Cella{
     }
 
     @Override
-    public void intro_valor(int z) {
+    public void intro_valor_negra(int z, int y) {
         super.intro_valor(z);
     }
 

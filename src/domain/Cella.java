@@ -18,5 +18,9 @@ public class Cella {
 
     }
 
+    public void color () { //redefinir
+
+    }
+
 
 }
