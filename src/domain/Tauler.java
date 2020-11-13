@@ -1,5 +1,6 @@
 package domain;
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.Random;
 import java.util.Set;
 
@@ -26,6 +27,11 @@ public class Tauler {
         return dimn;
     }
 
+    /*
+
+    Aquesta funcio comproba si una casella és valida per assignar-li una negra.
+     */
+
     public boolean posValida(int i, int j) {
 
         //Si devuelve 0, es blanca
@@ -40,6 +46,22 @@ public class Tauler {
         return true;
     }
 
+
+    public int pintar_celda(int i, int j, int cantidad) {
+
+        if (cantidad == 0) return;
+        else --cantidad;
+        CjtCelles[i][j] = CellaNegra();
+        if (cantidad == 0) return;
+        else --cantidad;
+
+        int k = dimn - i;
+        int l = dimm -j;
+        CjtCelles[k][l] = CellaNegra();
+
+        return cantidad;
+    }
+
     public void  pintar_negras(int cantidad) {
 
         int contador_blancas =0;
@@ -50,46 +72,21 @@ public class Tauler {
         for(int i = 1; i < dimn; ++i) {
             for (int j = 1; j < dimm; ++j) {
 
-
                 int n = aleat.nextInt(dimm);
 
                 if (posValida(i, j)) {
 
-                    if (n == j) {
-
-
-                        if (cantidad == 0) return;
-                        else --cantidad;
-                        CjtCelles[i][j] = CellaNegra();
-                        if (cantidad == 0) return;
-                        else --cantidad;
-                        CjtCelles[j][i] = CellaNegra();
-
-                    } else ++contador_blancas;
+                    if (n == j) cantidad = pintar_celda(i,j,cantidad);
+                    else ++contador_blancas;
 
                     if (contador_blancas > 9) {
-
-
-                        if (cantidad == 0) return;
-                        else --cantidad;
-                        CjtCelles[i][j] = CellaNegra();
-                        if (cantidad == 0) return;
-                        else --cantidad;
-                        CjtCelles[j][i] = CellaNegra();
-
+                        cantidad = pintar_celda(i,j,cantidad);
                         contador_blancas = 0;
-
                     }
 
                     if ((i >= dimn / 2) && (j >= dimn / 2) && cantidad >= (dimn * dimm)) {
 
-                        if (cantidad == 0) return;
-                        else --cantidad;
-                        CjtCelles[i][j] = CellaNegra();
-                        if (cantidad == 0) return;
-                        else --cantidad;
-                        CjtCelles[j][i] = CellaNegra();
-
+                        cantidad = pintar_celda(i,j,cantidad);
 
                     }
 
@@ -112,14 +109,19 @@ public class Tauler {
 
    }
 
+   public boolean presente_fila (int aleat) {}
+
+    public boolean presente_col (int aleat) {}
+
+
 
 
     public void rellenar_blancas() {
 
-        Set<Set<Integer>> set_deN = new Set<Set<Integer>>(); // VALOR DEL KAKURO (nxm)
+        //Set<Set<Integer>>  set_deN = new HashSet<>(); // VALOR DEL KAKURO (nxm)
         int numAleat;
         for (int i = 1; i < dimn; ++i) {
-            Set<Integer> fila = new Set<Integer>();
+           // Set<Integer> fila = new HashSet<>();
 
 
             for (int j = 1; j < dimm; ++j) {
@@ -128,10 +130,11 @@ public class Tauler {
 
                 numAleat = generar_aleatorios();
 
-                while(!fila.add(numAleat)) {
-                        numAleat = generar_aleatorios(); //Falta comprobar que no esté en el set grande y añadirlo.
-                    }
+                while(presente_fila(numAleat )|| presente_col(numAleat)) {
+                        numAleat = generar_aleatorios();
 
+                    }
+                CjtCelles[i][j].intro_valor(numAleat);
 
             }
 
@@ -139,11 +142,35 @@ public class Tauler {
         }
     }
 
-    public void hacer_sumas(){
+    public void hacer_sumas() {
 
+        for (int i = 0; i < dimn; ++i) {
+
+            for (int j = 0; j < dimm; ++j) {
+                if (CjtCelles[i][j].color() == 1) {
+                    int aux = 1;
+
+                    while (CjtCelles[i][j + aux].color() == 0 && j + aux != dimm) {
+                        CjtCelles[i][j].acumular_valor_derecha(CjtCelles[i][j + aux].getValor());
+                        ++aux;
+                    }
+                    aux = 1;
+                    while (CjtCelles[i + aux][j].color() == 0 && i + aux != dimn) {
+                        CjtCelles[i][j].acumular_valor_izquierda(CjtCelles[i + aux][j].getValor());
+                        ++aux;
+                    }
+
+
+                }
+
+            }
+
+        }
     }
 
     public void borrar_blancas(){
+
+
 
     }
 }

@@ -18,6 +18,8 @@ public class CellaNegra extends Cella{
         valorEsquerre = y;
     }
 
+
+
     @Override
     public void intro_valor_negra(int z, int y) {
         super.intro_valor(z);
