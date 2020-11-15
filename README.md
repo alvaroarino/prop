@@ -12,6 +12,20 @@
 * [victor.delgado@estudiantat.upc.edu](mailto::victor.delgado@estudiantat.upc.edu)
 * [victor.latorre@estudiantat.upc.edu](mailto::victor.latorre@estudiantat.upc.edu)
 
+## Distribució dels directoris del projecte
+
+Cada directori princiapl conté un index.html amb diferents explicacions.
+
+Relació principal de directoris
+
+*   FONTS - Arxius font del projecte
+*   DOCS - Documentació del projecte
+*   EXE - Executables
+*   Altres
+    *   style: Per guardar els estils dels HTML
+    *   lib: conté les llibreries externes usades per programa
+    *   files: conté arxius necesaris pel arxius Markdown i HTML
+
 ## Llibreries externes utilitzades
 ### [Gson](https://github.com/google/gson)
 Per guardar d'una forma estructurada y ordenada les dades, fem ús d'archius JSON i per codificar i 
