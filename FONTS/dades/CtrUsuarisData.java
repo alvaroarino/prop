@@ -3,17 +3,21 @@ package dades;
 import com.google.gson.Gson;
 import com.google.gson.JsonElement;
 
-import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 import java.io.Reader;
-import java.util.LinkedList;
-import java.util.List;
-import java.util.Scanner;
 
+/**
+ * The type Ctr usuaris data.
+ */
 public class CtrUsuarisData {
     private static CtrUsuarisData singletonObject;
 
+    /**
+     * Gets instance.
+     *
+     * @return the instance
+     */
     public static CtrUsuarisData getInstance() {
         if (singletonObject == null)
             singletonObject = new CtrUsuarisData() {
@@ -25,6 +29,12 @@ public class CtrUsuarisData {
 
     private CtrUsuarisData() {}
 
+    /**
+     * Obtenir les dades del fitxer d'usuaris.
+     *
+     * @return the data
+     * @throws IOException the io exception
+     */
     public String getData() throws IOException {
         Gson gson = new Gson();
 

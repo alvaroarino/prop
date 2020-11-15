@@ -6,7 +6,7 @@ public class CellaBlanca extends Cella{
 
     @Override
     public CellaBlanca () {
-    super.Cella();
+        super.Cella();
         valor = null;
     }
 
