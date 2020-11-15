@@ -12,7 +12,7 @@ public class CellaBlanca extends Cella{
      *
      * @param x the x
      */
-    public CellaBlanca (int x) {
+    public CellaBlanca(int x) {
 
         valor = x;
     }
