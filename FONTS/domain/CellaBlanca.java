@@ -4,10 +4,9 @@ public class CellaBlanca extends Cella{
 
     private int valor;
 
-    @Override
     public CellaBlanca () {
         super.Cella();
-        valor = null;
+        valor = -1;
     }
 
     @Override
