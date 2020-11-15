@@ -14,5 +14,19 @@ public class Cella {
         return posj;
     }
 
+    public void intro_valor(int z){
+
+    }
+    public int getValor() {
+
+    }
+
+
+    public  void acumular_valor_derecha(int s){}
+    public  void acumular_valor_izquierda(int s){}
+    public int color () { //redefinir
+
+    }
+
 
 }
