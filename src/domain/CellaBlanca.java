@@ -4,19 +4,28 @@ public class CellaBlanca extends Cella{
 
     private int valor;
 
-    public CellaBlanca (int x) {
-
-        valor = x;
+    @Override
+    public CellaBlanca () {
+    super.Cella();
+        valor = null;
     }
 
-    public int getValor() {
+    @Override
+    public int getValor_blanca() {
+        super.getValor_blanca();
         return valor;
     }
 
     @Override
     public void intro_valor_blanca(int z) {
-        super.intro_valor(z);
+        super.intro_valor_blanca(z);
+        valor = z;
+    }
 
-        this.valor = z;
+    @Override
+    public int color() {
+        super.color();
+        return 0;
+
     }
 }

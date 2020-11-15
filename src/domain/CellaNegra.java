@@ -5,32 +5,39 @@ public class CellaNegra extends Cella{
     private int valorDret;
     private int valorEsquerre;
 
-
+    @Override
     public CellaNegra () {
-
-        valorDret = -1;
-        valorEsquerre = -1;
+        super.Cella();
+        valorDret = Integer.parseInt(null);
+        valorEsquerre = Integer.parseInt(null);
     }
-
-    public CellaNegra (int x, int y) {
-
-        valorDret = x;
-        valorEsquerre = y;
-    }
-
-
 
     @Override
-    public void intro_valor_negra(int z, int y) {
-        super.intro_valor(z);
+    public  void acumular_valor_derecha(int s){
+        if(valorDret == null) valorDret = 0;
+        valorDret += s;
+    }
+    @Override
+    public  void acumular_valor_izquierda(int s){
+        if(valorEsquerre == null) valorDret = 0;
+        valorEsquerre+= s;
     }
 
+    @Override
     public int getValorDret() {
         return valorDret;
 
     }
+    @Override
     public int getValorEsquerre() {
         return valorEsquerre;
     }
+
+    @Override
+    public int color() {
+        return 1;
+
+    }
 }
+
 

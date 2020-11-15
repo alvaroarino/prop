@@ -49,7 +49,7 @@ public class Kakuro {
 
 
         if(negras + blancas != (n*m)) { //Aviso de que está mal
-            return
+            return;
         }
 
         board.pintar_negras(negras);
