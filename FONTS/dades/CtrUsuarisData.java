@@ -3,13 +3,9 @@ package dades;
 import com.google.gson.Gson;
 import com.google.gson.JsonElement;
 
-import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 import java.io.Reader;
-import java.util.LinkedList;
-import java.util.List;
-import java.util.Scanner;
 
 public class CtrUsuarisData {
     private static CtrUsuarisData singletonObject;
