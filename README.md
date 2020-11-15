@@ -1,12 +1,18 @@
 # PROP - Grup 14
 
 ## Integrants del grup
-* Alvaro Ariño Cabau: [Mail](mailto::alvaro.arino@estudiantat.upc.edu)
-* Albert Bertran Serrano: [Mail](mailto::albert.bertran.serrano@estudiantat.upc.edu)
-* Victor Latorre López: [Mail](mailto::victor.latorre@estudiantat.upc.edu)
-* Victor Manuel Delgado Padilla: [Mail](mailto::alvaro.arino@estudiantat.upc.edu)
+* Ariño Cabau, Alvaro
+* Bertran Serrano, Albert
+* Delgado Padilla, Victor Manuel
+* Latorre López, Victor
 
-## Llibreries utilitzades
+### Mails del grup
+* [alvaro.arino@estudiantat.upc.edu](mailto::alvaro.arino@estudiantat.upc.edu)
+* [albert.bertran.serrano@estudiantat.upc.edu](mailto::albert.bertran.serrano@estudiantat.upc.edu)
+* [victor.delgado@estudiantat.upc.edu](mailto::victor.delgado@estudiantat.upc.edu)
+* [victor.latorre@estudiantat.upc.edu](mailto::victor.latorre@estudiantat.upc.edu)
+
+## Llibreries externes utilitzades
 ### [Gson](https://github.com/google/gson)
 Per guardar d'una forma estructurada y ordenada les dades, fem ús d'archius JSON i per codificar i 
 descodificar fem ús d'aquesta clase
