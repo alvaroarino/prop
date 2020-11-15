@@ -23,7 +23,7 @@ public class Kakuro {
      */
     public Kakuro(int n, int m) {
         aleat = new Random();
-        board = new Tauler(n,m);
+        board = new Tauler(n, m);
     }
 
     /**
@@ -50,6 +50,8 @@ public class Kakuro {
         board.rellenar_blancas();
         board.hacer_sumas();
         board.borrar_blancas();
+
+        board.print();
     }
 
     /**

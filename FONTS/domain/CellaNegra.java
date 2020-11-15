@@ -5,9 +5,8 @@ public class CellaNegra extends Cella{
     private int valorDret;
     private int valorEsquerre;
 
-    @Override
     public CellaNegra () {
-
+        super.Cella();
         valorDret = -1;
         valorEsquerre = -1;
     }
