@@ -1,4 +1,4 @@
-# PROP - Grup 14
+# PROP - Grup 14 - Subgrup 2
 
 ## Integrants del grup
 * Ariño Cabau, Alvaro
@@ -17,3 +17,6 @@
 Per guardar d'una forma estructurada y ordenada les dades, fem ús d'archius JSON i per codificar i 
 descodificar fem ús d'aquesta clase
 > Gson is a Java library that can be used to convert Java Objects into their JSON representation. It can also be used to convert a JSON string to an equivalent Java object. 
+
+## Distribució de la feina
+![image](files/work_distribution.jpg)
