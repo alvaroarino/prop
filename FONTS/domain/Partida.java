@@ -1,5 +1,8 @@
 package domain;
 
+/**
+ * The type Partida.
+ */
 public class Partida {
     private Partida();
     private int Estat;
