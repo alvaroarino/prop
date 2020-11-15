@@ -5,11 +5,13 @@ public class Cella {
     public  void Cella() {
 
     }
+
     public void intro_valor_blanca(int z){
 
     }
-    public int getValor_blanca() {
 
+    public int getValor_blanca() {
+        return 0;
     }
 
 
@@ -19,10 +21,15 @@ public class Cella {
 
 
     public int color () {
-
+        return 0;
     }
 
-    public int getValorDret() {}
-    public int getValorEsquerre() {}
+    public int getValorDret() {
+        return 0;
+    }
+
+    public int getValorEsquerre() {
+        return 0;
+    }
 
 }

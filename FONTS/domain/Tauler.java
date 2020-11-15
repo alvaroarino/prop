@@ -14,7 +14,15 @@ public class Tauler {
         dimn = n;
         dimm = m;
 
-        Cella CjtCelles[][] = new Cella[n][m];
+        this.CjtCelles = new Cella[n][m];
+
+        for(int i = 0; i < this.CjtCelles.length; ++i) {
+            for (int j = 0; j < this.CjtCelles[0].length; ++j) {
+                if (i == 0 || j == 0) this.CjtCelles[i][j] = new CellaNegra();
+                else this.CjtCelles[i][j] = new Cella();
+            }
+        }
+
         // PINTAR FILA 1 y COLUMNA 1
 
     }
@@ -36,11 +44,11 @@ public class Tauler {
 
         //Si devuelve 0, es blanca
         if (CjtCelles[i - 1][j].color() == 0) {
-            if (CjtCelles[i - 2][j].color() == 1) return false;
+            if (i > 2 && CjtCelles[i - 2][j].color() == 1) return false;
         }
 
         if (CjtCelles[i][j - 1].color() == 0) {
-            if (CjtCelles[i][j - 2].color() == 1) return false;
+            if (j > 2 && CjtCelles[i][j - 2].color() == 1) return false;
         }
 
         return true;
@@ -49,15 +57,15 @@ public class Tauler {
 
     public int pintar_celda(int i, int j, int cantidad) {
 
-        if (cantidad == 0) return;
+        if (cantidad == 0) return cantidad;
         else --cantidad;
-        CjtCelles[i][j] = CellaNegra();
-        if (cantidad == 0) return;
+        CjtCelles[i][j] = new CellaNegra();
+        if (cantidad == 0) return cantidad;
         else --cantidad;
 
         int k = dimn - i;
         int l = dimm - j;
-        CjtCelles[k][l] = CellaNegra();
+        CjtCelles[k][l] = new CellaNegra();
 
         return cantidad;
     }
@@ -163,12 +171,12 @@ public class Tauler {
                 if (CjtCelles[i][j].color() == 1) {
                     int aux = 1;
 
-                    while (CjtCelles[i][j + aux].color() == 0 && j + aux != dimm) {
+                    while (j + aux != dimm && CjtCelles[i][j + aux].color() == 0) {
                         CjtCelles[i][j].acumular_valor_derecha(CjtCelles[i][j + aux].getValorDret());
                         ++aux;
                     }
                     aux = 1;
-                    while (CjtCelles[i + aux][j].color() == 0 && i + aux != dimn) {
+                    while (i + aux != dimn && CjtCelles[i + aux][j].color() == 0) {
                         CjtCelles[i][j].acumular_valor_izquierda(CjtCelles[i + aux][j].getValorEsquerre());
                         ++aux;
                     }
@@ -181,14 +189,27 @@ public class Tauler {
         }
     }
 
-    public void borrar_blancas(){
-    for(int i = 1;i < dimn; ++i ) {
-        for(int j= 0; j < dimm; ++j) {
-
-            if(CjtCelles[i][j].color() == 0) CjtCelles[i][j].intro_valor_blanca(null);
+    public void borrar_blancas() {
+        for (int i = 1; i < dimn; ++i) {
+            for (int j = 0; j < dimm; ++j) {
+                if (CjtCelles[i][j].color() == 0) CjtCelles[i][j].intro_valor_blanca(-1);
+            }
         }
     }
 
-
+    public void print() {
+        for(int i = 0; i < this.CjtCelles.length; ++i) {
+            for (int j = 0; j < this.CjtCelles[0].length; ++j) {
+                if (this.CjtCelles[i][j].color() == 0) {
+                    System.out.print(this.CjtCelles[i][j].getValor_blanca());
+                    System.out.print(" ");
+                } else {
+                    System.out.print(this.CjtCelles[i][j].getValorEsquerre());
+                    System.out.print(this.CjtCelles[i][j].getValorDret());
+                    System.out.print(" ");
+                }
+            }
+            System.out.print("\n");
+        }
     }
 }

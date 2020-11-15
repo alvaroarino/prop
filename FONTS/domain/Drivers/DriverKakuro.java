@@ -1,5 +1,7 @@
+package domain.Drivers;
 
 import domain.Kakuro;
+
 public class DriverKakuro {
 
     public void testGenerar() {
@@ -7,10 +9,8 @@ public class DriverKakuro {
     }
 
     public static void main(String[] args) {
-
-    Kakuro kk = new Kakuro();
-
-    kk.generar();
+        Kakuro kk = new Kakuro(9, 9);
+        kk.generar();
 
     }
 
