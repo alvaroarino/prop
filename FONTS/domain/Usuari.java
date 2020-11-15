@@ -44,7 +44,7 @@ public class Usuari {
     /**
      * Crea un usuari amb nom i nom d'usuari, username
      *
-     * @param nom    the nom
+     * @param nom      the nom
      * @param username the usuari
      */
     Usuari(String nom, String username) {
@@ -58,7 +58,7 @@ public class Usuari {
     /**
      * Obtenir d'ID assignat a l'usuari.
      *
-     * @return l'ID de l'usuari.
+     * @return l 'ID de l'usuari.
      */
     public String getId() {
         return _id;

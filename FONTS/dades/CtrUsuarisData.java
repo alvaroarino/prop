@@ -7,9 +7,17 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.io.Reader;
 
+/**
+ * The type Ctr usuaris data.
+ */
 public class CtrUsuarisData {
     private static CtrUsuarisData singletonObject;
 
+    /**
+     * Gets instance.
+     *
+     * @return the instance
+     */
     public static CtrUsuarisData getInstance() {
         if (singletonObject == null)
             singletonObject = new CtrUsuarisData() {
@@ -21,6 +29,12 @@ public class CtrUsuarisData {
 
     private CtrUsuarisData() {}
 
+    /**
+     * Obtenir les dades del fitxer d'usuaris.
+     *
+     * @return the data
+     * @throws IOException the io exception
+     */
     public String getData() throws IOException {
         Gson gson = new Gson();
 
