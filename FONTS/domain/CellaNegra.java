@@ -1,62 +1,42 @@
 package domain;
 
-/**
- * The type Cella negra.
- */
-public class CellaNegra extends Cella {
+public class CellaNegra extends Cella{
 
     private int valorDret;
     private int valorEsquerre;
 
-    /**
-     * Instantiates a new Cella negra.
-     */
+    @Override
     public CellaNegra () {
-        super();
+
         valorDret = -1;
         valorEsquerre = -1;
     }
 
-    /**
-     * Instantiates a new Cella negra.
-     *
-     * @param x the x
-     * @param y the y
-     */
-    public CellaNegra (int x, int y) {
-        super();
-        valorDret = x;
-        valorEsquerre = y;
-    }
-
-    /**
-     * Intro valor negra.
-     *
-     * @param z the z
-     * @param y the y
-     */
     @Override
-    public void intro_valor_negra(int z, int y) {
-        super.intro_valor(z);
+    public  void acumular_valor_derecha(int s){
+        if(valorDret == -1) valorDret = 0;
+        valorDret += s;
+    }
+    @Override
+    public  void acumular_valor_izquierda(int s){
+        if(valorEsquerre == -1) valorDret = 0;
+        valorEsquerre+= s;
     }
 
-    /**
-     * Gets valor dret.
-     *
-     * @return the valor dret
-     */
+    @Override
     public int getValorDret() {
         return valorDret;
 
     }
-
-    /**
-     * Gets valor esquerre.
-     *
-     * @return the valor esquerre
-     */
+    @Override
     public int getValorEsquerre() {
         return valorEsquerre;
+    }
+
+    @Override
+    public int color() {
+        return 1;
+
     }
 }
 
