@@ -1,34 +1,31 @@
 package domain;
 
-/**
- * The type Cella blanca.
- */
 public class CellaBlanca extends Cella{
 
     private int valor;
 
-    /**
-     * Instantiates a new Cella blanca.
-     *
-     * @param x the x
-     */
-    public CellaBlanca(int x) {
-
-        valor = x;
+    @Override
+    public CellaBlanca () {
+        super.Cella();
+        valor = null;
     }
 
-    public int getValor() {
+    @Override
+    public int getValor_blanca() {
+        super.getValor_blanca();
         return valor;
     }
 
-    /**
-     * Intro valor blanca.
-     *
-     * @param z the z
-     */
     @Override
     public void intro_valor_blanca(int z) {
-        super.intro_valor(z);
-        this.valor = z;
+        super.intro_valor_blanca(z);
+        valor = z;
+    }
+
+    @Override
+    public int color() {
+        super.color();
+        return 0;
+
     }
 }
