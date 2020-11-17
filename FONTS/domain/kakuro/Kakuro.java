@@ -49,7 +49,7 @@ public class Kakuro {
         board.pintar_negras(ca_negras);
         board.rellenar_blancas();
         board.hacer_sumas();
-        board.borrar_blancas();
+        //board.borrar_blancas();
     }
 
     /**
