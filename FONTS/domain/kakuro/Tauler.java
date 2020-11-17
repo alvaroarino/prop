@@ -36,6 +36,10 @@ public class Tauler {
 
     }
 
+    public void setTauler(Cella[][] cjt) {
+        CjtCelles = cjt;
+    }
+
     /**
      * Gets dimm.
      *
@@ -186,7 +190,7 @@ public class Tauler {
      * @return the boolean
      */
     public boolean presente_col (int aleat,int i, int j) {
-        for (int x = 1; x < j; ++x)
+        for (int x = 1; x < i; ++x)
             if (CjtCelles[x][j].color() == 0)
                 if (CjtCelles[x][j].getValor_blanca() == aleat) return true;
         return false;
@@ -211,7 +215,7 @@ public class Tauler {
 
                 numAleat = generar_aleatorios();
 
-                while(presente_fila(numAleat,i,j )|| presente_col(numAleat,i,j)) {
+                while(!presente_fila(numAleat,i,j ) && !presente_col(numAleat,i,j)) { //
                         numAleat = generar_aleatorios();
 
                     }
@@ -263,21 +267,150 @@ public class Tauler {
         }
     }
 
+    public void solucionar(){
+        long startTime = System.nanoTime();
+        if(solBacktracking(this.CjtCelles, 0, 0)) {
+            System.out.println("Solució trobada: \n");
+            long endTime = System.nanoTime();
+            long timeElapsed = endTime - startTime;
+            System.out.println("Execution time in nanoseconds  : " + timeElapsed);
+
+            System.out.println("Execution time in milliseconds : " +
+                    timeElapsed / 1000000);
+            print();
+        }
+        else{
+            System.out.println("No s'ha trobat solució \n");
+        }
+    }
+
+    public static boolean solBacktracking(Cella[][] board, int fila, int col) {
+        final int nFila = board.length;
+        final int nCol = board[0].length;
+
+        if(fila == nFila) return true;
+
+        else if(col == nCol) {
+            return solBacktracking(board,fila+1, 0);
+        }
+
+        else if(board[fila][col].color() == 1) {
+            return solBacktracking(board, fila, col+1);
+        }
+
+        for(int valor=1; valor <= 9; ++valor) {
+            if(valorValid(board, fila, col, valor)) {
+                board[fila][col].intro_valor_blanca(valor);
+                if(solBacktracking(board, fila, col+1)) {
+                    return true;    //Modificar para que devuelva mas de una solucion
+                }
+                else{
+                    board[fila][col].intro_valor_blanca(0);
+                }
+            }
+        }
+        return false;
+    }
+
+    private static boolean valorValid(Cella[][] board, int fila, int col, int valor) {
+
+        if(valorValidFila(board,fila,col,valor) && valorValidCol(board,fila,col,valor)){
+            return true;
+        }
+        else
+            return false;
+    }
+
+    private static boolean valorValidFila(Cella[][] board, int fila, int col, int valor) {
+        int suma = valor;
+        int sumaNegras = 0;
+
+        for(int i = col-1; i >= 0; --i) {
+            if(board[fila][i].color() == 1){
+                sumaNegras = board[fila][i].getValorDret();
+                break;
+            }
+            suma += board[fila][i].getValor_blanca();
+            if(board[fila][i].getValor_blanca() == valor)
+                return false;
+        }
+        if(suma > sumaNegras)
+            return false;
+
+        if(col == board[0].length - 1) {
+            if(suma < sumaNegras)
+                return false;
+        }
+        else if(board[fila][col+1].color() == 1) {
+            if(suma < sumaNegras)
+                return false;
+        }
+        return true;
+    }
+
+    private static boolean valorValidCol(Cella[][] board, int fila, int col, int valor){
+        int suma = valor;
+        int sumaNegras = 0;
+
+        for(int i = fila-1; i >= 0; --i) {
+            if(board[i][col].color() == 1){
+                sumaNegras = board[i][col].getValorEsquerre();
+                break;
+            }
+            suma += board[i][col].getValor_blanca();
+            if(board[i][col].getValor_blanca() == valor)
+                return false;
+        }
+        if(suma > sumaNegras)
+            return false;
+
+        if(fila == board.length - 1) {
+            if(suma < sumaNegras)
+                return false;
+        }
+        else if(board[fila+1][col].color() == 1) {
+            if(suma < sumaNegras)
+                return false;
+        }
+        return true;
+    }
+
+
+
     /**
      * Print.
      */
     public void print() {
-        for (int i = 0; i < this.CjtCelles.length; ++i) {
-            for (int j = 0; j < this.CjtCelles[0].length; ++j) {
+        System.out.printf("%s,%s%n",dimn,dimm);
+        for (int i = 0; i < dimn; ++i) {
+            for (int j = 0; j < dimm; ++j) {
                 if (this.CjtCelles[i][j].color() == 0) {
-                    System.out.print(this.CjtCelles[i][j].getValor_blanca());
-                    System.out.print(" ");
+                    if(this.CjtCelles[i][j].getValor_blanca() > 0)
+                        System.out.print(this.CjtCelles[i][j].getValor_blanca());
+                    else
+                        System.out.print("?");
+
                 } else {
-                    System.out.print(this.CjtCelles[i][j].getValorEsquerre());
-                    System.out.print(this.CjtCelles[i][j].getValorDret());
-                    System.out.print(" ");
+                    int valorColumna = this.CjtCelles[i][j].getValorEsquerre();
+                    int valorFila = this.CjtCelles[i][j].getValorDret();
+                    if(valorColumna > 0 && valorFila > 0) {
+                        System.out.printf("C%sF%s",valorColumna,valorFila);
+                    }
+                    else if(valorColumna > 0)
+                        System.out.printf("C%s",valorColumna);
+
+                    else if(valorFila > 0)
+                        System.out.printf("F%s",valorFila);
+
+                    else
+                        System.out.print("*");
+
+
                 }
+                if(j != this.CjtCelles[0].length - 1)
+                    System.out.print(",");
             }
+
             System.out.print("\n");
         }
     }
