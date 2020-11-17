@@ -1,4 +1,4 @@
-package domain;
+package domain.estadisitica;
 
 /**
  * The type Ranking.

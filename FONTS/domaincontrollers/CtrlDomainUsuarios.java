@@ -1,6 +1,6 @@
 package domaincontrollers;
 
-import domain.Usuari;
+import domain.usuari.Usuari;
 
 import java.util.ArrayList;
 

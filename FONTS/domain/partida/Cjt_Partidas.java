@@ -1,4 +1,4 @@
-package domain;
+package domain.partida;
 
 import java.util.ArrayList;
 

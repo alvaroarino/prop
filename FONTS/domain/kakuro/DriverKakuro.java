@@ -1,6 +1,6 @@
-package domain.Drivers;
+package domain.kakuro;
 
-import domain.Kakuro;
+import domain.kakuro.Kakuro;
 
 public class DriverKakuro {
 
@@ -11,7 +11,6 @@ public class DriverKakuro {
     public static void main(String[] args) {
         Kakuro kk = new Kakuro(9, 9);
         kk.generar();
-
     }
 
 }
