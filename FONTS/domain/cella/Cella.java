@@ -47,16 +47,16 @@ public class Cella {
 
 
     /**
-     * Color int.
+     * Retorna el color de la cel·la codificat com un enter.
      *
-     * @return the int
+     * @return 0 si la cel·la es blanca i 1 si és negra
      */
-    public int color () {
+    public int color() {
         return 0;
     }
 
     /**
-     * Gets valor dret.
+     * Obtenir el valor a la dreta de la cel·la.
      *
      * @return the valor dret
      */
@@ -65,7 +65,7 @@ public class Cella {
     }
 
     /**
-     * Gets valor esquerre.
+     * Obtenir el valor a l'esquerra de la cel·la.
      *
      * @return the valor esquerre
      */
