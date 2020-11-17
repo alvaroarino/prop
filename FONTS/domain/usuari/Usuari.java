@@ -6,6 +6,7 @@ import java.util.UUID;
 
 /**
  * The type Usuari.
+ * @author Alvaro Ariño Cabau
  */
 public class Usuari {
     /**
@@ -61,22 +62,49 @@ public class Usuari {
         return _id;
     }
 
+    /**
+     * Sets name.
+     *
+     * @param name the name
+     */
     public void setName(String name) {
         this._nom = name;
     }
 
+    /**
+     * Sets pass.
+     *
+     * @param pass the pass
+     */
     public void setPass(String pass) {
         this._password = pass;
     }
 
+    /**
+     * Add profile.
+     *
+     * @throws UserExcepcion the user excepcion
+     */
     public void addProfile() throws UserExcepcion {
         if (_username.equals("")) throw new UserExcepcion(getId());
         this._perfils.add(new Perfil(this._nom));
     }
 }
 
+/**
+ * The type User excepcion.
+ */
 class UserExcepcion extends Exception {
+    /**
+     * The Username.
+     */
     public String username;
+
+    /**
+     * Instantiates a new User excepcion.
+     *
+     * @param s the s
+     */
     public UserExcepcion(String s) {
         super("Error en el usuario " + s + ", username es null");
         username = s;

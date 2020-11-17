@@ -3,8 +3,14 @@ package domain.kakuro;
 import static org.junit.Assert.*;
 import org.junit.Test;
 
+/**
+ * The type Kakuro test.
+ */
 public class KakuroTest {
 
+    /**
+     * Test generar.
+     */
     @Test
     public void testGenerar() {
         int n = 9;

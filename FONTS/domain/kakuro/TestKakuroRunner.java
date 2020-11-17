@@ -4,7 +4,15 @@ import org.junit.runner.JUnitCore;
 import org.junit.runner.Result;
 import org.junit.runner.notification.Failure;
 
+/**
+ * The type Test kakuro runner.
+ */
 public class TestKakuroRunner {
+    /**
+     * The entry point of application.
+     *
+     * @param args the input arguments
+     */
     public static void main(String[] args) {
         Result result = JUnitCore.runClasses(KakuroTest.class);
         for (Failure failure : result.getFailures()) {

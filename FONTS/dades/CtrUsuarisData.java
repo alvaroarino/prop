@@ -9,6 +9,7 @@ import java.io.Reader;
 
 /**
  * The type Ctr usuaris data.
+ * @author Alvaro Ariño Cabau
  */
 public class CtrUsuarisData {
     private static CtrUsuarisData singletonObject;
@@ -48,6 +49,11 @@ public class CtrUsuarisData {
         }
     }
 
+    /**
+     * Write data string.
+     *
+     * @return the string
+     */
     public String writeData() {
         return "TODO: Implement the function writeData()";
     }

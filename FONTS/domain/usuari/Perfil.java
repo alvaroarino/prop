@@ -24,11 +24,21 @@ public class Perfil {
         _nom = "";
     }
 
+    /**
+     * Instantiates a new Perfil.
+     *
+     * @param nom the nom
+     */
     public Perfil(String nom) {
         this._idPerfil = UUID.randomUUID();
         this._nom = nom;
     }
 
+    /**
+     * Sets nom.
+     *
+     * @param n the n
+     */
     public void setNom(String n) {
         this._nom = n;
     }
