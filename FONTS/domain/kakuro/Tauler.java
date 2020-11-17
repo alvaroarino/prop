@@ -1,5 +1,6 @@
 package domain.kakuro;
 import domain.cella.Cella;
+import domain.cella.CellaBlanca;
 import domain.cella.CellaNegra;
 
 import java.util.Random;
@@ -128,7 +129,10 @@ public class Tauler {
                 if (posValida(i, j)) {
 
                     if (n == j) cantidad = pintar_celda(i, j, cantidad);
-                    else ++contador_blancas;
+                    else {
+                        CjtCelles[i][j] = new CellaBlanca();
+                        ++contador_blancas;
+                    }
 
                     if (contador_blancas > 9) {
                         cantidad = pintar_celda(i, j, cantidad);
@@ -143,6 +147,8 @@ public class Tauler {
 
 
                 }
+                else
+                    CjtCelles[i][j] = new CellaBlanca();
             }
         }
 
@@ -197,6 +203,18 @@ public class Tauler {
 
     }
 
+    public boolean presenteFilaCol(int aleat, int i, int j) {
+        for (int x = 1; x < j; ++x) {
+            if (CjtCelles[i][x].color() == 0)
+                if (CjtCelles[i][x].getValor_blanca() == aleat) return true;
+        }
+        for (int y = 1; y < i; ++y) {
+            if (CjtCelles[y][j].color() == 0)
+                if (CjtCelles[y][j].getValor_blanca() == aleat) return true;
+        }
+        return false;
+    }
+
 
     /**
      * Rellenar blancas.
@@ -215,10 +233,11 @@ public class Tauler {
 
                 numAleat = generar_aleatorios();
 
-                while(!presente_fila(numAleat,i,j ) && !presente_col(numAleat,i,j)) { //
+                while(presenteFilaCol(numAleat, i, j)) { //!presente_fila(numAleat,i,j ) && !presente_col(numAleat,i,j)
                         numAleat = generar_aleatorios();
 
                     }
+
                 CjtCelles[i][j].intro_valor_blanca(numAleat);
 
             }
@@ -236,16 +255,19 @@ public class Tauler {
 
             for (int j = 0; j < dimm; ++j) {
                 if (CjtCelles[i][j].color() == 1) {
-                    int aux = 1;
+                    int auxj = 1;
 
-                    while (j + aux != dimm && CjtCelles[i][j + aux].color() == 0) {
-                        CjtCelles[i][j].acumular_valor_derecha(CjtCelles[i][j + aux].getValorDret());
-                        ++aux;
+                    while (j + auxj < dimm && CjtCelles[i][j + auxj].color() == 0) {
+                        int valor = CjtCelles[i][j+auxj].getValor_blanca();
+                        CjtCelles[i][j].acumular_valor_derecha(valor);
+                        ++auxj;
+
                     }
-                    aux = 1;
-                    while (i + aux != dimn && CjtCelles[i + aux][j].color() == 0) {
-                        CjtCelles[i][j].acumular_valor_izquierda(CjtCelles[i + aux][j].getValorEsquerre());
-                        ++aux;
+                    int auxi = 1;
+                    while (i + auxi < dimn && CjtCelles[i + auxi][j].color() == 0) {
+                        int valor = CjtCelles[i + auxi][j].getValor_blanca();
+                        CjtCelles[i][j].acumular_valor_izquierda(valor);
+                        ++auxi;
                     }
 
 
