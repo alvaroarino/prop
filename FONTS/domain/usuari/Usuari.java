@@ -6,6 +6,7 @@ import java.util.UUID;
 
 /**
  * The type Usuari.
+ * @author Alvaro Ariño Cabau
  */
 public class Usuari {
     /**
@@ -17,19 +18,18 @@ public class Usuari {
      */
     String _nom;
     /**
-     * La foto de perfil, es opcional. En el suposi que no en tingui es fa ús
-     * d'una predeterminada del sistema de dades.
-     */
-    File _fotoPerfil;
-    /**
      * El nom d'usuari escollit.
      */
     String _username;
+    /**
+     * La contasenya es opcional.
+     */
+    String _password;
 
     /**
      * Els diferents perfils que un usuari pot tenir.
      */
-    ArrayList<Perfil> perfils;
+    ArrayList<Perfil> _perfils;
 
     /**
      * Crea un usuari buit.
@@ -37,8 +37,7 @@ public class Usuari {
     Usuari() {
         _nom = "";
         _username = "";
-        _fotoPerfil = new File("data-files/img/empty-img.jpg");
-        perfils = new ArrayList<>();
+        _perfils = new ArrayList<>();
     }
 
     /**
@@ -51,8 +50,7 @@ public class Usuari {
         this._id = UUID.randomUUID().toString();
         this._nom = nom;
         this._username = username;
-        _fotoPerfil = new File("data-files/img/empty-img.jpg");
-        perfils = new ArrayList<>();
+        _perfils = new ArrayList<>();
     }
 
     /**
@@ -62,5 +60,57 @@ public class Usuari {
      */
     public String getId() {
         return _id;
+    }
+
+    /**
+     * Sets name.
+     *
+     * @param name the name
+     */
+    public void setName(String name) {
+        this._nom = name;
+    }
+
+    /**
+     * Sets pass.
+     *
+     * @param pass the pass
+     */
+    public void setPass(String pass) {
+        this._password = pass;
+    }
+
+    /**
+     * Add profile.
+     *
+     * @throws UserExcepcion the user excepcion
+     */
+    public void addProfile() throws UserExcepcion {
+        if (_username.equals("")) throw new UserExcepcion(getId());
+        this._perfils.add(new Perfil(this._nom));
+    }
+}
+
+/**
+ * The type User excepcion.
+ */
+class UserExcepcion extends Exception {
+    /**
+     * The Username.
+     */
+    public String username;
+
+    /**
+     * Instantiates a new User excepcion.
+     *
+     * @param s the s
+     */
+    public UserExcepcion(String s) {
+        super("Error en el usuario " + s + ", username es null");
+        username = s;
+    }
+
+    public String toString() {
+        return "Expeción de usuario: " + username;
     }
 }
