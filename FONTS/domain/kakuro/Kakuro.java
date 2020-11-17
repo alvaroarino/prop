@@ -1,4 +1,4 @@
-package domain;
+package domain.kakuro;
 
 import java.util.Random;
 
