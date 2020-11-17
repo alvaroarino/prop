@@ -1,4 +1,4 @@
-package domain;
+package domain.partida;
 
 /**
  * The type Cjt partidas.

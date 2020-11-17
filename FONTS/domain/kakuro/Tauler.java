@@ -1,8 +1,8 @@
-package domain;
-import java.util.ArrayList;
-import java.util.HashSet;
+package domain.kakuro;
+import domain.cella.Cella;
+import domain.cella.CellaNegra;
+
 import java.util.Random;
-import java.util.Set;
 
 public class Tauler {
 
@@ -198,7 +198,7 @@ public class Tauler {
     }
 
     public void print() {
-        for(int i = 0; i < this.CjtCelles.length; ++i) {
+        for (int i = 0; i < this.CjtCelles.length; ++i) {
             for (int j = 0; j < this.CjtCelles[0].length; ++j) {
                 if (this.CjtCelles[i][j].color() == 0) {
                     System.out.print(this.CjtCelles[i][j].getValor_blanca());
