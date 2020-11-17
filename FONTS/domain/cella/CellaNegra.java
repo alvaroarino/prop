@@ -17,6 +17,12 @@ public class CellaNegra extends Cella{
         valorEsquerre = -1;
     }
 
+    public CellaNegra(int dreta, int esquerra) {
+        super.Cella();
+        valorDret = dreta;
+        valorEsquerre = esquerra;
+    }
+
     @Override
     public  void acumular_valor_derecha(int s){
         if(valorDret == -1) valorDret = 0;
