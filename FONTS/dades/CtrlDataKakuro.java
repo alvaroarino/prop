@@ -3,6 +3,7 @@ package dades;
 import domain.cella.Cella;
 import domain.cella.CellaBlanca;
 import domain.cella.CellaNegra;
+import domain.kakuro.Tauler;
 
 import java.io.*;
 import java.util.NoSuchElementException;
@@ -33,6 +34,81 @@ public class CtrlDataKakuro {
      * @return the data
      * @throws IOException the io exception
      */
+
+    public Cella[][] getData2(String filename) throws IOException {
+        File file = null;
+        Cella[][] board = null;
+        int tamRow, tamCol;
+        final int minBoardSize = 3;
+
+        file = new File("FONTS/data-files/" + filename);
+        System.out.print(file.getAbsolutePath());
+        try {
+            Scanner s = new Scanner(file);
+            int nextInt; // Valor leido
+
+            tamRow = s.nextInt();
+            s.next(); // Coma que separa
+            tamCol = s.nextInt();
+
+            if (tamRow <= minBoardSize || tamCol <= minBoardSize) {
+                System.out.println("Error - bad input file. One or more of the board "
+                        + "dimensions is less than two.");
+                System.exit(-1);
+            }
+
+            board = new Cella[tamRow][tamCol];
+
+            for (int i = 0; i < tamRow; i++) {
+                for (int j = 0; j < tamCol; j++) {
+                    String nextValue = s.next();
+                    System.out.println(nextValue);
+                    if (nextValue == "?") board[i][j] = new CellaBlanca();
+                    else if (nextValue == "*") board[i][j] = new CellaNegra();
+                    else {
+                        board[i][j] = new CellaNegra();
+                        while (nextValue != ",") {
+                            switch (nextValue) {
+                                case "C":
+                                    nextInt = s.nextInt();
+                                    if (nextInt < -1) { // check for bad input
+                                        System.out.println("Error - bad input file. There exists an "
+                                                + "integer less than -1");
+                                        System.exit(-1); // exit program
+                                    } else { // otherwise it is a black field
+                                        board[i][j].SetValorColN(nextInt);
+                                    }
+                                    break;
+                                case "F":
+                                    nextInt = s.nextInt();
+                                    if (nextInt < -1) { // check for bad input
+                                        System.out.println("Error - bad input file. There exists an "
+                                                + "integer less than -1");
+                                        System.exit(-1); // exit program
+                                    } else { // otherwise it is a black field
+                                        board[i][j].SetValorFilaN(nextInt);
+                                    }
+                                    break;
+                            }
+                        }
+                    }
+                }
+            }
+            s.close();
+        } catch (FileNotFoundException e) {
+            System.out.println(e);
+            System.exit(-1);
+        } catch (NumberFormatException e) {
+            System.out.println("Invalid integer read from file!");
+            System.exit(-1);
+        } catch (NoSuchElementException e) {
+            System.out.println("Ooops, the scanner ran out of integers to read from "
+                    + "the file before filling the board");
+            System.exit(-1);
+        }
+        return board;
+    }
+
     public Cella[][] getData(String filename) throws IOException {
         File file = null;
         Cella grid[][] = null;
@@ -41,7 +117,7 @@ public class CtrlDataKakuro {
         final int minBoardSize = 2;
 
         // Open a new file object, and check for exceptions
-        file = new File("FONTS/data-files/" + filename);
+        file = new File("data-files/" + filename);
         try {
             Scanner s = new Scanner(file);
             int nextInt; // declare an integer to hold the value read.
