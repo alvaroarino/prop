@@ -3,6 +3,7 @@ package domaincontrollers;
 import domain.Kakuro;
 
 import java.util.ArrayList;
+import java.util.Random;
 
 public class Aventura {
     private ArrayList<Kakuro> CjtKakuros;
@@ -12,7 +13,8 @@ public class Aventura {
 
     }
     public Aventura () {
-        int n = Math.floor(Math.random()*11+1);
+        Random aleat = new Random();
+        int n = aleat.nextInt(9)+1;
     }
 
     public time getTemps() {
