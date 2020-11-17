@@ -17,19 +17,18 @@ public class Usuari {
      */
     String _nom;
     /**
-     * La foto de perfil, es opcional. En el suposi que no en tingui es fa ús
-     * d'una predeterminada del sistema de dades.
-     */
-    File _fotoPerfil;
-    /**
      * El nom d'usuari escollit.
      */
     String _username;
+    /**
+     * La contasenya es opcional.
+     */
+    String _password;
 
     /**
      * Els diferents perfils que un usuari pot tenir.
      */
-    ArrayList<Perfil> perfils;
+    ArrayList<Perfil> _perfils;
 
     /**
      * Crea un usuari buit.
@@ -37,8 +36,7 @@ public class Usuari {
     Usuari() {
         _nom = "";
         _username = "";
-        _fotoPerfil = new File("data-files/img/empty-img.jpg");
-        perfils = new ArrayList<>();
+        _perfils = new ArrayList<>();
     }
 
     /**
@@ -51,8 +49,7 @@ public class Usuari {
         this._id = UUID.randomUUID().toString();
         this._nom = nom;
         this._username = username;
-        _fotoPerfil = new File("data-files/img/empty-img.jpg");
-        perfils = new ArrayList<>();
+        _perfils = new ArrayList<>();
     }
 
     /**
@@ -62,5 +59,30 @@ public class Usuari {
      */
     public String getId() {
         return _id;
+    }
+
+    public void setName(String name) {
+        this._nom = name;
+    }
+
+    public void setPass(String pass) {
+        this._password = pass;
+    }
+
+    public void addProfile() throws UserExcepcion {
+        if (_username.equals("")) throw new UserExcepcion(getId());
+        this._perfils.add(new Perfil(this._nom));
+    }
+}
+
+class UserExcepcion extends Exception {
+    public String username;
+    public UserExcepcion(String s) {
+        super("Error en el usuario " + s + ", username es null");
+        username = s;
+    }
+
+    public String toString() {
+        return "Expeción de usuario: " + username;
     }
 }

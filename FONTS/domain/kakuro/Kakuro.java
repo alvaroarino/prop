@@ -50,8 +50,6 @@ public class Kakuro {
         board.rellenar_blancas();
         board.hacer_sumas();
         board.borrar_blancas();
-
-        board.print();
     }
 
     /**

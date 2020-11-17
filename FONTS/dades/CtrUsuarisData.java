@@ -38,8 +38,7 @@ public class CtrUsuarisData {
     public String getData() throws IOException {
         Gson gson = new Gson();
 
-        try (Reader reader = new FileReader("./data-files/json/users.json")) {
-
+        try (Reader reader = new FileReader("FONTS/data-files/users.json")) {
             // Convert JSON to JsonElement, and later to String
             JsonElement json = gson.fromJson(reader, JsonElement.class);
             String data = gson.toJson(json);
@@ -47,5 +46,9 @@ public class CtrUsuarisData {
             return data;
 
         }
+    }
+
+    public String writeData() {
+        return "TODO: Implement the function writeData()";
     }
 }
