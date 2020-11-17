@@ -31,6 +31,12 @@ public class Cella {
     }
 
 
+    public void SetValorFilaN (int val) {}
+
+
+    public void SetValorColN (int val) {}
+
+
     /**
      * Acumular valor derecha.
      *

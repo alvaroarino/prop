@@ -24,6 +24,18 @@ public class CellaNegra extends Cella{
     }
 
     @Override
+    public void SetValorFilaN (int val) {
+        valorDret = val;
+
+    }
+
+    @Override
+    public void SetValorColN (int val) {
+        valorEsquerre = val;
+
+    }
+
+    @Override
     public  void acumular_valor_derecha(int s){
         if(valorDret == -1) valorDret = 0;
         valorDret += s;
@@ -33,6 +45,7 @@ public class CellaNegra extends Cella{
         if(valorEsquerre == -1) valorDret = 0;
         valorEsquerre+= s;
     }
+
 
     @Override
     public int getValorDret() {
