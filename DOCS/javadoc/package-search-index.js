@@ -1,0 +1,1 @@
+packageSearchIndex = [{"l":"All Packages","url":"allpackages-index.html"},{"l":"dades"},{"l":"domain.cella"},{"l":"domain.estadisitica"},{"l":"domain.kakuro"},{"l":"domain.partida"},{"l":"domain.usuari"},{"l":"domaincontrollers"}]

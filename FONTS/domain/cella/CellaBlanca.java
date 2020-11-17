@@ -1,9 +1,15 @@
 package domain.cella;
 
+/**
+ * The type Cella blanca.
+ */
 public class CellaBlanca extends Cella{
 
     private int valor;
 
+    /**
+     * Instantiates a new Cella blanca.
+     */
     public CellaBlanca () {
         super.Cella();
         valor = -1;
