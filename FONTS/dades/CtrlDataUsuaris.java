@@ -12,24 +12,24 @@ import java.io.Reader;
  *
  * @author Alvaro Ariño Cabau
  */
-public class CtrUsuarisData {
-    private static CtrUsuarisData singletonObject;
+public class CtrlDataUsuaris {
+    private static CtrlDataUsuaris singletonObject;
 
     /**
      * Gets instance.
      *
      * @return the instance
      */
-    public static CtrUsuarisData getInstance() {
+    public static CtrlDataUsuaris getInstance() {
         if (singletonObject == null)
-            singletonObject = new CtrUsuarisData() {
+            singletonObject = new CtrlDataUsuaris() {
             };
         return singletonObject;
     }
 
     /** Constructora privada. **/
 
-    private CtrUsuarisData() {}
+    private CtrlDataUsuaris() {}
 
     /**
      * Obtenir les dades del fitxer d'usuaris.

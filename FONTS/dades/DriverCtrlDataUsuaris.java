@@ -6,7 +6,7 @@ import java.io.InputStreamReader;
 /**
  * The type Drivel ctrl usuaris data.
  */
-public class DrivelCtrlUsuarisData {
+public class DriverCtrlDataUsuaris {
     /**
      * The entry point of application.
      *
@@ -15,7 +15,7 @@ public class DrivelCtrlUsuarisData {
     public static void main(String[] args) {
         System.out.println("Driver de la classe del controlador de Dades d'Usuari");
         try {
-            CtrUsuarisData userData = CtrUsuarisData.getInstance();
+            CtrlDataUsuaris userData = CtrlDataUsuaris.getInstance();
             BufferedReader b = new BufferedReader(new InputStreamReader(System.in));
 
             System.out.println("Introdueix una opció i els paràmetres corresponents:");

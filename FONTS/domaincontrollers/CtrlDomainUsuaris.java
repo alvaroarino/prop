@@ -7,7 +7,7 @@ import java.util.ArrayList;
 /**
  * The type Ctrl domain usuarios.
  */
-public class CtrlDomainUsuarios {
+public class CtrlDomainUsuaris {
     /**
      * The Usuaris.
      */

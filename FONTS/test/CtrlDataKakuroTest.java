@@ -1,5 +1,4 @@
-package dades;
-
+import dades.CtrlDataKakuro;
 import domain.cella.Cella;
 import static org.junit.Assert.*;
 

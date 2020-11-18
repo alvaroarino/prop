@@ -69,4 +69,8 @@ public class Kakuro {
         board.hacer_sumas();
         board.borrar_blancas();
     }
+
+    public Tauler getBoard() {
+        return board;
+    }
 }
