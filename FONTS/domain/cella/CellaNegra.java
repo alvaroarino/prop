@@ -1,28 +1,16 @@
 package domain.cella;
 
-/**
- * The type Cella negra.
- */
 public class CellaNegra extends Cella{
 
     private int valorDret;
     private int valorEsquerre;
 
-    /**
-     * Instantiates a new Cella negra.
-     */
     public CellaNegra () {
         super.Cella();
         valorDret = -1;
         valorEsquerre = -1;
     }
 
-    /**
-     * Instantiates a new Cella negra.
-     *
-     * @param dreta    the dreta
-     * @param esquerra the esquerra
-     */
     public CellaNegra(int dreta, int esquerra) {
         super.Cella();
         valorDret = dreta;

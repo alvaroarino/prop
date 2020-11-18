@@ -9,20 +9,11 @@ import java.util.HashSet;
 import java.util.Random;
 import java.util.Set;
 
-/**
- * The type Tauler.
- */
 public class Tauler {
 
     private Cella[][] CjtCelles; // Conjunt de cel·les
     private final int dimn, dimm;
 
-    /**
-     * Instantiates a new Tauler.
-     *
-     * @param n the n
-     * @param m the m
-     */
     public Tauler(int n, int m) {
 
         dimn = n;
@@ -41,29 +32,14 @@ public class Tauler {
 
     }
 
-    /**
-     * Sets tauler.
-     *
-     * @param cjt the cjt
-     */
     public void setTauler(Cella[][] cjt) {
         CjtCelles = cjt;
     }
 
-    /**
-     * Gets dimm.
-     *
-     * @return the dimm
-     */
     public int getDimm() {
         return dimm;
     }
 
-    /**
-     * Gets dimn.
-     *
-     * @return the dimn
-     */
     public int getDimn() {
         return dimn;
     }
@@ -73,13 +49,6 @@ public class Tauler {
     Aquesta funcio comproba si una casella és valida per assignar-li una negra.
      */
 
-    /**
-     * Pos valida boolean.
-     *
-     * @param i the
-     * @param j the j
-     * @return the boolean
-     */
     public boolean posValida(int i, int j) {
 
         //Si devuelve 0, es blanca
@@ -96,14 +65,6 @@ public class Tauler {
     }
 
 
-    /**
-     * Pintar celda int.
-     *
-     * @param i        the
-     * @param j        the j
-     * @param cantidad the cantidad
-     * @return the int
-     */
     public int pintar_celda(int i, int j, int cantidad) {
 
         if (cantidad == 0) return cantidad;
@@ -119,11 +80,6 @@ public class Tauler {
         return cantidad;
     }
 
-    /**
-     * Pintar negras.
-     *
-     * @param cantidad the cantidad
-     */
     public void pintar_negras(int cantidad) {
 
         //int contador_blancas = 0;
@@ -167,24 +123,11 @@ public class Tauler {
         }
     }
 
-    /**
-     * Generar aleatorios int.
-     *
-     * @return the int
-     */
     public int generar_aleatorios() {
         Random aleat = new Random();
         return aleat.nextInt(9) + 1;
     }
 
-    /**
-     * Presente fila boolean.
-     *
-     * @param aleat the aleat
-     * @param i     the
-     * @param j     the j
-     * @return the boolean
-     */
     public boolean presente_fila(int aleat, int i, int j) {
         for (int x = 1; x < j; ++x)
             if (CjtCelles[i][x].color() == ColorCella.Blanca)
@@ -193,15 +136,7 @@ public class Tauler {
     }
 
 
-    /**
-     * Presente col boolean.
-     *
-     * @param aleat the aleat
-     * @param i     the
-     * @param j     the j
-     * @return the boolean
-     */
-    public boolean presente_col (int aleat,int i, int j) {
+    public boolean presente_col(int aleat, int i, int j) {
         for (int x = 1; x < i; ++x) {
             if (CjtCelles[x][j].color() == ColorCella.Blanca)
                 if (CjtCelles[x][j].getValor_blanca() == aleat) {
@@ -214,14 +149,6 @@ public class Tauler {
 
     }
 
-    /**
-     * Presente fila col boolean.
-     *
-     * @param aleat the aleat
-     * @param i     the
-     * @param j     the j
-     * @return the boolean
-     */
     public boolean presenteFilaCol(int aleat, int i, int j) {
         for (int x = 1; x < j; ++x) {
             if (CjtCelles[i][x].color() == ColorCella.Blanca)
@@ -235,9 +162,6 @@ public class Tauler {
     }
 
 
-    /**
-     * Rellenar blancas.
-     */
     public void rellenar_blancas() {
         //Set<Set<Integer>>  set_deN = new HashSet<>(); // VALOR DEL KAKURO (nxm)
         int numAleat;
@@ -250,22 +174,19 @@ public class Tauler {
             for(int k=1; k<10; ++k){
                 candidats.add(k);
             }
+
             for (int j = 1; j < dimm; ++j) {
-
-
                 if ((CjtCelles[i][j]).color() == ColorCella.Blanca) {
                     numAleat = aleat.nextInt(candidats.size());         //numaleat 0-8
                     valor = candidats.get(numAleat);                    //valor 1-9
-                    while(presente_col(valor,i,j) || visitats.contains(valor)){                     //
-                        if(numAleat >= candidats.size()-1) {
+                    while(visitats.contains(valor) || presente_col(valor, i, j)) {
+                        if (numAleat >= candidats.size()-1) {
                             numAleat = 0;
-                        }
-
-                        else {
+                        } else {
                             ++numAleat;
                         }
                         valor = candidats.get(numAleat);
-
+                        if (numAleat == (valor-1)) break;
                     }
     
                     /*while(presenteFilaCol(numAleat, i, j)) {
@@ -282,9 +203,6 @@ public class Tauler {
         }
     }
 
-    /**
-     * Hacer sumas.
-     */
     public void hacer_sumas() {
         for (int i = 0; i < dimn; ++i) {
             for (int j = 0; j < dimm; ++j) {
@@ -308,9 +226,6 @@ public class Tauler {
         }
     }
 
-    /**
-     * Borrar blancas.
-     */
     public void borrar_blancas() {
         for (int i = 1; i < dimn; ++i) {
             for (int j = 0; j < dimm; ++j) {
@@ -319,9 +234,6 @@ public class Tauler {
         }
     }
 
-    /**
-     * Solucionar.
-     */
     public void solucionar(){
         long startTime = System.nanoTime();
         if (solBacktracking(this.CjtCelles, 0, 0)) {
@@ -339,14 +251,6 @@ public class Tauler {
         }
     }
 
-    /**
-     * Sol backtracking boolean.
-     *
-     * @param board the board
-     * @param fila  the fila
-     * @param col   the col
-     * @return the boolean
-     */
     public static boolean solBacktracking(Cella[][] board, int fila, int col) {
         final int nFila = board.length;
         final int nCol = board[0].length;
@@ -431,9 +335,6 @@ public class Tauler {
     }
 
 
-    /**
-     * Print.
-     */
     public void print() {
         System.out.printf("%s,%s%n",dimn,dimm);
         for (int i = 0; i < dimn; ++i) {

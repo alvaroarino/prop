@@ -34,4 +34,4 @@ descodificar fem ús d'aquesta clase
 > Gson is a Java library that can be used to convert Java Objects into their JSON representation. It can also be used to convert a JSON string to an equivalent Java object. 
 
 ## Distribució de la feina
-![image](files/work_distribution.jpg)
+![image](DOCS/work_distribution.jpg)

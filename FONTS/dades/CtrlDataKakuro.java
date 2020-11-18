@@ -13,19 +13,11 @@ import java.util.Arrays;
 import java.nio.file.Files;
 import java.nio.file.Path;
 
-/**
- * The type Ctrl data kakuro.
- */
 public class CtrlDataKakuro {
     private static CtrlDataKakuro singletonObject;
 
     final static Charset ENCODING = StandardCharsets.UTF_8;
 
-    /**
-     * Gets instance.
-     *
-     * @return the instance
-     */
     public static CtrlDataKakuro getInstance() {
         if (singletonObject == null)
             singletonObject = new CtrlDataKakuro() {
@@ -33,17 +25,8 @@ public class CtrlDataKakuro {
         return singletonObject;
     }
 
-    /** Constructora privada. **/
-
     private CtrlDataKakuro() {}
 
-    /**
-     * Obtenir les dades del fitxer d'usuaris.
-     *
-     * @param filename the filename
-     * @return the data
-     * @throws IOException the io exception
-     */
     public Cella[][] getData(String filename) throws IOException {
         Cella[][] board;
 

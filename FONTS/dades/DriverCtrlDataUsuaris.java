@@ -3,15 +3,7 @@ package dades;
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 
-/**
- * The type Drivel ctrl usuaris data.
- */
 public class DriverCtrlDataUsuaris {
-    /**
-     * The entry point of application.
-     *
-     * @param args the input arguments
-     */
     public static void main(String[] args) {
         System.out.println("Driver de la classe del controlador de Dades d'Usuari");
         try {

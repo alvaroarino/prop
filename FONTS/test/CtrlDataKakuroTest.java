@@ -9,13 +9,7 @@ import org.junit.Test;
 
 import java.io.IOException;
 
-/**
- * The type Ctrl data kakuro test.
- */
 public class CtrlDataKakuroTest {
-    /**
-     * Test get data.
-     */
     @Test
     public void testGetData() {
         CtrlDataKakuro ctrlDataKakuro = CtrlDataKakuro.getInstance();
