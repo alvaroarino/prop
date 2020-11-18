@@ -220,7 +220,7 @@ public class Tauler {
         for (int i = 1; i < dimn; ++i) {
            // Set<Integer> fila = new HashSet<>();
             for (int j = 1; j < dimm; ++j) {
-                if((CjtCelles[i][j]).color() == ColorCella.Blanca) {
+                if ((CjtCelles[i][j]).color() == ColorCella.Blanca) {
                     numAleat = generar_aleatorios();
     
                     while(presenteFilaCol(numAleat, i, j)) {
