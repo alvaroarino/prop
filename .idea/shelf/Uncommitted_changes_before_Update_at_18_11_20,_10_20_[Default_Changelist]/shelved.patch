@@ -1,0 +1,57 @@
+Index: .idea/workspace.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<project version=\"4\">\n  <component name=\"BranchesTreeState\">\n    <expand>\n      <path>\n        <item name=\"ROOT\" type=\"e8cecc67:BranchNodeDescriptor\" />\n        <item name=\"LOCAL_ROOT\" type=\"e8cecc67:BranchNodeDescriptor\" />\n      </path>\n      <path>\n        <item name=\"ROOT\" type=\"e8cecc67:BranchNodeDescriptor\" />\n        <item name=\"REMOTE_ROOT\" type=\"e8cecc67:BranchNodeDescriptor\" />\n      </path>\n      <path>\n        <item name=\"ROOT\" type=\"e8cecc67:BranchNodeDescriptor\" />\n        <item name=\"REMOTE_ROOT\" type=\"e8cecc67:BranchNodeDescriptor\" />\n        <item name=\"GROUP_NODE:origin\" type=\"e8cecc67:BranchNodeDescriptor\" />\n      </path>\n    </expand>\n    <select>\n      <path>\n        <item name=\"ROOT\" type=\"e8cecc67:BranchNodeDescriptor\" />\n        <item name=\"REMOTE_ROOT\" type=\"e8cecc67:BranchNodeDescriptor\" />\n        <item name=\"GROUP_NODE:origin\" type=\"e8cecc67:BranchNodeDescriptor\" />\n        <item name=\"BRANCH:origin/release\" type=\"e8cecc67:BranchNodeDescriptor\" />\n      </path>\n    </select>\n  </component>\n  <component name=\"ChangeListManager\">\n    <list default=\"true\" id=\"7bc9ef9f-20b2-4ace-875a-4447b6f320a2\" name=\"Default Changelist\" comment=\"\">\n      <change beforePath=\"$PROJECT_DIR$/.gitignore\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/.gitignore\" afterDir=\"false\" />\n    </list>\n    <option name=\"SHOW_DIALOG\" value=\"false\" />\n    <option name=\"HIGHLIGHT_CONFLICTS\" value=\"true\" />\n    <option name=\"HIGHLIGHT_NON_ACTIVE_CHANGELIST\" value=\"false\" />\n    <option name=\"LAST_RESOLUTION\" value=\"IGNORE\" />\n  </component>\n  <component name=\"Git.Settings\">\n    <option name=\"RECENT_BRANCH_BY_REPOSITORY\">\n      <map>\n        <entry key=\"$PROJECT_DIR$\" value=\"master\" />\n      </map>\n    </option>\n    <option name=\"RECENT_GIT_ROOT_PATH\" value=\"$PROJECT_DIR$\" />\n    <option name=\"SET_USER_NAME_GLOBALLY\" value=\"false\" />\n  </component>\n  <component name=\"ProjectId\" id=\"1kSLqfeVvt6hcXnh1T8qAgJr7BN\" />\n  <component name=\"ProjectLevelVcsManager\">\n    <ConfirmationsSetting value=\"2\" id=\"Add\" />\n  </component>\n  <component name=\"ProjectViewState\">\n    <option name=\"hideEmptyMiddlePackages\" value=\"true\" />\n    <option name=\"showLibraryContents\" value=\"true\" />\n  </component>\n  <component name=\"PropertiesComponent\">\n    <property name=\"ASKED_ADD_EXTERNAL_FILES\" value=\"true\" />\n    <property name=\"Downloaded.Files.Path.Enabled\" value=\"true\" />\n    <property name=\"Repository.Attach.Annotations\" value=\"false\" />\n    <property name=\"Repository.Attach.JavaDocs\" value=\"true\" />\n    <property name=\"Repository.Attach.Sources\" value=\"false\" />\n    <property name=\"RunOnceActivity.OpenProjectViewOnStart\" value=\"true\" />\n    <property name=\"last_opened_file_path\" value=\"$PROJECT_DIR$/lib/junit-4.12-javadoc.jar\" />\n    <property name=\"project.structure.last.edited\" value=\"Libraries\" />\n    <property name=\"project.structure.proportion\" value=\"0.15\" />\n    <property name=\"project.structure.side.proportion\" value=\"0.2\" />\n    <property name=\"settings.editor.selected.configurable\" value=\"preferences.pluginManager\" />\n  </component>\n  <component name=\"SpellCheckerSettings\" RuntimeDictionaries=\"0\" Folders=\"0\" CustomDictionaries=\"0\" DefaultDictionary=\"application-level\" UseSingleDictionary=\"true\" transferred=\"true\" />\n  <component name=\"TaskManager\">\n    <task active=\"true\" id=\"Default\" summary=\"Default task\">\n      <changelist id=\"7bc9ef9f-20b2-4ace-875a-4447b6f320a2\" name=\"Default Changelist\" comment=\"\" />\n      <created>1605689239863</created>\n      <option name=\"number\" value=\"Default\" />\n      <option name=\"presentableId\" value=\"Default\" />\n      <updated>1605689239863</updated>\n    </task>\n    <task id=\"LOCAL-00001\" summary=\"Makefile\">\n      <created>1605689976896</created>\n      <option name=\"number\" value=\"00001\" />\n      <option name=\"presentableId\" value=\"LOCAL-00001\" />\n      <option name=\"project\" value=\"LOCAL\" />\n      <updated>1605689976896</updated>\n    </task>\n    <option name=\"localTasksCounter\" value=\"2\" />\n    <servers />\n  </component>\n  <component name=\"Vcs.Log.Tabs.Properties\">\n    <option name=\"TAB_STATES\">\n      <map>\n        <entry key=\"MAIN\">\n          <value>\n            <State>\n              <option name=\"FILTERS\">\n                <map>\n                  <entry key=\"branch\">\n                    <value>\n                      <list>\n                        <option value=\"origin/release\" />\n                      </list>\n                    </value>\n                  </entry>\n                </map>\n              </option>\n            </State>\n          </value>\n        </entry>\n      </map>\n    </option>\n    <option name=\"oldMeFiltersMigrated\" value=\"true\" />\n  </component>\n  <component name=\"VcsManagerConfiguration\">\n    <option name=\"ADD_EXTERNAL_FILES_SILENTLY\" value=\"true\" />\n    <MESSAGE value=\"Makefile\" />\n    <option name=\"LAST_COMMIT_MESSAGE\" value=\"Makefile\" />\n  </component>\n  <component name=\"WindowStateProjectService\">\n    <state x=\"534\" y=\"225\" width=\"735\" height=\"498\" key=\"FileChooserDialogImpl\" timestamp=\"1605690397724\">\n      <screen x=\"72\" y=\"27\" width=\"1368\" height=\"873\" />\n    </state>\n    <state x=\"534\" y=\"225\" width=\"735\" height=\"498\" key=\"FileChooserDialogImpl/72.27.1368.873@72.27.1368.873\" timestamp=\"1605690397724\" />\n    <state x=\"239\" y=\"41\" width=\"1024\" height=\"852\" key=\"SettingsEditor\" timestamp=\"1605690402892\">\n      <screen x=\"72\" y=\"27\" width=\"1368\" height=\"873\" />\n    </state>\n    <state x=\"239\" y=\"41\" width=\"1024\" height=\"852\" key=\"SettingsEditor/72.27.1368.873@72.27.1368.873\" timestamp=\"1605690402892\" />\n    <state x=\"423\" y=\"360\" width=\"646\" height=\"220\" key=\"com.intellij.jarRepository.RepositoryAttachDialog-DOWNLOAD\" timestamp=\"1605689927204\">\n      <screen x=\"72\" y=\"27\" width=\"1368\" height=\"873\" />\n    </state>\n    <state x=\"423\" y=\"360\" width=\"646\" height=\"220\" key=\"com.intellij.jarRepository.RepositoryAttachDialog-DOWNLOAD/72.27.1368.873@72.27.1368.873\" timestamp=\"1605689927204\" />\n    <state x=\"537\" y=\"378\" width=\"438\" height=\"177\" key=\"com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2\" timestamp=\"1605690090517\">\n      <screen x=\"72\" y=\"27\" width=\"1368\" height=\"873\" />\n    </state>\n    <state x=\"537\" y=\"378\" width=\"438\" height=\"177\" key=\"com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/72.27.1368.873@72.27.1368.873\" timestamp=\"1605690090517\" />\n  </component>\n</project>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- .idea/workspace.xml	(revision 4685ee279f5006b0423db43d77f86069aa2597aa)
++++ .idea/workspace.xml	(date 1605691204104)
+@@ -19,16 +19,13 @@
+     <select>
+       <path>
+         <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+-        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+-        <item name="GROUP_NODE:origin" type="e8cecc67:BranchNodeDescriptor" />
+-        <item name="BRANCH:origin/release" type="e8cecc67:BranchNodeDescriptor" />
++        <item name="LOCAL_ROOT" type="e8cecc67:BranchNodeDescriptor" />
++        <item name="BRANCH:master" type="e8cecc67:BranchNodeDescriptor" />
+       </path>
+     </select>
+   </component>
+   <component name="ChangeListManager">
+-    <list default="true" id="7bc9ef9f-20b2-4ace-875a-4447b6f320a2" name="Default Changelist" comment="">
+-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+-    </list>
++    <list default="true" id="7bc9ef9f-20b2-4ace-875a-4447b6f320a2" name="Default Changelist" comment="" />
+     <option name="SHOW_DIALOG" value="false" />
+     <option name="HIGHLIGHT_CONFLICTS" value="true" />
+     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+@@ -125,9 +122,24 @@
+       <screen x="72" y="27" width="1368" height="873" />
+     </state>
+     <state x="423" y="360" width="646" height="220" key="com.intellij.jarRepository.RepositoryAttachDialog-DOWNLOAD/72.27.1368.873@72.27.1368.873" timestamp="1605689927204" />
+-    <state x="537" y="378" width="438" height="177" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1605690090517">
+-      <screen x="72" y="27" width="1368" height="873" />
++    <state x="489" y="359" width="438" height="177" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1605691204036">
++      <screen x="0" y="25" width="1440" height="831" />
+     </state>
++    <state x="489" y="359" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.25.1440.831@0.25.1440.831" timestamp="1605691204036" />
+     <state x="537" y="378" width="438" height="177" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/72.27.1368.873@72.27.1368.873" timestamp="1605690090517" />
+   </component>
++  <component name="com.intellij.coverage.CoverageDataManagerImpl">
++    <SUITE FILE_PATH="coverage/subgrup_prop4_2$DriverKakuro.ic" NAME="DriverKakuro Coverage Results" MODIFIED="1605464313424" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
++      <FILTER>domain.Drivers.*</FILTER>
++    </SUITE>
++    <SUITE FILE_PATH="coverage/subgrup_prop4_2$KakuroTest_testSolver.ic" NAME="KakuroTest.testSolver Coverage Results" MODIFIED="1605631716854" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
++      <FILTER>domain.kakuro.*</FILTER>
++    </SUITE>
++    <SUITE FILE_PATH="coverage/subgrup_prop4_2$DrivelCtrlUsuarisData.ic" NAME="DrivelCtrlUsuarisData Coverage Results" MODIFIED="1605638205787" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
++      <FILTER>dades.*</FILTER>
++    </SUITE>
++    <SUITE FILE_PATH="coverage/subgrup_prop4_2$CtrlDataKakuroTest_testGetData.ic" NAME="CtrlDataKakuroTest.testGetData Coverage Results" MODIFIED="1605638654633" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
++      <FILTER>dades.*</FILTER>
++    </SUITE>
++  </component>
+ </project>
+\ No newline at end of file

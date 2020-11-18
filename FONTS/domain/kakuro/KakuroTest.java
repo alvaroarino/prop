@@ -36,7 +36,7 @@ public class KakuroTest {
     @Test
     public void testSolver() throws IOException {
         CtrlDataKakuro ctrlDataKakuro = CtrlDataKakuro.getInstance();
-        Cella[][] tauler = ctrlDataKakuro.getData("kakuro1.txt");
+        Cella[][] tauler = ctrlDataKakuro.getData("kakuro-test.txt");
         Kakuro kakuro = new Kakuro(tauler.length, tauler[0].length);
         kakuro.board.setTauler(tauler);
         kakuro.board.solucionar();

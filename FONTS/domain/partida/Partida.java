@@ -1,12 +1,18 @@
 package domain.partida;
 
+import java.sql.Time;
+
 /**
  * The type Partida.
  */
 public class Partida {
-    private Partida();
+
     private int Estat;
-    private time Temps;
+    private Time Temps;
+
+    private Partida() {
+
+    }
 
     /**
      * Gets estat.
@@ -36,7 +42,7 @@ public class Partida {
      *
      * @return the temps
      */
-    public time getTemps() {
+    public Time getTemps() {
         return Temps;
     }
 }

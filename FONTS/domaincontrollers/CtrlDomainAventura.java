@@ -1,30 +1,31 @@
 package domaincontrollers;
 
-import domain.Kakuro;
+import domain.kakuro.Kakuro;
 
+import java.sql.Time;
 import java.util.ArrayList;
 import java.util.Random;
 
 /**
  * The type Aventura.
  */
-public class Aventura {
+public class CtrlDomainAventura {
     private ArrayList<Kakuro> CjtKakuros;
-    private time Temps;
+    private Time Temps;
 
     /**
      * Instantiates a new Aventura.
      *
      * @param n the n
      */
-    public Aventura (int n) {
+    public CtrlDomainAventura (int n) {
 
     }
 
     /**
      * Instantiates a new Aventura.
      */
-    public Aventura () {
+    public CtrlDomainAventura () {
         Random aleat = new Random();
         int n = aleat.nextInt(9)+1;
     }
@@ -34,7 +35,7 @@ public class Aventura {
      *
      * @return the temps
      */
-    public time getTemps() {
+    public Time getTemps() {
         return Temps;
     }
 
