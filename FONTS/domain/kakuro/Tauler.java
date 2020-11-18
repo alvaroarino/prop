@@ -126,22 +126,38 @@ public class Tauler {
      */
     public void pintar_negras(int cantidad) {
 
-        int contador_blancas = 0;
+        //int contador_blancas = 0;
         Random aleat = new Random();
-
+        if(dimn > 9 || dimm > 9) {
+            int length;
+            for(int i = 1; i < dimn; ++i) {
+                length = 0;
+                for(int j = 1; j < dimm; ++j) {
+                    if(CjtCelles[i][j].color() == ColorCella.Blanca) {
+                        ++length;
+                    }
+                    else
+                        length = 0;
+                    if(length > 9) {
+                        CjtCelles[i][j] = new CellaNegra();
+                        length = 0;
+                    }
+                }
+            }
+        }
         for (int i = 1; i < dimn; ++i) {
             for (int j = 1; j < dimm; ++j) {
                 int n = aleat.nextInt(dimm);
                 if (posValida(i, j)) {
                     if (n == j) cantidad = pintar_celda(i, j, cantidad);
-                    else {
+                    /*else {
                         ++contador_blancas;
-                    }
+                    }*/
 
-                    if (contador_blancas > 9) {
+                    /*if (contador_blancas > 9) {
                         cantidad = pintar_celda(i, j, cantidad);
                         contador_blancas = 0;
-                    }
+                    }*/
 
                     if ((i >= dimn / 2) && (j >= dimn / 2) && cantidad >= (dimn * dimm)) {
                         cantidad = pintar_celda(i, j, cantidad);
