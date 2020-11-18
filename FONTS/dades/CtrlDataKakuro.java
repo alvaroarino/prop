@@ -6,14 +6,23 @@ import domain.cella.CellaNegra;
 import domain.kakuro.Tauler;
 
 import java.io.*;
+import java.nio.charset.Charset;
+import java.nio.charset.StandardCharsets;
+import java.nio.file.Paths;
+import java.util.Arrays;
+import java.util.List;
 import java.util.NoSuchElementException;
 import java.util.Scanner;
+import java.nio.file.Files;
+import java.nio.file.Path;
 
 /**
  * The type Ctrl data kakuro.
  */
 public class CtrlDataKakuro {
     private static CtrlDataKakuro singletonObject;
+
+    final static Charset ENCODING = StandardCharsets.UTF_8;
 
     /**
      * Gets instance.
@@ -38,155 +47,71 @@ public class CtrlDataKakuro {
      * @return the data
      * @throws IOException the io exception
      */
-    public Cella[][] getData2(String filename) throws IOException {
-        File file = null;
-        Cella[][] board = null;
-        int tamRow, tamCol;
-        final int minBoardSize = 3;
+    public Cella[][] getData(String filename) throws IOException {
+        Cella[][] board;
 
-        file = new File("FONTS/data-files/" + filename);
-        System.out.print(file.getAbsolutePath());
-        try {
-            Scanner s = new Scanner(file);
-            int nextInt; // Valor leido
+        String fileRoute = System.getProperty("user.dir") + "/FONTS/data-files/" + filename;
 
-            tamRow = s.nextInt();
-            s.next(); // Coma que separa
-            tamCol = s.nextInt();
+        Path path = Paths.get(fileRoute);
+        String content = Files.readString(path);
+        System.out.println(content);
 
-            if (tamRow <= minBoardSize || tamCol <= minBoardSize) {
-                System.out.println("Error - bad input file. One or more of the board "
-                        + "dimensions is less than two.");
-                System.exit(-1);
-            }
+        // Separem el contingut en comes y separadors de linea
+        String[] linearBoard = content.split(",|\\n");
+        System.out.println(Arrays.toString(linearBoard));
 
-            board = new Cella[tamRow][tamCol];
+        int tamM = Integer.parseInt(linearBoard[0]);
+        int tamN = Integer.parseInt(linearBoard[1]);
 
-            for (int i = 0; i < tamRow; i++) {
-                for (int j = 0; j < tamCol; j++) {
-                    String nextValue = s.next();
-                    System.out.println(nextValue);
-                    if (nextValue == "?") board[i][j] = new CellaBlanca();
-                    else if (nextValue == "*") board[i][j] = new CellaNegra();
-                    else {
-                        board[i][j] = new CellaNegra();
-                        while (nextValue != ",") {
-                            switch (nextValue) {
-                                case "C":
-                                    nextInt = s.nextInt();
-                                    if (nextInt < -1) { // check for bad input
-                                        System.out.println("Error - bad input file. There exists an "
-                                                + "integer less than -1");
-                                        System.exit(-1); // exit program
-                                    } else { // otherwise it is a black field
-                                        board[i][j].SetValorColN(nextInt);
-                                    }
-                                    break;
-                                case "F":
-                                    nextInt = s.nextInt();
-                                    if (nextInt < -1) { // check for bad input
-                                        System.out.println("Error - bad input file. There exists an "
-                                                + "integer less than -1");
-                                        System.exit(-1); // exit program
-                                    } else { // otherwise it is a black field
-                                        board[i][j].SetValorFilaN(nextInt);
-                                    }
-                                    break;
-                            }
+        board = new Cella[tamM][tamN];
+
+        int linearPos = 2;
+        for (int i = 0; i < tamM; ++i) {
+            if (linearPos >= linearBoard.length) break;
+            for (int j = 0; j < tamN; ++j) {
+                if (linearPos >= linearBoard.length) break;
+                String actual = linearBoard[linearPos];
+
+                if (actual.contains("?")) {
+                    System.out.println(actual + " Cella Blanca");
+                    board[i][j] = new CellaBlanca();
+                } else if (actual.contains("*")) {
+                    System.out.println(actual + " Cella Negra");
+                    board[i][j] = new CellaNegra();
+                } else {
+                    board[i][j] = new CellaNegra();
+
+                    if (actual.contains("C") && actual.contains("F")) {
+                        System.out.print(actual + " contains both with digits: ");
+
+                        String[] digits = actual.split("F");
+                        String c = digits[0].replaceAll("C", "");
+                        String f = digits[1]; //Com que em separat per F abans ja no tenim lletra
+                        System.out.println(c + " " + f);
+
+                        board[i][j].SetValorColN(Integer.parseInt(c));
+                        board[i][j].SetValorFilaN(Integer.parseInt(f));
+                    } else {
+                        System.out.print(actual + " contains one with digits: ");
+                        if (actual.contains("C")) {
+                            String digits = actual.replaceAll("C", "");
+                            System.out.println(digits);
+                            board[i][j].SetValorColN(Integer.parseInt(digits));
+                        }
+                        if (actual.contains("F")) {
+                            String digits = actual.replaceAll("F", "");
+                            System.out.println(digits);
+                            board[i][j].SetValorFilaN(Integer.parseInt(digits));
                         }
                     }
+
                 }
+                System.out.println(board[i][j].color() == 0 ? ("Valor blanca: " + board[i][j].getValor_blanca()) : ("Valor negra: C:" + board[i][j].getValorEsquerre() + " F:" + board[i][j].getValorDret()));
+                ++linearPos;
             }
-            s.close();
-        } catch (FileNotFoundException e) {
-            System.out.println(e);
-            System.exit(-1);
-        } catch (NumberFormatException e) {
-            System.out.println("Invalid integer read from file!");
-            System.exit(-1);
-        } catch (NoSuchElementException e) {
-            System.out.println("Ooops, the scanner ran out of integers to read from "
-                    + "the file before filling the board");
-            System.exit(-1);
         }
+
         return board;
     }
-
-    /**
-     * Get data cella [ ] [ ].
-     *
-     * @param filename the filename
-     * @return the cella [ ] [ ]
-     * @throws IOException the io exception
-     */
-    public Cella[][] getData(String filename) throws IOException {
-        File file = null;
-        Cella grid[][] = null;
-        int rows;
-        int cols;
-        final int minBoardSize = 2;
-
-        // Open a new file object, and check for exceptions
-        file = new File("data-files/" + filename);
-        try {
-            Scanner s = new Scanner(file);
-            int nextInt; // declare an integer to hold the value read.
-            int across; // declare integers for future use.
-            int down;
-
-            rows = s.nextInt(); // read the first int
-            cols = s.nextInt(); // read the second int
-
-            // input validation
-            if (rows <= minBoardSize || cols <= minBoardSize) {
-                System.out.println("Error - bad input file. One or more of the board "
-                        + "dimensions is less than two.");
-                System.exit(-1);
-            }
-
-            // declare a 2D array of Field objects with the correct dimensions.
-            grid = new Cella[rows][cols];
-
-            // loop over each element in the 2D array O(N)
-            for (int i = 0; i < rows; i++) {
-                for (int j = 0; j < cols; j++) {
-                    nextInt = s.nextInt(); // read the next int
-                    if (nextInt < -1) { // check for bad input
-                        System.out.println("Error - bad input file. There exists an "
-                                + "integer less than -1");
-                        System.exit(-1); // exit program
-                    }
-                    else if (nextInt == -1) { // check if a white field
-                        // create the appropriate Field object
-                        grid[i][j] = new CellaBlanca();
-                    }
-                    else { // otherwise it is a black field
-                        across = nextInt;
-                        down = s.nextInt();
-                        // ints greater than -1 always come in pairs
-                        if (down < 0) {
-                            System.out.println("Error - bad input file.");
-                            System.exit(-1);
-                        }
-                        else {
-                            // create the appropriate Field object
-                            grid[i][j] = new CellaNegra(across, down);
-                        }
-                    }
-                }
-            }
-            s.close();
-        } catch (FileNotFoundException e) {
-            System.out.println("Error - file not found - bye-bye!");
-            System.exit(-1);
-        } catch (NumberFormatException e) {
-            System.out.println("Invalid integer read from file!");
-            System.exit(-1);
-        } catch (NoSuchElementException e) {
-            System.out.println("Ooops, the scanner ran out of integers to read from "
-                    + "the file before filling the board");
-            System.exit(-1);
-        }
-        return grid; // return the 2D array of Field objects
-    }
 }
+

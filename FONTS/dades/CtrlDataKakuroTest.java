@@ -15,15 +15,13 @@ import java.io.IOException;
 public class CtrlDataKakuroTest {
     /**
      * Test get data.
-     *
-     * @throws IOException the io exception
      */
     @Test
-    public void testGetData() throws IOException {
+    public void testGetData() {
         CtrlDataKakuro ctrlDataKakuro = CtrlDataKakuro.getInstance();
 
         try {
-            Cella[][] board = ctrlDataKakuro.getData2("kakuro-test.txt");
+            Cella[][] board = ctrlDataKakuro.getData("kakuro-test.txt");
             Cella[][] correctBoard = {
                     {new CellaNegra(), new CellaNegra(), new CellaNegra(0, 19), new CellaNegra(0, 12), new CellaNegra(), new CellaNegra(), new CellaNegra(), new CellaNegra(0, 7), new CellaNegra(0, 10)},
                     {new CellaNegra(), new CellaNegra(14, 0), new CellaBlanca(), new CellaBlanca(), new CellaNegra(0, 4), new CellaNegra(0, 11), new CellaNegra(4, 17), new CellaBlanca(), new CellaBlanca()},
