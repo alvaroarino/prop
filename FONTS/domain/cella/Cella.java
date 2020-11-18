@@ -8,7 +8,7 @@ public class Cella {
     /**
      * Cella.
      */
-    public  void Cella() {
+    public void Cella() {
 
     }
 
@@ -36,7 +36,7 @@ public class Cella {
      *
      * @param val the val
      */
-    public void SetValorFilaN (int val) {}
+    public void setValorFila(int val) {}
 
 
     /**
@@ -44,7 +44,7 @@ public class Cella {
      *
      * @param val the val
      */
-    public void SetValorColN (int val) {}
+    public void setValorColumna(int val) {}
 
 
     /**
@@ -52,14 +52,14 @@ public class Cella {
      *
      * @param s the s
      */
-    public  void acumular_valor_derecha(int s){}
+    public void acumular_valor_derecha(int s){}
 
     /**
      * Acumular valor izquierda.
      *
      * @param s the s
      */
-    public  void acumular_valor_izquierda(int s){}
+    public void acumular_valor_izquierda(int s){}
 
 
     /**
@@ -67,8 +67,8 @@ public class Cella {
      *
      * @return 0 si la cel·la es blanca i 1 si és negra
      */
-    public int color() {
-        return 0;
+    public ColorCella color() {
+        return ColorCella.None;
     }
 
     /**

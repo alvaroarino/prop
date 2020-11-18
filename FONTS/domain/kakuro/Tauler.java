@@ -2,6 +2,7 @@ package domain.kakuro;
 import domain.cella.Cella;
 import domain.cella.CellaBlanca;
 import domain.cella.CellaNegra;
+import domain.cella.ColorCella;
 
 import java.util.Random;
 
@@ -10,8 +11,8 @@ import java.util.Random;
  */
 public class Tauler {
 
-    private Cella CjtCelles[][]; // Conjunt de cel·les
-    private int dimn, dimm;
+    private Cella[][] CjtCelles; // Conjunt de cel·les
+    private final int dimn, dimm;
 
     /**
      * Instantiates a new Tauler.
@@ -26,10 +27,10 @@ public class Tauler {
 
         this.CjtCelles = new Cella[n][m];
 
-        for(int i = 0; i < this.CjtCelles.length; ++i) {
+        for (int i = 0; i < this.CjtCelles.length; ++i) {
             for (int j = 0; j < this.CjtCelles[0].length; ++j) {
                 if (i == 0 || j == 0) this.CjtCelles[i][j] = new CellaNegra();
-                else this.CjtCelles[i][j] = new CellaBlanca();
+                else this.CjtCelles[i][j] = new Cella();
             }
         }
 
@@ -78,38 +79,13 @@ public class Tauler {
      */
     public boolean posValida(int i, int j) {
 
-        /*boolean validFila = false;
-        boolean validCol = false;
-        if((CjtCelles[i-1][j].color() == 0) && (i > 2) && (CjtCelles[i-2][j].color() == 0))
-            validFila = true;
-
-        if((CjtCelles[i][j-1].color() == 0) && (j > 2) && (CjtCelles[i][j-2].color() == 0))
-            validCol = true;
-
-        return (validCol && validFila);*/
-
-        /*if(i > 2 && j > 2) {
-            if (CjtCelles[i - 1][j].color() == 0) {
-                if (i >= 2 && CjtCelles[i - 2][j].color() == 1) {
-                    return false;
-                }
-            }
-            if (CjtCelles[i][j - 1].color() == 0) {
-                if (j >= 2 && CjtCelles[i][j - 2].color() == 1) {
-                    return false;
-                }
-            }
-        }
-        return true;*/
         //Si devuelve 0, es blanca
-        if (CjtCelles[i - 1][j].color() == 0) {
-            if (i >= 2 && CjtCelles[i - 2][j].color() == 0) return true;
-            else return false;
+        if (CjtCelles[i - 1][j].color() == ColorCella.Blanca) {
+            if (i > 2 && CjtCelles[i - 2][j].color() == ColorCella.Negra) return false;
         }
 
-        if (CjtCelles[i][j - 1].color() == 0) {
-            if (j >= 2 && CjtCelles[i][j - 2].color() == 0) return true;
-            else return false;
+        if (CjtCelles[i][j - 1].color() == ColorCella.Blanca) {
+            return j <= 2 || CjtCelles[i][j - 2].color() != ColorCella.Negra;
         }
 
         return true;
@@ -147,20 +123,15 @@ public class Tauler {
     public void pintar_negras(int cantidad) {
 
         int contador_blancas = 0;
-
-
         Random aleat = new Random();
 
         for (int i = 1; i < dimn; ++i) {
             for (int j = 1; j < dimm; ++j) {
-
                 int n = aleat.nextInt(dimm);
-                boolean valid = posValida(i, j);
-                if (valid) {
-
+                if (posValida(i, j)) {
                     if (n == j) cantidad = pintar_celda(i, j, cantidad);
                     else {
-                        //CjtCelles[i][j] = new CellaBlanca();
+                        CjtCelles[i][j] = new CellaBlanca();
                         ++contador_blancas;
                     }
 
@@ -170,19 +141,11 @@ public class Tauler {
                     }
 
                     if ((i >= dimn / 2) && (j >= dimn / 2) && cantidad >= (dimn * dimm)) {
-
                         cantidad = pintar_celda(i, j, cantidad);
-
                     }
-
-
-                }
-                /*else
-                    CjtCelles[i][j] = new CellaBlanca();*/
+                } else CjtCelles[i][j] = new CellaBlanca();
             }
         }
-
-
     }
 
     /**
@@ -191,12 +154,8 @@ public class Tauler {
      * @return the int
      */
     public int generar_aleatorios() {
-
         Random aleat = new Random();
-        int n = aleat.nextInt(9) + 1;
-
-        return n;
-
+        return aleat.nextInt(9) + 1;
     }
 
     /**
@@ -208,12 +167,10 @@ public class Tauler {
      * @return the boolean
      */
     public boolean presente_fila(int aleat, int i, int j) {
-
         for (int x = 1; x < j; ++x)
-            if (CjtCelles[i][x].color() == 0)
+            if (CjtCelles[i][x].color() == ColorCella.Blanca)
                 if (CjtCelles[i][x].getValor_blanca() == aleat) return true;
         return false;
-
     }
 
 
@@ -227,7 +184,7 @@ public class Tauler {
      */
     public boolean presente_col (int aleat,int i, int j) {
         for (int x = 1; x < i; ++x)
-            if (CjtCelles[x][j].color() == 0)
+            if (CjtCelles[x][j].color() == ColorCella.Blanca)
                 if (CjtCelles[x][j].getValor_blanca() == aleat) return true;
         return false;
 
@@ -243,11 +200,11 @@ public class Tauler {
      */
     public boolean presenteFilaCol(int aleat, int i, int j) {
         for (int x = 1; x < j; ++x) {
-            if (CjtCelles[i][x].color() == 0)
+            if (CjtCelles[i][x].color() == ColorCella.Blanca)
                 if (CjtCelles[i][x].getValor_blanca() == aleat) return true;
         }
         for (int y = 1; y < i; ++y) {
-            if (CjtCelles[y][j].color() == 0)
+            if (CjtCelles[y][j].color() == ColorCella.Blanca)
                 if (CjtCelles[y][j].getValor_blanca() == aleat) return true;
         }
         return false;
@@ -258,28 +215,21 @@ public class Tauler {
      * Rellenar blancas.
      */
     public void rellenar_blancas() {
-
         //Set<Set<Integer>>  set_deN = new HashSet<>(); // VALOR DEL KAKURO (nxm)
         int numAleat;
         for (int i = 1; i < dimn; ++i) {
            // Set<Integer> fila = new HashSet<>();
-
-
             for (int j = 1; j < dimm; ++j) {
-
-            if((CjtCelles[i][j]).color() == 0) {
-
-                numAleat = generar_aleatorios();
-
-                while(presenteFilaCol(numAleat, i, j)) { //!presente_fila(numAleat,i,j ) && !presente_col(numAleat,i,j)
-                        numAleat = generar_aleatorios();
-
-                    }
-
-                CjtCelles[i][j].intro_valor_blanca(numAleat);
-
-            }
-
+                if((CjtCelles[i][j]).color() == ColorCella.Blanca) {
+                    numAleat = generar_aleatorios();
+    
+                    while(presenteFilaCol(numAleat, i, j)) {
+                        //!presente_fila(numAleat,i,j ) && !presente_col(numAleat,i,j)
+                            numAleat = generar_aleatorios();
+                        }
+                    CjtCelles[i][j].intro_valor_blanca(numAleat);
+    
+                }
             }
         }
     }
@@ -288,31 +238,25 @@ public class Tauler {
      * Hacer sumas.
      */
     public void hacer_sumas() {
-
         for (int i = 0; i < dimn; ++i) {
-
             for (int j = 0; j < dimm; ++j) {
-                if (CjtCelles[i][j].color() == 1) {
+                if (CjtCelles[i][j].color() == ColorCella.Negra) {
                     int auxj = 1;
 
-                    while (j + auxj < dimm && CjtCelles[i][j + auxj].color() == 0) {
-                        int valor = CjtCelles[i][j+auxj].getValor_blanca();
+                    while (j + auxj < dimm && CjtCelles[i][j + auxj].color() == ColorCella.Blanca) {
+                        int valor = CjtCelles[i][j + auxj].getValor_blanca();
                         CjtCelles[i][j].acumular_valor_derecha(valor);
                         ++auxj;
-
                     }
+
                     int auxi = 1;
-                    while (i + auxi < dimn && CjtCelles[i + auxi][j].color() == 0) {
+                    while (i + auxi < dimn && CjtCelles[i + auxi][j].color() == ColorCella.Blanca) {
                         int valor = CjtCelles[i + auxi][j].getValor_blanca();
                         CjtCelles[i][j].acumular_valor_izquierda(valor);
                         ++auxi;
                     }
-
-
                 }
-
             }
-
         }
     }
 
@@ -322,7 +266,7 @@ public class Tauler {
     public void borrar_blancas() {
         for (int i = 1; i < dimn; ++i) {
             for (int j = 0; j < dimm; ++j) {
-                if (CjtCelles[i][j].color() == 0) CjtCelles[i][j].intro_valor_blanca(-1);
+                if (CjtCelles[i][j].color() == ColorCella.Blanca) CjtCelles[i][j].intro_valor_blanca(-1);
             }
         }
     }
@@ -332,7 +276,7 @@ public class Tauler {
      */
     public void solucionar(){
         long startTime = System.nanoTime();
-        if(solBacktracking(this.CjtCelles, 0, 0)) {
+        if (solBacktracking(this.CjtCelles, 0, 0)) {
             System.out.println("Solució trobada: \n");
             long endTime = System.nanoTime();
             long timeElapsed = endTime - startTime;
@@ -359,20 +303,20 @@ public class Tauler {
         final int nFila = board.length;
         final int nCol = board[0].length;
 
-        if(fila == nFila) return true;
+        if (fila == nFila) return true;
 
-        else if(col == nCol) {
+        else if (col == nCol) {
             return solBacktracking(board,fila+1, 0);
         }
 
-        else if(board[fila][col].color() == 1) {
+        else if (board[fila][col].color() == ColorCella.Negra) {
             return solBacktracking(board, fila, col+1);
         }
 
-        for(int valor=1; valor <= 9; ++valor) {
-            if(valorValid(board, fila, col, valor)) {
+        for (int valor=1; valor <= 9; ++valor) {
+            if (valorValid(board, fila, col, valor)) {
                 board[fila][col].intro_valor_blanca(valor);
-                if(solBacktracking(board, fila, col+1)) {
+                if (solBacktracking(board, fila, col+1)) {
                     return true;    //Modificar para que devuelva mas de una solucion
                 }
                 else{
@@ -385,36 +329,30 @@ public class Tauler {
 
     private static boolean valorValid(Cella[][] board, int fila, int col, int valor) {
 
-        if(valorValidFila(board,fila,col,valor) && valorValidCol(board,fila,col,valor)){
-            return true;
-        }
-        else
-            return false;
+        return valorValidFila(board, fila, col, valor) && valorValidCol(board, fila, col, valor);
     }
 
     private static boolean valorValidFila(Cella[][] board, int fila, int col, int valor) {
         int suma = valor;
         int sumaNegras = 0;
 
-        for(int i = col-1; i >= 0; --i) {
-            if(board[fila][i].color() == 1){
+        for (int i = col-1; i >= 0; --i) {
+            if (board[fila][i].color() == ColorCella.Negra){
                 sumaNegras = board[fila][i].getValorDret();
                 break;
             }
             suma += board[fila][i].getValor_blanca();
-            if(board[fila][i].getValor_blanca() == valor)
+            if (board[fila][i].getValor_blanca() == valor)
                 return false;
         }
-        if(suma > sumaNegras)
+        if (suma > sumaNegras)
             return false;
 
-        if(col == board[0].length - 1) {
-            if(suma < sumaNegras)
-                return false;
+        if (col == board[0].length - 1) {
+            return suma >= sumaNegras;
         }
-        else if(board[fila][col+1].color() == 1) {
-            if(suma < sumaNegras)
-                return false;
+        else if (board[fila][col+1].color() == ColorCella.Negra) {
+            return suma >= sumaNegras;
         }
         return true;
     }
@@ -423,25 +361,23 @@ public class Tauler {
         int suma = valor;
         int sumaNegras = 0;
 
-        for(int i = fila-1; i >= 0; --i) {
-            if(board[i][col].color() == 1){
+        for (int i = fila-1; i >= 0; --i) {
+            if (board[i][col].color() == ColorCella.Negra){
                 sumaNegras = board[i][col].getValorEsquerre();
                 break;
             }
             suma += board[i][col].getValor_blanca();
-            if(board[i][col].getValor_blanca() == valor)
+            if (board[i][col].getValor_blanca() == valor)
                 return false;
         }
-        if(suma > sumaNegras)
+        if (suma > sumaNegras)
             return false;
 
-        if(fila == board.length - 1) {
-            if(suma < sumaNegras)
-                return false;
+        if (fila == board.length - 1) {
+            return suma >= sumaNegras;
         }
-        else if(board[fila+1][col].color() == 1) {
-            if(suma < sumaNegras)
-                return false;
+        else if (board[fila+1][col].color() == ColorCella.Negra) {
+            return suma >= sumaNegras;
         }
         return true;
     }
@@ -454,30 +390,28 @@ public class Tauler {
         System.out.printf("%s,%s%n",dimn,dimm);
         for (int i = 0; i < dimn; ++i) {
             for (int j = 0; j < dimm; ++j) {
-                if (this.CjtCelles[i][j].color() == 0) {
-                    if(this.CjtCelles[i][j].getValor_blanca() > 0)
+                if (this.CjtCelles[i][j].color() == ColorCella.Blanca) {
+                    if (this.CjtCelles[i][j].getValor_blanca() > 0) {
                         System.out.print(this.CjtCelles[i][j].getValor_blanca());
-                    else
+                    } else {
                         System.out.print("?");
+                    }
 
                 } else {
                     int valorColumna = this.CjtCelles[i][j].getValorEsquerre();
                     int valorFila = this.CjtCelles[i][j].getValorDret();
-                    if(valorColumna > 0 && valorFila > 0) {
-                        System.out.printf("C%sF%s",valorColumna,valorFila);
-                    }
-                    else if(valorColumna > 0)
-                        System.out.printf("C%s",valorColumna);
 
-                    else if(valorFila > 0)
-                        System.out.printf("F%s",valorFila);
-
-                    else
+                    if (valorColumna > 0 && valorFila > 0) {
+                        System.out.printf("C%sF%s", valorColumna, valorFila);
+                    } else if (valorColumna > 0) {
+                        System.out.printf("C%s", valorColumna);
+                    } else if (valorFila > 0) {
+                        System.out.printf("F%s", valorFila);
+                    } else {
                         System.out.print("*");
-
-
+                    }
                 }
-                if(j != this.CjtCelles[0].length - 1)
+                if (j != this.CjtCelles[0].length - 1)
                     System.out.print(",");
             }
 

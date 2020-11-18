@@ -3,6 +3,7 @@ package dades;
 import domain.cella.Cella;
 import domain.cella.CellaBlanca;
 import domain.cella.CellaNegra;
+import domain.cella.ColorCella;
 import domain.kakuro.Tauler;
 
 import java.io.*;
@@ -89,24 +90,24 @@ public class CtrlDataKakuro {
                         String f = digits[1]; //Com que em separat per F abans ja no tenim lletra
                         System.out.println(c + " " + f);
 
-                        board[i][j].SetValorColN(Integer.parseInt(c));
-                        board[i][j].SetValorFilaN(Integer.parseInt(f));
+                        board[i][j].setValorColumna(Integer.parseInt(c));
+                        board[i][j].setValorFila(Integer.parseInt(f));
                     } else {
                         System.out.print(actual + " contains one with digits: ");
                         if (actual.contains("C")) {
                             String digits = actual.replaceAll("C", "");
                             System.out.println(digits);
-                            board[i][j].SetValorColN(Integer.parseInt(digits));
+                            board[i][j].setValorColumna(Integer.parseInt(digits));
                         }
                         if (actual.contains("F")) {
                             String digits = actual.replaceAll("F", "");
                             System.out.println(digits);
-                            board[i][j].SetValorFilaN(Integer.parseInt(digits));
+                            board[i][j].setValorFila(Integer.parseInt(digits));
                         }
                     }
 
                 }
-                System.out.println(board[i][j].color() == 0 ? ("Valor blanca: " + board[i][j].getValor_blanca()) : ("Valor negra: C:" + board[i][j].getValorEsquerre() + " F:" + board[i][j].getValorDret()));
+                System.out.println(board[i][j].color() == ColorCella.Blanca ? ("Valor blanca: " + board[i][j].getValor_blanca()) : ("Valor negra: C:" + board[i][j].getValorEsquerre() + " F:" + board[i][j].getValorDret()));
                 ++linearPos;
             }
         }

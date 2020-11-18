@@ -5,6 +5,7 @@ import static org.junit.Assert.*;
 
 import domain.cella.CellaBlanca;
 import domain.cella.CellaNegra;
+import domain.cella.ColorCella;
 import org.junit.Test;
 
 import java.io.IOException;
@@ -39,8 +40,8 @@ public class CtrlDataKakuroTest {
 
             for (int i = 0; i < board.length; ++i) {
                 for (int j = 0; j < board[0].length; ++j) {
-                    if (board[i][j].color() == 0) assertEquals(board[i][j].getValor_blanca(), correctBoard[i][j].getValor_blanca());
-                    if (board[i][j].color() == 1) {
+                    if (board[i][j].color() == ColorCella.Blanca) assertEquals(board[i][j].getValor_blanca(), correctBoard[i][j].getValor_blanca());
+                    if (board[i][j].color() == ColorCella.Negra) {
                         assertEquals(board[i][j].getValorDret(), correctBoard[i][j].getValorDret());
                         assertEquals(board[i][j].getValorEsquerre(), correctBoard[i][j].getValorEsquerre());
                     }

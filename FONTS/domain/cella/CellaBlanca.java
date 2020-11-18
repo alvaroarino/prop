@@ -28,9 +28,7 @@ public class CellaBlanca extends Cella{
     }
 
     @Override
-    public int color() {
-        super.color();
-        return 0;
-
+    public ColorCella color() {
+        return ColorCella.Blanca;
     }
 }

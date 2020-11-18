@@ -30,13 +30,13 @@ public class CellaNegra extends Cella{
     }
 
     @Override
-    public void SetValorFilaN (int val) {
+    public void setValorFila(int val) {
         valorDret = val;
 
     }
 
     @Override
-    public void SetValorColN (int val) {
+    public void setValorColumna(int val) {
         valorEsquerre = val;
 
     }
@@ -66,9 +66,8 @@ public class CellaNegra extends Cella{
     }
 
     @Override
-    public int color() {
-        return 1;
-
+    public ColorCella color() {
+        return ColorCella.Negra;
     }
 }
 
