@@ -26,16 +26,19 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="7bc9ef9f-20b2-4ace-875a-4447b6f320a2" name="Default Changelist" comment="Get data Kakuro">
-      <change afterPath="$PROJECT_DIR$/out/production/subgrup-prop4-2/lib/junit-4.13-javadoc.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/subgrup-prop4-2/lib/junit-4.13.jar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FONTS/dades/CtrlDataKakuro.java" beforeDir="false" afterPath="$PROJECT_DIR$/FONTS/dades/CtrlDataKakuro.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FONTS/dades/CtrlDataKakuroTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/FONTS/dades/CtrlDataKakuroTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FONTS/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/FONTS/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/index.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="CodeStyleSettingsInfer">
+    <option name="done" value="true" />
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -52,6 +55,9 @@
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
     <option name="SET_USER_NAME_GLOBALLY" value="false" />
+  </component>
+  <component name="ProjectCodeStyleSettingsMigration">
+    <option name="version" value="1" />
   </component>
   <component name="ProjectId" id="1kSLqfeVvt6hcXnh1T8qAgJr7BN" />
   <component name="ProjectLevelVcsManager">
@@ -77,6 +83,7 @@
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
     <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
+    <property name="show.migrate.to.gradle.popup" value="false" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
@@ -132,9 +139,9 @@
       </method>
     </configuration>
     <list>
+      <item itemvalue="JUnit.CtrlDataKakuroTest.testGetData" />
       <item itemvalue="JUnit.KakuroTest" />
       <item itemvalue="JUnit.KakuroTest.testSolver" />
-      <item itemvalue="JUnit.CtrlDataKakuroTest.testGetData" />
     </list>
     <recent_temporary>
       <list>
@@ -174,7 +181,14 @@
       <option name="project" value="LOCAL" />
       <updated>1605692102195</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="Get data Kakuro">
+      <created>1605697662488</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1605697662488</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -214,40 +228,44 @@
       <screen x="0" y="25" width="1440" height="831" />
     </state>
     <state x="184" y="99" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.25.1440.831@0.25.1440.831" timestamp="1605691395914" />
+    <state x="467" y="174" key="ANALYSIS_DLG_com.intellij.analysis.BaseAnalysisAction$1" timestamp="1605697639404">
+      <screen x="0" y="25" width="1440" height="832" />
+    </state>
+    <state x="467" y="174" key="ANALYSIS_DLG_com.intellij.analysis.BaseAnalysisAction$1/0.25.1440.832@0.25.1440.832" timestamp="1605697639404" />
     <state x="534" y="225" width="735" height="498" key="FileChooserDialogImpl" timestamp="1605690397724">
       <screen x="72" y="27" width="1368" height="873" />
     </state>
     <state x="534" y="225" width="735" height="498" key="FileChooserDialogImpl/72.27.1368.873@72.27.1368.873" timestamp="1605690397724" />
-    <state width="1398" height="212" key="GridCell.Tab.0.bottom" timestamp="1605697516604">
+    <state width="1398" height="456" key="GridCell.Tab.0.bottom" timestamp="1605698138965">
       <screen x="0" y="25" width="1440" height="832" />
     </state>
     <state width="1398" height="456" key="GridCell.Tab.0.bottom/0.25.1440.831@0.25.1440.831" timestamp="1605691860178" />
-    <state width="1398" height="212" key="GridCell.Tab.0.bottom/0.25.1440.832@0.25.1440.832" timestamp="1605697516604" />
-    <state width="1398" height="212" key="GridCell.Tab.0.center" timestamp="1605697516603">
+    <state width="1398" height="456" key="GridCell.Tab.0.bottom/0.25.1440.832@0.25.1440.832" timestamp="1605698138965" />
+    <state width="1398" height="456" key="GridCell.Tab.0.center" timestamp="1605698138964">
       <screen x="0" y="25" width="1440" height="832" />
     </state>
     <state width="1398" height="456" key="GridCell.Tab.0.center/0.25.1440.831@0.25.1440.831" timestamp="1605691860177" />
-    <state width="1398" height="212" key="GridCell.Tab.0.center/0.25.1440.832@0.25.1440.832" timestamp="1605697516603" />
-    <state width="1398" height="212" key="GridCell.Tab.0.left" timestamp="1605697516603">
+    <state width="1398" height="456" key="GridCell.Tab.0.center/0.25.1440.832@0.25.1440.832" timestamp="1605698138964" />
+    <state width="1398" height="456" key="GridCell.Tab.0.left" timestamp="1605698138963">
       <screen x="0" y="25" width="1440" height="832" />
     </state>
     <state width="1398" height="456" key="GridCell.Tab.0.left/0.25.1440.831@0.25.1440.831" timestamp="1605691860176" />
-    <state width="1398" height="212" key="GridCell.Tab.0.left/0.25.1440.832@0.25.1440.832" timestamp="1605697516603" />
-    <state width="1398" height="212" key="GridCell.Tab.0.right" timestamp="1605697516603">
+    <state width="1398" height="456" key="GridCell.Tab.0.left/0.25.1440.832@0.25.1440.832" timestamp="1605698138963" />
+    <state width="1398" height="456" key="GridCell.Tab.0.right" timestamp="1605698138964">
       <screen x="0" y="25" width="1440" height="832" />
     </state>
     <state width="1398" height="456" key="GridCell.Tab.0.right/0.25.1440.831@0.25.1440.831" timestamp="1605691860178" />
-    <state width="1398" height="212" key="GridCell.Tab.0.right/0.25.1440.832@0.25.1440.832" timestamp="1605697516603" />
+    <state width="1398" height="456" key="GridCell.Tab.0.right/0.25.1440.832@0.25.1440.832" timestamp="1605698138964" />
     <state x="176" y="25" width="1024" height="831" key="SettingsEditor" timestamp="1605692077120">
       <screen x="0" y="25" width="1440" height="832" />
     </state>
     <state x="176" y="25" width="1024" height="831" key="SettingsEditor/0.25.1440.831@0.25.1440.831" timestamp="1605691879082" />
     <state x="176" y="25" key="SettingsEditor/0.25.1440.832@0.25.1440.832" timestamp="1605692077120" />
     <state x="239" y="41" width="1024" height="852" key="SettingsEditor/72.27.1368.873@72.27.1368.873" timestamp="1605690402892" />
-    <state x="294" y="189" width="800" height="535" key="Vcs.Push.Dialog.v2" timestamp="1605692105496">
+    <state x="294" y="189" width="800" height="535" key="Vcs.Push.Dialog.v2" timestamp="1605697665806">
       <screen x="0" y="25" width="1440" height="832" />
     </state>
-    <state x="294" y="189" key="Vcs.Push.Dialog.v2/0.25.1440.832@0.25.1440.832" timestamp="1605692105496" />
+    <state x="294" y="189" key="Vcs.Push.Dialog.v2/0.25.1440.832@0.25.1440.832" timestamp="1605697665806" />
     <state x="351" y="199" width="800" height="535" key="Vcs.Push.Dialog.v2/72.27.1368.873@72.27.1368.873" timestamp="1605690428068" />
     <state x="369" y="342" width="646" height="220" key="com.intellij.jarRepository.RepositoryAttachDialog-DOWNLOAD" timestamp="1605692015894">
       <screen x="0" y="25" width="1440" height="832" />
