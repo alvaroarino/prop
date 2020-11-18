@@ -30,7 +30,7 @@ public class Tauler {
         for (int i = 0; i < this.CjtCelles.length; ++i) {
             for (int j = 0; j < this.CjtCelles[0].length; ++j) {
                 if (i == 0 || j == 0) this.CjtCelles[i][j] = new CellaNegra();
-                else this.CjtCelles[i][j] = new Cella();
+                else this.CjtCelles[i][j] = new CellaBlanca();
             }
         }
 
@@ -131,7 +131,6 @@ public class Tauler {
                 if (posValida(i, j)) {
                     if (n == j) cantidad = pintar_celda(i, j, cantidad);
                     else {
-                        CjtCelles[i][j] = new CellaBlanca();
                         ++contador_blancas;
                     }
 
@@ -143,7 +142,7 @@ public class Tauler {
                     if ((i >= dimn / 2) && (j >= dimn / 2) && cantidad >= (dimn * dimm)) {
                         cantidad = pintar_celda(i, j, cantidad);
                     }
-                } else CjtCelles[i][j] = new CellaBlanca();
+                }
             }
         }
     }
