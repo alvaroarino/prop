@@ -26,8 +26,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="7bc9ef9f-20b2-4ace-875a-4447b6f320a2" name="Default Changelist" comment="Get data Kakuro">
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/EXE/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/EXE/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FONTS/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/FONTS/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/index.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -206,7 +208,21 @@
       <option name="project" value="LOCAL" />
       <updated>1605711254826</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="Fixes">
+      <created>1605711306986</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1605711306986</updated>
+    </task>
+    <task id="LOCAL-00009" summary="style.css">
+      <created>1605711484190</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1605711484190</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -214,19 +230,7 @@
       <map>
         <entry key="MAIN">
           <value>
-            <State>
-              <option name="FILTERS">
-                <map>
-                  <entry key="branch">
-                    <value>
-                      <list>
-                        <option value="master" />
-                      </list>
-                    </value>
-                  </entry>
-                </map>
-              </option>
-            </State>
+            <State />
           </value>
         </entry>
       </map>
@@ -242,7 +246,8 @@
     <MESSAGE value="Web changes" />
     <MESSAGE value="Afegit de DOCs" />
     <MESSAGE value="Fixes" />
-    <option name="LAST_COMMIT_MESSAGE" value="Fixes" />
+    <MESSAGE value="style.css" />
+    <option name="LAST_COMMIT_MESSAGE" value="style.css" />
   </component>
   <component name="WindowStateProjectService">
     <state x="184" y="99" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1605691395914">
@@ -283,10 +288,10 @@
     <state x="176" y="25" width="1024" height="831" key="SettingsEditor/0.25.1440.831@0.25.1440.831" timestamp="1605691879082" />
     <state x="176" y="25" key="SettingsEditor/0.25.1440.832@0.25.1440.832" timestamp="1605692077120" />
     <state x="239" y="41" width="1024" height="852" key="SettingsEditor/72.27.1368.873@72.27.1368.873" timestamp="1605690402892" />
-    <state x="294" y="189" width="800" height="535" key="Vcs.Push.Dialog.v2" timestamp="1605711258205">
+    <state x="294" y="189" width="800" height="535" key="Vcs.Push.Dialog.v2" timestamp="1605711495701">
       <screen x="0" y="25" width="1440" height="831" />
     </state>
-    <state x="294" y="189" key="Vcs.Push.Dialog.v2/0.25.1440.831@0.25.1440.831" timestamp="1605711258205" />
+    <state x="294" y="189" key="Vcs.Push.Dialog.v2/0.25.1440.831@0.25.1440.831" timestamp="1605711495701" />
     <state x="294" y="189" key="Vcs.Push.Dialog.v2/0.25.1440.832@0.25.1440.832" timestamp="1605709862597" />
     <state x="351" y="199" width="800" height="535" key="Vcs.Push.Dialog.v2/72.27.1368.873@72.27.1368.873" timestamp="1605690428068" />
     <state x="369" y="342" width="646" height="220" key="com.intellij.jarRepository.RepositoryAttachDialog-DOWNLOAD" timestamp="1605692015894">
@@ -295,10 +300,10 @@
     <state x="369" y="342" key="com.intellij.jarRepository.RepositoryAttachDialog-DOWNLOAD/0.25.1440.831@0.25.1440.831" timestamp="1605691729437" />
     <state x="369" y="342" key="com.intellij.jarRepository.RepositoryAttachDialog-DOWNLOAD/0.25.1440.832@0.25.1440.832" timestamp="1605692015894" />
     <state x="423" y="360" width="646" height="220" key="com.intellij.jarRepository.RepositoryAttachDialog-DOWNLOAD/72.27.1368.873@72.27.1368.873" timestamp="1605689927204" />
-    <state x="489" y="359" width="438" height="177" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1605697497139">
-      <screen x="0" y="25" width="1440" height="832" />
+    <state x="489" y="359" width="438" height="177" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1605711311890">
+      <screen x="0" y="25" width="1440" height="831" />
     </state>
-    <state x="489" y="359" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.25.1440.831@0.25.1440.831" timestamp="1605691240265" />
+    <state x="489" y="359" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.25.1440.831@0.25.1440.831" timestamp="1605711311890" />
     <state x="489" y="359" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.25.1440.832@0.25.1440.832" timestamp="1605697497139" />
     <state x="537" y="378" width="438" height="177" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/72.27.1368.873@72.27.1368.873" timestamp="1605690090517" />
   </component>
