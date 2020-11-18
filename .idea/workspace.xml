@@ -27,9 +27,9 @@
   <component name="ChangeListManager">
     <list default="true" id="7bc9ef9f-20b2-4ace-875a-4447b6f320a2" name="Default Changelist" comment="Get data Kakuro">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/EXE/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/EXE/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FONTS/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/FONTS/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FONTS/Makefile" beforeDir="false" afterPath="$PROJECT_DIR$/FONTS/Makefile" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/subgrup-prop4-2/Makefile" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/subgrup-prop4-2/Makefile" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/subgrup-prop4-2/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/subgrup-prop4-2/index.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -78,7 +78,7 @@
     <property name="add_unversioned_files" value="true" />
     <property name="dart.analysis.tool.window.visible" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/FONTS/lib" />
-    <property name="project.structure.last.edited" value="Libraries" />
+    <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
     <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
@@ -89,7 +89,7 @@
       <recent name="$PROJECT_DIR$/FONTS/lib" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.CtrlDataKakuroTest.testGetData">
+  <component name="RunManager" selected="JUnit.KakuroTest.testSolver">
     <configuration name="CtrlDataKakuroTest.testGetData" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="subgrup-prop4-2" />
       <extension name="coverage">
@@ -137,15 +137,22 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="Makefile" type="MAKEFILE_TARGET_RUN_CONFIGURATION" factoryName="Makefile">
+      <makefile filename="$PROJECT_DIR$/FONTS/Makefile" target="" workingDirectory="" arguments="">
+        <envs />
+      </makefile>
+      <method v="2" />
+    </configuration>
     <list>
       <item itemvalue="JUnit.KakuroTest" />
       <item itemvalue="JUnit.KakuroTest.testSolver" />
       <item itemvalue="JUnit.CtrlDataKakuroTest.testGetData" />
+      <item itemvalue="Makefile.Makefile" />
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.CtrlDataKakuroTest.testGetData" />
         <item itemvalue="JUnit.KakuroTest.testSolver" />
+        <item itemvalue="JUnit.CtrlDataKakuroTest.testGetData" />
         <item itemvalue="JUnit.KakuroTest" />
       </list>
     </recent_temporary>
@@ -222,7 +229,14 @@
       <option name="project" value="LOCAL" />
       <updated>1605711484190</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary=".html">
+      <created>1605711677534</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1605711677534</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -247,13 +261,14 @@
     <MESSAGE value="Afegit de DOCs" />
     <MESSAGE value="Fixes" />
     <MESSAGE value="style.css" />
-    <option name="LAST_COMMIT_MESSAGE" value="style.css" />
+    <MESSAGE value=".html" />
+    <option name="LAST_COMMIT_MESSAGE" value=".html" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="184" y="99" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1605691395914">
+    <state x="184" y="99" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1605712033117">
       <screen x="0" y="25" width="1440" height="831" />
     </state>
-    <state x="184" y="99" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.25.1440.831@0.25.1440.831" timestamp="1605691395914" />
+    <state x="184" y="99" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.25.1440.831@0.25.1440.831" timestamp="1605712033117" />
     <state x="467" y="174" key="ANALYSIS_DLG_com.intellij.analysis.BaseAnalysisAction$1" timestamp="1605697639404">
       <screen x="0" y="25" width="1440" height="832" />
     </state>
@@ -262,36 +277,44 @@
       <screen x="72" y="27" width="1368" height="873" />
     </state>
     <state x="534" y="225" width="735" height="498" key="FileChooserDialogImpl/72.27.1368.873@72.27.1368.873" timestamp="1605690397724" />
-    <state width="1398" height="456" key="GridCell.Tab.0.bottom" timestamp="1605698138965">
-      <screen x="0" y="25" width="1440" height="832" />
-    </state>
-    <state width="1398" height="456" key="GridCell.Tab.0.bottom/0.25.1440.831@0.25.1440.831" timestamp="1605691860178" />
-    <state width="1398" height="456" key="GridCell.Tab.0.bottom/0.25.1440.832@0.25.1440.832" timestamp="1605698138965" />
-    <state width="1398" height="456" key="GridCell.Tab.0.center" timestamp="1605698138964">
-      <screen x="0" y="25" width="1440" height="832" />
-    </state>
-    <state width="1398" height="456" key="GridCell.Tab.0.center/0.25.1440.831@0.25.1440.831" timestamp="1605691860177" />
-    <state width="1398" height="456" key="GridCell.Tab.0.center/0.25.1440.832@0.25.1440.832" timestamp="1605698138964" />
-    <state width="1398" height="456" key="GridCell.Tab.0.left" timestamp="1605698138963">
-      <screen x="0" y="25" width="1440" height="832" />
-    </state>
-    <state width="1398" height="456" key="GridCell.Tab.0.left/0.25.1440.831@0.25.1440.831" timestamp="1605691860176" />
-    <state width="1398" height="456" key="GridCell.Tab.0.left/0.25.1440.832@0.25.1440.832" timestamp="1605698138963" />
-    <state width="1398" height="456" key="GridCell.Tab.0.right" timestamp="1605698138964">
-      <screen x="0" y="25" width="1440" height="832" />
-    </state>
-    <state width="1398" height="456" key="GridCell.Tab.0.right/0.25.1440.831@0.25.1440.831" timestamp="1605691860178" />
-    <state width="1398" height="456" key="GridCell.Tab.0.right/0.25.1440.832@0.25.1440.832" timestamp="1605698138964" />
-    <state x="176" y="25" width="1024" height="831" key="SettingsEditor" timestamp="1605692077120">
-      <screen x="0" y="25" width="1440" height="832" />
-    </state>
-    <state x="176" y="25" width="1024" height="831" key="SettingsEditor/0.25.1440.831@0.25.1440.831" timestamp="1605691879082" />
-    <state x="176" y="25" key="SettingsEditor/0.25.1440.832@0.25.1440.832" timestamp="1605692077120" />
-    <state x="239" y="41" width="1024" height="852" key="SettingsEditor/72.27.1368.873@72.27.1368.873" timestamp="1605690402892" />
-    <state x="294" y="189" width="800" height="535" key="Vcs.Push.Dialog.v2" timestamp="1605711495701">
+    <state width="1398" height="213" key="GridCell.Tab.0.bottom" timestamp="1605712295169">
       <screen x="0" y="25" width="1440" height="831" />
     </state>
-    <state x="294" y="189" key="Vcs.Push.Dialog.v2/0.25.1440.831@0.25.1440.831" timestamp="1605711495701" />
+    <state width="1398" height="213" key="GridCell.Tab.0.bottom/0.25.1440.831@0.25.1440.831" timestamp="1605712295169" />
+    <state width="1398" height="456" key="GridCell.Tab.0.bottom/0.25.1440.832@0.25.1440.832" timestamp="1605698138965" />
+    <state width="1398" height="213" key="GridCell.Tab.0.center" timestamp="1605712295168">
+      <screen x="0" y="25" width="1440" height="831" />
+    </state>
+    <state width="1398" height="213" key="GridCell.Tab.0.center/0.25.1440.831@0.25.1440.831" timestamp="1605712295168" />
+    <state width="1398" height="456" key="GridCell.Tab.0.center/0.25.1440.832@0.25.1440.832" timestamp="1605698138964" />
+    <state width="1398" height="213" key="GridCell.Tab.0.left" timestamp="1605712295168">
+      <screen x="0" y="25" width="1440" height="831" />
+    </state>
+    <state width="1398" height="213" key="GridCell.Tab.0.left/0.25.1440.831@0.25.1440.831" timestamp="1605712295168" />
+    <state width="1398" height="456" key="GridCell.Tab.0.left/0.25.1440.832@0.25.1440.832" timestamp="1605698138963" />
+    <state width="1398" height="213" key="GridCell.Tab.0.right" timestamp="1605712295169">
+      <screen x="0" y="25" width="1440" height="831" />
+    </state>
+    <state width="1398" height="213" key="GridCell.Tab.0.right/0.25.1440.831@0.25.1440.831" timestamp="1605712295169" />
+    <state width="1398" height="456" key="GridCell.Tab.0.right/0.25.1440.832@0.25.1440.832" timestamp="1605698138964" />
+    <state x="176" y="25" width="1024" height="831" key="SettingsEditor" timestamp="1605712265187">
+      <screen x="0" y="25" width="1440" height="831" />
+    </state>
+    <state x="176" y="25" width="1024" height="831" key="SettingsEditor/0.25.1440.831@0.25.1440.831" timestamp="1605712265187" />
+    <state x="176" y="25" key="SettingsEditor/0.25.1440.832@0.25.1440.832" timestamp="1605692077120" />
+    <state x="239" y="41" width="1024" height="852" key="SettingsEditor/72.27.1368.873@72.27.1368.873" timestamp="1605690402892" />
+    <state x="572" y="358" key="VCS.ChangelistChooser" timestamp="1605712597067">
+      <screen x="0" y="25" width="1440" height="831" />
+    </state>
+    <state x="572" y="358" key="VCS.ChangelistChooser/0.25.1440.831@0.25.1440.831" timestamp="1605712597067" />
+    <state x="600" y="359" key="VCS.EditChangelistDialog" timestamp="1605712605652">
+      <screen x="0" y="25" width="1440" height="831" />
+    </state>
+    <state x="600" y="359" key="VCS.EditChangelistDialog/0.25.1440.831@0.25.1440.831" timestamp="1605712605652" />
+    <state x="294" y="189" width="800" height="535" key="Vcs.Push.Dialog.v2" timestamp="1605711683123">
+      <screen x="0" y="25" width="1440" height="831" />
+    </state>
+    <state x="294" y="189" key="Vcs.Push.Dialog.v2/0.25.1440.831@0.25.1440.831" timestamp="1605711683123" />
     <state x="294" y="189" key="Vcs.Push.Dialog.v2/0.25.1440.832@0.25.1440.832" timestamp="1605709862597" />
     <state x="351" y="199" width="800" height="535" key="Vcs.Push.Dialog.v2/72.27.1368.873@72.27.1368.873" timestamp="1605690428068" />
     <state x="369" y="342" width="646" height="220" key="com.intellij.jarRepository.RepositoryAttachDialog-DOWNLOAD" timestamp="1605692015894">

@@ -38,7 +38,7 @@ JIKES_DEP_FLAG	= +M
 # ------------------------------------------------------------------- #
 
 # Prefix for every install directory
-PREFIX		= 
+PREFIX		= ./EXE/
 
 # Where to start installing the class files. Set this to an empty value
 #  if you dont want to install classes
