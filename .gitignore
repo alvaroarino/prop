@@ -1,5 +1,5 @@
 # Created by .ignore support plugin (hsz.mobi)
-
+### Java template
 # Compiled class file
 *.class
 
@@ -15,22 +15,5 @@
 # virtual machine crash logs, see http://www.java.com/en/download/help/error_hotspot.xml
 hs_err_pid*
 
-# IntelliJ project files
-.idea
-*.iml
-out
-gen
-.gitignore
-.idea/.gitignore
-.idea/.name
-".idea/Icon\r"
-.idea/aws.xml
-.idea/codeStyles/
-.idea/intellij-javadocs-4.0.1.xml
-.idea/misc.xml
-.idea/modules.xml
-.idea/scala_settings.xml
-.idea/vcs.xml
-"Icon\r"
-Project.iml
-Sera borrado src/
+Sera borrado .idea/
+Sera borrado subgrup-prop4-2.iml
