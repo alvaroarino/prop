@@ -29,7 +29,7 @@ public class Tauler {
         for(int i = 0; i < this.CjtCelles.length; ++i) {
             for (int j = 0; j < this.CjtCelles[0].length; ++j) {
                 if (i == 0 || j == 0) this.CjtCelles[i][j] = new CellaNegra();
-                else this.CjtCelles[i][j] = new Cella();
+                else this.CjtCelles[i][j] = new CellaBlanca();
             }
         }
 
@@ -78,13 +78,38 @@ public class Tauler {
      */
     public boolean posValida(int i, int j) {
 
+        /*boolean validFila = false;
+        boolean validCol = false;
+        if((CjtCelles[i-1][j].color() == 0) && (i > 2) && (CjtCelles[i-2][j].color() == 0))
+            validFila = true;
+
+        if((CjtCelles[i][j-1].color() == 0) && (j > 2) && (CjtCelles[i][j-2].color() == 0))
+            validCol = true;
+
+        return (validCol && validFila);*/
+
+        /*if(i > 2 && j > 2) {
+            if (CjtCelles[i - 1][j].color() == 0) {
+                if (i >= 2 && CjtCelles[i - 2][j].color() == 1) {
+                    return false;
+                }
+            }
+            if (CjtCelles[i][j - 1].color() == 0) {
+                if (j >= 2 && CjtCelles[i][j - 2].color() == 1) {
+                    return false;
+                }
+            }
+        }
+        return true;*/
         //Si devuelve 0, es blanca
         if (CjtCelles[i - 1][j].color() == 0) {
-            if (i > 2 && CjtCelles[i - 2][j].color() == 1) return false;
+            if (i >= 2 && CjtCelles[i - 2][j].color() == 0) return true;
+            else return false;
         }
 
         if (CjtCelles[i][j - 1].color() == 0) {
-            if (j > 2 && CjtCelles[i][j - 2].color() == 1) return false;
+            if (j >= 2 && CjtCelles[i][j - 2].color() == 0) return true;
+            else return false;
         }
 
         return true;
@@ -130,12 +155,12 @@ public class Tauler {
             for (int j = 1; j < dimm; ++j) {
 
                 int n = aleat.nextInt(dimm);
-
-                if (posValida(i, j)) {
+                boolean valid = posValida(i, j);
+                if (valid) {
 
                     if (n == j) cantidad = pintar_celda(i, j, cantidad);
                     else {
-                        CjtCelles[i][j] = new CellaBlanca();
+                        //CjtCelles[i][j] = new CellaBlanca();
                         ++contador_blancas;
                     }
 
@@ -152,8 +177,8 @@ public class Tauler {
 
 
                 }
-                else
-                    CjtCelles[i][j] = new CellaBlanca();
+                /*else
+                    CjtCelles[i][j] = new CellaBlanca();*/
             }
         }
 

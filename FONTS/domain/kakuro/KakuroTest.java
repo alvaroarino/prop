@@ -18,7 +18,7 @@ public class KakuroTest {
      */
     @Test
     public void testGenerar() {
-        int n = 9;
+        int n = 10;
         int m = 9;
 
         Kakuro kk = new Kakuro(n, m);
