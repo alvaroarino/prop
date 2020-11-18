@@ -1,4 +1,5 @@
 # PROP - Grup 14 - Subgrup 2
+Versió 1.0
 
 ## Integrants del grup
 * Ariño Cabau, Alvaro
