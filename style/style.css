@@ -37,7 +37,7 @@ nav li a:hover {
 }
 
 nav li a.active {
-	background-color: #4CAF50;
+	background-color: #7096A7;
 	color: white;
 }
 
@@ -78,7 +78,7 @@ ul.breadcrumb li a:hover {
 }
 
 button {
-  background-color: #4CAF50; /* Green */
+  background-color: #7096A7;
   border: none;
   color: white;
   padding: 15px 32px;
