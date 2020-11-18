@@ -4,7 +4,10 @@ import domain.cella.CellaBlanca;
 import domain.cella.CellaNegra;
 import domain.cella.ColorCella;
 
+import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.Random;
+import java.util.Set;
 
 /**
  * The type Tauler.
@@ -80,6 +83,7 @@ public class Tauler {
     public boolean posValida(int i, int j) {
 
         //Si devuelve 0, es blanca
+
         if (CjtCelles[i - 1][j].color() == ColorCella.Blanca) {
             if (i > 2 && CjtCelles[i - 2][j].color() == ColorCella.Negra) return false;
         }
@@ -182,9 +186,14 @@ public class Tauler {
      * @return the boolean
      */
     public boolean presente_col (int aleat,int i, int j) {
-        for (int x = 1; x < i; ++x)
+        for (int x = 1; x < i; ++x) {
             if (CjtCelles[x][j].color() == ColorCella.Blanca)
-                if (CjtCelles[x][j].getValor_blanca() == aleat) return true;
+                if (CjtCelles[x][j].getValor_blanca() == aleat) {
+                    return true;
+                }
+            else
+                return false;
+        }
         return false;
 
     }
@@ -216,19 +225,43 @@ public class Tauler {
     public void rellenar_blancas() {
         //Set<Set<Integer>>  set_deN = new HashSet<>(); // VALOR DEL KAKURO (nxm)
         int numAleat;
+        int valor;
+        Random aleat = new Random();
         for (int i = 1; i < dimn; ++i) {
            // Set<Integer> fila = new HashSet<>();
+            ArrayList<Integer> candidats = new ArrayList<Integer>();  //x elementos
+            HashSet<Integer> visitats = new HashSet<Integer>();
+            for(int k=1; k<10; ++k){
+                candidats.add(k);
+            }
             for (int j = 1; j < dimm; ++j) {
+
+
                 if ((CjtCelles[i][j]).color() == ColorCella.Blanca) {
-                    numAleat = generar_aleatorios();
+                    numAleat = aleat.nextInt(candidats.size());         //numaleat 0-8
+                    valor = candidats.get(numAleat);                    //valor 1-9
+                    while(presente_col(valor,i,j) || visitats.contains(valor)){                     //
+                        if(numAleat >= candidats.size()-1) {
+                            numAleat = 0;
+                        }
+
+                        else {
+                            ++numAleat;
+                        }
+                        valor = candidats.get(numAleat);
+
+                    }
     
-                    while(presenteFilaCol(numAleat, i, j)) {
+                    /*while(presenteFilaCol(numAleat, i, j)) {
                         //!presente_fila(numAleat,i,j ) && !presente_col(numAleat,i,j)
                             numAleat = generar_aleatorios();
-                        }
-                    CjtCelles[i][j].intro_valor_blanca(numAleat);
+                        }*/
+                    CjtCelles[i][j].intro_valor_blanca(valor);
+                    visitats.add(valor);
     
                 }
+                else
+                    visitats.clear();
             }
         }
     }
