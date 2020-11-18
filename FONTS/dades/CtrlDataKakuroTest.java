@@ -23,19 +23,28 @@ public class CtrlDataKakuroTest {
         try {
             Cella[][] board = ctrlDataKakuro.getData("kakuro-test.txt");
             Cella[][] correctBoard = {
-                    {new CellaNegra(), new CellaNegra(), new CellaNegra(0, 19), new CellaNegra(0, 12), new CellaNegra(), new CellaNegra(), new CellaNegra(), new CellaNegra(0, 7), new CellaNegra(0, 10)},
-                    {new CellaNegra(), new CellaNegra(14, 0), new CellaBlanca(), new CellaBlanca(), new CellaNegra(0, 4), new CellaNegra(0, 11), new CellaNegra(4, 17), new CellaBlanca(), new CellaBlanca()},
+                    {new CellaNegra(), new CellaNegra(), new CellaNegra(-1, 19), new CellaNegra(-1, 12), new CellaNegra(), new CellaNegra(), new CellaNegra(), new CellaNegra(-1, 7), new CellaNegra(-1, 10)},
+                    {new CellaNegra(), new CellaNegra(14, -1), new CellaBlanca(), new CellaBlanca(), new CellaNegra(-1, 4), new CellaNegra(-1, 11), new CellaNegra(4, 17), new CellaBlanca(), new CellaBlanca()},
                     {new CellaNegra(), new CellaNegra(36, 7), new CellaBlanca(), new CellaBlanca(), new CellaBlanca(), new CellaBlanca(), new CellaBlanca(), new CellaBlanca(), new CellaBlanca()},
-                    {new CellaNegra(12,0), new CellaBlanca(), new CellaBlanca(), new CellaNegra(10,0), new CellaBlanca(), new CellaBlanca(), new CellaBlanca(), new CellaNegra(0,25), new CellaNegra(0, 14)},
-                    {new CellaNegra(3,0), new CellaBlanca(), new CellaBlanca(), new CellaNegra(0,20), new CellaNegra(20,11), new CellaBlanca(), new CellaBlanca(), new CellaBlanca(), new CellaBlanca()},
-                    {new CellaNegra(17,0), new CellaBlanca(), new CellaBlanca(), new CellaBlanca(), new CellaBlanca(), new CellaNegra(0,8), new CellaNegra(6,0), new CellaBlanca(), new CellaBlanca()},
-                    {new CellaNegra(), new CellaNegra(0, 11), new CellaNegra(13, 7), new CellaBlanca(), new CellaBlanca(), new CellaBlanca(), new CellaNegra(10, 4), new CellaBlanca(), new CellaBlanca()},
-                    {new CellaNegra(28,0), new CellaBlanca(), new CellaBlanca(), new CellaBlanca(), new CellaBlanca(), new CellaBlanca(), new CellaBlanca(), new CellaBlanca(), new CellaNegra()},
-                    {new CellaNegra(6,0), new CellaBlanca(), new CellaBlanca(), new CellaNegra(), new CellaNegra(), new CellaNegra(8,0), new CellaBlanca(), new CellaBlanca(), new CellaNegra()},
+                    {new CellaNegra(12,-1), new CellaBlanca(), new CellaBlanca(), new CellaNegra(10,-1), new CellaBlanca(), new CellaBlanca(), new CellaBlanca(), new CellaNegra(-1,25), new CellaNegra(-1, 14)},
+                    {new CellaNegra(3,-1), new CellaBlanca(), new CellaBlanca(), new CellaNegra(-1,20), new CellaNegra(20,11), new CellaBlanca(), new CellaBlanca(), new CellaBlanca(), new CellaBlanca()},
+                    {new CellaNegra(17,-1), new CellaBlanca(), new CellaBlanca(), new CellaBlanca(), new CellaBlanca(), new CellaNegra(-1,8), new CellaNegra(6,-1), new CellaBlanca(), new CellaBlanca()},
+                    {new CellaNegra(), new CellaNegra(-1, 11), new CellaNegra(13, 7), new CellaBlanca(), new CellaBlanca(), new CellaBlanca(), new CellaNegra(10, 4), new CellaBlanca(), new CellaBlanca()},
+                    {new CellaNegra(28,-1), new CellaBlanca(), new CellaBlanca(), new CellaBlanca(), new CellaBlanca(), new CellaBlanca(), new CellaBlanca(), new CellaBlanca(), new CellaNegra()},
+                    {new CellaNegra(6,-1), new CellaBlanca(), new CellaBlanca(), new CellaNegra(), new CellaNegra(), new CellaNegra(8,-1), new CellaBlanca(), new CellaBlanca(), new CellaNegra()},
             };
 
-            for (int i = 0; i < 9; ++i) {
-                assertArrayEquals(board[i], correctBoard[i]);
+            assertEquals(board.length, correctBoard.length);
+            assertEquals(board[0].length, board[0].length);
+
+            for (int i = 0; i < board.length; ++i) {
+                for (int j = 0; j < board[0].length; ++j) {
+                    if (board[i][j].color() == 0) assertEquals(board[i][j].getValor_blanca(), correctBoard[i][j].getValor_blanca());
+                    if (board[i][j].color() == 1) {
+                        assertEquals(board[i][j].getValorDret(), correctBoard[i][j].getValorDret());
+                        assertEquals(board[i][j].getValorEsquerre(), correctBoard[i][j].getValorEsquerre());
+                    }
+                }
             }
 
         } catch (IOException e) {
