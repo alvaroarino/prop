@@ -17,6 +17,12 @@ public class CellaNegra extends Cella{
         valorEsquerre = -1;
     }
 
+    /**
+     * Instantiates a new Cella negra.
+     *
+     * @param dreta    the dreta
+     * @param esquerra the esquerra
+     */
     public CellaNegra(int dreta, int esquerra) {
         super.Cella();
         valorDret = dreta;

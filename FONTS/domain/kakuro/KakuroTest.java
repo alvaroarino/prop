@@ -27,6 +27,12 @@ public class KakuroTest {
         kk.board.print();
         assertTrue(kk.board.getDimm() == m && kk.board.getDimn() == n);
     }
+
+    /**
+     * Test solver.
+     *
+     * @throws IOException the io exception
+     */
     @Test
     public void testSolver() throws IOException {
         CtrlDataKakuro ctrlDataKakuro = CtrlDataKakuro.getInstance();

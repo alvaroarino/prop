@@ -31,9 +31,19 @@ public class Cella {
     }
 
 
+    /**
+     * Set valor fila n.
+     *
+     * @param val the val
+     */
     public void SetValorFilaN (int val) {}
 
 
+    /**
+     * Set valor col n.
+     *
+     * @param val the val
+     */
     public void SetValorColN (int val) {}
 
 

@@ -9,6 +9,9 @@ import java.io.*;
 import java.util.NoSuchElementException;
 import java.util.Scanner;
 
+/**
+ * The type Ctrl data kakuro.
+ */
 public class CtrlDataKakuro {
     private static CtrlDataKakuro singletonObject;
 
@@ -31,10 +34,10 @@ public class CtrlDataKakuro {
     /**
      * Obtenir les dades del fitxer d'usuaris.
      *
+     * @param filename the filename
      * @return the data
      * @throws IOException the io exception
      */
-
     public Cella[][] getData2(String filename) throws IOException {
         File file = null;
         Cella[][] board = null;
@@ -109,6 +112,13 @@ public class CtrlDataKakuro {
         return board;
     }
 
+    /**
+     * Get data cella [ ] [ ].
+     *
+     * @param filename the filename
+     * @return the cella [ ] [ ]
+     * @throws IOException the io exception
+     */
     public Cella[][] getData(String filename) throws IOException {
         File file = null;
         Cella grid[][] = null;

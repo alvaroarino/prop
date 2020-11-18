@@ -6,6 +6,7 @@ import java.util.UUID;
 
 /**
  * The type Usuari.
+ *
  * @author Alvaro Ariño Cabau
  */
 public class Usuari {

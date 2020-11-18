@@ -37,6 +37,11 @@ public class Tauler {
 
     }
 
+    /**
+     * Sets tauler.
+     *
+     * @param cjt the cjt
+     */
     public void setTauler(Cella[][] cjt) {
         CjtCelles = cjt;
     }
@@ -203,6 +208,14 @@ public class Tauler {
 
     }
 
+    /**
+     * Presente fila col boolean.
+     *
+     * @param aleat the aleat
+     * @param i     the
+     * @param j     the j
+     * @return the boolean
+     */
     public boolean presenteFilaCol(int aleat, int i, int j) {
         for (int x = 1; x < j; ++x) {
             if (CjtCelles[i][x].color() == 0)
@@ -289,6 +302,9 @@ public class Tauler {
         }
     }
 
+    /**
+     * Solucionar.
+     */
     public void solucionar(){
         long startTime = System.nanoTime();
         if(solBacktracking(this.CjtCelles, 0, 0)) {
@@ -306,6 +322,14 @@ public class Tauler {
         }
     }
 
+    /**
+     * Sol backtracking boolean.
+     *
+     * @param board the board
+     * @param fila  the fila
+     * @param col   the col
+     * @return the boolean
+     */
     public static boolean solBacktracking(Cella[][] board, int fila, int col) {
         final int nFila = board.length;
         final int nCol = board[0].length;
@@ -396,7 +420,6 @@ public class Tauler {
         }
         return true;
     }
-
 
 
     /**

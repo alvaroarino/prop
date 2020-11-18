@@ -9,6 +9,7 @@ import java.io.Reader;
 
 /**
  * The type Ctr usuaris data.
+ *
  * @author Alvaro Ariño Cabau
  */
 public class CtrUsuarisData {
