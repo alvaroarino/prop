@@ -25,10 +25,7 @@
     </select>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7bc9ef9f-20b2-4ace-875a-4447b6f320a2" name="Default Changelist" comment="Get data Kakuro">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FONTS/domain/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/FONTS/domain/index.html" afterDir="false" />
-    </list>
+    <list default="true" id="7bc9ef9f-20b2-4ace-875a-4447b6f320a2" name="Default Changelist" comment="Get data Kakuro" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -192,7 +189,14 @@
       <option name="project" value="LOCAL" />
       <updated>1605709856833</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="Web changes">
+      <created>1605710833856</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1605710833856</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -225,7 +229,8 @@
     <MESSAGE value="Changes on libraries" />
     <MESSAGE value="Get data Kakuro" />
     <MESSAGE value="Changes" />
-    <option name="LAST_COMMIT_MESSAGE" value="Changes" />
+    <MESSAGE value="Web changes" />
+    <option name="LAST_COMMIT_MESSAGE" value="Web changes" />
   </component>
   <component name="WindowStateProjectService">
     <state x="184" y="99" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1605691395914">
@@ -266,9 +271,10 @@
     <state x="176" y="25" width="1024" height="831" key="SettingsEditor/0.25.1440.831@0.25.1440.831" timestamp="1605691879082" />
     <state x="176" y="25" key="SettingsEditor/0.25.1440.832@0.25.1440.832" timestamp="1605692077120" />
     <state x="239" y="41" width="1024" height="852" key="SettingsEditor/72.27.1368.873@72.27.1368.873" timestamp="1605690402892" />
-    <state x="294" y="189" width="800" height="535" key="Vcs.Push.Dialog.v2" timestamp="1605709862597">
-      <screen x="0" y="25" width="1440" height="832" />
+    <state x="294" y="189" width="800" height="535" key="Vcs.Push.Dialog.v2" timestamp="1605710837025">
+      <screen x="0" y="25" width="1440" height="831" />
     </state>
+    <state x="294" y="189" key="Vcs.Push.Dialog.v2/0.25.1440.831@0.25.1440.831" timestamp="1605710837025" />
     <state x="294" y="189" key="Vcs.Push.Dialog.v2/0.25.1440.832@0.25.1440.832" timestamp="1605709862597" />
     <state x="351" y="199" width="800" height="535" key="Vcs.Push.Dialog.v2/72.27.1368.873@72.27.1368.873" timestamp="1605690428068" />
     <state x="369" y="342" width="646" height="220" key="com.intellij.jarRepository.RepositoryAttachDialog-DOWNLOAD" timestamp="1605692015894">
