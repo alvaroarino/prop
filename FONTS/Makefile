@@ -1,5 +1,5 @@
 #
-# Makefile created at Wed Nov 18 09:56:48 2020, by mmake
+# Makefile created at Wed Nov 18 10:15:49 2020, by mmake
 #
 
 # Programs (with common options):
@@ -104,13 +104,13 @@ endif
 
 # Packages we should compile
 PACKAGES = \
-	dades \
-	domain.usuari \
-	domaincontrollers \
 	domain.estadisitica \
 	domain.cella \
+	domain.kakuro \
+	domain.usuari \
+	domaincontrollers \
 	domain.partida \
-	domain.kakuro
+	dades
 
 
 # All packages that can be recursively compiled.
@@ -406,11 +406,11 @@ endif
 
 #package targets
 domain : $(call PACKAGE_OBJS,domain)
-dades : $(call PACKAGE_OBJS,dades)
-domain.usuari : $(call PACKAGE_OBJS,domain.usuari)
-domaincontrollers : $(call PACKAGE_OBJS,domaincontrollers)
 domain.estadisitica : $(call PACKAGE_OBJS,domain.estadisitica)
 domain.cella : $(call PACKAGE_OBJS,domain.cella)
-domain.partida : $(call PACKAGE_OBJS,domain.partida)
 domain.kakuro : $(call PACKAGE_OBJS,domain.kakuro)
+domain.usuari : $(call PACKAGE_OBJS,domain.usuari)
+domaincontrollers : $(call PACKAGE_OBJS,domaincontrollers)
+domain.partida : $(call PACKAGE_OBJS,domain.partida)
+dades : $(call PACKAGE_OBJS,dades)
 

@@ -84,34 +84,10 @@ public class Usuari {
     /**
      * Add profile.
      *
-     * @throws UserExcepcion the user excepcion
+     * @throws UserException the user excepcion
      */
-    public void addProfile() throws UserExcepcion {
-        if (_username.equals("")) throw new UserExcepcion(getId());
+    public void addProfile() throws UserException {
+        if (_username.equals("")) throw new UserException(getId());
         this._perfils.add(new Perfil(this._nom));
-    }
-}
-
-/**
- * The type User excepcion.
- */
-class UserExcepcion extends Exception {
-    /**
-     * The Username.
-     */
-    public String username;
-
-    /**
-     * Instantiates a new User excepcion.
-     *
-     * @param s the s
-     */
-    public UserExcepcion(String s) {
-        super("Error en el usuario " + s + ", username es null");
-        username = s;
-    }
-
-    public String toString() {
-        return "Expeción de usuario: " + username;
     }
 }
