@@ -7,7 +7,7 @@ import java.util.Scanner;
 public class KakuroDriver {
     public static void main(String[] args) {
         System.out.println("Driver de la classe Kakuro");
-        Kakuro kakuro = new Kakuro();
+
 
 
 
@@ -24,6 +24,7 @@ public class KakuroDriver {
             boolean fi = false;
             while (!fi){
 
+                Kakuro kakuro = new Kakuro();
                 String linea, opcion;
                 String [] entrada;
                 linea = b.readLine();
