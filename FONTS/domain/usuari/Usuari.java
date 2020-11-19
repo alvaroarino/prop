@@ -5,12 +5,12 @@ import java.util.ArrayList;
 import java.util.UUID;
 
 public class Usuari {
-    String _id;
-    String _nom;
-    String _username;
-    String _password;
+    private String _id;
+    private String _nom;
+    private String _username;
+    private String _password;
 
-    ArrayList<Perfil> _perfils;
+    private ArrayList<Perfil> _perfils;
 
     Usuari() {
         _nom = "";
@@ -28,11 +28,17 @@ public class Usuari {
     public String getId() {
         return _id;
     }
+    public String getNom() {
+        return _nom;
+    }
+    public String getUsername() {
+        return _username;
+    }
+    public int getNumPerfils() { return _perfils.size();}
 
     public void setName(String name) {
         this._nom = name;
     }
-
     public void setPass(String pass) {
         this._password = pass;
     }
