@@ -1,0 +1,12 @@
+El joc de proves seguent consta de les seguents parts:
+* Opcio de entrada:
+    * Entrada de la opcio
+    * Sortida esperada
+
+Si el valor de sortida conte [], la sortida s'haura d'adequar a l'explicacio de [l'interior].
+** A les nostres proves em fet una execucio sequencial de les opcions.
+
+JOC DE PROVES DRIVER Controlador de Dades Usuari:
+1:
+    Entrada: -
+    Sortida: Les dades d'usuaris disponibles a users.json

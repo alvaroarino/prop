@@ -29,7 +29,7 @@ public class CtrlDataKakuro {
     public Cella[][] getData(String filename) throws IOException {
         Cella[][] board;
 
-        String fileRoute = System.getProperty("user.dir") + File.separator + "FONTS" + File.separator + "data-files" + File.separator + filename;
+        String fileRoute = System.getProperty("user.dir") + File.separator + "data-files" + File.separator + filename;
 
         Path path = Paths.get(fileRoute);
         String content = Files.readString(path);

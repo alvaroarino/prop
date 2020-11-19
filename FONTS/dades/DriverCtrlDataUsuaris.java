@@ -6,13 +6,14 @@ import java.io.InputStreamReader;
 public class DriverCtrlDataUsuaris {
     public static void main(String[] args) {
         System.out.println("Driver de la classe del controlador de Dades d'Usuari");
+        System.out.println("Actualement només es pot llegir dades");
         try {
             CtrlDataUsuaris userData = CtrlDataUsuaris.getInstance();
             BufferedReader b = new BufferedReader(new InputStreamReader(System.in));
 
             System.out.println("Introdueix una opció i els paràmetres corresponents:");
+            System.out.println("0. Sortir del driver");
             System.out.println("1. getData()");
-            System.out.println("2. writeData()");
 
             boolean fi = false;
             while (!fi){
@@ -33,17 +34,11 @@ public class DriverCtrlDataUsuaris {
                         case "1":
                             String data = userData.getData();
                             System.out.print("Les dades obtenides són: ");
-                            System.out.print(data);
+                            System.out.println(data);
                             if (data.equals("")) throw new Exception("Les dades llegides són buides");
                             break;
-                        case "2":
-                            inputData = x[1];
-                            userData.writeData();
-                            String newData = userData.getData();
-                            if (newData.equals(inputData)) throw new Exception("Les dades no s'han registrat.");
-                            break;
                         default:
-                            System.out.println(op+" no és una opció");
+                            System.out.println(op + " no és una opció");
                     }
                 }
                 catch (Exception e){
