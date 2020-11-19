@@ -5,6 +5,7 @@ import domain.cella.CellaBlanca;
 import domain.cella.CellaNegra;
 import domain.cella.ColorCella;
 
+import javax.print.CancelablePrintJob;
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.Random;
@@ -44,6 +45,14 @@ public class Tauler {
         return dimn;
     }
 
+    /*public boolean posValidaGran(int i, int j) {
+        if(CjtCelles[i-1][j].color() == ColorCella.Blanca) {
+            if(i > 1 && CjtCelles[i-2][j].color() != ColorCella.Blanca) {
+                return false;
+            }
+        }
+        if(CjtCelles[i])
+    }*/
     /*
 
     Aquesta funcio comproba si una casella és valida per assignar-li una negra.
@@ -54,11 +63,19 @@ public class Tauler {
         //Si devuelve 0, es blanca
 
         if (CjtCelles[i - 1][j].color() == ColorCella.Blanca) {
-            if (i > 2 && CjtCelles[i - 2][j].color() == ColorCella.Negra) return false;
+            if (i >= 2 && CjtCelles[i - 2][j].color() == ColorCella.Negra) return false;
+        }
+
+        if (i < dimn-1 && CjtCelles[i+1][j].color() == ColorCella.Blanca) {
+            if (i < dimn-2 && CjtCelles[i+2][j].color() == ColorCella.Negra) return false;
         }
 
         if (CjtCelles[i][j - 1].color() == ColorCella.Blanca) {
             return j <= 2 || CjtCelles[i][j - 2].color() != ColorCella.Negra;
+        }
+
+        if (j < dimm-1 && CjtCelles[i][j+1].color() == ColorCella.Blanca) {
+            if (j < dimm-2 && CjtCelles[i][j+2].color() == ColorCella.Negra) return false;
         }
 
         return true;
@@ -86,16 +103,33 @@ public class Tauler {
         Random aleat = new Random();
         if(dimn > 9 || dimm > 9) {
             int length;
-            for(int i = 1; i < dimn; ++i) {
+            for(int i = 0; i < dimn; ++i) {
                 length = 0;
-                for(int j = 1; j < dimm; ++j) {
+                for(int j = 0; j < dimm; ++j) {
                     if(CjtCelles[i][j].color() == ColorCella.Blanca) {
                         ++length;
                     }
-                    else
+                    else {
                         length = 0;
+                    }
                     if(length > 9) {
                         CjtCelles[i][j] = new CellaNegra();
+                        length = 0;
+                    }
+
+                }
+            }
+            for (int i = 0; i < dimm; ++i) {
+                length = 0;
+                for (int j = 0; j < dimn; ++j) {
+                    if(CjtCelles[j][i].color() == ColorCella.Blanca) {
+                        ++length;
+                    }
+                    else{
+                        length = 0;
+                    }
+                    if(length > 9) {
+                        CjtCelles[j][i] = new CellaNegra();
                         length = 0;
                     }
                 }
@@ -128,77 +162,98 @@ public class Tauler {
         return aleat.nextInt(9) + 1;
     }
 
-    public boolean presente_fila(int aleat, int i, int j) {
-        for (int x = 1; x < j; ++x)
-            if (CjtCelles[i][x].color() == ColorCella.Blanca)
-                if (CjtCelles[i][x].getValor_blanca() == aleat) return true;
-        return false;
-    }
-
-
-    public boolean presente_col(int aleat, int i, int j) {
-        for (int x = 1; x < i; ++x) {
-            if (CjtCelles[x][j].color() == ColorCella.Blanca)
-                if (CjtCelles[x][j].getValor_blanca() == aleat) {
-                    return true;
+    public boolean noPresenteCol(int valor, int i, int j) {
+        for(int x = j; x > 0; --x) {
+            if(CjtCelles[i][x].color() == ColorCella.Blanca) {
+                if(CjtCelles[i][x].getValor_blanca() == valor) {
+                    return false;
                 }
-            else
-                return false;
+            }
+            else {
+                return true;
+            }
         }
-        return false;
-
+        return true;
     }
 
-    public boolean presenteFilaCol(int aleat, int i, int j) {
-        for (int x = 1; x < j; ++x) {
-            if (CjtCelles[i][x].color() == ColorCella.Blanca)
-                if (CjtCelles[i][x].getValor_blanca() == aleat) return true;
+    public boolean noPresenteCol1(int valor, int fila, int col) {  //false si esta, true si no esta
+        int tempF = fila;
+        int tempC = col;
+        while (tempF > 0 && CjtCelles[tempF-1][col].color() != ColorCella.Negra) --tempF;
+        while (tempF < dimn && CjtCelles[tempF][col].color() != ColorCella.Negra) {
+            if(tempF != fila && CjtCelles[tempF][col].getValor_blanca() == valor) return true;
+            ++tempF;
         }
-        for (int y = 1; y < i; ++y) {
-            if (CjtCelles[y][j].color() == ColorCella.Blanca)
-                if (CjtCelles[y][j].getValor_blanca() == aleat) return true;
+        while (tempC > 0 && CjtCelles[fila][tempC-1].color() != ColorCella.Negra) --tempC;
+        while (tempC < dimm && CjtCelles[fila][tempC].color() != ColorCella.Negra) {
+            if(tempC != col && CjtCelles[fila][tempC].getValor_blanca() == valor) return true;
+            ++tempC;
         }
         return false;
     }
 
+    public boolean rellenar_blancas1() {
+        int aux;
+        boolean[] possibles = new boolean[9];
+        for(int k = 0; k < 9; ++k) {
+            possibles[k] = true;
+        }
+        Random aleat = new Random();
+        for(int i = 0; i < dimn; ++i) {
+            for(int j = 0; j < dimm; ++j) {
+                if(CjtCelles[i][j].color() == ColorCella.Blanca) {
+                    aux = aleat.nextInt(9) + 1;
+                    CjtCelles[i][j].intro_valor_blanca(aux);
+                    while (noPresenteCol1(aux,i,j)) {
+                        possibles[aux-1] = false;
+                        if(!possibles[0] && !possibles[1] && !possibles[2] && !possibles[3] && !possibles[4] && !possibles[5] && !possibles[6] && !possibles[7] && !possibles[8]) {
+                            return false;
+                        }
+                        aux = aleat.nextInt(9) + 1;
+                        CjtCelles[i][j].intro_valor_blanca(aux);
+                    }
+                    for(int k = 0; k < 9; ++k) {
+                        possibles[k] = true;
+                    }
+                }
+            }
+        }
+        return true;
+    }
 
     public void rellenar_blancas() {
-        //Set<Set<Integer>>  set_deN = new HashSet<>(); // VALOR DEL KAKURO (nxm)
         int numAleat;
         int valor;
         Random aleat = new Random();
         for (int i = 1; i < dimn; ++i) {
-           // Set<Integer> fila = new HashSet<>();
-            ArrayList<Integer> candidats = new ArrayList<Integer>();  //x elementos
-            HashSet<Integer> visitats = new HashSet<Integer>();
+            ArrayList<Integer> candidats = new ArrayList<Integer>();
             for(int k=1; k<10; ++k){
                 candidats.add(k);
             }
-
+            int elements = candidats.size();
             for (int j = 1; j < dimm; ++j) {
                 if ((CjtCelles[i][j]).color() == ColorCella.Blanca) {
-                    numAleat = aleat.nextInt(candidats.size());         //numaleat 0-8
-                    valor = candidats.get(numAleat);                    //valor 1-9
-                    while(visitats.contains(valor) || presente_col(valor, i, j)) {
-                        if (numAleat >= candidats.size()-1) {
-                            numAleat = 0;
-                        } else {
-                            ++numAleat;
-                        }
+                    //numAleat = aleat.nextInt(elements);
+                    boolean presente = true;
+                    valor = -1;
+                    while(presente) {
+                        numAleat = aleat.nextInt(elements);
                         valor = candidats.get(numAleat);
-                        if (numAleat == (valor-1)) break;
+                        if(noPresenteCol(valor,i,j)) presente = false;
                     }
     
-                    /*while(presenteFilaCol(numAleat, i, j)) {
-                        //!presente_fila(numAleat,i,j ) && !presente_col(numAleat,i,j)
-                            numAleat = generar_aleatorios();
-                        }*/
+
                     CjtCelles[i][j].intro_valor_blanca(valor);
-                    visitats.add(valor);
+                    --elements;
     
                 }
-                else
-                    visitats.clear();
+                else {
+                    candidats.clear();
+                    for(int k=1; k<10; ++k){
+                        candidats.add(k);
+                    }
+                    elements = candidats.size();
+                }
             }
         }
     }
@@ -368,3 +423,4 @@ public class Tauler {
         }
     }
 }
+

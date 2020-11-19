@@ -14,8 +14,8 @@ public class Kakuro {
     public Kakuro() {
         aleat = new Random();
 
-        int n = aleat.nextInt(4)+4;
-        int m = aleat.nextInt(4)+4;
+        int n = aleat.nextInt(4)+9;
+        int m = aleat.nextInt(4)+9;
 
         board = new Tauler(n,m);
     }
@@ -26,9 +26,10 @@ public class Kakuro {
         int ca_negras = ((board.getDimn()* board.getDimm()) / 2) - minimo ;
 
         board.pintar_negras(ca_negras);
-        board.rellenar_blancas();
+        while (!board.rellenar_blancas1())
+            board.borrar_blancas();
         board.hacer_sumas();
-        //board.borrar_blancas();
+        board.borrar_blancas();
         board.print();
     }
 
@@ -38,9 +39,10 @@ public class Kakuro {
             return;
         }
         board.pintar_negras(negras);
-        board.rellenar_blancas();
+        while (!board.rellenar_blancas1())
+            board.borrar_blancas();
         board.hacer_sumas();
-        //board.borrar_blancas();
+        board.borrar_blancas();
         board.print();
     }
 
