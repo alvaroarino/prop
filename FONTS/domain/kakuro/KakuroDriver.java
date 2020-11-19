@@ -10,7 +10,7 @@ public class KakuroDriver {
     public static void main(String[] args) {
         System.out.println("Driver de la classe Kakuro");
         Scanner entrada = new  Scanner(System.in);
-        int n,m,negres, blanques;
+        int n, m, negres, blanques;
         System.out.println("Introdueix una dimensió, escriu primer el número de files n");
         n = Integer.parseInt(entrada.nextLine());
         System.out.println("Ara el número de columnes m");

@@ -4,7 +4,6 @@ import java.util.UUID;
 
 public class Perfil {
     UUID _idPerfil;
-
     String _nom;
 
     public Perfil() {
@@ -19,5 +18,9 @@ public class Perfil {
 
     public void setNom(String n) {
         this._nom = n;
+    }
+
+    public String getNom() {
+        return this._nom;
     }
 }

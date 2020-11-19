@@ -12,6 +12,7 @@ public class DriverUsuari {
             BufferedReader b = new BufferedReader(new InputStreamReader(System.in));
 
             System.out.println("Introdueix una opció i els paràmetres corresponents:");
+            System.out.println("0. Sortir del driver");
             System.out.println("1. Usuari()");
             System.out.println("2. Usuari(String nom, String username)");
 
@@ -32,7 +33,6 @@ public class DriverUsuari {
                 linea = b.readLine();
                 entrada = linea.split(" ");
                 opcion = entrada[0];
-                int e1, e2;
 
                 try {
                     System.out.println("Has seleccionat l'opció " + opcion);
@@ -58,7 +58,7 @@ public class DriverUsuari {
                                 }
                             }
                             user = new Usuari(nom, username);
-                            System.out.println("Usuario creat: " + user.getNom() + " " + user.getUsername());
+                            System.out.println("Usuari creat: " + user.getNom() + " " + user.getUsername());
                             break;
                         case "3":
                             System.out.println("L'ID de l'usuari actual es: " + user.getId());
