@@ -22,17 +22,12 @@ public class CtrlDataUsuaris {
     public String getData() throws IOException {
         Gson gson = new Gson();
 
-        try (Reader reader = new FileReader("FONTS/data-files/users.json")) {
+        try (Reader reader = new FileReader("data-files/users.json")) {
             // Convert JSON to JsonElement, and later to String
             JsonElement json = gson.fromJson(reader, JsonElement.class);
             String data = gson.toJson(json);
             System.out.println(data);
             return data;
-
         }
-    }
-
-    public String writeData() {
-        return "TODO: Implement the function writeData()";
     }
 }
