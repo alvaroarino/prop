@@ -33,12 +33,14 @@ public class Kakuro {
 
     public void generar_usuario(int n, int m, int negras, int blancas) {
         if (negras + blancas != (n*m)) { //Aviso de que está mal
+            System.out.println("La quantitat de caselles introduïdes no coincideix amb la dimensió escollida");
             return;
         }
         board.pintar_negras(negras);
         board.rellenar_blancas();
         board.hacer_sumas();
-        board.borrar_blancas();
+        //board.borrar_blancas();
+        board.print();
     }
 
     public Tauler getBoard() {
