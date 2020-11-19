@@ -50,6 +50,10 @@ public class KakuroDriver {
                             blanques = Integer.parseInt(intro.nextLine());
 
                             Kakuro kk = new Kakuro();
+                            if (negres + blanques != (n*m)) {
+                                System.out.println("La quantitat de caselles introduïdes no coincideix amb la dimensió escollida, selecciona una altra opció o introdueix de nou les dades");
+                                break;
+                            }
                             kk.generar_usuario(n, m, negres, blanques);
                             break;
 
