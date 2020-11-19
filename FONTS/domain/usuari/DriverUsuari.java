@@ -41,6 +41,7 @@ public class DriverUsuari {
                             fi = true;
                             break;
                         case "1":
+                            user = new Usuari();
                             System.out.println("Usuari creat: " + user.getNom() + " " + user.getUsername());
                             break;
                         case "2":
@@ -72,6 +73,7 @@ public class DriverUsuari {
                         case "6":
                             if (user.getNumPerfils() == 0) System.out.println("No hi ha perfils creats");
                             else System.out.println("Número de perfils creats: " + user.getNumPerfils());
+                            break;
                         case "7":
                             System.out.println("Introdueix el nou nom:");
                             String newNom = b.readLine();
