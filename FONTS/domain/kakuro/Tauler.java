@@ -1,4 +1,5 @@
 package domain.kakuro;
+
 import domain.cella.Cella;
 import domain.cella.CellaBlanca;
 import domain.cella.CellaNegra;
@@ -7,7 +8,6 @@ import domain.cella.ColorCella;
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.Random;
-import java.util.Set;
 
 public class Tauler {
 

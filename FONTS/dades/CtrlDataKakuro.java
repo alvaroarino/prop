@@ -3,15 +3,14 @@ package dades;
 import domain.cella.Cella;
 import domain.cella.CellaBlanca;
 import domain.cella.CellaNegra;
-import domain.cella.ColorCella;
 
-import java.io.*;
+import java.io.File;
+import java.io.IOException;
 import java.nio.charset.Charset;
 import java.nio.charset.StandardCharsets;
-import java.nio.file.Paths;
-import java.util.Arrays;
 import java.nio.file.Files;
 import java.nio.file.Path;
+import java.nio.file.Paths;
 
 public class CtrlDataKakuro {
     private static CtrlDataKakuro singletonObject;
