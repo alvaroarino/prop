@@ -35,3 +35,8 @@ descodificar fem ús d'aquesta clase
 
 ## Distribució de la feina
 ![image](DOCS/work_distribution.jpg)
+
+## Comentaris sobre l'entrega 1
+* El generador no acaba de funcionar bé quan el nombre de caselles és gran.
+* El solucionador a priori funciona bé però no identifica si hi ha més d'una solució.
+* Alguns drivers no els hem acabat de fer perquè no teníem molt clar com enfocar-los.
