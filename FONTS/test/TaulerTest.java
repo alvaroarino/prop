@@ -133,14 +133,35 @@ public class TaulerTest {
         assertTrue(nou.noPresenteCol(4,4,4) == true);
 
     }
-
     @Test
     public void testnoPresenteCol1() {
 
+        Tauler nou = new Tauler(8,8);
+        Cella[][] CjtCelles = new Cella[8][8];
+        nou.setTauler(CjtCelles);
+        CjtCelles[0][4] = new CellaNegra();
+
+        for(int i = 1; i < 8; ++i) {
+            if( i != 4) {
+                CellaBlanca cella = new CellaBlanca();
+                cella.intro_valor_blanca(i);
+                CjtCelles[i][4] = cella;
+            }
+            else {
+                CjtCelles[i][4] = new CellaBlanca();
+            }
+        }
+        assertTrue(nou.noPresenteCol1(4,4,4) == true);
+
     }
+
+
 
     @Test
     public void testrellenar_blancas1() {
+
+        Tauler t = new Tauler(8,8);
+
 
     }
 
@@ -153,23 +174,6 @@ public class TaulerTest {
     public void testsolucionar(){
 
     }
-
-
-
-
-    @Test
-    public void testprint() {
-
-
-
-
-
-    }
-
-
-
-
-
 
 
 

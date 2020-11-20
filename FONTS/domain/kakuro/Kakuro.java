@@ -39,10 +39,10 @@ public class Kakuro {
             return;
         }
         board.pintar_negras(negras);
-        while (!board.rellenar_blancas1())
-            board.borrar_blancas();
-        board.hacer_sumas();
-        board.borrar_blancas();
+        //  while (!board.rellenar_blancas1())
+          //  board.borrar_blancas();
+        //board.hacer_sumas();
+        //board.borrar_blancas();
         board.print();
     }
 

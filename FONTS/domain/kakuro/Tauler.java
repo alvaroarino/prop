@@ -105,6 +105,28 @@ public class Tauler {
     public void pintar_negras(int cantidad) {
         //int contador_blancas = 0;
         Random aleat = new Random();
+
+
+        for (int i = 1; i < dimn; ++i) {
+            for (int j = 1; j < dimm; ++j) {
+                int n = aleat.nextInt(dimm);
+                if (posValida(i, j)) {
+                    if (n == j) cantidad = pintar_celda(i, j, cantidad);
+                    /*else {
+                        ++contador_blancas;
+                    }*/
+
+                    /*if (contador_blancas > 9) {
+                        cantidad = pintar_celda(i, j, cantidad);
+                        contador_blancas = 0;
+                    }*/
+
+                    if ((i >= dimn / 2) && (j >= dimn / 2) && cantidad >= (dimn * dimm)) {
+                        cantidad = pintar_celda(i, j, cantidad);
+                    }
+                }
+            }
+        }
         if(dimn > 9 || dimm > 9) {
             int length;
             for (int i = 0; i < dimn; ++i) {
@@ -135,27 +157,6 @@ public class Tauler {
                     if (length > 9) {
                         CjtCelles[j][i] = new CellaNegra();
                         length = 0;
-                    }
-                }
-            }
-        }
-
-        for (int i = 1; i < dimn; ++i) {
-            for (int j = 1; j < dimm; ++j) {
-                int n = aleat.nextInt(dimm);
-                if (posValida(i, j)) {
-                    if (n == j) cantidad = pintar_celda(i, j, cantidad);
-                    /*else {
-                        ++contador_blancas;
-                    }*/
-
-                    /*if (contador_blancas > 9) {
-                        cantidad = pintar_celda(i, j, cantidad);
-                        contador_blancas = 0;
-                    }*/
-
-                    if ((i >= dimn / 2) && (j >= dimn / 2) && cantidad >= (dimn * dimm)) {
-                        cantidad = pintar_celda(i, j, cantidad);
                     }
                 }
             }
@@ -215,9 +216,11 @@ public class Tauler {
                         aux = aleat.nextInt(9) + 1;
                         CjtCelles[i][j].intro_valor_blanca(aux);
                     }
-                    for(int k = 0; k < 9; ++k) {
-                        possibles[k] = true;
-                    }
+
+                }
+
+                for(int k = 0; k < 9; ++k) {
+                    possibles[k] = true;
                 }
             }
         }
