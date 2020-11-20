@@ -15,6 +15,11 @@ public class Tauler {
     private Cella[][] CjtCelles; // Conjunt de cel·les
     private final int dimn, dimm;
 
+    public Tauler(){
+        dimn = 0;
+        dimm = 0;
+    }
+
     public Tauler(int n, int m) {
 
         dimn = n;
@@ -257,7 +262,7 @@ public class Tauler {
         }
     }
 
-    public static boolean solBacktracking(Cella[][] board, int fila, int col) {
+    private static boolean solBacktracking(Cella[][] board, int fila, int col) {
         final int nFila = board.length;
         final int nCol = board[0].length;
 

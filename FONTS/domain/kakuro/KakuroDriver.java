@@ -19,8 +19,7 @@ public class KakuroDriver {
             System.out.println("1. Generar Kakuro amb paràmetres d'usuari");
             System.out.println("2. Generar Kakuro aleatori");
             System.out.println("3. Solucionar Kakuro (fitxer data-files/kakuro-test.txt");
-            System.out.println("Per utilitzar la següent opció es necesari haver usat l'opció 1 o 2 previament");
-            System.out.println("4. Solucionar Kakuro");
+
 
             boolean fi = false;
             while (!fi) {
@@ -69,10 +68,6 @@ public class KakuroDriver {
                             Kakuro kak = new Kakuro(tauler.length, tauler[0].length);
                             kak.getBoard().setTauler(tauler);
                             kak.getBoard().solucionar();
-                            break;
-                        case "4":
-                            if (kakuro.getBoard() == null) throw new Exception("Tauler no generat");
-                            kakuro.getBoard().solucionar();
                             break;
                         default:
                             System.out.println(opcion + " no és una opció");
