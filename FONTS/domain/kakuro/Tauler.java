@@ -180,20 +180,38 @@ public class Tauler {
         return true;
     }
 
-    public boolean noPresenteCol1(int valor, int fila, int col) {  // false si esta, true si no esta
-        int tempF = fila;
-        int tempC = col;
-        while (tempF > 0 && CjtCelles[tempF-1][col].color() != ColorCella.Negra) --tempF;
-        while (tempF < dimn && CjtCelles[tempF][col].color() != ColorCella.Negra) {
-            if(tempF != fila && CjtCelles[tempF][col].getValor_blanca() == valor) return true;
-            ++tempF;
+    public boolean noPresente(int valor, int fila, int col) {  // false si esta, true si no esta
+
+        //Mira casella esquerra
+        int d;
+        d = col - 1;
+         while(d >0  && CjtCelles[fila][d].color() !=ColorCella.Negra) {
+             if(CjtCelles[fila][d].color() == ColorCella.Blanca && CjtCelles[fila][d].getValor_blanca() == valor) return true;
+             --d;
+         }
+        //Mira casella dreta
+         d= col+1;
+         while(d < dimm  && CjtCelles[fila][d].color() !=ColorCella.Negra) {
+             if(CjtCelles[fila][d].color() == ColorCella.Blanca && CjtCelles[fila][d].getValor_blanca() == valor) return true;
+             ++d;
+         }
+
+        //Mira casella d'adalt
+        d = fila - 1;
+        while(d >0   && CjtCelles[d][col].color() !=ColorCella.Negra ) {
+            if(CjtCelles[d][col].color() == ColorCella.Blanca && CjtCelles[d][col].getValor_blanca() == valor) return true;
+            --d;
         }
-        while (tempC > 0 && CjtCelles[fila][tempC-1].color() != ColorCella.Negra) --tempC;
-        while (tempC < dimm && CjtCelles[fila][tempC].color() != ColorCella.Negra) {
-            if(tempC != col && CjtCelles[fila][tempC].getValor_blanca() == valor) return true;
-            ++tempC;
+        //Mira casella d'adalt
+        d= fila+1;
+        while(d < dimn && CjtCelles[d][col].color() !=ColorCella.Negra) {
+            if(CjtCelles[d][col].color() == ColorCella.Blanca && CjtCelles[d][col].getValor_blanca() == valor) return true;
+            ++d;
         }
+
         return false;
+
+
     }
 
     public boolean rellenar_blancas1() {
@@ -208,7 +226,7 @@ public class Tauler {
                 if(CjtCelles[i][j].color() == ColorCella.Blanca) {
                     aux = aleat.nextInt(9) + 1;
                     CjtCelles[i][j].intro_valor_blanca(aux);
-                    while (noPresenteCol1(aux,i,j)) {
+                    while (noPresente(aux,i,j)) {
                         possibles[aux-1] = false;
                         if(!possibles[0] && !possibles[1] && !possibles[2] && !possibles[3] && !possibles[4] && !possibles[5] && !possibles[6] && !possibles[7] && !possibles[8]) {
                             return false;

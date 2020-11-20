@@ -133,7 +133,9 @@ public class TaulerTest {
         assertTrue(nou.noPresenteCol(4,4,4) == true);
 
     }
-    @Test
+
+    /*
+     @Test
     public void testnoPresenteCol1() {
 
         Tauler nou = new Tauler(8,8);
@@ -154,7 +156,7 @@ public class TaulerTest {
         assertTrue(nou.noPresenteCol1(4,4,4) == true);
 
     }
-
+*/
 
 
     @Test
