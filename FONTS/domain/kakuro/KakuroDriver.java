@@ -29,14 +29,16 @@ public class KakuroDriver {
                 linea = b.readLine();
                 entrada = linea.split(" ");
                 opcion = entrada[0];
+                Kakuro kakuro = new Kakuro();
                 try {
-                    Kakuro kakuro = new Kakuro();
+                   // Kakuro kakuro = new Kakuro();
                     System.out.println("Has seleccionat l'opció " + opcion);
                     switch (opcion){
                         case "0":
                             fi = true;
                             break;
                         case "1":
+                            //Kakuro kakuro = new Kakuro();
                             Scanner intro = new Scanner(System.in);
                             int n, m, negres, blanques;
                             System.out.println("Introdueix una dimensió, escriu primer el número de files n");
@@ -55,10 +57,12 @@ public class KakuroDriver {
                             kakuro = new Kakuro(n,m);
                             kakuro.generar_usuario(n, m, negres, blanques);
                             break;
-                        case "2":
+                        case "2": {
                             kakuro.generar();
                             System.out.println("S'ha creat un Kakuro de forma al·leatòria");
                             break;
+                        }
+
                         case "3":
                             CtrlDataKakuro ctrlDataKakuro = CtrlDataKakuro.getInstance();
                             Cella[][] tauler = ctrlDataKakuro.getData("kakuro-test.txt");

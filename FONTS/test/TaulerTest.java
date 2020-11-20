@@ -113,105 +113,75 @@ public class TaulerTest {
     }
 
     @Test
-    public void testnoPresenteCol() {
+    public void testnoPresente() {
+        Tauler t = new Tauler(3,3);
+        t.getCella(1,1).intro_valor_blanca(5);
+        t.getCella(2,2).intro_valor_blanca(4);
 
-        Tauler nou = new Tauler(8,8);
-        Cella[][] CjtCelles = new Cella[8][8];
-        nou.setTauler(CjtCelles);
-        CjtCelles[0][4] = new CellaNegra();
+       boolean cont1 = t.noPresente(4,1,2);
+       boolean cont2 = t.noPresente(5,2,1);
+        boolean cont3 = t.noPresente(6,2,1);
 
-        for(int i = 1; i < 8; ++i) {
-            if( i != 4) {
-                CellaBlanca cella = new CellaBlanca();
-                cella.intro_valor_blanca(i);
-                CjtCelles[i][4] = cella;
-            }
-            else {
-                CjtCelles[i][4] = new CellaBlanca();
-            }
-        }
-        assertTrue(nou.noPresenteCol(4,4,4) == true);
+        assertTrue(cont1 == true );
+        assertTrue(cont2 == true );
+        assertTrue(cont3 != true );
+
 
     }
-
-    /*
-     @Test
-    public void testnoPresenteCol1() {
-
-        Tauler nou = new Tauler(8,8);
-        Cella[][] CjtCelles = new Cella[8][8];
-        nou.setTauler(CjtCelles);
-        CjtCelles[0][4] = new CellaNegra();
-
-        for(int i = 1; i < 8; ++i) {
-            if( i != 4) {
-                CellaBlanca cella = new CellaBlanca();
-                cella.intro_valor_blanca(i);
-                CjtCelles[i][4] = cella;
-            }
-            else {
-                CjtCelles[i][4] = new CellaBlanca();
-            }
-        }
-        assertTrue(nou.noPresenteCol1(4,4,4) == true);
-
-    }
-*/
-
 
     @Test
     public void testrellenar_blancas1() {
 
-        Tauler t = new Tauler(8,8);
+        Tauler t = new Tauler(3,3);
 
+        t.rellenar_blancas1();
+
+        int valor1 = t.getCella(1,1).getValor_blanca();
+        int valor2 = t.getCella(1,2).getValor_blanca();
+        int valor3 = t.getCella(2,1).getValor_blanca();
+        int valor4 = t.getCella(2,2).getValor_blanca();
+
+        assertTrue(valor1 != valor2  );
+        assertTrue(valor1 != valor3  );
+        assertTrue(valor2 != valor4  );
+        assertTrue(valor3 != valor4  );
 
     }
 
     @Test
     public void testhacer_sumas() {
 
-        Tauler nou = new Tauler(3,3);
+        Tauler t = new Tauler(3,3);
+        t.getCella(1,1).intro_valor_blanca(2);
+        t.getCella(1,2).intro_valor_blanca(3);
+        t.getCella(2,1).intro_valor_blanca(4);
+        t.getCella(2,2).intro_valor_blanca(5);
 
+        t.hacer_sumas();
 
+        assertTrue(t.getCella(0,1).getValorEsquerre() == 6 );
+        assertTrue(t.getCella(0,2).getValorEsquerre() == 8 );
+        assertTrue(t.getCella(1,0).getValorDret() == 5  );
+        assertTrue(t.getCella(2,0).getValorDret() == 9 );
 
-        Cella[][] CjtCelles = new Cella[3][3];
-
-
-        CellaNegra cel = new CellaNegra();
-        for(int i = 0; i < 3; ++i)  CjtCelles[i][0] = cel;
-
-        for(int x = 0; x < 3; ++x)
-            CjtCelles[0][x] = cel;
-
-        cel.setValorColumna(4);
-                CjtCelles[0][1] = cel;
-                cel.setValorColumna(6);
-                        CjtCelles[0][2]  = cel;
-            CellaNegra a = new CellaNegra();
-            a.setValorFila(5);
-                                CjtCelles[1][0] =a;
-                                a.setValorFila(5);
-                                        CjtCelles[2][0] =a;
-
-
-        for(int i = 1; i < 3; ++i) {
-            for(int j = 1; j < 3; ++j) {
-                CellaBlanca cella = new CellaBlanca();
-
-                if(i == 1 && j == 1)  cella.intro_valor_blanca(3);
-                if(i == 1 && j == 2) cella.intro_valor_blanca(2);
-                if(i == 2 && j == 1) cella.intro_valor_blanca(1);
-                if(i == 2 && j == 2) cella.intro_valor_blanca(4);
-                CjtCelles[i][j] = cella;
-
-            }
-        }
-
-       // assertTrue(nou.hacer_sumas());
     }
 
     @Test
     public void testsolucionar(){
+
+        Tauler t = new Tauler(3,3);
+
+        t.getCella(0,1).setValorColumna(4);
+        t.getCella(0,2).setValorColumna(6);
+        t.getCella(1,0).setValorFila(3);
+        t.getCella(2,0).setValorFila(7);
+
+        t.solucionar();
+        assertTrue(t.getCella(1,1).getValor_blanca() == 1);
+        assertTrue(t.getCella(1,2).getValor_blanca() == 2);
+        assertTrue(t.getCella(2,1).getValor_blanca() == 3);
+        assertTrue(t.getCella(2,2).getValor_blanca() == 4);
+
 
     }
 

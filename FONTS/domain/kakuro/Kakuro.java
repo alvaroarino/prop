@@ -14,8 +14,8 @@ public class Kakuro {
     public Kakuro() {
         aleat = new Random();
 
-        int n = aleat.nextInt(4)+9;
-        int m = aleat.nextInt(4)+9;
+        int n = aleat.nextInt(4)+6;
+        int m = aleat.nextInt(4)+6;
 
         board = new Tauler(n,m);
     }
@@ -30,7 +30,6 @@ public class Kakuro {
             board.borrar_blancas();
         board.hacer_sumas();
         board.borrar_blancas();
-        board.solucionar();
         board.print();
     }
 
@@ -40,10 +39,10 @@ public class Kakuro {
             return;
         }
         board.pintar_negras(negras);
-        //  while (!board.rellenar_blancas1())
-          //  board.borrar_blancas();
-        //board.hacer_sumas();
-        //board.borrar_blancas();
+          while (!board.rellenar_blancas1())
+            board.borrar_blancas();
+        board.hacer_sumas();
+        board.borrar_blancas();
         board.print();
     }
 

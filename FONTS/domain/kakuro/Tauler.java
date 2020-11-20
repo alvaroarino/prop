@@ -47,14 +47,7 @@ public class Tauler {
         return CjtCelles[i][j];
     }
 
-    /*public boolean posValidaGran(int i, int j) {
-        if(CjtCelles[i-1][j].color() == ColorCella.Blanca) {
-            if(i > 1 && CjtCelles[i-2][j].color() != ColorCella.Blanca) {
-                return false;
-            }
-        }
-        if(CjtCelles[i])
-    }*/
+
 
 
     // Aquesta funcio comproba si una casella és valida per assignar-li una negra.
@@ -112,14 +105,6 @@ public class Tauler {
                 int n = aleat.nextInt(dimm);
                 if (posValida(i, j)) {
                     if (n == j) cantidad = pintar_celda(i, j, cantidad);
-                    /*else {
-                        ++contador_blancas;
-                    }*/
-
-                    /*if (contador_blancas > 9) {
-                        cantidad = pintar_celda(i, j, cantidad);
-                        contador_blancas = 0;
-                    }*/
 
                     if ((i >= dimn / 2) && (j >= dimn / 2) && cantidad >= (dimn * dimm)) {
                         cantidad = pintar_celda(i, j, cantidad);
@@ -163,24 +148,8 @@ public class Tauler {
         }
     }
 
-    public boolean noPresenteCol(int valor, int i, int j) {
-        // Mirem a les columnes si tenim valors ja introduits per no repetir el valor a introduir.
-        // Retorna true si valor no es present, i si hi es false.
 
-        // Comencem des de la posicio actual i anem cap amunt.
-        for (int x = j; x > 0; --x) {
-            if (CjtCelles[x][i].color() == ColorCella.Blanca) {
-                if (CjtCelles[x][i].getValor_blanca() == valor) {
-                    return false;
-                }
-            } else {
-                return true;
-            }
-        }
-        return true;
-    }
-
-    public boolean noPresente(int valor, int fila, int col) {  // false si esta, true si no esta
+    public boolean noPresente(int valor, int fila, int col) {  // false si no esta, true si esta
 
         //Mira casella esquerra
         int d;
@@ -245,42 +214,7 @@ public class Tauler {
         return true;
     }
 
-    public void rellenar_blancas() {
-        int numAleat;
-        int valor;
-        Random aleat = new Random();
-        for (int i = 1; i < dimn; ++i) {
-            ArrayList<Integer> candidats = new ArrayList<Integer>();
-            for(int k=1; k<10; ++k){
-                candidats.add(k);
-            }
-            int elements = candidats.size();
-            for (int j = 1; j < dimm; ++j) {
-                if ((CjtCelles[i][j]).color() == ColorCella.Blanca) {
-                    //numAleat = aleat.nextInt(elements);
-                    boolean presente = true;
-                    valor = -1;
-                    while(presente) {
-                        numAleat = aleat.nextInt(elements);
-                        valor = candidats.get(numAleat);
-                        if(noPresenteCol(valor,i,j)) presente = false;
-                    }
-    
 
-                    CjtCelles[i][j].intro_valor_blanca(valor);
-                    --elements;
-    
-                }
-                else {
-                    candidats.clear();
-                    for(int k=1; k<10; ++k){
-                        candidats.add(k);
-                    }
-                    elements = candidats.size();
-                }
-            }
-        }
-    }
 
     public void hacer_sumas() {
         for (int i = 0; i < dimn; ++i) {
@@ -314,15 +248,8 @@ public class Tauler {
     }
 
     public void solucionar(){
-        long startTime = System.nanoTime();
         if (solBacktracking(this.CjtCelles, 0, 0)) {
             System.out.println("Solució trobada: \n");
-            long endTime = System.nanoTime();
-            long timeElapsed = endTime - startTime;
-            System.out.println("Execution time in nanoseconds  : " + timeElapsed);
-
-            System.out.println("Execution time in milliseconds : " +
-                    timeElapsed / 1000000);
             print();
         }
         else{
