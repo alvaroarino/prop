@@ -1,7 +1,6 @@
 package dades;
 
-import com.google.gson.Gson;
-import com.google.gson.JsonElement;
+import com.google.gson.*;
 
 import java.io.FileReader;
 import java.io.IOException;

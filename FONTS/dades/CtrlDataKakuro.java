@@ -1,9 +1,6 @@
 package dades;
 
-import domain.cella.Cella;
-import domain.cella.CellaBlanca;
-import domain.cella.CellaNegra;
-import domain.cella.ColorCella;
+import domain.cella.*;
 
 import java.io.File;
 import java.io.IOException;
