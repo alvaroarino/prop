@@ -8,9 +8,6 @@ public class KakuroDriver {
     public static void main(String[] args) {
         System.out.println("Driver de la classe Kakuro");
 
-
-
-
         try {
             BufferedReader b = new BufferedReader(new InputStreamReader(System.in));
 
@@ -19,20 +16,15 @@ public class KakuroDriver {
             System.out.println("1. Generar Kakuro amb paràmetres d'usuari");
             System.out.println("2. Generar Kakuro aleatori");
 
-
-
             boolean fi = false;
             while (!fi){
-
                 Kakuro kakuro = new Kakuro();
                 String linea, opcion;
                 String [] entrada;
                 linea = b.readLine();
                 entrada = linea.split(" ");
                 opcion = entrada[0];
-
                 try {
-                    Kakuro kakuro = new Kakuro();
                     System.out.println("Has seleccionat l'opció " + opcion);
                     switch (opcion){
                         case "0":
@@ -50,11 +42,11 @@ public class KakuroDriver {
                             System.out.println("Indica el nombre de caselles blanques que desitges");
                             blanques = Integer.parseInt(intro.nextLine());
 
-
                             if (negres + blanques != (n*m)) {
                                 System.out.println("La quantitat de caselles introduïdes no coincideix amb la dimensió escollida, selecciona una altra opció o introdueix de nou les dades");
                                 break;
                             }
+
                             Kakuro kk = new Kakuro(n,m);
                             kk.generar_usuario(n, m, negres, blanques);
                             break;

@@ -38,6 +38,7 @@ public class DriverCtrlDataKakuro {
                             Cella[][] tauler = ctrlDataKakuro.getData("kakuro-test.txt");
                             Kakuro kakuro = new Kakuro(tauler.length, tauler[0].length);
                             kakuro.getBoard().setTauler(tauler);
+                            kakuro.getBoard().print();
                             if (tauler.length == 0) throw new Exception("Les dades llegides són buides");
                             break;
                         default:

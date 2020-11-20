@@ -29,8 +29,6 @@ public class Tauler {
             }
         }
 
-        // PINTAR FILA 1 y COLUMNA 1
-
     }
 
     public void setTauler(Cella[][] cjt) {
@@ -53,43 +51,46 @@ public class Tauler {
         }
         if(CjtCelles[i])
     }*/
-    /*
 
-    Aquesta funcio comproba si una casella és valida per assignar-li una negra.
-     */
 
+    // Aquesta funcio comproba si una casella és valida per assignar-li una negra.
     public boolean posValida(int i, int j) {
-
-        //Si devuelve 0, es blanca
-
+        // Considerem la cella actual [i][j]
+        // Si l'anterior cap a l'esquerra es blanca i l'anterior a aquesta es negra no es valida la posicio
         if (CjtCelles[i - 1][j].color() == ColorCella.Blanca) {
             if (i >= 2 && CjtCelles[i - 2][j].color() == ColorCella.Negra) return false;
         }
 
+        // Si la posterior cap a la dreta es blanca i la posterior a aquesta es negra no es valida la posicio
         if (i < dimn-1 && CjtCelles[i+1][j].color() == ColorCella.Blanca) {
             if (i < dimn-2 && CjtCelles[i+2][j].color() == ColorCella.Negra) return false;
         }
 
+        // Si l'anterior cap a amunt es blanca i l'anterior a aquesta es negra no es valida la posicio
         if (CjtCelles[i][j - 1].color() == ColorCella.Blanca) {
             return j <= 2 || CjtCelles[i][j - 2].color() != ColorCella.Negra;
         }
 
+        // Si la posterior cap a baix es blanca i la posterior a aquesta es negra no es valida la posicio
         if (j < dimm-1 && CjtCelles[i][j+1].color() == ColorCella.Blanca) {
             if (j < dimm-2 && CjtCelles[i][j+2].color() == ColorCella.Negra) return false;
         }
 
+        // Quan no trobem una negra la posició es valida
         return true;
     }
 
 
     public int pintar_celda(int i, int j, int cantidad) {
-
-        if (cantidad == 0) return cantidad;
+        // Cada vegada que pintem una cella hem de retornar el nombre restant de celles negres que pintem
+        // Si la quantitat no es 0 podem pintar una cella negra.
+        if (cantidad >= 0) return cantidad;
         else --cantidad;
         CjtCelles[i][j] = new CellaNegra();
-        if (cantidad == 0) return cantidad;
-        else --cantidad;
 
+        if (cantidad >= 0) return cantidad;
+        else --cantidad;
+        // Apliquem el mirall per pintar negra, sempre que tinguem celles negres per pintar
         int k = dimn - i;
         int l = dimm - j;
         CjtCelles[k][l] = new CellaNegra();
@@ -98,43 +99,43 @@ public class Tauler {
     }
 
     public void pintar_negras(int cantidad) {
-
         //int contador_blancas = 0;
         Random aleat = new Random();
         if(dimn > 9 || dimm > 9) {
             int length;
-            for(int i = 0; i < dimn; ++i) {
+            for (int i = 0; i < dimn; ++i) {
                 length = 0;
                 for(int j = 0; j < dimm; ++j) {
-                    if(CjtCelles[i][j].color() == ColorCella.Blanca) {
+                    if (CjtCelles[i][j].color() == ColorCella.Blanca) {
                         ++length;
-                    }
-                    else {
+                    } else {
                         length = 0;
                     }
-                    if(length > 9) {
+
+                    if (length > 9) {
                         CjtCelles[i][j] = new CellaNegra();
                         length = 0;
                     }
 
                 }
             }
+
             for (int i = 0; i < dimm; ++i) {
                 length = 0;
                 for (int j = 0; j < dimn; ++j) {
-                    if(CjtCelles[j][i].color() == ColorCella.Blanca) {
+                    if (CjtCelles[j][i].color() == ColorCella.Blanca) {
                         ++length;
-                    }
-                    else{
+                    } else{
                         length = 0;
                     }
-                    if(length > 9) {
+                    if (length > 9) {
                         CjtCelles[j][i] = new CellaNegra();
                         length = 0;
                     }
                 }
             }
         }
+
         for (int i = 1; i < dimn; ++i) {
             for (int j = 1; j < dimm; ++j) {
                 int n = aleat.nextInt(dimm);
@@ -157,26 +158,24 @@ public class Tauler {
         }
     }
 
-    public int generar_aleatorios() {
-        Random aleat = new Random();
-        return aleat.nextInt(9) + 1;
-    }
-
     public boolean noPresenteCol(int valor, int i, int j) {
-        for(int x = j; x > 0; --x) {
-            if(CjtCelles[i][x].color() == ColorCella.Blanca) {
-                if(CjtCelles[i][x].getValor_blanca() == valor) {
+        // Mirem a les columnes si tenim valors ja introduits per no repetir el valor a introduir.
+        // Retorna true si valor no es present, i si hi es false.
+
+        // Comencem des de la posicio actual i anem cap amunt.
+        for (int x = j; x > 0; --x) {
+            if (CjtCelles[i][x].color() == ColorCella.Blanca) {
+                if (CjtCelles[i][x].getValor_blanca() == valor) {
                     return false;
                 }
-            }
-            else {
+            } else {
                 return true;
             }
         }
         return true;
     }
 
-    public boolean noPresenteCol1(int valor, int fila, int col) {  //false si esta, true si no esta
+    public boolean noPresenteCol1(int valor, int fila, int col) {  // false si esta, true si no esta
         int tempF = fila;
         int tempC = col;
         while (tempF > 0 && CjtCelles[tempF-1][col].color() != ColorCella.Negra) --tempF;
@@ -335,7 +334,6 @@ public class Tauler {
     }
 
     private static boolean valorValid(Cella[][] board, int fila, int col, int valor) {
-
         return valorValidFila(board, fila, col, valor) && valorValidCol(board, fila, col, valor);
     }
 

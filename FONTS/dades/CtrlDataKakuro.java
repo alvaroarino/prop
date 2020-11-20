@@ -3,6 +3,7 @@ package dades;
 import domain.cella.Cella;
 import domain.cella.CellaBlanca;
 import domain.cella.CellaNegra;
+import domain.cella.ColorCella;
 
 import java.io.File;
 import java.io.IOException;
@@ -29,7 +30,7 @@ public class CtrlDataKakuro {
     public Cella[][] getData(String filename) throws IOException {
         Cella[][] board;
 
-        String fileRoute = System.getProperty("user.dir") + File.separator + "data-files" + File.separator + filename;
+        String fileRoute = "data-files" + File.separator + filename;
 
         Path path = Paths.get(fileRoute);
         String content = Files.readString(path);
@@ -94,7 +95,7 @@ public class CtrlDataKakuro {
                     }
 
                 }
-                // System.out.println(board[i][j].color() == ColorCella.Blanca ? ("Valor blanca: " + board[i][j].getValor_blanca()) : ("Valor negra: C:" + board[i][j].getValorEsquerre() + " F:" + board[i][j].getValorDret()));
+                System.out.println(board[i][j].color() == ColorCella.Blanca ? ("Valor blanca: " + board[i][j].getValor_blanca()) : ("Valor negra: C:" + board[i][j].getValorEsquerre() + " F:" + board[i][j].getValorDret()));
                 ++linearPos;
             }
         }
