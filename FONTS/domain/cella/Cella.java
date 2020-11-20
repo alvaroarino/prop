@@ -21,9 +21,9 @@ public class Cella {
     public void setValorColumna(int val) {}
 
 
-    public void acumular_valor_derecha(int s){}
+    public void acumular_valor_derecha(int s) {}
 
-    public void acumular_valor_izquierda(int s){}
+    public void acumular_valor_izquierda(int s) {}
 
 
     public ColorCella color() {

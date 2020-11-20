@@ -38,7 +38,7 @@ public class CtrlDataKakuro {
         System.out.println(content);
 
         // Separem el contingut en comes y separadors de linea
-        String[] linearBoard = content.split(",|\\n");
+        String[] linearBoard = content.split("[,\\n]");
         System.out.println(Arrays.toString(linearBoard));
 
         // A la pos 0 i 1 tenim el tamany del Kakuro
