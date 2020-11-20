@@ -14,8 +14,8 @@ public class KakuroTest {
 
     @Test
     public void testGenerar() {
-        int n = 10;
-        int m = 10;
+        int n = 11;
+        int m = 11;
 
         Kakuro kk = new Kakuro(n, m);
         kk.generar();
