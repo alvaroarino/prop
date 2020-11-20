@@ -43,6 +43,10 @@ public class Tauler {
         return dimn;
     }
 
+    public Cella getCella(int i, int j) {
+        return CjtCelles[i][j];
+    }
+
     /*public boolean posValidaGran(int i, int j) {
         if(CjtCelles[i-1][j].color() == ColorCella.Blanca) {
             if(i > 1 && CjtCelles[i-2][j].color() != ColorCella.Blanca) {
@@ -84,11 +88,11 @@ public class Tauler {
     public int pintar_celda(int i, int j, int cantidad) {
         // Cada vegada que pintem una cella hem de retornar el nombre restant de celles negres que pintem
         // Si la quantitat no es 0 podem pintar una cella negra.
-        if (cantidad >= 0) return cantidad;
+        if (cantidad <= 0) return cantidad;
         else --cantidad;
         CjtCelles[i][j] = new CellaNegra();
 
-        if (cantidad >= 0) return cantidad;
+        if (cantidad <= 0) return cantidad;
         else --cantidad;
         // Apliquem el mirall per pintar negra, sempre que tinguem celles negres per pintar
         int k = dimn - i;
@@ -164,8 +168,8 @@ public class Tauler {
 
         // Comencem des de la posicio actual i anem cap amunt.
         for (int x = j; x > 0; --x) {
-            if (CjtCelles[i][x].color() == ColorCella.Blanca) {
-                if (CjtCelles[i][x].getValor_blanca() == valor) {
+            if (CjtCelles[x][i].color() == ColorCella.Blanca) {
+                if (CjtCelles[x][i].getValor_blanca() == valor) {
                     return false;
                 }
             } else {
