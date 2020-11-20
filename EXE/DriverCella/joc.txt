@@ -1,0 +1,57 @@
+El joc de proves seguent consta de les seguents parts:
+* Opcio de entrada:
+    * Entrada de la opcio
+    * Sortida esperada
+
+JOC DE PROVES DRIVER CELLA:
+1
+Entrada: -
+Sortida: Cella inicialitzada sense color: domain.cella.Cella@13969fbe
+
+2
+Entrada: -
+Sortida: Cella inicialitzada de color negre: domain.cella.CellaNegra@3498ed
+
+3
+Entrada: -
+Sortida: Cella negra amb valors 2 4
+
+4
+Entrada: -
+Sortida: Cella inicialitzada de color blanc: domain.cella.CellaBlanca@5315b42e
+
+5
+Entrada (quan ho demani): 3
+Sortida: Cella blanca té valor: 3
+
+6
+Entrada (quan ho demani): 12
+Sortida: Cella negra té valor de fila: 12
+
+7
+Entrada (quan ho demani): 100
+Sortida: Cella negra té valor de columna: 100
+
+8
+Entrada (quan ho demani): 2
+Sortida: La cella té el següent valor de fila: 2
+Entrada (quan ho torni a demanar): 150
+Soritda: Cella negra té valor de fila despres d'acumular: 152
+
+9
+Entrada (quan ho demani): 299
+Sortida: 299
+Entrada (quan ho torni a demanar): 3
+Sortida: Cella negra té valor de columna despres d'acumular: 302
+
+10
+Entrada: 2
+Sortida: El color de la cella es Negra
+
+11
+Entrada (quan ho torni a demanar): 2
+Sortida: Valor dret: 2
+
+12
+Entrada (quan ho torni a demanar): 4
+Sortida: Valor dret: 4
