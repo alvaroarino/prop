@@ -12,8 +12,8 @@ JOC DE PROVES DRIVER USUARI:
     Sortida: Usuari creat:
 
 2:
-    Entrada: quan ho demani, nom i username
-    Sortida: Usuari creat: [nom introduit] [username introduit]
+    Entrada (quan ho demani):: Alvaro alvaro.arino
+    Sortida: Usuari creat: Alvaro alvaro.arino
 
 3:
     Entrada: -
@@ -34,8 +34,8 @@ JOC DE PROVES DRIVER USUARI:
         sino: [# perfils]
 
 7:
-    Entrada: nou nom de l'usuari quan es demani
-    Sortida: Usuari modificat: [Nou nom introduit]
+    Entrada (nou nom de l'usuari quan es demani): Victor D
+    Sortida: Usuari modificat: Victor D
 
 8:
     Entrada: quan es demani, la contrasenya a fixar

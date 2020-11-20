@@ -13,9 +13,12 @@ public class CellaTest {
     @Test
     public void Cella() {
         cella = new CellaBlanca();
+        assertTrue(cella.getValor_blanca() == -1);
         assertTrue(cella.color() == ColorCella.Blanca);
 
         cella = new CellaNegra();
+        assertTrue(cella.getValorEsquerre() == -1);
+        assertTrue(cella.getValorDret() == -1);
         assertTrue(cella.color() == ColorCella.Negra);
     }
 
