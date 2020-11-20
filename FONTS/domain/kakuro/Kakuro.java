@@ -29,7 +29,7 @@ public class Kakuro {
         while (!board.rellenar_blancas1())
             board.borrar_blancas();
         board.hacer_sumas();
-        board.borrar_blancas();
+        //board.borrar_blancas();
         board.print();
     }
 
@@ -45,6 +45,8 @@ public class Kakuro {
         board.borrar_blancas();
         board.print();
     }
+
+
 
     public Tauler getBoard() {
         return board;
