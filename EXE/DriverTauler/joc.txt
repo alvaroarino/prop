@@ -6,41 +6,4 @@ El joc de proves seguent consta de les seguents parts:
 Si el valor de sortida conte [], la sortida s'haura d'adequar a l'explicacio de [l'interior].
 ** A les nostres proves em fet una execucio sequencial de les opcions.
 
-JOC DE PROVES DRIVER USUARI:
-1:
-    Entrada: -
-    Sortida: Usuari creat:
-
-2:
-    Entrada: quan ho demani, nom i username
-    Sortida: Usuari creat: [nom introduit] [username introduit]
-
-3:
-    Entrada: -
-    Sortida: L'ID de l'usuari actual es: [ID generat]
-
-4:
-    Entrada: -
-    Sortida: El nom actual de l'usuari és: [nom introduit previament o buit si no s'ha fet]
-
-5:
-    Entrada: -
-    Sortida: L'username actual de l'usuari és: [username introduit previament o buit si no s'ha fet]
-
-6:
-    Entrada: -
-    Sortida:
-        Si no hi ha perfils: No hi ha perfils creats
-        sino: [# perfils]
-
-7:
-    Entrada: nou nom de l'usuari quan es demani
-    Sortida: Usuari modificat: [Nou nom introduit]
-
-8:
-    Entrada: quan es demani, la contrasenya a fixar
-    Sortida: Contrasenya introduida, nombre de caracters: [tamany de la contrasenya]
-
-9:
-    Entrada: -
-    Sortida: Perfil creat amb exit, nombre total de perfils: [# perfils]
+JOC DE PROVES DRIVER TAULER:
