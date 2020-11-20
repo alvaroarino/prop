@@ -42,15 +42,15 @@ public class CtrlDataKakuro {
         System.out.println(Arrays.toString(linearBoard));
 
         // A la pos 0 i 1 tenim el tamany del Kakuro
-        int tamM = Integer.parseInt(linearBoard[0]);
-        int tamN = Integer.parseInt(linearBoard[1]);
+        int tamN = Integer.valueOf(linearBoard[0]);
+        int tamM = Integer.valueOf(linearBoard[1]);
 
-        board = new Cella[tamM][tamN];
+        board = new Cella[tamN][tamM];
 
         int linearPos = 2; // Serveix per mourens per el vector linearBoard que conté tots els valors del txt
-        for (int i = 0; i < tamM; ++i) {
+        for (int i = 0; i < tamN; ++i) {
             if (linearPos >= linearBoard.length) break; // Si em acabat el vector d'entrada cal sortir del for
-            for (int j = 0; j < tamN; ++j) {
+            for (int j = 0; j < tamM; ++j) {
                 if (linearPos >= linearBoard.length) break; // Si em acabat el vector d'entrada cal sortir del for
                 String actual = linearBoard[linearPos];
                 if (actual.contains("?")) {

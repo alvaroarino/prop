@@ -170,6 +170,44 @@ public class TaulerTest {
     @Test
     public void testhacer_sumas() {
 
+        Tauler nou = new Tauler(3,3);
+
+
+
+        Cella[][] CjtCelles = new Cella[3][3];
+
+
+        CellaNegra cel = new CellaNegra();
+        for(int i = 0; i < 3; ++i)  CjtCelles[i][0] = cel;
+
+        for(int x = 0; x < 3; ++x)
+            CjtCelles[0][x] = cel;
+
+        cel.setValorColumna(4);
+                CjtCelles[0][1] = cel;
+                cel.setValorColumna(6);
+                        CjtCelles[0][2]  = cel;
+            CellaNegra a = new CellaNegra();
+            a.setValorFila(5);
+                                CjtCelles[1][0] =a;
+                                a.setValorFila(5);
+                                        CjtCelles[2][0] =a;
+
+
+        for(int i = 1; i < 3; ++i) {
+            for(int j = 1; j < 3; ++j) {
+                CellaBlanca cella = new CellaBlanca();
+
+                if(i == 1 && j == 1)  cella.intro_valor_blanca(3);
+                if(i == 1 && j == 2) cella.intro_valor_blanca(2);
+                if(i == 2 && j == 1) cella.intro_valor_blanca(1);
+                if(i == 2 && j == 2) cella.intro_valor_blanca(4);
+                CjtCelles[i][j] = cella;
+
+            }
+        }
+
+       // assertTrue(nou.hacer_sumas());
     }
 
     @Test
