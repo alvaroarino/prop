@@ -6,9 +6,7 @@ import domain.cella.CellaNegra;
 import domain.cella.ColorCella;
 
 import javax.print.CancelablePrintJob;
-import java.util.ArrayList;
-import java.util.HashSet;
-import java.util.Random;
+import java.util.*;
 
 public class Tauler {
 
@@ -287,6 +285,8 @@ public class Tauler {
         }
     }
 
+    
+
     public void hacer_sumas() {
         for (int i = 0; i < dimn; ++i) {
             for (int j = 0; j < dimm; ++j) {
@@ -332,6 +332,37 @@ public class Tauler {
         }
         else{
             System.out.println("No s'ha trobat solució \n");
+        }
+    }
+
+    private void solBack2(Cella[][] board, int fila, int col) {
+        final int nFila = board.length;
+        final int nCol = board[0].length;
+        int solucionsTrobades = 0;
+
+        if (fila == nFila){ //solució trobada
+            solucionsTrobades = solucionsTrobades +1; //global
+            print();
+        } //return true;
+
+        else if (col == nCol) {
+            solBack2(board,fila+1, 0);
+        }
+
+        else if (board[fila][col].color() == ColorCella.Negra) {
+            solBack2(board, fila, col+1);
+        }
+
+        if(solucionsTrobades > 1){
+            //solucions trobades global
+        }
+
+        for (int valor=1; valor <= 9; ++valor) {
+            if (valorValid(board, fila, col, valor)) {
+                board[fila][col].intro_valor_blanca(valor);
+                solBack2(board, fila, col+1);
+                board[fila][col].intro_valor_blanca(0);
+            }
         }
     }
 
@@ -449,6 +480,106 @@ public class Tauler {
 
             System.out.print("\n");
         }
+    }
+
+    public void validar() {
+        for(int i = 0; i < dimn; ++i) {
+            for(int j = 0; j < dimm; ++j) {
+                if(CjtCelles[i][j].color() == ColorCella.Negra) {
+                    if(CjtCelles[i][j].getValorEsquerre() != -1) {
+                        int x = comprovarColumna(i,j,CjtCelles[i][j].getValorEsquerre());
+                        if(x == -1) {
+                            break;
+                        }
+                    }
+                    else if(CjtCelles[i][j].getValorDret() != -1) {
+                        int x = comprovarFila(i,j,CjtCelles[i][j].getValorDret());
+                        if(x == -1) {
+                            break;
+                        }
+                    }
+                }
+            }
+        }
+        System.out.println("Enhorabona, has solucionat el kakuro!");
+    }
+
+    private int comprovarColumna(int i, int j, int valor) {
+        int sumaParcial = 0;
+        boolean[] presents = new boolean[9];
+        for(int l = 0; l < 9; ++l) {
+            presents[l] = false;
+        }
+        for(int x = i+1; x < dimn; ++x) {
+            if(CjtCelles[x][j].color() == ColorCella.Blanca) {
+                if(CjtCelles[x][j].getValor_blanca() == -1 || CjtCelles[x][j].getValor_blanca() == 0) {
+                    System.out.println("Valor no valid");
+                    return -1;
+                }
+                else if(presents[CjtCelles[x][j].getValor_blanca() - 1]){
+                    System.out.println("Valor repetit");
+                    return -1;
+                }
+                else if(sumaParcial >= valor) {
+                    System.out.println("Error");
+                    return -1;
+                }
+                else{
+                    sumaParcial += CjtCelles[x][j].getValor_blanca();
+                    presents[CjtCelles[x][j].getValor_blanca()-1] = true;
+                }
+            }
+            else{
+                if(sumaParcial != valor) {
+                    System.out.println("Suma no correcte");
+                    return -1;
+                }
+            }
+        }
+        if(sumaParcial != valor) {
+            System.out.println("Suma no correcte");
+            return -1;
+        }
+        return 0; //correcto
+    }
+
+    private int comprovarFila(int i, int j, int valor) {
+        int sumaParcial = 0;
+        boolean[] presents = new boolean[9];
+        for(int l = 0; l < 9; ++l) {
+            presents[l] = false;
+        }
+        for(int x = j+1; x < dimm; ++x) {
+            if(CjtCelles[i][x].color() == ColorCella.Blanca) {
+                if(CjtCelles[i][x].getValor_blanca() == -1 || CjtCelles[i][x].getValor_blanca() == 0) {
+                    System.out.println("Valor no valid");
+                    return -1;
+                }
+                else if(presents[CjtCelles[i][x].getValor_blanca() - 1]){
+                    System.out.println("Valor repetit");
+                    return -1;
+                }
+                else if(sumaParcial >= valor) {
+                    System.out.println("Error");
+                    return -1;
+                }
+                else{
+                    sumaParcial += CjtCelles[i][x].getValor_blanca();
+                    presents[CjtCelles[i][x].getValor_blanca()-1] = true;
+                }
+            }
+            else{
+                if(sumaParcial != valor) {
+                    System.out.println("Suma no correcte");
+                    return -1;
+                }
+            }
+        }
+        if(sumaParcial != valor) {
+            System.out.println("Suma no correcte");
+            return -1;
+        }
+        return 0; //correcto
     }
 }
 
