@@ -6,17 +6,18 @@ public class partida {
     double tinicial;
     double tacumulat;
     int estat;
+    Kakuro KakuroPartida;
 
     public partida(int n, int m) {
         tinicial = System.currentTimeMillis();
         estat = 1;
-        Kakuro.Kakuro(n, m);
+        KakuroPartida = new.Kakuro.Kakuro(n, m);
     }
 
     public partida() {
         tinicial = System.currentTimeMillis();
         estat = 1;
-        Kakuro.Kakuro();
+        KakuroPartida = new.Kakuro.Kakuro();
     }
 
     public double getTime() {
