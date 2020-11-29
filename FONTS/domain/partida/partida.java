@@ -11,13 +11,13 @@ public class partida {
     public partida(int n, int m) {
         tinicial = System.currentTimeMillis();
         estat = 1;
-        KakuroPartida = new.Kakuro.Kakuro(n, m);
+      //  KakuroPartida = new.Kakuro.Kakuro(n, m);
     }
 
     public partida() {
         tinicial = System.currentTimeMillis();
         estat = 1;
-        KakuroPartida = new.Kakuro.Kakuro();
+        // KakuroPartida = new.Kakuro.Kakuro();
     }
 
     public double getTime() {

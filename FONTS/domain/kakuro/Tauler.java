@@ -104,7 +104,7 @@ public class Tauler {
 
         return cantidad;
     }
-
+/*
     public void pintar_negras(int cantidad) {
         //int contador_blancas = 0;
         Random aleat = new Random();
@@ -122,7 +122,7 @@ public class Tauler {
                     /*if (contador_blancas > 9) {
                         cantidad = pintar_celda(i, j, cantidad);
                         contador_blancas = 0;
-                    }*/
+                    }
 
                     if ((i >= dimn / 2) && (j >= dimn / 2) && cantidad >= (dimn * dimm)) {
                         cantidad = pintar_celda(i, j, cantidad);
@@ -155,6 +155,73 @@ public class Tauler {
                     if (CjtCelles[j][i].color() == ColorCella.Blanca) {
                         ++length;
                     } else{
+                        length = 0;
+                    }
+                    if (length > 9) {
+                        CjtCelles[j][i] = new CellaNegra();
+                        length = 0;
+                    }
+                }
+            }
+        }
+    }
+    */
+
+    public boolean posible (int i, int j){
+
+        if((CjtCelles[i-1][j].color() == ColorCella.Blanca) && (i > 1) &&(CjtCelles[i-2][j].color() == ColorCella.Negra)) return false;
+        if((CjtCelles[i][j-1].color() == ColorCella.Blanca) && (j > 1) &&(CjtCelles[i][j-2].color() == ColorCella.Negra)) return false;
+        if(i < (dimn - 1) && CjtCelles[i+1][j].color() ==ColorCella.Blanca  ) {
+            if(i+2 > dimn - 1) return false;
+            if(i < (dimn - 2) && CjtCelles[i+2][j].color() ==ColorCella.Negra) return  false;
+        }
+        if(j < (dimm - 1) && CjtCelles[i][j+1].color() ==ColorCella.Blanca  ) {
+            if(j+2 > dimm - 1) return false;
+            if(j < (dimm - 2) && CjtCelles[i][j+2].color() ==ColorCella.Negra) return  false;
+        }
+        return true;
+    }
+
+    public void print_negras(int cantidad) {
+        //int contador_blancas = 0;
+
+        for (int i = 1; i < dimn; ++i) {
+            for (int j = 1; j < dimm; ++j) {
+
+                if(CjtCelles[i][j].color() == ColorCella.Blanca) {
+
+                    if(posible(i,j)) pintar_celda(i,j,cantidad);
+                }
+
+            }
+
+        }
+
+        if(dimn > 9 || dimm > 9) {
+            int length;
+            for (int i = 0; i < dimn; ++i) {
+                length = 0;
+                for (int j = 0; j < dimm; ++j) {
+                    if (CjtCelles[i][j].color() == ColorCella.Blanca) {
+                        ++length;
+                    } else {
+                        length = 0;
+                    }
+
+                    if (length > 9) {
+                        CjtCelles[i][j] = new CellaNegra();
+                        length = 0;
+                    }
+
+                }
+            }
+
+            for (int i = 0; i < dimm; ++i) {
+                length = 0;
+                for (int j = 0; j < dimn; ++j) {
+                    if (CjtCelles[j][i].color() == ColorCella.Blanca) {
+                        ++length;
+                    } else {
                         length = 0;
                     }
                     if (length > 9) {
