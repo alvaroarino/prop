@@ -26,9 +26,10 @@ public class Kakuro {
         int ca_negras = ((board.getDimn()* board.getDimm()) / 2) - minimo ;
 
         board.print_negras(ca_negras);
-        while (!board.rellenar_blancas1())
-            board.borrar_blancas();
-        board.hacer_sumas();
+        board.rellenar_celdas_blancas();
+        //while (!board.rellenar_blancas1())
+        //board.borrar_blancas();
+        //board.hacer_sumas();
         //board.borrar_blancas();
         board.print();
     }

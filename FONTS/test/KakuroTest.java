@@ -14,8 +14,8 @@ public class KakuroTest {
 
     @Test
     public void testGenerar() {
-        int n = 50;
-        int m = 50;
+        int n = 15;
+        int m = 15;
 
         Kakuro kk = new Kakuro(n, m);
         kk.generar();
@@ -40,6 +40,6 @@ public class KakuroTest {
         };
         Kakuro kakuro = new Kakuro(tauler.length, tauler[0].length);
         kakuro.getBoard().setTauler(tauler);
-        kakuro.getBoard().solucionar();
+        kakuro.getBoard().solve();
     }
 }

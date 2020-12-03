@@ -12,17 +12,22 @@ public class Tauler {
 
     private Cella[][] CjtCelles; // Conjunt de cel·les
     private final int dimn, dimm;
+    int solucionsTrobades;
+    private Cella[][] SolucionKakuro;
 
     public Tauler(){
         dimn = 0;
         dimm = 0;
+        solucionsTrobades = 0;
     }
 
     public Tauler(int n, int m) {
 
         dimn = n;
         dimm = m;
+        solucionsTrobades = 0;
 
+        this.SolucionKakuro = new Cella[n][m];
         this.CjtCelles = new Cella[n][m];
 
         for (int i = 0; i < this.CjtCelles.length; ++i) {
@@ -183,19 +188,18 @@ public class Tauler {
     }
 
     public void print_negras(int cantidad) {
-        //int contador_blancas = 0;
-
         for (int i = 1; i < dimn; ++i) {
             for (int j = 1; j < dimm; ++j) {
 
                 if(CjtCelles[i][j].color() == ColorCella.Blanca) {
 
-                    if(posible(i,j)) pintar_celda(i,j,cantidad);
+                    if(posible(i,j)) cantidad = pintar_celda(i,j,cantidad);
                 }
 
             }
 
         }
+
 
         if(dimn > 9 || dimm > 9) {
             int length;
@@ -315,6 +319,67 @@ public class Tauler {
         return true;
     }
 
+    public void rellenar_celdas_blancas() {
+        rellenar_blancas_back(this.CjtCelles, 0, 0);
+    }
+
+    private static boolean rellenar_blancas_back(Cella[][] board, int fila, int col) {
+        final int nFila = board.length;
+        final int nCol = board[0].length;
+
+        if (fila == nFila) return true;
+
+        else if (col == nCol) {
+            return rellenar_blancas_back(board,fila+1, 0);
+        }
+
+        else if (board[fila][col].color() == ColorCella.Negra) {
+            return rellenar_blancas_back(board, fila, col+1);
+        }
+
+        for (int valor=1; valor <= 9; ++valor) {
+            if (valorDuplicat(board, fila, col, valor)) {
+                board[fila][col].intro_valor_blanca(valor);
+                if (rellenar_blancas_back(board, fila, col+1)) {
+                    return true;
+                }
+                else{
+                    board[fila][col].intro_valor_blanca(-1);
+                }
+            }
+        }
+        return false;
+    }
+
+    private static boolean valorDuplicat(Cella[][] board, int fila, int col, int valor) {
+        return valorDuplicatFila(board, fila, col, valor) && valorDuplicatCol(board, fila, col, valor);
+    }
+
+    private static boolean valorDuplicatFila(Cella[][] board, int fila, int col, int valor) {
+
+        for (int i = col-1; i >= 0; --i) {
+            if (board[fila][i].color() == ColorCella.Negra){
+                break;
+            }
+            if (board[fila][i].getValor_blanca() == valor)
+                return false;
+        }
+        return true;
+    }
+
+    private static boolean valorDuplicatCol(Cella[][] board, int fila, int col, int valor) {
+
+        for (int i = fila-1; i >= 0; --i) {
+            if (board[i][col].color() == ColorCella.Negra){
+                break;
+            }
+            if (board[i][col].getValor_blanca() == valor)
+                return false;
+        }
+
+        return true;
+    }
+
     public void rellenar_blancas() {
         int numAleat;
         int valor;
@@ -402,15 +467,30 @@ public class Tauler {
         }
     }
 
+    public void solve() {
+
+        solBack2(this.CjtCelles, 0, 0);
+        if(solucionsTrobades > 1) {
+            System.out.println("El kakuro té més d'una solució \n");
+            printSol();
+        }
+        else if(solucionsTrobades == 1) {
+            System.out.println("El kakuro té una unica solució \n");
+            printSol();
+        }
+        else {
+            System.out.println("No s'ha trobat solució \n");
+        }
+    }
+
     private void solBack2(Cella[][] board, int fila, int col) {
         final int nFila = board.length;
         final int nCol = board[0].length;
-        int solucionsTrobades = 0;
 
-        if (fila == nFila){ //solució trobada
-            solucionsTrobades = solucionsTrobades +1; //global
-            print();
-        } //return true;
+        if (fila == nFila){
+            solucionsTrobades = solucionsTrobades +1;
+            SolucionKakuro = board;
+        }
 
         else if (col == nCol) {
             solBack2(board,fila+1, 0);
@@ -418,10 +498,6 @@ public class Tauler {
 
         else if (board[fila][col].color() == ColorCella.Negra) {
             solBack2(board, fila, col+1);
-        }
-
-        if(solucionsTrobades > 1){
-            //solucions trobades global
         }
 
         for (int valor=1; valor <= 9; ++valor) {
@@ -515,6 +591,38 @@ public class Tauler {
         return true;
     }
 
+    public void printSol() {
+        System.out.printf("%s,%s%n",dimn,dimm);
+        for (int i = 0; i < dimn; ++i) {
+            for (int j = 0; j < dimm; ++j) {
+                if (this.SolucionKakuro[i][j].color() == ColorCella.Blanca) {
+                    if (this.SolucionKakuro[i][j].getValor_blanca() > 0) {
+                        System.out.print(this.SolucionKakuro[i][j].getValor_blanca());
+                    } else {
+                        System.out.print("?");
+                    }
+
+                } else {
+                    int valorColumna = this.SolucionKakuro[i][j].getValorEsquerre();
+                    int valorFila = this.SolucionKakuro[i][j].getValorDret();
+
+                    if (valorColumna > 0 && valorFila > 0) {
+                        System.out.printf("C%sF%s", valorColumna, valorFila);
+                    } else if (valorColumna > 0) {
+                        System.out.printf("C%s", valorColumna);
+                    } else if (valorFila > 0) {
+                        System.out.printf("F%s", valorFila);
+                    } else {
+                        System.out.print("*");
+                    }
+                }
+                if (j != this.SolucionKakuro[0].length - 1)
+                    System.out.print(",");
+            }
+
+            System.out.print("\n");
+        }
+    }
 
     public void print() {
         System.out.printf("%s,%s%n",dimn,dimm);
