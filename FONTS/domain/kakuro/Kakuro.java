@@ -3,6 +3,7 @@ package domain.kakuro;
 import java.util.Random;
 
 public class Kakuro {
+    String id;
     Random aleat;
     Tauler board;
 
@@ -52,4 +53,6 @@ public class Kakuro {
     public Tauler getBoard() {
         return board;
     }
+
+    public String getId(){return id; }
 }
