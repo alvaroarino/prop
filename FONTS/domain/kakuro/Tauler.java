@@ -188,12 +188,14 @@ public class Tauler {
     }
 
     public void print_negras(int cantidad) {
+        Random aleat = new Random();
         for (int i = 1; i < dimn; ++i) {
             for (int j = 1; j < dimm; ++j) {
-
+                int n = aleat.nextInt(4);
                 if(CjtCelles[i][j].color() == ColorCella.Blanca) {
-
-                    if(posible(i,j)) cantidad = pintar_celda(i,j,cantidad);
+                    if(n == 3) {
+                        if (posible(i, j)) cantidad = pintar_celda(i, j, cantidad);
+                    }
                 }
 
             }
