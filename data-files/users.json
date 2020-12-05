@@ -5,11 +5,11 @@
     "img_path": "data-files/img/alvaro2502.jpg",
     "profile": [
       {
-        "id": "1",
+        "id": "alvaro1",
         "nom": "Alvaro"
       },
       {
-        "id": "2",
+        "id": "alvaro2",
         "nom": "Alvaro 2"
       }
     ]

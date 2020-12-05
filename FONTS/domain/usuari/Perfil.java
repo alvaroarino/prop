@@ -3,16 +3,21 @@ package domain.usuari;
 import java.util.UUID;
 
 public class Perfil {
-    UUID _idPerfil;
+    String _idPerfil;
     String _nom;
 
     public Perfil() {
-        _idPerfil = UUID.randomUUID();
+        _idPerfil = UUID.randomUUID().toString();
         _nom = "";
     }
 
     public Perfil(String nom) {
-        this._idPerfil = UUID.randomUUID();
+        this._idPerfil = UUID.randomUUID().toString();
+        this._nom = nom;
+    }
+
+    public Perfil(String id, String nom) {
+        this._idPerfil = id;
         this._nom = nom;
     }
 
