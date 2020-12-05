@@ -1,10 +1,12 @@
 package dades;
 
 import com.google.gson.*;
+import domain.usuari.Usuari;
 
 import java.io.FileReader;
 import java.io.IOException;
 import java.io.Reader;
+import java.util.ArrayList;
 
 public class CtrlDataUsuaris {
     private static CtrlDataUsuaris singletonObject;
@@ -18,15 +20,20 @@ public class CtrlDataUsuaris {
 
     private CtrlDataUsuaris() {}
 
-    public String getData() throws IOException {
+    public ArrayList<Usuari> getData() throws IOException {
         Gson gson = new Gson();
-
-        try (Reader reader = new FileReader("data-files/users.json")) {
-            // Convert JSON to JsonElement, and later to String
-            JsonElement json = gson.fromJson(reader, JsonElement.class);
-            String data = gson.toJson(json);
-            System.out.println(data);
-            return data;
+        ArrayList<Usuari> cjtUsuaris = new ArrayList<>();
+        String soPathSeparator = System.getProperty("file.separator");
+        try (Reader reader = new FileReader("data-files" + soPathSeparator + "users.json")) {
+            JsonArray json = gson.fromJson(reader, JsonArray.class);
+            for (JsonElement data : json) {
+                JsonObject obj = data.getAsJsonObject();
+                Usuari user = new Usuari();
+                user.fromJson(obj);
+                cjtUsuaris.add(user);
+            }
+            cjtUsuaris.forEach(usuari -> System.out.println(usuari.getNom()));
         }
+        return cjtUsuaris;
     }
 }
