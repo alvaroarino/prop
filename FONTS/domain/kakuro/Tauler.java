@@ -491,7 +491,7 @@ public class Tauler {
 
         if (fila == nFila){
             solucionsTrobades = solucionsTrobades +1;
-            SolucionKakuro = board;
+            SolucionKakuro = board; //deepcopy
         }
 
         else if (col == nCol) {

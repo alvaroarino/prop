@@ -3,22 +3,22 @@ package domain.ranking;
 import java.util.UUID;
 
 public class Stat {
-    UUID perfil;
-    Double puntuacio;
+    String perfil;
+    int puntuacio;
 
-    Stat() {
-        perfil = UUID.randomUUID();
-        puntuacio = 0.0;
+    public Stat() {
+        perfil = "";
+        puntuacio = 0;
     }
 
-    Stat(UUID nom, Double punt) {
+    public Stat(String  nom, int punt) {
         perfil = nom;
         puntuacio = punt;
     }
 
-    public Double getPuntuacio() {return puntuacio;}
-    public UUID getPerfil() {return perfil;}
-    public void setPuntuacio(Double p) {
+    public int getPuntuacio() {return puntuacio;}
+    public String getPerfil() {return perfil;}
+    public void setPuntuacio(int p) {
         puntuacio = p;
     }
 }

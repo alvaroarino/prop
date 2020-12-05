@@ -24,9 +24,6 @@ public class DriverTauler {
 
             System.out.println("5. getCella(int i, int j)");
 
-
-
-
             boolean fi = false;
             while (!fi) {
 
