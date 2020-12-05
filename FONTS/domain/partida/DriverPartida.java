@@ -26,7 +26,6 @@ public class DriverPartida {
             l = b.readLine();
             x = l.split(" ");
             op = x[0];
-            String inputData;
             Partida p;
 
             try {
@@ -34,6 +33,7 @@ public class DriverPartida {
                 switch (op) {
                     case "1":
                         p = new Partida();
+                        jugar(p);
                         break;
                     case "2":
                         System.out.println("Entra els valors de files i columnes per la partida");
@@ -60,7 +60,7 @@ public class DriverPartida {
         }
     }
 
-    private void jugar(Partida p) throws IOException {
+    public static void jugar(Partida p) throws IOException {
         BufferedReader b = new BufferedReader(new InputStreamReader(System.in));
         int estat = 1;
 
@@ -82,7 +82,6 @@ public class DriverPartida {
             l = b.readLine();
             x = l.split(" ");
             op = x[0];
-            String inputData;
 
             try {
                 System.out.println("Has seleccionat l'opció " + op);
@@ -119,7 +118,7 @@ public class DriverPartida {
         }
     }
 
-    private void AfegeixNumero (Tauler t) throws IOException {
+    private static void AfegeixNumero(Tauler t) throws IOException {
         int n, m, valor;
 
         BufferedReader b = new BufferedReader(new InputStreamReader(System.in));

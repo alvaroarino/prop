@@ -8,16 +8,16 @@ public class Partida {
     private int estat;
     private Kakuro KakuroPartida;
 
-    public Partida() {
-        tinicial = System.currentTimeMillis();
-        estat = 1;
-        KakuroPartida = new Kakuro();
-    }
-
     public Partida(int n, int m) {
         tinicial = System.currentTimeMillis();
         estat = 1;
         KakuroPartida = new Kakuro(n, m);
+    }
+
+    public Partida() {
+        tinicial = System.currentTimeMillis();
+        estat = 1;
+        KakuroPartida = new Kakuro();
     }
 
     public double getTime() {
