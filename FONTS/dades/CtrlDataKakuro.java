@@ -1,8 +1,12 @@
 package dades;
 
 import domain.cella.*;
+import domain.kakuro.Kakuro;
+import domain.kakuro.Tauler;
 
+import java.io.BufferedWriter;
 import java.io.File;
+import java.io.FileWriter;
 import java.io.IOException;
 import java.nio.charset.Charset;
 import java.nio.charset.StandardCharsets;
@@ -99,6 +103,52 @@ public class CtrlDataKakuro {
         }
 
         return board;
+    }
+
+    public void guardarKakuro(String id, Kakuro k) throws IOException {
+        String separador = System.getProperty("file.separator");
+        String path_fitxer_dades = (new File("data-files")).getAbsolutePath();
+        File problema = new File(path_fitxer_dades, "kakuro"+id+".csv");
+        BufferedWriter bw = new BufferedWriter(new FileWriter(problema,true));
+        Tauler t = k.getBoard();
+        String n = String.valueOf(t.getDimn());
+        String m = String.valueOf(t.getDimm());
+        bw.write(n+","+m+"\n");
+        int valorCella = 0;
+        String valor;
+        for(int i = 0; i < t.getDimn(); ++i) {
+            for(int j = 0; j < t.getDimm(); ++j) {
+                if(t.getCella(i,j).color() == ColorCella.Blanca){
+                    if(t.getCella(i,j).getValor_blanca() == -1)
+                        bw.write("?");
+                    else{
+                        valorCella = t.getCella(i,j).getValor_blanca();
+                        valor = String.valueOf(valorCella);
+                        bw.write(valor);
+                    }
+                }
+                else { //cella negra
+                    if((t.getCella(i,j).getValorDret() == -1) && (t.getCella(i,j).getValorEsquerre() == -1))
+                        bw.write("*");
+                    else{
+                        if(t.getCella(i,j).getValorEsquerre() != -1) {
+                            valorCella = t.getCella(i,j).getValorEsquerre();
+                            valor = String.valueOf(valorCella);
+                            bw.write("C"+valor);
+                        }
+                        if(t.getCella(i,j).getValorDret() != -1) {
+                            valorCella = t.getCella(i,j).getValorDret();
+                            valor = String.valueOf(valorCella);
+                            bw.write("F"+valor);
+                        }
+                    }
+                }
+                if(j < (t.getDimm()-1)) {
+                    bw.write(",");
+                }
+            }
+            bw.write("\n");
+        }
     }
 }
 

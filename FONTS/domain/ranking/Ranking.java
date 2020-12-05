@@ -5,7 +5,7 @@ import java.util.*;
 public class Ranking {
     private static Ranking single_instance = null;
 
-    public Map<UUID, Stat> puntuacioPerfils;
+    public Map<String, Stat> puntuacioPerfils;
 
     public static Ranking Ranking() {
         if(single_instance == null) {
@@ -15,13 +15,13 @@ public class Ranking {
     }
 
     public void inicialitzarValors() {
-        puntuacioPerfils = new TreeMap<UUID, Stat>();
+        puntuacioPerfils = new TreeMap<String, Stat>();
         //com llegir?
     }
 
-    public void afegirIndex(UUID nPerfil, Double puntuacio) {
+    public void afegirIndex(String nPerfil, int puntuacio) {
         if(puntuacioPerfils.containsKey(nPerfil)) {
-            Double aux = puntuacioPerfils.get(nPerfil).getPuntuacio();
+            int aux = puntuacioPerfils.get(nPerfil).getPuntuacio();
             if(aux < puntuacio) {
                 Stat s = new Stat(nPerfil, puntuacio);
                 puntuacioPerfils.replace(nPerfil, s);
@@ -34,11 +34,11 @@ public class Ranking {
     }
 
     public void print() {
-        List<Stat> perfilPerPuntuació = new ArrayList<>(puntuacioPerfils.values());
+        List<Stat> perfilPerPuntuacio = new ArrayList<>(puntuacioPerfils.values());
 
-        Collections.sort(perfilPerPuntuació, Comparator.comparing(Stat::getPuntuacio));
+        Collections.sort(perfilPerPuntuacio, Comparator.comparing(Stat::getPuntuacio));
 
-        for(Stat s : perfilPerPuntuació) {
+        for(Stat s : perfilPerPuntuacio) {
             System.out.println(s.getPerfil() + "\t" + s.getPuntuacio());
         }
 
