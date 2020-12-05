@@ -3,26 +3,30 @@ package domain.partida;
 import domain.kakuro.Kakuro;
 
 public class partida {
-    double tinicial;
-    double tacumulat;
-    int estat;
-    Kakuro KakuroPartida;
+    private double tinicial;
+    private double tacumulat;
+    private int estat;
+    private Kakuro KakuroPartida;
 
-    public partida(int n, int m) {
+    public void partida (int n, int m) {
         tinicial = System.currentTimeMillis();
         estat = 1;
-      //  KakuroPartida = new.Kakuro.Kakuro(n, m);
+        KakuroPartida = new Kakuro(n, m);
     }
 
-    public partida() {
+    public void partida() {
         tinicial = System.currentTimeMillis();
         estat = 1;
-        // KakuroPartida = new.Kakuro.Kakuro();
+        KakuroPartida = new Kakuro();
     }
 
     public double getTime() {
         long tactual = System.currentTimeMillis();
         return (tactual - tinicial)/1000;
+    }
+
+    public Kakuro getKakuro() {
+        return KakuroPartida;
     }
 
     public int getEstat() {
