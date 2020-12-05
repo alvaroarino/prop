@@ -2,22 +2,22 @@ package domain.partida;
 
 import domain.kakuro.Kakuro;
 
-public class partida {
+public class Partida {
     private double tinicial;
     private double tacumulat;
     private int estat;
     private Kakuro KakuroPartida;
 
-    public void partida (int n, int m) {
-        tinicial = System.currentTimeMillis();
-        estat = 1;
-        KakuroPartida = new Kakuro(n, m);
-    }
-
-    public void partida() {
+    public Partida() {
         tinicial = System.currentTimeMillis();
         estat = 1;
         KakuroPartida = new Kakuro();
+    }
+
+    public Partida(int n, int m) {
+        tinicial = System.currentTimeMillis();
+        estat = 1;
+        KakuroPartida = new Kakuro(n, m);
     }
 
     public double getTime() {

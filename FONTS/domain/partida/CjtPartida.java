@@ -2,14 +2,14 @@ package domain.partida;
 
 import java.util.ArrayList;
 
-public class Cjtpartida {
-    ArrayList<partida> partidas;
+public class CjtPartida {
+    ArrayList<Partida> partidas;
 
     public void NuevaPartidaAleatoria() {
-        partidas.add(new partida());
+        partidas.add(new Partida());
     }
     public void NuevaPartidaDeterminada(int n, int m) {
-        partidas.add(new partida(n, m));
+        partidas.add(new Partida(n, m));
     }
 
     public int getNumPartides() {

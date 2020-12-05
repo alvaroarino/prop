@@ -2,10 +2,7 @@ package domain.partida;
 
 import domain.cella.Cella;
 import domain.cella.ColorCella;
-import domain.kakuro.Kakuro;
 import domain.kakuro.Tauler;
-import domain.partida.Cjtpartida;
-import domain.partida.partida;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -14,7 +11,7 @@ import java.io.InputStreamReader;
 import static java.lang.Integer.parseInt;
 
 public class DriverPartida {
-    public void main() throws IOException {
+    public static void main(String[] args) throws IOException {
         BufferedReader b = new BufferedReader(new InputStreamReader(System.in));
         System.out.println("Jugar partida Aleatòria o Introduïr paràmetres?");
         System.out.println("1. Aleatòria");
@@ -30,13 +27,13 @@ public class DriverPartida {
             x = l.split(" ");
             op = x[0];
             String inputData;
-            partida p;
+            Partida p;
 
             try {
                 System.out.println("Has seleccionat l'opció " + op);
                 switch (op) {
                     case "1":
-                        p = new partida();
+                        p = new Partida();
                         break;
                     case "2":
                         System.out.println("Entra els valors de files i columnes per la partida");
@@ -46,7 +43,7 @@ public class DriverPartida {
                         int n = parseInt(op,10);
                         op = x[1];
                         int m = parseInt(op,10);
-                        p = new partida(n, m);
+                        p = new Partida(n, m);
                         jugar(p);
                         break;
                     case "3":
@@ -63,7 +60,7 @@ public class DriverPartida {
         }
     }
 
-    private void jugar(partida p) throws IOException {
+    private void jugar(Partida p) throws IOException {
         BufferedReader b = new BufferedReader(new InputStreamReader(System.in));
         int estat = 1;
 
