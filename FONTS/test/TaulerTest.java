@@ -176,7 +176,7 @@ public class TaulerTest {
         t.getCella(1,0).setValorFila(3);
         t.getCella(2,0).setValorFila(7);
 
-        t.solucionar();
+        t.solve();
         assertTrue(t.getCella(1,1).getValor_blanca() == 1);
         assertTrue(t.getCella(1,2).getValor_blanca() == 2);
         assertTrue(t.getCella(2,1).getValor_blanca() == 3);
