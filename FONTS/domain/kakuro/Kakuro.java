@@ -31,7 +31,7 @@ public class Kakuro {
         //while (!board.rellenar_blancas1())
         //board.borrar_blancas();
         board.hacer_sumas();
-        board.borrar_blancas();
+        board.borrar_blancas(1);
         board.print();
     }
 
@@ -41,10 +41,9 @@ public class Kakuro {
             return;
         }
         board.print_negras(negras);
-          while (!board.rellenar_blancas1())
-            board.borrar_blancas();
+        board.rellenar_celdas_blancas();
         board.hacer_sumas();
-        board.borrar_blancas();
+        board.borrar_blancas(0);
         board.print();
     }
 

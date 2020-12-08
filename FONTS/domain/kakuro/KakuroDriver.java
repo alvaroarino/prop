@@ -67,7 +67,7 @@ public class KakuroDriver {
                             Cella[][] tauler = ctrlDataKakuro.getData("kakuro-test.txt");
                             Kakuro kak = new Kakuro(tauler.length, tauler[0].length);
                             kak.getBoard().setTauler(tauler);
-                            kak.getBoard().solucionar();
+                            kak.getBoard().solve();
                             break;
                         default:
                             System.out.println(opcion + " no és una opció");
