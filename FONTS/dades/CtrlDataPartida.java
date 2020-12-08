@@ -38,8 +38,7 @@ public class CtrlDataPartida {
         }
         bw.write("TEMPS:"+p.getTime()+"\n");
 
-        CtrlDataKakuro cdk;
-        cdk = getInstance();
+        CtrlDataKakuro cdk = CtrlDataKakuro.getInstance();
         cdk.guardarKakuro((p.getKakuro()).getId(), p.getKakuro());
     }
 }
