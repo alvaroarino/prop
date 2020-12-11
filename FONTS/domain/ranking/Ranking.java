@@ -3,21 +3,25 @@ package domain.ranking;
 import java.util.*;
 
 public class Ranking {
-    private static Ranking single_instance = null;
+    private static Ranking single_instance;
 
     public Map<String, Stat> puntuacioPerfils;
 
-    public static Ranking Ranking() {
+    public static Ranking getInstance() {
         if(single_instance == null) {
             single_instance = new Ranking();
         }
         return single_instance;
     }
 
+    private Ranking(){}
+
     public void inicialitzarValors() {
         puntuacioPerfils = new TreeMap<String, Stat>();
         //com llegir?
     }
+
+    public void setRanking(Map<String, Stat> rank){puntuacioPerfils = rank;}
 
     public void afegirIndex(String nPerfil, int puntuacio) {
         if(puntuacioPerfils.containsKey(nPerfil)) {

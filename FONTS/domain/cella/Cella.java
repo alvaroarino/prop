@@ -27,6 +27,12 @@ public class Cella {
 
     }
 
+    public void fixCellaBlanca(){}
+
+    public void resetFixCellaBlanca(){}
+
+    public boolean cellaFixed(){return false;}
+
 
     public ColorCella color() {
         return ColorCella.None;

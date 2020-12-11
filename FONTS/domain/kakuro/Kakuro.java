@@ -28,10 +28,8 @@ public class Kakuro {
 
         board.print_negras(ca_negras);
         board.rellenar_celdas_blancas();
-        //while (!board.rellenar_blancas1())
-        //board.borrar_blancas();
         board.hacer_sumas();
-        board.borrar_blancas(1);
+        board.borrar_blancas(4); //els que volem + 1
         board.print();
     }
 
