@@ -134,7 +134,7 @@ public class TaulerTest {
 
         Tauler t = new Tauler(3,3);
 
-        t.rellenar_blancas1();
+        t.rellenar_celdas_blancas();
 
         int valor1 = t.getCella(1,1).getValor_blanca();
         int valor2 = t.getCella(1,2).getValor_blanca();
