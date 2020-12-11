@@ -11,7 +11,7 @@ import java.util.*;
 public class Tauler {
 
     private Cella[][] CjtCelles; // Conjunt de cel·les
-    private final int dimn, dimm;
+    private /*final*/ int dimn, dimm;
     int solucionsTrobades;
     private Cella[][] SolucionKakuro;
     int cellesNegres;
@@ -637,6 +637,16 @@ public class Tauler {
             return -1;
         }
         return 0; //correcto
+    }
+
+    public void setCjtCelles(Cella[][] c) {
+        CjtCelles = c;
+    }
+    public void setDimn(int n) {
+        dimn = n;
+    }
+    public void setDimm(int m) {
+        dimm = m;
     }
 }
 

@@ -7,17 +7,21 @@ public class Partida {
     private double tacumulat;
     private int estat;
     private Kakuro KakuroPartida;
+    private String name;
 
-    public Partida(int n, int m) {
+    public Partida(int n, int m, String nom) {
         tinicial = System.currentTimeMillis();
         estat = 1;
         KakuroPartida = new Kakuro(n, m);
+        name = nom;
     }
 
     public Partida() {
         tinicial = System.currentTimeMillis();
         estat = 1;
         KakuroPartida = new Kakuro();
+        int id2 = (int) Math.random()*5000;
+        name = id2+"";
     }
 
     public double getTime() {
@@ -42,4 +46,18 @@ public class Partida {
         estat = 1;
         tinicial = tacumulat;
     }
+    public String getNom() {
+        return name;
+    }
+
+    public void SetKakuroPartida(Kakuro k) {
+        KakuroPartida = k;
+    }
+    public void SetTinicial(double i) {
+        tinicial = i;
+    }
+    public void SetEstat(int i) {
+        estat = i;
+    }
+    public void SetName(String n) { name = n; }
 }

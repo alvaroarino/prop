@@ -29,7 +29,7 @@ public class CtrlDataKakuro {
 
     private CtrlDataKakuro() {}
 
-    public Cella[][] getData(String filename) throws IOException {
+    public Kakuro getData(String filename) throws IOException {
         Cella[][] board;
 
         String fileRoute = "data-files" + File.separator + filename;
@@ -50,9 +50,9 @@ public class CtrlDataKakuro {
 
         int linearPos = 2; // Serveix per mourens per el vector linearBoard que conté tots els valors del txt
         for (int i = 0; i < tamN; ++i) {
-            if (linearPos >= linearBoard.length) break; // Si em acabat el vector d'entrada cal sortir del for
+            if (linearPos >= linearBoard.length-2) break; // Si em acabat el vector d'entrada cal sortir del for
             for (int j = 0; j < tamM; ++j) {
-                if (linearPos >= linearBoard.length) break; // Si em acabat el vector d'entrada cal sortir del for
+                if (linearPos >= linearBoard.length-2) break; // Si em acabat el vector d'entrada cal sortir del for
                 String actual = linearBoard[linearPos];
                 if (actual.contains("?")) {
                     // Si es ? creem una cel.la blanca
@@ -101,8 +101,14 @@ public class CtrlDataKakuro {
                 ++linearPos;
             }
         }
-
-        return board;
+        int max = linearBoard.length;
+        String id = linearBoard[max-1];
+        Tauler t = new Tauler(tamN, tamM);
+        Kakuro kak = new Kakuro(tamN, tamM);
+        t.setCjtCelles(board);
+        kak.setTauler(t);
+        kak.setId(id);
+        return kak;
     }
 
     public void guardarKakuro(String id, Kakuro k) throws IOException {
@@ -149,6 +155,7 @@ public class CtrlDataKakuro {
             }
             bw.write("\n");
         }
+        bw.write(id);
     }
 }
 

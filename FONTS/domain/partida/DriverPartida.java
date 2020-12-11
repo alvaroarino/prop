@@ -36,14 +36,15 @@ public class DriverPartida {
                         jugar(p);
                         break;
                     case "2":
-                        System.out.println("Entra els valors de files i columnes per la partida");
+                        System.out.println("Entra els valors de files i columnes i el nom per la partida");
                         l = b.readLine();
                         x = l.split(" ");
                         op = x[0];
                         int n = parseInt(op,10);
                         op = x[1];
                         int m = parseInt(op,10);
-                        p = new Partida(n, m);
+
+                        p = new Partida(n, m, x[2]);
                         jugar(p);
                         break;
                     case "3":
@@ -101,7 +102,7 @@ public class DriverPartida {
                         }
                         break;
                     case "3":
-
+                        t.solve();
                         break;
                     case "4":
                         System.out.println(p.getTime());

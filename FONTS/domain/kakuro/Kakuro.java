@@ -10,6 +10,8 @@ public class Kakuro {
     public Kakuro(int n, int m) {
         aleat = new Random();
         board = new Tauler(n, m);
+        int id2 = (int) Math.random()*5000;
+        id = id2+"";
     }
 
     public Kakuro() {
@@ -19,6 +21,9 @@ public class Kakuro {
         int m = aleat.nextInt(4)+6;
 
         board = new Tauler(n,m);
+
+        int id2 = (int) Math.random()*5000;
+        id = id2+"";
     }
 
     public void generar() {
@@ -52,4 +57,12 @@ public class Kakuro {
     }
 
     public String getId(){return id; }
+
+    public void setId(String Identif) {
+        id = Identif;
+    }
+
+    public void setTauler(Tauler t) {
+        board = t;
+    }
 }

@@ -35,11 +35,10 @@ public class DriverCtrlDataKakuro {
                             fi = true;
                             break;
                         case "1":
-                            Cella[][] tauler = ctrlDataKakuro.getData("kakuro-test.txt");
-                            Kakuro kakuro = new Kakuro(tauler.length, tauler[0].length);
-                            kakuro.getBoard().setTauler(tauler);
+                            Kakuro kakuro = ctrlDataKakuro.getData("kakuro-test.txt");
+
                             kakuro.getBoard().print();
-                            if (tauler.length == 0) throw new Exception("Les dades llegides són buides");
+                            //if (tauler.length == 0) throw new Exception("Les dades llegides són buides");
                             break;
                         default:
                             System.out.println(op + " no és una opció");

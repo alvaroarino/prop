@@ -64,9 +64,7 @@ public class KakuroDriver {
 
                         case "3":
                             CtrlDataKakuro ctrlDataKakuro = CtrlDataKakuro.getInstance();
-                            Cella[][] tauler = ctrlDataKakuro.getData("kakuro-test.txt");
-                            Kakuro kak = new Kakuro(tauler.length, tauler[0].length);
-                            kak.getBoard().setTauler(tauler);
+                            Kakuro kak = ctrlDataKakuro.getData("kakuro-test.txt");
                             kak.getBoard().solve();
                             break;
                         default:
