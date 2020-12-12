@@ -65,4 +65,9 @@ public class Kakuro {
     public void setTauler(Tauler t) {
         board = t;
     }
+
+    public void setKakuro(Kakuro k) {
+        id = k.getId();
+        board = k.getBoard();
+    }
 }

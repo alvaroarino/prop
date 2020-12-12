@@ -1,17 +1,20 @@
 package domain.aventura;
 
+import domain.kakuro.Kakuro;
 import domain.partida.CjtPartida;
+import domain.partida.Partida;
+
+import java.util.ArrayList;
 
 public class Aventura {
 
-    private CjtPartida Aventura;
+    private ArrayList<Kakuro> Aventura;
     private double TempsIni;
     private double TempsActual;
 
     public Aventura() {
-         Aventura = new CjtPartida();
          for (int i = 0; i < 8; ++i) {
-             Aventura.NuevaPartidaAleatoria();
+             Aventura.add(new Kakuro());
          }
          TempsIni = System.currentTimeMillis();
 
@@ -22,11 +25,14 @@ public class Aventura {
         return TempsActual-TempsIni;
     }
 
-    public void SetTemps(double ini, double act) {
-        TempsIni = ini;
-        TempsActual = act;
+    public ArrayList<Kakuro> getAventura() {
+        return Aventura;
     }
-    public void SetAventura(CjtPartida av) {
+
+    public void SetTemps(double ini) {
+        TempsIni = ini;
+    }
+    public void SetAventura(ArrayList<Kakuro> av) {
         Aventura = av;
     }
 }
