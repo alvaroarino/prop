@@ -13,13 +13,14 @@ import static java.lang.Integer.parseInt;
 public class DriverPartida {
     public static void main(String[] args) throws IOException {
         BufferedReader b = new BufferedReader(new InputStreamReader(System.in));
-        System.out.println("Jugar partida Aleatòria o Introduïr paràmetres?");
-        System.out.println("1. Aleatòria");
-        System.out.println("2. Generar amb Paràmetres");
-        System.out.println("3. Sortir");
 
         boolean fi = false;
         while (!fi) {
+
+            System.out.println("Jugar partida Aleatòria o Introduïr paràmetres?");
+            System.out.println("1. Aleatòria");
+            System.out.println("2. Generar amb Paràmetres");
+            System.out.println("3. Sortir");
 
             String l, op;
             String[] x;
@@ -59,11 +60,15 @@ public class DriverPartida {
             }
 
         }
+
+
     }
 
     public static void jugar(Partida p) throws IOException {
         BufferedReader b = new BufferedReader(new InputStreamReader(System.in));
         int estat = 1;
+
+        p.getKakuro().generar();
 
         boolean fi = false;
         while (!fi) {

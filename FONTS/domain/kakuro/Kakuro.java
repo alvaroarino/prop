@@ -22,6 +22,7 @@ public class Kakuro {
 
         board = new Tauler(n,m);
 
+
         int id2 = (int) Math.random()*5000;
         id = id2+"";
     }
@@ -35,7 +36,7 @@ public class Kakuro {
         board.rellenar_celdas_blancas();
         board.hacer_sumas();
         board.borrar_blancas(4); //els que volem + 1
-        board.print();
+        //board.print();
     }
 
     public void generar_usuario(int n, int m, int negras, int blancas) {
