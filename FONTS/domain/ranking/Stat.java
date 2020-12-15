@@ -1,10 +1,14 @@
 package domain.ranking;
 
+import java.util.UUID;
+
 public class Stat {
-    final String perfil;
+    int posicion;
+    String perfil;
     int puntuacio;
 
     public Stat() {
+        posicion = 0;
         perfil = "";
         puntuacio = 0;
     }
@@ -19,4 +23,5 @@ public class Stat {
     public void setPuntuacio(int p) {
         puntuacio = p;
     }
+    public void setPosicion(int pos) {posicion = pos; }
 }

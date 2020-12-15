@@ -63,11 +63,4 @@ public class CtrlDataRanking {
         problema.createNewFile();
     }
 
-    /*public static void main(String[] args) {
-        CtrlDataRanking ctrl = CtrlDataRanking.getInstance();
-        try (Map<String, Stat> map = ctrl.obtenirRanking()){
-
-        }catch(Exception e){}
-    }*/
-
 }
