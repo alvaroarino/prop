@@ -4,13 +4,12 @@ import domain.kakuro.Kakuro;
 import domain.usuari.Perfil;
 
 public class CtrlDades {
-     private CtrlDataPerfil  perfil = new CtrlDataPerfil();
-    private CtrlDataAventura  aventura = new CtrlDataAventura();
-    private CtrlDataPartida  partida = new CtrlDataPartida();
-    private CtrlDataKakuro  kakuro = new CtrlDataKakuro();
-    private CtrlDataUsuaris usuaris = new CtrlDataUsuaris();
-    private CtrlDataRanking ranking = new CtrlDataRanking();
-
+    private final CtrlDataPerfil perfil = CtrlDataPerfil.getInstance();
+    private final CtrlDataAventura aventura = CtrlDataAventura.getInstance();
+    private final CtrlDataPartida partida = CtrlDataPartida.getInstance();
+    private final CtrlDataKakuro kakuro = CtrlDataKakuro.getInstance();
+    private final CtrlDataUsuaris usuaris = CtrlDataUsuaris.getInstance();
+    private final CtrlDataRanking ranking = CtrlDataRanking.getInstance();
 
     public CtrlDades() {
 
@@ -18,7 +17,7 @@ public class CtrlDades {
     }
 
     public void guardar_kakuro(int id, Kakuro k) {
-    kakuro.guardarKakuro(id,k);
+    kakuro.guardarKakuro(id, k);
 
     }
 

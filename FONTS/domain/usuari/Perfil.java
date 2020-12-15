@@ -6,7 +6,7 @@ import domain.partida.CjtPartida;
 import java.util.UUID;
 
 public class Perfil {
-    private String _idPerfil;
+    private final String _idPerfil;
     private String _nom;
     private CjtPartida cjt;
     private Aventura av;

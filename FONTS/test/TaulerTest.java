@@ -1,15 +1,11 @@
 import static org.junit.Assert.*;
 
-import dades.CtrlDataKakuro;
 import domain.cella.Cella;
 import domain.cella.CellaBlanca;
 import domain.cella.CellaNegra;
 import domain.cella.ColorCella;
-import domain.kakuro.Kakuro;
 import domain.kakuro.Tauler;
 import org.junit.Test;
-
-import java.io.IOException;
 
 public class TaulerTest {
 
@@ -122,9 +118,9 @@ public class TaulerTest {
        boolean cont2 = t.noPresente(5,2,1);
         boolean cont3 = t.noPresente(6,2,1);
 
-        assertTrue(cont1 == true );
-        assertTrue(cont2 == true );
-        assertTrue(cont3 != true );
+        assertTrue(cont1);
+        assertTrue(cont2);
+        assertTrue(!cont3);
 
 
     }

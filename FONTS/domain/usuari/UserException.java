@@ -1,7 +1,7 @@
 package domain.usuari;
 
 class UserException extends Exception {
-    public String username;
+    public final String username;
 
     public UserException(String s) {
         super("Error en el usuario " + s + ", username es null");

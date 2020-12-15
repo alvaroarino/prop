@@ -1,6 +1,5 @@
 package dades;
 
-import domain.cella.Cella;
 import domain.kakuro.Kakuro;
 
 import java.io.BufferedReader;

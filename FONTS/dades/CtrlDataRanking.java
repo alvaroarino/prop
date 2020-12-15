@@ -1,15 +1,11 @@
 package dades;
 
-import domain.ranking.Ranking;
 import domain.ranking.Stat;
 
 import java.io.*;
 import java.util.Iterator;
 import java.util.Map;
 import java.util.TreeMap;
-import java.util.UUID;
-
-import static java.util.UUID.fromString;
 
 public class CtrlDataRanking {
     private static CtrlDataRanking singletonObject;
@@ -30,11 +26,11 @@ public class CtrlDataRanking {
         FileReader ff = new FileReader(problema);
         BufferedReader br = new BufferedReader(ff);
         String linea;
-        Map<String, Stat> ranking = new TreeMap<String, Stat>();
+        Map<String, Stat> ranking = new TreeMap<>();
         String user,perfil;
         int puntuacion;
         while ((linea = br.readLine()) != null) {
-            String atr[] = linea.split(";");
+            String[] atr = linea.split(";");
             user = atr[0];
             perfil = atr[1];
             puntuacion = Integer.parseInt(atr[2]);
@@ -50,14 +46,12 @@ public class CtrlDataRanking {
         String path_fitxer_dades = (new File("data-files")).getAbsolutePath();
         File problema = new File(path_fitxer_dades, "ranking.csv");
         BufferedWriter bw = new BufferedWriter(new FileWriter(problema,true));
-        Iterator<Map.Entry<String, Stat>> itr = rank.entrySet().iterator();
-        while(itr.hasNext()) {
-            Map.Entry<String, Stat> stat = itr.next();
+        for (Map.Entry<String, Stat> stat : rank.entrySet()) {
             String user = stat.getKey();
             String perfil = stat.getValue().getPerfil();
             int punt = stat.getValue().getPuntuacio();
             String p = String.valueOf(punt);
-            bw.write(user+";"+perfil+";"+p+"\n");
+            bw.write(user + ";" + perfil + ";" + p + "\n");
         }
         bw.close();
     }

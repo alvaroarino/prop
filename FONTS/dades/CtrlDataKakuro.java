@@ -43,8 +43,8 @@ public class CtrlDataKakuro {
         System.out.println(Arrays.toString(linearBoard));
 
         // A la pos 0 i 1 tenim el tamany del Kakuro
-        int tamN = Integer.valueOf(linearBoard[0]);
-        int tamM = Integer.valueOf(linearBoard[1]);
+        int tamN = Integer.parseInt(linearBoard[0]);
+        int tamM = Integer.parseInt(linearBoard[1]);
 
         board = new Cella[tamN][tamM];
 
@@ -120,7 +120,7 @@ public class CtrlDataKakuro {
         String n = String.valueOf(t.getDimn());
         String m = String.valueOf(t.getDimm());
         bw.write(n+","+m+"\n");
-        int valorCella = 0;
+        int valorCella;
         String valor;
         for(int i = 0; i < t.getDimn(); ++i) {
             for(int j = 0; j < t.getDimm(); ++j) {

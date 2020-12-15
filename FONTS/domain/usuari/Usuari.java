@@ -5,7 +5,6 @@ import com.google.gson.JsonArray;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 
-import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.UUID;
@@ -13,10 +12,10 @@ import java.util.UUID;
 public class Usuari {
     private String _id;
     private String _nom;
-    private String _username;
+    private final String _username;
     private String _password;
 
-    private ArrayList<Perfil> _perfils;
+    private final ArrayList<Perfil> _perfils;
 
     public Usuari() {
         _nom = "";

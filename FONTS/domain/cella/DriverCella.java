@@ -1,8 +1,5 @@
 package domain.cella;
 
-import dades.CtrlDataKakuro;
-import domain.kakuro.Kakuro;
-
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 

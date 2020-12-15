@@ -20,7 +20,7 @@ public class Partida {
         tinicial = System.currentTimeMillis();
         estat = 1;
         KakuroPartida = new Kakuro();
-        int id2 = (int) Math.random()*5000;
+        int id2 = (int) (Math.random() * 5000);
         name = id2+"";
     }
 

@@ -17,7 +17,7 @@ public class Ranking {
     private Ranking(){}
 
     public void inicialitzarValors() {
-        puntuacioPerfils = new TreeMap<String, Stat>();
+        puntuacioPerfils = new TreeMap<>();
         //com llegir?
     }
 
@@ -40,7 +40,7 @@ public class Ranking {
     public void print() {
         List<Stat> perfilPerPuntuacio = new ArrayList<>(puntuacioPerfils.values());
 
-        Collections.sort(perfilPerPuntuacio, Comparator.comparing(Stat::getPuntuacio));
+        perfilPerPuntuacio.sort(Comparator.comparing(Stat::getPuntuacio));
 
         for(Stat s : perfilPerPuntuacio) {
             System.out.println(s.getPerfil() + "\t" + s.getPuntuacio());

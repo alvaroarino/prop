@@ -1,8 +1,6 @@
 package domain.aventura;
 
 import domain.kakuro.Kakuro;
-import domain.partida.CjtPartida;
-import domain.partida.Partida;
 
 import java.util.ArrayList;
 
@@ -14,6 +12,7 @@ public class Aventura {
 
     public Aventura() {
          for (int i = 0; i < 8; ++i) {
+             assert Aventura != null;
              Aventura.add(new Kakuro());
          }
          TempsIni = System.currentTimeMillis();

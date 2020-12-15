@@ -1,7 +1,5 @@
 package domain.partida;
 
-import domain.kakuro.Kakuro;
-
 import java.util.ArrayList;
 
 public class CjtPartida {

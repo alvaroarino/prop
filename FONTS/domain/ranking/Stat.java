@@ -1,9 +1,7 @@
 package domain.ranking;
 
-import java.util.UUID;
-
 public class Stat {
-    String perfil;
+    final String perfil;
     int puntuacio;
 
     public Stat() {

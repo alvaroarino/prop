@@ -5,7 +5,6 @@ import domain.cella.CellaBlanca;
 import domain.cella.CellaNegra;
 import domain.cella.ColorCella;
 
-import javax.print.CancelablePrintJob;
 import java.util.*;
 
 public class Tauler {
@@ -107,7 +106,7 @@ public class Tauler {
         }
         if(j < (dimm - 1) && CjtCelles[i][j+1].color() ==ColorCella.Blanca  ) {
             if(j+2 > dimm - 1) return false;
-            if(j < (dimm - 2) && CjtCelles[i][j+2].color() ==ColorCella.Negra) return  false;
+            return j >= (dimm - 2) || CjtCelles[i][j + 2].color() != ColorCella.Negra;
         }
         return true;
     }

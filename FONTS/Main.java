@@ -1,5 +1,3 @@
-package presentacion;
-
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -9,7 +7,7 @@ import javafx.stage.Stage;
 
 public class Main extends Application {
     @Override
-    public void start(Stage primaryStage) throws Exception{
+    public void start(Stage primaryStage) throws Exception {
         Parent root = FXMLLoader.load(getClass().getResource("VistaPrincipal.fxml"));
         primaryStage.setTitle("KakuroMasters");
         primaryStage.getIcons().add(new Image(getClass().getResourceAsStream("icon.png")));
@@ -17,8 +15,8 @@ public class Main extends Application {
         primaryStage.show();
     }
 
-
     public static void main(String[] args) {
-        launch(args);
+        Application.launch(args);
     }
+
 }

@@ -124,7 +124,7 @@ public class CtrlDataPartida {
         String name, id;
 
         name = linearBoard[1];
-        if (linearBoard[3] == "Corrent") {
+        if (linearBoard[3].equals("Corrent")) {
             state = 0;
         }
         else {

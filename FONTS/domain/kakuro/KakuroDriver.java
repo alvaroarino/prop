@@ -1,7 +1,6 @@
 package domain.kakuro;
 
 import dades.CtrlDataKakuro;
-import domain.cella.Cella;
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;

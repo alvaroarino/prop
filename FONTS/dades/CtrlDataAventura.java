@@ -2,8 +2,6 @@ package dades;
 
 import domain.aventura.Aventura;
 import domain.kakuro.Kakuro;
-import domain.partida.CjtPartida;
-import domain.partida.Partida;
 
 import java.io.BufferedWriter;
 import java.io.File;
@@ -81,7 +79,7 @@ public class CtrlDataAventura {
 
         int nKakuros = atoi(linearBoard[2]);
 
-        ArrayList<Kakuro> llista = new ArrayList<Kakuro>();
+        ArrayList<Kakuro> llista = new ArrayList<>();
 
         for (int i = 0; i < nKakuros; ++i) {
             String nomKakuros = linearBoard[i+3];
@@ -109,10 +107,10 @@ public class CtrlDataAventura {
 
         bw.write(llista.size()+"\n");
 
-        for (int i = 0; i < llista.size(); ++i) {
-            bw.write(llista.get(i).getId()+"\n");
+        for (Kakuro kakuro : llista) {
+            bw.write(kakuro.getId() + "\n");
             CtrlDataKakuro cdk = CtrlDataKakuro.getInstance();
-            cdk.guardarKakuro(llista.get(i).getId(), llista.get(i));
+            cdk.guardarKakuro(kakuro.getId(), kakuro);
         }
 
     }

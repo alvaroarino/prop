@@ -1,9 +1,6 @@
 package domain.kakuro;
 
 import domain.cella.Cella;
-import domain.cella.CellaBlanca;
-import domain.cella.CellaNegra;
-import domain.cella.ColorCella;
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;

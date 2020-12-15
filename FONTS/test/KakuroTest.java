@@ -5,7 +5,6 @@ import domain.cella.Cella;
 import domain.cella.CellaBlanca;
 import domain.cella.CellaNegra;
 import domain.kakuro.Kakuro;
-import domain.kakuro.Tauler;
 import org.junit.Test;
 
 import java.io.IOException;

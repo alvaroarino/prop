@@ -101,7 +101,7 @@ public class DriverPartida {
                             p.pause();
                             estat = 0;
                         }
-                        else if (estat == 0) {
+                        else {
                             p.restart();
                             estat = 1;
                         }

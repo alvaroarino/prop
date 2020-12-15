@@ -4,13 +4,13 @@ import java.util.Random;
 
 public class Kakuro {
     String id;
-    Random aleat;
+    final Random aleat;
     Tauler board;
 
     public Kakuro(int n, int m) {
         aleat = new Random();
         board = new Tauler(n, m);
-        int id2 = (int) Math.random()*5000;
+        int id2 = (int) (Math.random() * 5000);
         id = id2+"";
     }
 
@@ -23,7 +23,7 @@ public class Kakuro {
         board = new Tauler(n,m);
 
 
-        int id2 = (int) Math.random()*5000;
+        int id2 = (int) (Math.random() * 5000);
         id = id2+"";
     }
 

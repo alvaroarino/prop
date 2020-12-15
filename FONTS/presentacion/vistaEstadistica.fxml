@@ -8,22 +8,18 @@
 <?import javafx.scene.layout.VBox?>
 
 <VBox prefHeight="400.0" prefWidth="640.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
-  <children>
-    <AnchorPane maxHeight="-1.0" maxWidth="-1.0" prefHeight="-1.0" prefWidth="-1.0" VBox.vgrow="ALWAYS">
-      <children>
-            <HBox layoutX="204.0" prefHeight="100.0" prefWidth="200.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
-            <Pane layoutX="204.0" layoutY="157.0" prefHeight="273.0" prefWidth="640.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
-               <children>
-                  <TableView fx:id="ranking" layoutX="209.0" layoutY="46.0" prefHeight="200.0" prefWidth="200.0">
-                    <columns>
-                      <TableColumn prefWidth="75.0" text="Posición" />
-                      <TableColumn prefWidth="75.0" text="Usuario" />
-                        <TableColumn prefWidth="75.0" text="Puntuación" />
-                    </columns>
-                  </TableView>
-               </children>
-            </Pane>
-      </children>
+    <AnchorPane VBox.vgrow="ALWAYS">
+        <HBox layoutX="204.0" prefHeight="100.0" prefWidth="200.0" AnchorPane.leftAnchor="0.0"
+              AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0"/>
+        <Pane layoutX="204.0" layoutY="157.0" prefHeight="273.0" prefWidth="640.0" AnchorPane.bottomAnchor="0.0"
+              AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
+            <TableView fx:id="ranking" layoutX="209.0" layoutY="46.0" prefHeight="200.0" prefWidth="200.0">
+                <columns>
+                    <TableColumn prefWidth="75.0" text="Posición"/>
+                    <TableColumn prefWidth="75.0" text="Usuario"/>
+                    <TableColumn prefWidth="75.0" text="Puntuación"/>
+                </columns>
+            </TableView>
+        </Pane>
     </AnchorPane>
-  </children>
 </VBox>
