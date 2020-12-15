@@ -20,7 +20,7 @@ public class Usuari {
     public Usuari() {
         _nom = "";
         _username = "";
-        _perfils = new ArrayList<>();
+        _perfils = new ArrayList();
     }
 
     Usuari(String nom, String username) {

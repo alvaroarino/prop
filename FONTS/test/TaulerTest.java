@@ -9,27 +9,19 @@ import org.junit.Test;
 
 public class TaulerTest {
 
-
-
     @Test
-
-    public void TaulerTest() {
-
+    public void testConstructor() {
         Tauler t;
         int x = 7;
         int y = 8;
         t = new Tauler(x,y);
 
         assertTrue(t.getDimn() == x && t.getDimm() == y);
-
     }
 
 
     @Test
-
     public void testsetTauler() {
-
-
         Tauler nou = new Tauler(9,9);
 
         Cella[][] t = {
@@ -43,8 +35,6 @@ public class TaulerTest {
                 {new CellaNegra(28,-1), new CellaBlanca(), new CellaBlanca(), new CellaBlanca(), new CellaBlanca(), new CellaBlanca(), new CellaBlanca(), new CellaBlanca(), new CellaNegra()},
                 {new CellaNegra(6,-1), new CellaBlanca(), new CellaBlanca(), new CellaNegra(), new CellaNegra(), new CellaNegra(8,-1), new CellaBlanca(), new CellaBlanca(), new CellaNegra()},
         };
-
-
 
         nou.setTauler(t);
 
@@ -60,53 +50,36 @@ public class TaulerTest {
                 }
             }
         }
-
-
-
-
     }
 
 
     @Test
-    public void testgetDimn() {
+    public void testGetDimn() {
+        int n = 7;
+        Tauler t;
+        t = new Tauler (n,8);
 
-    int n = 7;
-    Tauler t;
-    t = new Tauler (n,8);
-
-
-        assertTrue(t.getDimn() == n );
-
+        assertEquals(t.getDimn(), n);
     }
 
     @Test
-    public void testgetDimm() {
-
+    public void testGetDimm() {
         int m = 7;
         Tauler t;
         t = new Tauler (8,m);
 
-
-        assertTrue(t.getDimm() == m );
-
+        assertEquals(t.getDimm(), m);
     }
 
-
-
-
     @Test
-    public void testpintar_celda() {
+    public void testPintar_celda() {
         Tauler nou = new Tauler(8,8);
         nou.pintar_celda(4,4,1);
-        assertTrue(nou.getCella(4,4).color() == ColorCella.Negra);
-
+        assertSame(nou.getCella(4, 4).color(), ColorCella.Negra);
     }
 
     @Test
-    public void testpintar_negras() {
-
-
-    }
+    public void testpintar_negras() {}
 
     @Test
     public void testnoPresente() {
@@ -114,19 +87,18 @@ public class TaulerTest {
         t.getCella(1,1).intro_valor_blanca(5);
         t.getCella(2,2).intro_valor_blanca(4);
 
-       boolean cont1 = t.noPresente(4,1,2);
-       boolean cont2 = t.noPresente(5,2,1);
+        boolean cont1 = t.noPresente(4,1,2);
+        boolean cont2 = t.noPresente(5,2,1);
         boolean cont3 = t.noPresente(6,2,1);
 
         assertTrue(cont1);
         assertTrue(cont2);
-        assertTrue(!cont3);
-
+        assertFalse(cont3);
 
     }
 
     @Test
-    public void testrellenar_blancas1() {
+    public void testRellenar_blancas1() {
 
         Tauler t = new Tauler(3,3);
 
@@ -155,15 +127,14 @@ public class TaulerTest {
 
         t.hacer_sumas();
 
-        assertTrue(t.getCella(0,1).getValorEsquerre() == 6 );
-        assertTrue(t.getCella(0,2).getValorEsquerre() == 8 );
-        assertTrue(t.getCella(1,0).getValorDret() == 5  );
-        assertTrue(t.getCella(2,0).getValorDret() == 9 );
-
+        assertEquals(6, t.getCella(0, 1).getValorEsquerre());
+        assertEquals(8, t.getCella(0, 2).getValorEsquerre());
+        assertEquals(5, t.getCella(1, 0).getValorDret());
+        assertEquals(9, t.getCella(2, 0).getValorDret());
     }
 
     @Test
-    public void testsolucionar(){
+    public void testSolucionar(){
 
         Tauler t = new Tauler(3,3);
 
@@ -173,12 +144,10 @@ public class TaulerTest {
         t.getCella(2,0).setValorFila(7);
 
         t.solve();
-        assertTrue(t.getCella(1,1).getValor_blanca() == 1);
-        assertTrue(t.getCella(1,2).getValor_blanca() == 2);
-        assertTrue(t.getCella(2,1).getValor_blanca() == 3);
-        assertTrue(t.getCella(2,2).getValor_blanca() == 4);
-
-
+        assertEquals(1, t.getCella(1, 1).getValor_blanca());
+        assertEquals(2, t.getCella(1, 2).getValor_blanca());
+        assertEquals(3, t.getCella(2, 1).getValor_blanca());
+        assertEquals(4, t.getCella(2, 2).getValor_blanca());
     }
 
 

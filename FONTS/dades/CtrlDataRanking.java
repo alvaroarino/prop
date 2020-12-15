@@ -3,7 +3,6 @@ package dades;
 import domain.ranking.Stat;
 
 import java.io.*;
-import java.util.Iterator;
 import java.util.Map;
 import java.util.TreeMap;
 
@@ -26,7 +25,7 @@ public class CtrlDataRanking {
         FileReader ff = new FileReader(problema);
         BufferedReader br = new BufferedReader(ff);
         String linea;
-        Map<String, Stat> ranking = new TreeMap<>();
+        Map<String, Stat> ranking = new TreeMap();
         String user,perfil;
         int puntuacion;
         while ((linea = br.readLine()) != null) {

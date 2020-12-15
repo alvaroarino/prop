@@ -22,9 +22,10 @@ public class CtrlDataUsuaris {
 
     public ArrayList<Usuari> getData() throws IOException {
         Gson gson = new Gson();
-        ArrayList<Usuari> cjtUsuaris = new ArrayList<>();
+        ArrayList<Usuari> cjtUsuaris = new ArrayList();
         String soPathSeparator = System.getProperty("file.separator");
-        try (Reader reader = new FileReader("data-files" + soPathSeparator + "users.json")) {
+        Reader reader = new FileReader("data-files" + soPathSeparator + "users.json");
+        try {
             JsonArray json = gson.fromJson(reader, JsonArray.class);
             for (JsonElement data : json) {
                 JsonObject obj = data.getAsJsonObject();
@@ -32,7 +33,11 @@ public class CtrlDataUsuaris {
                 user.fromJson(obj);
                 cjtUsuaris.add(user);
             }
-            cjtUsuaris.forEach(usuari -> System.out.println(usuari.getNom()));
+            cjtUsuaris.forEach((usuari) -> {
+                System.out.println(usuari.getNom());
+            });
+        } catch (Exception e) {
+            System.out.println(e);
         }
         return cjtUsuaris;
     }

@@ -68,7 +68,7 @@ public class CtrlDataAventura {
     public Aventura cargarAventura (String nom) throws IOException {
         Aventura av = new Aventura();
 
-        String fileRoute = "data-files" + File.separator + "Aventura"+nom+".csv";
+        String fileRoute = "data-files" + File.separator + "Aventura" + nom + ".csv";
 
         Path path = Paths.get(fileRoute);
         String content = Files.readString(path);
@@ -79,7 +79,7 @@ public class CtrlDataAventura {
 
         int nKakuros = atoi(linearBoard[2]);
 
-        ArrayList<Kakuro> llista = new ArrayList<>();
+        ArrayList<Kakuro> llista = new ArrayList<Kakuro>();
 
         for (int i = 0; i < nKakuros; ++i) {
             String nomKakuros = linearBoard[i+3];

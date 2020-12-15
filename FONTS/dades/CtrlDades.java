@@ -3,6 +3,8 @@ package dades;
 import domain.kakuro.Kakuro;
 import domain.usuari.Perfil;
 
+import java.io.IOException;
+
 public class CtrlDades {
     private final CtrlDataPerfil perfil = CtrlDataPerfil.getInstance();
     private final CtrlDataAventura aventura = CtrlDataAventura.getInstance();
@@ -12,37 +14,26 @@ public class CtrlDades {
     private final CtrlDataRanking ranking = CtrlDataRanking.getInstance();
 
     public CtrlDades() {
-
-
     }
 
-    public void guardar_kakuro(int id, Kakuro k) {
-    kakuro.guardarKakuro(id, k);
-
+    public void guardar_kakuro(int id, Kakuro k) throws IOException {
+        kakuro.guardarKakuro(String.valueOf(id), k);
     }
 
-    public void guardar_perfil(Perfil p, String nom) {
-
+    public void guardar_perfil(Perfil p, String nom) throws IOException {
         perfil.guardarPerfil(p,nom);
-
     }
 
-    public void leer_perfil(String nom) {
-
+    public void leer_perfil(String nom) throws IOException {
         perfil.getPerfil(nom);
-
     }
 
-    public void leer_kakuro(String archivo) {
+    public void leer_kakuro(String archivo) throws IOException {
         kakuro.getData(archivo);
-
-
     }
 
-    public void leer_estadisticas() {
-
+    public void leer_estadisticas() throws IOException {
         ranking.obtenirRanking();
-        
     }
 
     public void guardar_estadisticas() {
