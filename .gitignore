@@ -1,7 +1,7 @@
 # Created by .ignore support plugin (hsz.mobi)
 ### Java template
 # Compiled class file
-
+*.iml
 # Log file
 *.log
 
@@ -170,3 +170,13 @@ fabric.properties
 # Mobile Tools for Java (J2ME)
 
 # virtual machine crash logs, see http://www.java.com/en/download/help/error_hotspot.xml
+Sera borrado .gradle/
+Sera borrado FONTS/META-INF/
+Sera borrado build/classes/
+Sera borrado build/generated/
+Sera borrado build/libs/
+Sera borrado build/reports/
+Sera borrado build/test-results/test/binary/
+Sera borrado build/tmp/
+Sera borrado src/
+Sera borrado target/
