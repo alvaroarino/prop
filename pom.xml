@@ -8,6 +8,11 @@
     <artifactId>subgrup-prop4-2</artifactId>
     <version>1.0-E3</version>
 
+    <properties>
+        <maven.compiler.target>11.0.8</maven.compiler.target>
+        <maven.compiler.source>11.0.8</maven.compiler.source>
+    </properties>
+
     <dependencies>
         <dependency>
             <groupId>org.openjfx</groupId>
