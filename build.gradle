@@ -1,0 +1,29 @@
+plugins {
+    id 'java'
+    id 'org.openjfx.javafxplugin' version '0.0.9'
+}
+
+group 'subgrup.prop.42'
+version '1.0-SNAPSHOT'
+
+repositories {
+    mavenCentral()
+}
+
+javafx {
+    version = "11.0.2"
+    modules = [ 'javafx.controls', 'javafx.fxml' ]
+}
+
+sourceSets {
+    main {
+        java {
+            srcDirs = ['FONTS']
+        }
+    }
+}
+
+dependencies {
+    compile 'junit:junit:4.12'
+    implementation 'com.google.code.gson:gson:2.8.6'
+}
