@@ -5,6 +5,8 @@ plugins {
 
 group 'subgrup.prop.42'
 version '1.0-SNAPSHOT'
+targetCompatibility = '11.0.8'
+sourceCompatibility = '11.0.8'
 
 repositories {
     mavenCentral()
@@ -19,6 +21,16 @@ sourceSets {
     main {
         java {
             srcDirs = ['FONTS']
+        }
+    }
+    test {
+        java {
+            srcDirs = ['FONTS/test']
+        }
+    }
+    resources {
+        java {
+            srcDirs = ['FONTS/Resources']
         }
     }
 }
