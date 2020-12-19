@@ -2,6 +2,7 @@ package presentacion;
 
 import dades.CtrlDataAventura;
 import domain.usuari.Usuari;
+import domaincontrollers.CtrlDomain;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -17,7 +18,6 @@ import java.nio.charset.StandardCharsets;
 
 public class CtrlPresentacion extends Application {
     private static CtrlPresentacion singletonObject;
-    Usuari usuariActual;
 
     public static CtrlPresentacion getInstance() {
         if (singletonObject == null)
@@ -26,10 +26,15 @@ public class CtrlPresentacion extends Application {
         return singletonObject;
     }
 
+    private CtrlPresentacion() {}
+
     Stage presentacionStage;
 
     @Override
     public void start(Stage primaryStage) throws Exception {
+        CtrlDomain domain = CtrlDomain.getInstance();
+        domain.initData();
+
         try {
             Parent root = FXMLLoader.load(getClass().getResource("/vistaPrincipal.fxml"));
             Scene scene = new Scene(root);

@@ -2,6 +2,8 @@ package dades;
 
 import domain.kakuro.Kakuro;
 import domain.usuari.Perfil;
+import domain.usuari.Usuari;
+import presentacion.CtrlPresentacion;
 
 import java.io.IOException;
 
@@ -13,8 +15,16 @@ public class CtrlDades {
     private final CtrlDataUsuaris usuaris = CtrlDataUsuaris.getInstance();
     private final CtrlDataRanking ranking = CtrlDataRanking.getInstance();
 
-    public CtrlDades() {
+    private static CtrlDades singletonObject;
+
+    public static CtrlDades getInstance() {
+        if (singletonObject == null)
+            singletonObject = new CtrlDades() {
+            };
+        return singletonObject;
     }
+
+    private CtrlDades() {};
 
     public void guardar_kakuro(int id, Kakuro k) throws IOException {
         kakuro.guardarKakuro(String.valueOf(id), k);

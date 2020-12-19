@@ -27,6 +27,8 @@ public class CtrlDataAventura {
         return singletonObject;
     }
 
+    private CtrlDataAventura() {}
+
     private int atoi (String str) {
         if (str == null || str.length() < 1) {
             return 0;
