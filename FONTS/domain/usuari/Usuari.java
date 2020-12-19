@@ -60,6 +60,7 @@ public class Usuari {
     public boolean checkPassword(String pass) {
         return pass == _password;
     }
+    public ArrayList<Perfil> getPerfils(){return _perfils;}
     public void setName(String name) {
         this._nom = name;
     }

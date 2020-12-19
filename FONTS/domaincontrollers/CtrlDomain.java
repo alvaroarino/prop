@@ -1,6 +1,7 @@
 package domaincontrollers;
 
 import dades.CtrlDades;
+import domain.usuari.Perfil;
 import domain.usuari.Usuari;
 
 import java.io.IOException;
@@ -21,6 +22,7 @@ public class CtrlDomain {
 
     ArrayList<Usuari> cjtUsuarios;
     Usuari actualUser;
+    Perfil perfilActual;
 
     public void initData() {
         try {
@@ -56,6 +58,15 @@ public class CtrlDomain {
         user.setPass(password);
         cjtUsuarios.add(user);
         dades.updateUsuaris(cjtUsuarios);
+    }
+
+    public ArrayList<Perfil> getPerfils() {
+        return actualUser.getPerfils();
+
+    }
+
+    public void setPerfilactual(Perfil p) {
+        perfilActual = p;
     }
 
 }
