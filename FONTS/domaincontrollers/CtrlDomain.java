@@ -28,6 +28,7 @@ public class CtrlDomain {
         try {
             if (cjtUsuarios == null) cjtUsuarios = new ArrayList<>();
             cjtUsuarios = dades.getUsuaris();
+            System.out.println(cjtUsuarios.size());
         } catch (IOException e) {
         }
     }

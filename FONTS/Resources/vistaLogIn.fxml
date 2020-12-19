@@ -10,7 +10,7 @@
 <?import javafx.scene.text.Font?>
 
 
-<StackPane fx:controller="presentacion.VistaPrincipal" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #A5C5BB;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
+<StackPane fx:controller="presentacion.VistaLogIn" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #A5C5BB;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
    <children>
       <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0" spacing="15.0" style="-fx-background-color: rgb(0,0,0,0.5)rgb(0,0,0,0.5);">
          <children>

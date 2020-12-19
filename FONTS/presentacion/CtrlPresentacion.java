@@ -1,20 +1,14 @@
 package presentacion;
 
-import dades.CtrlDataAventura;
-import domain.usuari.Usuari;
 import domaincontrollers.CtrlDomain;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
 import javafx.scene.image.Image;
-import javafx.scene.layout.StackPane;
 import javafx.stage.Stage;
 
 import java.io.IOException;
-import java.nio.charset.Charset;
-import java.nio.charset.StandardCharsets;
 
 public class CtrlPresentacion extends Application {
     private static CtrlPresentacion singletonObject;
@@ -35,7 +29,7 @@ public class CtrlPresentacion extends Application {
         domain.initData();
 
         try {
-            Parent root = FXMLLoader.load(getClass().getResource("/vistaPrincipal.fxml"));
+            Parent root = FXMLLoader.load(getClass().getResource("/vistaLogIn.fxml"));
             Scene scene = new Scene(root);
             primaryStage.setTitle("KakuroMasters");
             primaryStage.getIcons().add(new Image(getClass().getResourceAsStream("/icon.png")));

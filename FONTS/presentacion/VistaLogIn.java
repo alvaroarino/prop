@@ -2,11 +2,18 @@ package presentacion;
 
 import domaincontrollers.CtrlDomain;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Node;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import javafx.stage.Stage;
 
-public class VistaPrincipal {
+import java.io.IOException;
+
+public class VistaLogIn {
     @FXML
     public Label errorMessage;
     @FXML
@@ -24,9 +31,18 @@ public class VistaPrincipal {
             boolean logged = logIn();
             if (logged) {
                 // CAMBIO DE PANTALLA
-
-                CtrlPresentacion ctrl = CtrlPresentacion.getInstance();
-                ctrl.cambiarVista("/vistaPerfil.fxml");
+                Node node = (Node) event.getSource();
+                Stage thisStage = (Stage) node.getScene().getWindow();
+                Parent root = null;
+                try {
+                    root = FXMLLoader.load(getClass().getResource("/vistaPerfil.fxml"));
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+                Scene scene = new Scene(root);
+                thisStage.setTitle("KakuroMasters");
+                thisStage.setScene(scene);
+                thisStage.show();
             } else {
                 errorMessage.setOpacity(1.0);
                 errorMessage.setText("El usuario o la contraseña contienen errores");
@@ -37,9 +53,18 @@ public class VistaPrincipal {
             boolean signedup = signUp();
             if (signedup) {
                 // CAMBIO DE PANTALLA
-
-                CtrlPresentacion ctrl = CtrlPresentacion.getInstance();
-                ctrl.cambiarVista("/vistaPerfil.fxml");
+                Node node = (Node) event.getSource();
+                Stage thisStage = (Stage) node.getScene().getWindow();
+                Parent root = null;
+                try {
+                    root = FXMLLoader.load(getClass().getResource("/vistaPerfil.fxml"));
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+                Scene scene = new Scene(root);
+                thisStage.setTitle("KakuroMasters");
+                thisStage.setScene(scene);
+                thisStage.show();
             } else {
                 errorMessage.setOpacity(1.0);
                 errorMessage.setText("Usuario ya registrado");
