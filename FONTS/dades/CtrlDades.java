@@ -6,6 +6,7 @@ import domain.usuari.Usuari;
 import presentacion.CtrlPresentacion;
 
 import java.io.IOException;
+import java.util.ArrayList;
 
 public class CtrlDades {
     private final CtrlDataPerfil perfil = CtrlDataPerfil.getInstance();
@@ -51,7 +52,13 @@ public class CtrlDades {
       //  ranking.guardarRanking();
     }
 
+    public ArrayList<Usuari> getUsuaris() throws IOException {
+        return usuaris.getData();
+    }
 
+    public void updateUsuaris(ArrayList<Usuari> cjtUsuaris) {
+        usuaris.updateData(cjtUsuaris);
+    }
 
 
 

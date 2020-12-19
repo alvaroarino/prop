@@ -41,4 +41,8 @@ public class CtrlDataUsuaris {
         }
         return cjtUsuaris;
     }
+
+    public void updateData(ArrayList<Usuari> cjtUsuaris) {
+
+    }
 }

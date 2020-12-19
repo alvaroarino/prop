@@ -26,12 +26,11 @@ public class CtrlPresentacion extends Application {
         return singletonObject;
     }
 
-    private CtrlPresentacion() {}
-
     Stage presentacionStage;
 
     @Override
     public void start(Stage primaryStage) throws Exception {
+
         CtrlDomain domain = CtrlDomain.getInstance();
         domain.initData();
 
@@ -48,7 +47,8 @@ public class CtrlPresentacion extends Application {
         }
     }
 
-    public static void main(String[] args) {launch(args);
+    public void main(String[] args) {
+        launch(args);
     }
 
     public void cambiarVista(String vistaFile) {

@@ -23,7 +23,7 @@ public class Usuari {
         _perfils = new ArrayList();
     }
 
-    Usuari(String nom, String username) {
+    public Usuari(String nom, String username) {
         this._id = UUID.randomUUID().toString();
         this._nom = nom;
         this._username = username;
@@ -57,7 +57,9 @@ public class Usuari {
         return _username;
     }
     public int getNumPerfils() { return _perfils.size();}
-
+    public boolean checkPassword(String pass) {
+        return pass == _password;
+    }
     public void setName(String name) {
         this._nom = name;
     }
