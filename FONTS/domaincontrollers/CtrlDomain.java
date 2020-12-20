@@ -25,11 +25,14 @@ public class CtrlDomain {
     Perfil perfilActual;
 
     public void initData() {
+        System.out.println("Getting data");
         try {
+            System.out.println("USUARIS");
             if (cjtUsuarios == null) cjtUsuarios = new ArrayList<>();
             cjtUsuarios = dades.getUsuaris();
-            System.out.println(cjtUsuarios.size());
+            System.out.println("#USUARIS: " + cjtUsuarios.size());
         } catch (IOException e) {
+            System.out.println(e);
         }
     }
 
@@ -39,6 +42,7 @@ public class CtrlDomain {
                 for (Usuari user : cjtUsuarios) {
                     if (user.getUsername().equals(username) && user.checkPassword(password)) {
                         actualUser = user;
+                        System.out.println(actualUser.getUsername());
                         return true;
                     }
                 }

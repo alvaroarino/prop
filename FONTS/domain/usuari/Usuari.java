@@ -12,15 +12,15 @@ import java.util.UUID;
 public class Usuari {
     private String _id;
     private String _nom;
-    private final String _username;
+    private String _username;
     private String _password;
 
-    private final ArrayList<Perfil> _perfils;
+    private ArrayList<Perfil> _perfils;
 
     public Usuari() {
         _nom = "";
         _username = "";
-        _perfils = new ArrayList();
+        _perfils = new ArrayList<>();
     }
 
     public Usuari(String nom, String username) {
@@ -39,10 +39,18 @@ public class Usuari {
     public void fromJson(JsonObject user) {
         this._id = user.get("id").getAsString();
         this._nom = user.get("name").getAsString();
+        this._username = user.get("username").getAsString();
+        this._password = user.get("password").getAsString();
         JsonArray profiles = user.getAsJsonArray("profile");
+
         for (JsonElement data : profiles) {
             JsonObject obj = data.getAsJsonObject();
-            Perfil perfil = new Perfil(obj.get("id").getAsString(), obj.get("nom").getAsString());
+            String id = obj.get("id").getAsString();
+            String nom = obj.get("nom").getAsString();
+            Perfil perfil = new Perfil();
+            perfil.setID(id);
+            perfil.setNom(nom);
+            System.out.println("PERFIL:" + perfil.getNom());
             _perfils.add(perfil);
         }
     }
@@ -56,9 +64,12 @@ public class Usuari {
     public String getUsername() {
         return _username;
     }
+    public String getPass() {
+        return _password;
+    }
     public int getNumPerfils() { return _perfils.size();}
     public boolean checkPassword(String pass) {
-        return pass == _password;
+        return pass.equals(_password);
     }
     public ArrayList<Perfil> getPerfils(){return _perfils;}
     public void setName(String name) {

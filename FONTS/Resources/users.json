@@ -2,6 +2,8 @@
   {
     "id": "alvaro2502",
     "name" : "Alvaro",
+    "username": "alvaroarino",
+    "password": "1234",
     "img_path": "data-files/img/alvaro2502.jpg",
     "profile": [
       {
@@ -17,6 +19,8 @@
   {
     "id": "victor0202",
     "name": "Victor",
+    "username": "victordelgado",
+    "password": "1234",
     "img_path": "data-files/img/victor0202.jpg",
     "profile": [
       {
