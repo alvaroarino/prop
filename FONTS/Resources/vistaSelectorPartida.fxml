@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.SplitPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<StackPane fx:controller="presentacion.VistaSelectorPartida" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #A5C5BB;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <VBox alignment="TOP_CENTER" prefHeight="200.0" prefWidth="100.0">
+         <children>
+            <HBox alignment="CENTER" prefHeight="75.0" prefWidth="200.0" style="-fx-background-color: #3C4853;">
+               <children>
+                  <Button fx:id="AtrasButton" mnemonicParsing="false" text="Atrás" />
+                  <Separator prefWidth="200.0" style="-fx-opacity: 0;" />
+                  <Label text="Kakuro masters" textAlignment="CENTER" textFill="WHITE">
+                     <font>
+                        <Font size="25.0" />
+                     </font>
+                  </Label>
+                  <Separator prefWidth="150.0" style="-fx-opacity: 0;" />
+                  <Label fx:id="nombreUsuarioLabel" text="Label" textAlignment="RIGHT" textFill="WHITE" />
+               </children>
+            </HBox>
+            <SplitPane dividerPositions="0.5" prefHeight="160.0" prefWidth="200.0" VBox.vgrow="ALWAYS">
+               <items>
+                  <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0" style="-fx-background-color: #F5CCFF;">
+                     <children>
+                        <Label text="Aventura">
+                           <font>
+                              <Font size="24.0" />
+                           </font>
+                        </Label>
+                        <Button fx:id="CincoButton" mnemonicParsing="false" text="5 niveles" />
+                        <Button fx:id="DiezButton" mnemonicParsing="false" text="10 niveles" />
+                        <Button fx:id="QuinceButton" mnemonicParsing="false" text="15 niveles" />
+                     </children>
+                     <opaqueInsets>
+                        <Insets />
+                     </opaqueInsets>
+                  </VBox>
+                  <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0" style="-fx-background-color: #FFF0CE;">
+                     <children>
+                        <Label text="Aleatorio">
+                           <font>
+                              <Font size="24.0" />
+                           </font>
+                        </Label>
+                        <Button fx:id="PreButton" mnemonicParsing="false" text="Ajustes predefinidos" />
+                        <Button fx:id="AleatButton" mnemonicParsing="false" text="Completamente aleatorio" />
+                     </children>
+                  </VBox>
+               </items>
+            </SplitPane>
+         </children>
+      </VBox>
+   </children>
+</StackPane>

@@ -12,8 +12,8 @@ public class CtrlDomain {
 
     private CtrlDades dades = CtrlDades.getInstance();
     private ArrayList<Usuari> cjtUsuarios;
-    private Usuari actualUser = new Usuari();
-    private Perfil perfilActual;
+    public Usuari actualUser = new Usuari();
+    public Perfil perfilActual;
 
     public static CtrlDomain getInstance() {
         if (singletonObject == null) {
@@ -78,5 +78,6 @@ public class CtrlDomain {
     public void setPerfilactual(Perfil p) {
         perfilActual = p;
     }
+
 
 }
