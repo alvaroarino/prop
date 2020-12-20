@@ -9,20 +9,24 @@ import java.util.ArrayList;
 
 public class CtrlDomain {
     private static CtrlDomain singletonObject;
+
     private CtrlDades dades = CtrlDades.getInstance();
+    private ArrayList<Usuari> cjtUsuarios;
+    private Usuari actualUser = new Usuari();
+    private Perfil perfilActual;
 
     public static CtrlDomain getInstance() {
-        if (singletonObject == null)
+        if (singletonObject == null) {
+            System.out.println("Init Domini");
             singletonObject = new CtrlDomain() {
             };
+        }
         return singletonObject;
     }
 
     private CtrlDomain() {};
 
-    ArrayList<Usuari> cjtUsuarios;
-    Usuari actualUser;
-    Perfil perfilActual;
+
 
     public void initData() {
         System.out.println("Getting data");
@@ -41,7 +45,7 @@ public class CtrlDomain {
             case "login":
                 for (Usuari user : cjtUsuarios) {
                     if (user.getUsername().equals(username) && user.checkPassword(password)) {
-                        actualUser = user;
+                        this.actualUser = user;
                         System.out.println(actualUser.getUsername());
                         return true;
                     }
@@ -66,6 +70,7 @@ public class CtrlDomain {
     }
 
     public ArrayList<Perfil> getPerfils() {
+        System.out.println(this.actualUser.getId());
         return actualUser.getPerfils();
 
     }

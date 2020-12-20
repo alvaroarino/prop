@@ -11,18 +11,16 @@ import javafx.scene.layout.VBox;
 import java.util.ArrayList;
 
 public class VistaPerfil {
-
     @FXML
     public HBox perfilsRow;
 
     public void initialize() {
-        ArrayList<Perfil> perfiles = new ArrayList<Perfil>();
+        ArrayList<Perfil> perfiles;
 
         CtrlDomain domain = CtrlDomain.getInstance();
         perfiles = domain.getPerfils();
 
         for (Perfil p  : perfiles) {
-
             VBox perfilBox = new VBox();
             Button boton = new Button(p.getNom());
             perfilBox.getChildren().add(boton);
