@@ -3,14 +3,14 @@
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-
-<StackPane fx:controller="presentacion.VistaLogIn" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #A5C5BB;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
+<StackPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #A5C5BB;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="presentacion.VistaLogIn">
    <children>
       <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0" spacing="15.0" style="-fx-background-color: rgb(0,0,0,0.5)rgb(0,0,0,0.5);">
          <children>
@@ -22,7 +22,7 @@
             <Label text="Inicia sesión o registrate" textAlignment="CENTER" textFill="WHITE" />
             <Label fx:id="errorMessage" text="Se han encontrado errores en el usuario o la contraseña" textFill="#ff4e4e" />
             <TextField fx:id="usernameTextField" promptText="Username" />
-            <TextField fx:id="passTextField" promptText="Contraseña" />
+            <PasswordField fx:id="passTextField" promptText="Contraseña" />
             <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" spacing="20.0">
                <children>
                   <Button fx:id="loginButton" mnemonicParsing="false" text="Iniciar sesión" />
