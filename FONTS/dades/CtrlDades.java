@@ -27,6 +27,7 @@ public class CtrlDades {
 
     private CtrlDades() {};
 
+
     public void guardar_kakuro(int id, Kakuro k) throws IOException {
         kakuro.guardarKakuro(String.valueOf(id), k);
     }
