@@ -6,11 +6,10 @@
 <?import javafx.scene.control.Separator?>
 <?import javafx.scene.control.SplitPane?>
 <?import javafx.scene.image.ImageView?>
-<?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.layout.ColumnConstraints?>
 <?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
@@ -30,52 +29,47 @@
          </font></Label>
         <ImageView fitHeight="150.0" fitWidth="177.0" pickOnBounds="true" preserveRatio="true" />
     </HBox>
-    <AnchorPane VBox.vgrow="ALWAYS">
-        <VBox.margin>
-            <Insets />
-        </VBox.margin>
-        <SplitPane dividerPositions="0.2513227513227513" layoutX="6.0" layoutY="163.0" prefHeight="858.0" prefWidth="1438.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
-            <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="888.0" prefWidth="149.0">
-                <VBox layoutX="-6.0" prefHeight="858.0" prefWidth="370.0" style="-fx-background-color: #A5C5BB;">
-                    <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
-                        <Label alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" text="Tiempo">
-                     <font>
-                        <Font size="22.0" />
-                     </font></Label>
-                        <Separator orientation="VERTICAL" prefHeight="100.0" prefWidth="45.0" />
-                        <Label fx:id="timeLabel" alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" text="Label">
-                            <HBox.margin>
-                                <Insets />
-                            </HBox.margin>
-                        </Label>
-                    </HBox>
-                    <HBox alignment="CENTER" layoutX="10.0" layoutY="10.0" prefHeight="100.0" prefWidth="200.0">
-                        <Label alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" text="Puntuación" textAlignment="RIGHT">
-                     <font>
-                        <Font size="22.0" />
-                     </font></Label>
-                        <Separator orientation="VERTICAL" prefHeight="100.0" prefWidth="45.0" />
-                        <Label fx:id="PuntuacionLabel" alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" text="Label" />
-                    </HBox>
-                    <Button fx:id="ButtonPausa" maxWidth="1.7976931348623157E308" mnemonicParsing="false" prefHeight="102.0" prefWidth="361.0" text="Pausa">
-                  <font>
-                     <Font size="22.0" />
-                  </font></Button>
-                </VBox>
-            </AnchorPane>
-            <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="857.0" prefWidth="889.0" style="-fx-background-color: #A5C5BB;">
-                <GridPane fx:id="KakuroGridPane" layoutX="291.0" layoutY="302.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
-                    <columnConstraints>
-                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                    </columnConstraints>
-                    <rowConstraints>
-                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                    </rowConstraints>
+     <SplitPane dividerPositions="0.25" prefHeight="858.0" prefWidth="1438.0">
+          <VBox prefHeight="858.0" prefWidth="370.0" style="-fx-background-color: #A5C5BB;">
+              <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
+                  <Label alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" text="Tiempo">
+               <font>
+                  <Font size="22.0" />
+               </font>
+            </Label>
+                  <Separator orientation="VERTICAL" prefHeight="100.0" prefWidth="45.0" />
+                  <Label fx:id="timeLabel" alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" text="Label">
+                      <HBox.margin>
+                          <Insets />
+                      </HBox.margin>
+                  </Label>
+              </HBox>
+              <HBox alignment="CENTER" layoutX="10.0" layoutY="10.0" prefHeight="100.0" prefWidth="200.0">
+                  <Label alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" text="Puntuación" textAlignment="RIGHT">
+               <font>
+                  <Font size="22.0" />
+               </font>
+            </Label>
+                  <Separator orientation="VERTICAL" prefHeight="100.0" prefWidth="45.0" />
+                  <Label fx:id="PuntuacionLabel" alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" text="Label" />
+              </HBox>
+              <Button fx:id="ButtonPausa" maxWidth="1.7976931348623157E308" mnemonicParsing="false" prefHeight="102.0" prefWidth="361.0" text="Pausa">
+            <font>
+               <Font size="22.0" />
+            </font>
+         </Button>
+         <Button maxWidth="1.7976931348623157E308" mnemonicParsing="false" prefHeight="122.0" prefWidth="353.0" text="Comprobar">
+            <font>
+               <Font size="22.0" />
+            </font>
+         </Button>
+          </VBox>
+      <StackPane prefHeight="150.0" prefWidth="200.0">
+         <children>
+                <GridPane fx:id="KakuroGridPane" style="-fx-background-color: #A5C5BB;">
+
                 </GridPane>
-            </AnchorPane>
-        </SplitPane>
-    </AnchorPane>
+         </children>
+      </StackPane>
+     </SplitPane>
 </VBox>

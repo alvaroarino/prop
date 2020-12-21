@@ -10,7 +10,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<StackPane fx:controller="presentacion.VistaSelectorPartida" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #A5C5BB;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
+<StackPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #A5C5BB;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="presentacion.VistaSelectorPartida">
    <children>
       <VBox alignment="TOP_CENTER" prefHeight="200.0" prefWidth="100.0">
          <children>
@@ -57,6 +57,16 @@
                   </VBox>
                </items>
             </SplitPane>
+            <VBox alignment="CENTER" prefHeight="125.0" prefWidth="100.0" style="-fx-background-color: #8EDBFF;">
+               <children>
+                  <Label text="Importar fichero">
+                     <font>
+                        <Font size="24.0" />
+                     </font>
+                  </Label>
+                  <Button fx:id="ImportarButton" mnemonicParsing="false" text="Importar" />
+               </children>
+            </VBox>
          </children>
       </VBox>
    </children>

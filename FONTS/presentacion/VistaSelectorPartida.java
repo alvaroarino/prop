@@ -27,21 +27,23 @@ public class VistaSelectorPartida {
     @FXML
     public Button AleatButton;
 
+    @FXML
+    public Button ImportarButton;
+
     public void initialize() {
 
         AleatButton.setOnMouseClicked((event) -> {
             Node node = (Node) event.getSource();
             Stage thisStage = (Stage) node.getScene().getWindow();
-            Parent root = null;
             try {
-                root = FXMLLoader.load(getClass().getResource("/vistaPartida.fxml"));
+                Parent root = FXMLLoader.load(getClass().getResource("/vistaPartida.fxml"));
+                Scene scene = new Scene(root);
+                thisStage.setTitle("KakuroMasters");
+                thisStage.setScene(scene);
+                thisStage.show();
             } catch (IOException e) {
                 e.printStackTrace();
             }
-            Scene scene = new Scene(root);
-            thisStage.setTitle("KakuroMasters");
-            thisStage.setScene(scene);
-            thisStage.show();
         });
     }
 
