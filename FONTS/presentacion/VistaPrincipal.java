@@ -37,7 +37,7 @@ public class VistaPrincipal {
             Stage thisStage = (Stage) node.getScene().getWindow();
             Parent root = null;
             try {
-                root = FXMLLoader.load(getClass().getResource("/vistaPerfil.fxml"));
+                root = FXMLLoader.load(getClass().getResource("/vistaSelectorPartida.fxml"));
             } catch (IOException e) {
                 e.printStackTrace();
             }
@@ -52,7 +52,7 @@ public class VistaPrincipal {
             Stage thisStage = (Stage) node.getScene().getWindow();
             Parent root = null;
             try {
-                root = FXMLLoader.load(getClass().getResource("/vistaPerfil.fxml"));
+                root = FXMLLoader.load(getClass().getResource("/vistaGaleria.fxml"));
             } catch (IOException e) {
                 e.printStackTrace();
             }
@@ -67,7 +67,7 @@ public class VistaPrincipal {
             Stage thisStage = (Stage) node.getScene().getWindow();
             Parent root = null;
             try {
-                root = FXMLLoader.load(getClass().getResource("/vistaPerfil.fxml"));
+                root = FXMLLoader.load(getClass().getResource("/vistaEstadistica.fxml"));
             } catch (IOException e) {
                 e.printStackTrace();
             }
@@ -82,7 +82,7 @@ public class VistaPrincipal {
             Stage thisStage = (Stage) node.getScene().getWindow();
             Parent root = null;
             try {
-                root = FXMLLoader.load(getClass().getResource("/vistaPerfil.fxml"));
+                root = FXMLLoader.load(getClass().getResource("/vistaAjustes.fxml"));
             } catch (IOException e) {
                 e.printStackTrace();
             }
@@ -97,7 +97,7 @@ public class VistaPrincipal {
             Stage thisStage = (Stage) node.getScene().getWindow();
             Parent root = null;
             try {
-                root = FXMLLoader.load(getClass().getResource("/vistaPerfil.fxml"));
+                root = FXMLLoader.load(getClass().getResource("/vistaPerfilPropio.fxml"));
             } catch (IOException e) {
                 e.printStackTrace();
             }
@@ -108,6 +108,7 @@ public class VistaPrincipal {
         });
 
         SalirButton.setOnMouseClicked((event) -> {
+            /*
             Node node = (Node) event.getSource();
             Stage thisStage = (Stage) node.getScene().getWindow();
             Parent root = null;
@@ -120,6 +121,8 @@ public class VistaPrincipal {
             thisStage.setTitle("KakuroMasters");
             thisStage.setScene(scene);
             thisStage.show();
+
+             */
         });
 
 

@@ -34,9 +34,24 @@ public class VistaPerfil {
             boton.setOnMouseClicked((event) -> {
                 domain.setPerfilactual(p);
 
+                Node node = (Node) event.getSource();
+                Stage thisStage = (Stage) node.getScene().getWindow();
+                Parent root = null;
+                try {
+                    root = FXMLLoader.load(getClass().getResource("/vistaPrincipal.fxml"));
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+                Scene scene = new Scene(root);
+                thisStage.setTitle("KakuroMasters");
+                thisStage.setScene(scene);
+                thisStage.show();
+
+
+                /*
                 CtrlPresentacion ctrl = CtrlPresentacion.getInstance();
                 ctrl.cambiarVista("/vistaPrincipal.fxml");
-
+*/
             });
 
         }

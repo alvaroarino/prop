@@ -15,7 +15,7 @@ import javafx.stage.Stage;
 import java.io.IOException;
 
 
-public class VistaGestionPartidaController {
+public class VistaGestionPartida {
 
     @FXML
     public Label TitleLabel;
