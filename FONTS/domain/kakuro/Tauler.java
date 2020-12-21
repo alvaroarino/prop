@@ -42,6 +42,10 @@ public class Tauler {
 
     }
 
+    public String dificultad () {
+
+    }
+
     public void deepCopy(Cella[][] cjt) {
 
 

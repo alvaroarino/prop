@@ -19,15 +19,11 @@ public class Perfil {
     public Perfil(String nom) {
         this._idPerfil = UUID.randomUUID().toString();
         this._nom = nom;
-        this._cjtPartidas = new CjtPartida();
-        this._av = new Aventura();
     }
 
     public Perfil(String id, String nom) {
         this._idPerfil = id;
         this._nom = nom;
-        this._cjtPartidas = new CjtPartida();
-        this._av = new Aventura();
     }
 
     public void setID(String id) {this._idPerfil = id;}

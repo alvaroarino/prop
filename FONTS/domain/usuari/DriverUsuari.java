@@ -88,7 +88,7 @@ public class DriverUsuari {
                             break;
                         case "9":
                             System.out.println("Es procedirà a crear un perfil amb les dades actuals de l'usuari...");
-                            user.addProfile();
+                            //user.addProfile();
                             System.out.println("Perfil creat amb exit, nombre total de perfils: " + user.getNumPerfils());
                             break;
                         default:

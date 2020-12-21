@@ -79,8 +79,7 @@ public class Usuari {
         this._password = pass;
     }
 
-    public void addProfile() throws UserException {
-        if (_username.equals("")) throw new UserException(getId());
-        this._perfils.add(new Perfil(this._nom));
+    public void addProfile(Perfil p) {
+        this._perfils.add(p);
     }
 }

@@ -1,5 +1,6 @@
 package presentacion;
 
+import dades.CtrlDades;
 import domain.usuari.Perfil;
 import domaincontrollers.CtrlDomain;
 import javafx.fxml.FXML;
@@ -10,6 +11,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.control.TextField;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.stage.Modality;
@@ -19,19 +21,59 @@ import java.io.IOException;
 import java.util.ArrayList;
 
 public class VistaPerfil {
+    CtrlDomain domain = CtrlDomain.getInstance();
     @FXML
     public HBox perfilsRow;
 
     @FXML
-    public Button botonAdd;
+    public Button ButtonAddPerfil;
 
     public void initialize() {
+        updateProfiles();
+
+        ButtonAddPerfil.setOnMouseClicked((event) -> {
+            Stage popupwindow = new Stage();
+
+            popupwindow.initModality(Modality.APPLICATION_MODAL);
+            popupwindow.setTitle("Creacion del perfil");
+
+            Button saveButton = new Button("Guardar");
+            Button exitButton = new Button("Salir sin guardar");
+            TextField nameField = new TextField();
+            nameField.setText("Nombre");
+
+            saveButton.setOnAction(e -> {
+                String name = nameField.getText();
+                domain.crearPerfil(name);
+                popupwindow.close();
+                perfilsRow = new HBox();
+                updateProfiles();
+            });
+
+            exitButton.setOnAction(e -> {
+                popupwindow.close();
+
+            });
+
+            HBox buttons = new HBox(10);
+            buttons.getChildren().addAll(saveButton, exitButton);
+
+            VBox layout = new VBox(10);
+            layout.getChildren().addAll(nameField, buttons);
+            layout.setAlignment(Pos.CENTER);
+
+            Scene scene1 = new Scene(layout, 300, 250);
+            popupwindow.setScene(scene1);
+            popupwindow.showAndWait();
+        });
+    }
+
+    private void updateProfiles() {
         ArrayList<Perfil> perfiles;
 
-        CtrlDomain domain = CtrlDomain.getInstance();
         perfiles = domain.getPerfils();
 
-        for (Perfil p  : perfiles) {
+        for (Perfil p : perfiles) {
             VBox perfilBox = new VBox();
             Button boton = new Button(p.getNom());
             perfilBox.getChildren().add(boton);
@@ -51,35 +93,7 @@ public class VistaPerfil {
                 thisStage.setTitle("KakuroMasters");
                 thisStage.setScene(scene);
                 thisStage.show();
-
-
-                /*
-                CtrlPresentacion ctrl = CtrlPresentacion.getInstance();
-                ctrl.cambiarVista("/vistaPrincipal.fxml");
-*/
             });
-
-            botonAdd.setOnMouseClicked((event) -> {
-                Stage popupwindow=new Stage();
-
-                popupwindow.initModality(Modality.APPLICATION_MODAL);
-                popupwindow.setTitle("This is a pop up window");
-
-                Label label1= new Label("Pop up window now displayed");
-                Button button1= new Button("Close this pop up window");
-
-                button1.setOnAction(e -> popupwindow.close());
-
-                VBox layout = new VBox(10);
-                layout.getChildren().addAll(label1, button1);
-                layout.setAlignment(Pos.CENTER);
-
-                Scene scene1= new Scene(layout, 300, 250);
-                popupwindow.setScene(scene1);
-                popupwindow.showAndWait();
-            });
-
         }
-
     }
 }

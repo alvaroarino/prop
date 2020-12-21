@@ -79,5 +79,13 @@ public class CtrlDomain {
         perfilActual = p;
     }
 
+    public void crearPerfil(String nom) {
+        Perfil p = new Perfil(nom);
+        actualUser.addProfile(p);
+        for (Usuari u: cjtUsuarios) {
+            if (u.getId() == actualUser.getId()) u = actualUser;
+        }
+        dades.updateUsuaris(cjtUsuarios);
+    }
 
 }
