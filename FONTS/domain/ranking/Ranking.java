@@ -18,7 +18,6 @@ public class Ranking {
 
     public void inicialitzarValors() {
         puntuacioPerfils = new TreeMap();
-        //com llegir?
     }
 
     public void setRanking(Map<String, Stat> rank){puntuacioPerfils = rank;}
@@ -37,21 +36,12 @@ public class Ranking {
         }
     }
 
-    public void print() {
+    public List<Stat> obtenirRankingOrdenat() {
         List<Stat> perfilPerPuntuacio = new ArrayList<>(puntuacioPerfils.values());
 
         perfilPerPuntuacio.sort(Comparator.comparing(Stat::getPuntuacio));
 
-        for (Stat s : perfilPerPuntuacio) {
-            System.out.println(s.getPerfil() + "\t" + s.getPuntuacio());
-        }
-
-        /*Iterator<Map.Entry<UUID, Double>> itr = puntuacioPerfils.entrySet().iterator();
-
-        while(itr.hasNext()) {
-            Map.Entry<UUID, Double> stat = itr.next();
-            System.out.println("Perfil : " + stat.getKey() + " -> Temps = " + stat.getValue());
-        }*/
+        return perfilPerPuntuacio;
     }
 
 }

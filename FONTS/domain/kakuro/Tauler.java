@@ -14,6 +14,7 @@ public class Tauler {
     int solucionsTrobades;
     private Cella[][] SolucionKakuro;
     int cellesNegres;
+    int cellesBlanques;
 
     public Tauler(){
         dimn = 0;
@@ -39,11 +40,17 @@ public class Tauler {
                 else this.CjtCelles[i][j] = new CellaBlanca();
             }
         }
-
+        cellesBlanques = dimn*dimm - cellesNegres;
     }
 
-    public String dificultad () {
+    public String dificultad() {
+        double d = (double)(cellesBlanques)/(double)(dimm*dimn);
+        if(d <= 0.54)
+            return "facil";
+        if(d <= 0.59)
+            return "medio";
 
+        return "hard";
     }
 
     public void deepCopy(Cella[][] cjt) {
@@ -171,6 +178,7 @@ public class Tauler {
                 }
             }
         }
+        cellesBlanques = dimn*dimm - cellesNegres;
     }
 
     public boolean noPresente(int valor, int fila, int col) {  // false si esta, true si no esta
@@ -306,21 +314,21 @@ public class Tauler {
         for (int i = 1; i < dimn; ++i) {
             for (int j = 0; j < dimm; ++j) {
                 if (CjtCelles[i][j].color() == ColorCella.Blanca) {
-                    if(restants == 0) {
-                        CjtCelles[i][j].intro_valor_blanca(-1);
-                    }
-                    else {
-                        if ((restants > 1) && (compt != m)) {
+                    if(!CjtCelles[i][j].cellaFixed()) {
+                        if (restants == 0) {
                             CjtCelles[i][j].intro_valor_blanca(-1);
-                        } else if ((restants == 1) && (compt != n)) {
-                            CjtCelles[i][j].intro_valor_blanca(-1);
+                        } else {
+                            if ((restants > 1) && (compt != m)) {
+                                CjtCelles[i][j].intro_valor_blanca(-1);
+                            } else if ((restants == 1) && (compt != n)) {
+                                CjtCelles[i][j].intro_valor_blanca(-1);
+                            } else {
+                                CjtCelles[i][j].fixCellaBlanca();
+                            }
                         }
-                        else{
-                            CjtCelles[i][j].fixCellaBlanca();
-                        }
+                        if (compt == m) compt = 0;
+                        ++compt;
                     }
-                    if(compt == m) compt = 0;
-                    ++compt;
                 }
             }
         }
@@ -330,15 +338,15 @@ public class Tauler {
 
         solBack2(this.CjtCelles, 0, 0);
         if(solucionsTrobades > 1) {
-            System.out.println("El kakuro té més d'una solució \n");
+            System.out.println("El kakuro te mes d'una solucio \n");
             printSol();
         }
         else if(solucionsTrobades == 1) {
-            System.out.println("El kakuro té una unica solució \n");
+            System.out.println("El kakuro te una unica solucio \n");
             printSol();
         }
         else {
-            System.out.println("No s'ha trobat solució \n");
+            System.out.println("No s'ha trobat solucio \n");
         }
     }
 
@@ -365,9 +373,11 @@ public class Tauler {
 
         for (int valor=1; valor <= 9; ++valor) {
             if (valorValid(board, fila, col, valor)) {
-                board[fila][col].intro_valor_blanca(valor);
-                solBack2(board, fila, col+1);
-                board[fila][col].intro_valor_blanca(0);
+                if(!board[fila][col].cellaFixed()) {
+                    board[fila][col].intro_valor_blanca(valor);
+                    solBack2(board, fila, col + 1);
+                    board[fila][col].intro_valor_blanca(0);
+                }
             }
         }
     }
@@ -402,27 +412,15 @@ public class Tauler {
     }
 
     private boolean valorValidFilaAvall(Cella[][] board, int fila, int col, int valor) {
-        int suma = valor;
-        int sumaNegras = 0;
 
         for (int i = col+1; i < dimm; ++i) {
             if (board[fila][i].color() == ColorCella.Negra){
-                sumaNegras = board[fila][i].getValorDret();
                 break;
             }
-            suma += board[fila][i].getValor_blanca();
             if (board[fila][i].getValor_blanca() == valor)
                 return false;
         }
-        if (suma > sumaNegras)
-            return false;
 
-        if (col == board[0].length - 1) {
-            return suma >= sumaNegras;
-        }
-        else if (board[fila][col+1].color() == ColorCella.Negra) {
-            return suma >= sumaNegras;
-        }
         return true;
     }
 
@@ -452,26 +450,13 @@ public class Tauler {
     }
 
     private boolean valorValidColDreta(Cella[][] board, int fila, int col, int valor){
-        int suma = valor;
-        int sumaNegras = 0;
 
         for (int i = fila+1; i < dimn; ++i) {
             if (board[i][col].color() == ColorCella.Negra){
-                sumaNegras = board[i][col].getValorEsquerre();
                 break;
             }
-            suma += board[i][col].getValor_blanca();
             if (board[i][col].getValor_blanca() == valor)
                 return false;
-        }
-        if (suma > sumaNegras)
-            return false;
-
-        if (fila == board.length - 1) {
-            return suma >= sumaNegras;
-        }
-        else if (board[fila+1][col].color() == ColorCella.Negra) {
-            return suma >= sumaNegras;
         }
         return true;
     }
@@ -540,6 +525,48 @@ public class Tauler {
 
             System.out.print("\n");
         }
+    }
+
+    public void darPista(){
+        if(solucionar(this.CjtCelles, 0,0)){
+            borrar_blancas(1);
+        }
+        else{
+            System.out.println("No es pot donar una pista ja que la solució parcial no és valida");
+        }
+    }
+
+    private boolean solucionar(Cella[][] board, int fila, int col) {
+        final int nFila = board.length;
+        final int nCol = board[0].length;
+
+        if (fila == nFila) return true;
+
+        else if (col == nCol) {
+            return solucionar(board,fila+1, 0);
+        }
+        else if(board[fila][col].color() == ColorCella.Negra) {
+            return solucionar(board, fila, col+1);
+        }
+
+        else if(board[fila][col].cellaFixed()) {
+            return solucionar(board, fila, col+1);
+        }
+
+        for (int valor=1; valor <= 9; ++valor) {
+            if (valorValid(board, fila, col, valor)) {
+                if(!board[fila][col].cellaFixed()) {
+                    board[fila][col].intro_valor_blanca(valor);
+                    if(solucionar(board,fila,col+1)) {
+                        return true;
+                    }
+                    else{
+                        board[fila][col].intro_valor_blanca(0);
+                    }
+                }
+            }
+        }
+        return false;
     }
 
     public void validar() {
