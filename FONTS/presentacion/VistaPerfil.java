@@ -3,11 +3,17 @@ package presentacion;
 import domain.usuari.Perfil;
 import domaincontrollers.CtrlDomain;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Node;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
+import javafx.stage.Stage;
 
+import java.io.IOException;
 import java.util.ArrayList;
 
 public class VistaPerfil {
@@ -34,6 +40,10 @@ public class VistaPerfil {
             });
 
         }
+
+
+
+
 
     }
 }
