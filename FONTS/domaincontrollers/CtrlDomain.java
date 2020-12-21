@@ -1,11 +1,14 @@
 package domaincontrollers;
 
 import dades.CtrlDades;
+import domain.ranking.Ranking;
+import domain.ranking.Stat;
 import domain.usuari.Perfil;
 import domain.usuari.Usuari;
 
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.List;
 
 public class CtrlDomain {
     private static CtrlDomain singletonObject;
@@ -14,6 +17,7 @@ public class CtrlDomain {
     private ArrayList<Usuari> cjtUsuarios;
     public Usuari actualUser = new Usuari();
     public Perfil perfilActual;
+    public Ranking rankActual;
 
     public static CtrlDomain getInstance() {
         if (singletonObject == null) {
@@ -86,6 +90,10 @@ public class CtrlDomain {
             if (u.getId() == actualUser.getId()) u = actualUser;
         }
         dades.updateUsuaris(cjtUsuarios);
+    }
+
+    public List<Stat> getRanking() {
+        return rankActual.obtenirRankingOrdenat();
     }
 
 }
