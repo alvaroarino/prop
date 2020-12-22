@@ -10,7 +10,7 @@
 <?import javafx.scene.text.Font?>
 <StackPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0"
            prefWidth="600.0" style="-fx-background-color: #A5C5BB;" xmlns="http://javafx.com/javafx/11.0.1"
-           xmlns:fx="http://javafx.com/fxml/1" fx:controller="VistaGaleria">
+           xmlns:fx="http://javafx.com/fxml/1" fx:controller="presentacion.VistaGaleria">
     <VBox prefHeight="200.0" prefWidth="100.0">
         <HBox alignment="CENTER" prefHeight="75.0" prefWidth="200.0"
               style="-fx-background-color: linear-gradient(to top, #3C4853, #6D8294);">

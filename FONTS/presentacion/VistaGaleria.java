@@ -1,14 +1,35 @@
+package presentacion;
+
+import dades.CtrlDades;
 import domaincontrollers.CtrlDomain;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Node;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.layout.GridPane;
+import javafx.stage.FileChooser;
+import javafx.stage.Stage;
+
+import java.io.File;
+import java.io.IOException;
 
 public class VistaGaleria {
     @FXML
     public GridPane PanelGaleria;
 
+    @FXML
+    public Button AtrasButton;
+    @FXML
+    public Label nombreUsuarioLabel;
+
+
     public void initialize() {
         CtrlDomain domain = CtrlDomain.getInstance();
+
+        nombreUsuarioLabel.setText(domain.perfilActual.getNom());
 
         int n = 20;
 
@@ -18,8 +39,44 @@ public class VistaGaleria {
                 Button button = new Button();
                 button.setText("Easy");
                 button.setPrefWidth(100);
+
+                int finalX = x;
+                button.setOnMouseClicked(event -> {
+
+                    Node node = (Node) event.getSource();
+                    Stage thisStage = (Stage) node.getScene().getWindow();
+
+                    domain.tipoEntrada = 3;
+
+                    try {
+
+
+
+                            CtrlDades dades = CtrlDades.getInstance();
+                            System.out.println((getClass().getResource("/Facil" + finalX + ".txt").getPath()));
+                            File f = new File(getClass().getResource("/Facil" + finalX + ".txt").getPath());
+                            domain.kakuro = dades.leer_kakuro(f.getAbsolutePath());
+                            domain.kakuro.getBoard().print();
+                            Parent root = FXMLLoader.load(getClass().getResource("/vistaPartida.fxml"));
+                            Scene scene = new Scene(root);
+                            thisStage.setTitle("KakuroMasters");
+                            thisStage.setScene(scene);
+                            thisStage.show();
+
+
+
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    }
+
+
+
+
+                });
+
                 PanelGaleria.add(button,i,0);
                 ++x;
+
             }
         for (int i = 0; i < 5; i++) {
             Button button = new Button();
@@ -37,7 +94,19 @@ public class VistaGaleria {
             ++x;
         }
 
-
+        AtrasButton.setOnMouseClicked((event) -> {
+            Node node = (Node) event.getSource();
+            Stage thisStage = (Stage) node.getScene().getWindow();
+            try {
+                Parent root = FXMLLoader.load(getClass().getResource("/vistaPrincipal.fxml"));
+                Scene scene = new Scene(root);
+                thisStage.setTitle("KakuroMasters");
+                thisStage.setScene(scene);
+                thisStage.show();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        });
 
 
 
