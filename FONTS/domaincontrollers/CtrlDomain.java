@@ -2,6 +2,7 @@ package domaincontrollers;
 
 import dades.CtrlDades;
 import domain.kakuro.Kakuro;
+import domain.partida.Partida;
 import domain.ranking.Ranking;
 import domain.ranking.Stat;
 import domain.usuari.Perfil;
@@ -27,6 +28,8 @@ public class CtrlDomain {
      * The Perfil actual.
      */
     public Perfil perfilActual;
+
+    public Partida partidaActual;
     /**
      * The Rank actual.
      */

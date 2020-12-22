@@ -80,6 +80,11 @@ public class Cella {
      */
     public boolean cellaFixed(){return false;}
 
+    public void fixUsuariCellaBlanca(){}
+
+    public void resetUsuariCella(){}
+
+    public boolean usuariCella(){return false;}
 
     /**
      * Color color cella.
