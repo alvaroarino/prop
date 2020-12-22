@@ -8,7 +8,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 
 /**
- * CONTROLADOR DE DADES
+ * The type Ctrl dades.
  */
 public class CtrlDades {
     private final CtrlDataPerfil perfil = CtrlDataPerfil.getInstance();

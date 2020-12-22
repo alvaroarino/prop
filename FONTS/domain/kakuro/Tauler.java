@@ -9,24 +9,57 @@ import javafx.util.Pair;
 
 import java.util.Random;
 
+/**
+ * The type Tauler.
+ */
 public class Tauler {
 
     private Cella[][] CjtCelles; // Conjunt de cel·les
     private /*final*/ int dimn, dimm;
+    /**
+     * The Solucions trobades.
+     */
     int solucionsTrobades;
     private Cella[][] SolucionKakuro;
+    /**
+     * The Celles negres.
+     */
     int cellesNegres;
+    /**
+     * The Celles blanques.
+     */
     int cellesBlanques;
+    /**
+     * The Celles fixed.
+     */
     int cellesFixed;
-    int inici, end;
+    /**
+     * The Inici.
+     */
+    int inici, /**
+     * The End.
+     */
+    end;
+    /**
+     * The Dificulty.
+     */
     String dificulty;
 
+    /**
+     * Instantiates a new Tauler.
+     */
     public Tauler(){
         dimn = 0;
         dimm = 0;
         solucionsTrobades = 0;
     }
 
+    /**
+     * Instantiates a new Tauler.
+     *
+     * @param n the n
+     * @param m the m
+     */
     public Tauler(int n, int m) {
 
         dimn = n;
@@ -60,6 +93,9 @@ public class Tauler {
         }*/
     }
 
+    /**
+     * Calcular dificultad.
+     */
     public void calcularDificultad(){
         double d = (double)(cellesBlanques)/(double)(dimm*dimn);
         if(d <= 0.54)
@@ -70,10 +106,20 @@ public class Tauler {
         dificulty = "hard";
     }
 
+    /**
+     * Gets dificulty.
+     *
+     * @return the dificulty
+     */
     public String getDificulty() {
         return dificulty;
     }
 
+    /**
+     * Deep copy.
+     *
+     * @param cjt the cjt
+     */
     public void deepCopy(Cella[][] cjt) {
 
 
@@ -93,22 +139,52 @@ public class Tauler {
         }
     }
 
+    /**
+     * Sets tauler.
+     *
+     * @param cjt the cjt
+     */
     public void setTauler(Cella[][] cjt) {
         CjtCelles = cjt;
     }
 
+    /**
+     * Gets dimm.
+     *
+     * @return the dimm
+     */
     public int getDimm() {
         return dimm;
     }
 
+    /**
+     * Gets dimn.
+     *
+     * @return the dimn
+     */
     public int getDimn() {
         return dimn;
     }
 
+    /**
+     * Gets cella.
+     *
+     * @param i the
+     * @param j the j
+     * @return the cella
+     */
     public Cella getCella(int i, int j) {
         return CjtCelles[i][j];
     }
 
+    /**
+     * Pintar celda int.
+     *
+     * @param i        the
+     * @param j        the j
+     * @param cantidad the cantidad
+     * @return the int
+     */
     public int pintar_celda(int i, int j, int cantidad) {
         // Cada vegada que pintem una cella hem de retornar el nombre restant de celles negres que pintem
         // Si la quantitat no es 0 podem pintar una cella negra.
@@ -128,6 +204,13 @@ public class Tauler {
         return cantidad;
     }
 
+    /**
+     * Posible boolean.
+     *
+     * @param i the
+     * @param j the j
+     * @return the boolean
+     */
     public boolean posible (int i, int j){
 
         if((CjtCelles[i-1][j].color() == ColorCella.Blanca) && (i > 1) &&(CjtCelles[i-2][j].color() == ColorCella.Negra)) return false;
@@ -143,6 +226,11 @@ public class Tauler {
         return true;
     }
 
+    /**
+     * Print negras.
+     *
+     * @param cantidad the cantidad
+     */
     public void print_negras(int cantidad) {
         Random aleat = new Random();
         int compt = 0;
@@ -202,6 +290,14 @@ public class Tauler {
         cellesBlanques = dimn*dimm - cellesNegres;
     }
 
+    /**
+     * No presente boolean.
+     *
+     * @param valor the valor
+     * @param fila  the fila
+     * @param col   the col
+     * @return the boolean
+     */
     public boolean noPresente(int valor, int fila, int col) {  // false si esta, true si no esta
 
         //Mira casella esquerra
@@ -236,6 +332,9 @@ public class Tauler {
 
     }
 
+    /**
+     * Rellenar celdas blancas.
+     */
     public void rellenar_celdas_blancas() {
         rellenar_blancas_back(this.CjtCelles, 0, 0);
     }
@@ -297,6 +396,9 @@ public class Tauler {
         return true;
     }
 
+    /**
+     * Hacer sumas.
+     */
     public void hacer_sumas() {
         for (int i = 0; i < dimn; ++i) {
             for (int j = 0; j < dimm; ++j) {
@@ -320,6 +422,11 @@ public class Tauler {
         }
     }
 
+    /**
+     * Borrar blancas.
+     *
+     * @param restants the restants
+     */
     public void borrar_blancas(int restants) {
         int n = -1;
         int aux = (dimm * dimn) - cellesNegres; //celles blanques
@@ -356,6 +463,9 @@ public class Tauler {
         }
     }
 
+    /**
+     * Solve.
+     */
     public void solve() {
 
         solBack2(this.CjtCelles, 0, 0);
@@ -483,6 +593,9 @@ public class Tauler {
         return true;
     }
 
+    /**
+     * Print sol.
+     */
     public void printSol() {
         System.out.printf("%s,%s%n",dimn,dimm);
         for (int i = 0; i < dimn; ++i) {
@@ -516,6 +629,9 @@ public class Tauler {
         }
     }
 
+    /**
+     * Print.
+     */
     public void print() {
         System.out.printf("%s,%s%n",dimn,dimm);
         for (int i = 0; i < dimn; ++i) {
@@ -549,6 +665,9 @@ public class Tauler {
         }
     }
 
+    /**
+     * Dar pista.
+     */
     public void darPista(){
         if(solucionar(this.CjtCelles, 0,0)){
             borrar_blancas(1);
@@ -591,6 +710,11 @@ public class Tauler {
         return false;
     }
 
+    /**
+     * Validar string.
+     *
+     * @return the string
+     */
     public String validar() {
         for(int i = 0; i < dimn; ++i) {
             for(int j = 0; j < dimm; ++j) {
@@ -700,16 +824,40 @@ public class Tauler {
         return new Pair<>(0, "Correcto"); //correcto
     }
 
+    /**
+     * Sets cella blanca.
+     *
+     * @param i      the
+     * @param j      the j
+     * @param actual the actual
+     */
     public void setCellaBlanca (int i, int j, int actual) {
         CjtCelles[i][j].intro_valor_blanca(actual);
     }
 
+    /**
+     * Sets cjt celles.
+     *
+     * @param c the c
+     */
     public void setCjtCelles(Cella[][] c) {
         CjtCelles = c;
     }
+
+    /**
+     * Sets dimn.
+     *
+     * @param n the n
+     */
     public void setDimn(int n) {
         dimn = n;
     }
+
+    /**
+     * Sets dimm.
+     *
+     * @param m the m
+     */
     public void setDimm(int m) {
         dimm = m;
     }

@@ -109,11 +109,23 @@ public class Perfil {
      */
     public Aventura getAventura() { return _av; }
 
+    /**
+     * Add kakuro.
+     *
+     * @param id the id
+     */
     public void addKakuro(String id) {
         if(!_kakurosPuntuats.contains(id)){
             _kakurosPuntuats.add(id);
         }
     }
+
+    /**
+     * Conte kakuro boolean.
+     *
+     * @param id the id
+     * @return the boolean
+     */
     public boolean conteKakuro(String id) {
         return _kakurosPuntuats.contains(id);
     }
