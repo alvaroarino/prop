@@ -61,22 +61,4 @@ public class CtrlPresentacion extends Application {
     public void main(String[] args) {
         launch(args);
     }
-
-    /**
-     * Cambiar vista.
-     *
-     * @param vistaFile the vista file
-     */
-    public void cambiarVista(String vistaFile) {
-        try {
-            Parent root = FXMLLoader.load(getClass().getResource(vistaFile));
-            Scene scene = new Scene(root);
-            presentacionStage.setTitle("KakuroMasters");
-            presentacionStage.setScene(scene);
-            presentacionStage.show();
-        } catch (NullPointerException | IOException e) {
-            System.out.println(e.getMessage());
-        }
-    }
-
 }

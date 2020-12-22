@@ -63,10 +63,7 @@ public class VistaPerfil {
                 updateProfiles();
             });
 
-            exitButton.setOnAction(e -> {
-                popupwindow.close();
-
-            });
+            exitButton.setOnAction(e -> popupwindow.close());
 
             HBox buttons = new HBox(10);
             buttons.getChildren().addAll(saveButton, exitButton);
@@ -96,16 +93,16 @@ public class VistaPerfil {
 
                 Node node = (Node) event.getSource();
                 Stage thisStage = (Stage) node.getScene().getWindow();
-                Parent root = null;
                 try {
-                    root = FXMLLoader.load(getClass().getResource("/vistaPrincipal.fxml"));
+                    Parent root = FXMLLoader.load(getClass().getResource("/vistaPrincipal.fxml"));
+                    Scene scene = new Scene(root);
+                    thisStage.setTitle("KakuroMasters");
+                    thisStage.setScene(scene);
+                    thisStage.show();
                 } catch (IOException e) {
                     e.printStackTrace();
                 }
-                Scene scene = new Scene(root);
-                thisStage.setTitle("KakuroMasters");
-                thisStage.setScene(scene);
-                thisStage.show();
+
             });
         }
     }
