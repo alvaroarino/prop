@@ -1,12 +1,19 @@
 package dades;
 
-import domain.cella.Cella;
 import domain.kakuro.Kakuro;
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 
+/**
+ * The type Driver ctrl data kakuro.
+ */
 public class DriverCtrlDataKakuro {
+    /**
+     * The entry point of application.
+     *
+     * @param args the input arguments
+     */
     public static void main(String[] args) {
         System.out.println("Driver de la classe del controlador de Dades de Kakuro");
         System.out.println("Actualement només es pot llegir dades");
@@ -35,11 +42,10 @@ public class DriverCtrlDataKakuro {
                             fi = true;
                             break;
                         case "1":
-                            Cella[][] tauler = ctrlDataKakuro.getData("kakuro-test.txt");
-                            Kakuro kakuro = new Kakuro(tauler.length, tauler[0].length);
-                            kakuro.getBoard().setTauler(tauler);
+                            Kakuro kakuro = ctrlDataKakuro.getData("kakuro-test.txt");
+
                             kakuro.getBoard().print();
-                            if (tauler.length == 0) throw new Exception("Les dades llegides són buides");
+                            //if (tauler.length == 0) throw new Exception("Les dades llegides són buides");
                             break;
                         default:
                             System.out.println(op + " no és una opció");

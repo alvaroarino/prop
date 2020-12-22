@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+<StackPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #A5C5BB;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="presentacion.VistaLogIn">
+   <children>
+      <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0" spacing="15.0" style="-fx-background-color: rgb(0,0,0,0.5)rgb(0,0,0,0.5);">
+         <children>
+            <Label text="Bienvenido a Kakuro Masters" textAlignment="CENTER" textFill="WHITE">
+               <font>
+                  <Font size="20.0" />
+               </font>
+            </Label>
+            <Label text="Inicia sesión o registrate" textAlignment="CENTER" textFill="WHITE" />
+            <Label fx:id="errorMessage" text="Se han encontrado errores en el usuario o la contraseña" textFill="#ff4e4e" />
+            <TextField fx:id="usernameTextField" promptText="Username" />
+            <PasswordField fx:id="passTextField" promptText="Contraseña" />
+            <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" spacing="20.0">
+               <children>
+                  <Button fx:id="loginButton" mnemonicParsing="false" text="Iniciar sesión" />
+                  <Button fx:id="signupButton" mnemonicParsing="false" text="Registrarse" />
+               </children>
+            </HBox>
+         </children>
+         <StackPane.margin>
+            <Insets bottom="100.0" left="100.0" right="100.0" top="100.0" />
+         </StackPane.margin>
+         <padding>
+            <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+         </padding>
+      </VBox>
+   </children>
+</StackPane>

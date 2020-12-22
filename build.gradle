@@ -1,0 +1,55 @@
+plugins {
+    id 'java'
+    id 'application'
+    id 'org.openjfx.javafxplugin' version '0.0.9'
+    id 'org.beryx.runtime' version '1.12.1'
+}
+
+apply plugin: 'java'
+apply plugin: 'application'
+apply plugin: 'org.openjfx.javafxplugin'
+
+group 'subgrup.prop.42'
+version '1.0'
+targetCompatibility = '11.0.8'
+sourceCompatibility = '11.0.8'
+
+mainClassName = 'Main'
+jar {
+    manifest {
+        attributes 'Main-Class': 'Main'
+    }
+    from {
+        configurations.runtimeClasspath.collect { it.isDirectory() ? it : zipTree(it) }
+    }
+}
+
+repositories {
+    mavenCentral()
+}
+
+javafx {
+    version = "11.0.2"
+    modules = [ 'javafx.controls', 'javafx.fxml', 'javafx.web']
+}
+
+sourceSets {
+    main {
+        java {
+            srcDirs = ['FONTS']
+        }
+        resources {
+            srcDirs = ['FONTS/Resources']
+        }
+    }
+    test {
+        java {
+            srcDirs = ['FONTS/test']
+        }
+    }
+}
+
+dependencies {
+    compile 'junit:junit:4.12'
+    implementation 'com.google.code.gson:gson:2.8.6'
+}

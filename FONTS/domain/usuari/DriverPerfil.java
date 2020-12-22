@@ -3,7 +3,15 @@ package domain.usuari;
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 
+/**
+ * The type Driver perfil.
+ */
 public class DriverPerfil {
+    /**
+     * The entry point of application.
+     *
+     * @param args the input arguments
+     */
     public static void main(String[] args) {
         System.out.println("Driver de la classe Perfil");
         Perfil perfil = new Perfil();

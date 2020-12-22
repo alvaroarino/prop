@@ -3,7 +3,15 @@ package domain.usuari;
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 
+/**
+ * The type Driver usuari.
+ */
 public class DriverUsuari {
+    /**
+     * The entry point of application.
+     *
+     * @param args the input arguments
+     */
     public static void main(String[] args) {
         System.out.println("Driver de la classe Usuari");
         Usuari user = new Usuari();
@@ -88,7 +96,7 @@ public class DriverUsuari {
                             break;
                         case "9":
                             System.out.println("Es procedirà a crear un perfil amb les dades actuals de l'usuari...");
-                            user.addProfile();
+                            //user.addProfile();
                             System.out.println("Perfil creat amb exit, nombre total de perfils: " + user.getNumPerfils());
                             break;
                         default:

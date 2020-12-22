@@ -1,9 +1,20 @@
 package dades;
 
+import domain.usuari.Usuari;
+
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
+import java.util.ArrayList;
 
+/**
+ * The type Driver ctrl data usuaris.
+ */
 public class DriverCtrlDataUsuaris {
+    /**
+     * The entry point of application.
+     *
+     * @param args the input arguments
+     */
     public static void main(String[] args) {
         System.out.println("Driver de la classe del controlador de Dades d'Usuari");
         System.out.println("Actualement només es pot llegir dades");
@@ -32,10 +43,10 @@ public class DriverCtrlDataUsuaris {
                             fi = true;
                             break;
                         case "1":
-                            String data = userData.getData();
+                            ArrayList<Usuari> list = userData.getData();
                             System.out.print("Les dades obtenides són: ");
-                            System.out.println(data);
-                            if (data.equals("")) throw new Exception("Les dades llegides són buides");
+                            System.out.println(list);
+                            if (list.size() == 0) throw new Exception("Les dades llegides són buides");
                             break;
                         default:
                             System.out.println(op + " no és una opció");

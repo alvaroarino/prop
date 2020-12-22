@@ -1,0 +1,36 @@
+[
+  {
+    "id": "alvaro2502",
+    "name" : "Alvaro",
+    "username": "alvaroarino",
+    "password": "1234",
+    "img_path": "data-files/img/alvaro2502.jpg",
+    "profile": [
+      {
+        "id": "alvaro1",
+        "nom": "Alvaro"
+      },
+      {
+        "id": "alvaro2",
+        "nom": "Alvaro 2"
+      }
+    ]
+  },
+  {
+    "id": "victor0202",
+    "name": "Victor",
+    "username": "victordelgado",
+    "password": "1234",
+    "img_path": "data-files/img/victor0202.jpg",
+    "profile": [
+      {
+        "id": "1",
+        "nom": "Victor"
+      },
+      {
+        "id": "2",
+        "nom": "Victor 2"
+      }
+    ]
+  }
+]

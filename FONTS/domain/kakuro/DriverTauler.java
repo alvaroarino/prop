@@ -1,14 +1,19 @@
 package domain.kakuro;
 
 import domain.cella.Cella;
-import domain.cella.CellaBlanca;
-import domain.cella.CellaNegra;
-import domain.cella.ColorCella;
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 
+/**
+ * The type Driver tauler.
+ */
 public class DriverTauler {
+    /**
+     * The entry point of application.
+     *
+     * @param args the input arguments
+     */
     public static void main(String[] args) {
         System.out.println("Driver de la classe Tauler");
         try {
@@ -23,9 +28,6 @@ public class DriverTauler {
             System.out.println("4. getDimm()");
 
             System.out.println("5. getCella(int i, int j)");
-
-
-
 
             boolean fi = false;
             while (!fi) {

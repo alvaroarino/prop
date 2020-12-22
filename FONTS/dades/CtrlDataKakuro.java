@@ -1,8 +1,17 @@
 package dades;
 
-import domain.cella.*;
+import domain.cella.Cella;
+import domain.cella.CellaBlanca;
+import domain.cella.CellaNegra;
+import domain.cella.ColorCella;
+import domain.kakuro.Kakuro;
+import domain.kakuro.Tauler;
+import domain.partida.Partida;
+import domaincontrollers.CtrlDomain;
 
+import java.io.BufferedWriter;
 import java.io.File;
+import java.io.FileWriter;
 import java.io.IOException;
 import java.nio.charset.Charset;
 import java.nio.charset.StandardCharsets;
@@ -11,11 +20,22 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.Arrays;
 
+/**
+ * The type Ctrl data kakuro.
+ */
 public class CtrlDataKakuro {
     private static CtrlDataKakuro singletonObject;
 
+    /**
+     * The constant ENCODING.
+     */
     final static Charset ENCODING = StandardCharsets.UTF_8;
 
+    /**
+     * Gets instance.
+     *
+     * @return the instance
+     */
     public static CtrlDataKakuro getInstance() {
         if (singletonObject == null)
             singletonObject = new CtrlDataKakuro() {
@@ -25,22 +45,28 @@ public class CtrlDataKakuro {
 
     private CtrlDataKakuro() {}
 
-    public Cella[][] getData(String filename) throws IOException {
+    /**
+     * Gets data.
+     *
+     * @param fileRoute the filename
+     * @return the data
+     * @throws IOException the io exception
+     */
+    public Kakuro getData(String fileRoute) throws IOException {
         Cella[][] board;
 
-        String fileRoute = "data-files" + File.separator + filename;
 
         Path path = Paths.get(fileRoute);
         String content = Files.readString(path);
-        System.out.println(content);
 
         // Separem el contingut en comes y separadors de linea
         String[] linearBoard = content.split("[,\\n]");
-        System.out.println(Arrays.toString(linearBoard));
+        //System.out.println(Arrays.toString(linearBoard));
 
         // A la pos 0 i 1 tenim el tamany del Kakuro
-        int tamN = Integer.valueOf(linearBoard[0]);
-        int tamM = Integer.valueOf(linearBoard[1]);
+        int tamN = (int) Double.parseDouble((linearBoard[0]));
+        int tamM = (int) Double.parseDouble((linearBoard[1]));
+
 
         board = new Cella[tamN][tamM];
 
@@ -52,18 +78,15 @@ public class CtrlDataKakuro {
                 String actual = linearBoard[linearPos];
                 if (actual.contains("?")) {
                     // Si es ? creem una cel.la blanca
-                    System.out.println(actual + " Cella Blanca");
                     board[i][j] = new CellaBlanca();
                 } else if (actual.contains("*")) {
                     // Si es * creem una cel.la blanca
-                    System.out.println(actual + " Cella Negra");
                     board[i][j] = new CellaNegra();
                 } else {
                     // En qualsevol altre cas es negra
                     board[i][j] = new CellaNegra();
                     if (actual.contains("C") && actual.contains("F")) {
                         // Si conté C i F cal extreure dos valors
-                        System.out.print(actual + " contains both with digits: ");
                         // Separem per la lletra F, que está al mig, i obtenim dos strings en un vector (digits):
                         // - un te el patro CX (digits[0]) i l'altre es nomes el valor de la F (digits[1])
                         // - el valor de la F no cal fe res pero el de la C cal substituir la C per res
@@ -71,34 +94,102 @@ public class CtrlDataKakuro {
                         String[] digits = actual.split("F");
                         String c = digits[0].replaceAll("C", "");
                         String f = digits[1]; //Com que em separat per F abans ja no tenim lletra
-                        System.out.println(c + " " + f);
 
-                        board[i][j].setValorColumna(Integer.parseInt(c));
-                        board[i][j].setValorFila(Integer.parseInt(f));
-                    } else {
-                        System.out.print(actual + " contains one with digits: ");
-                        // Si conté només C o F cal extreure un valor
-                        if (actual.contains("C")) {
+                        board[i][j].setValorColumna((int) Double.parseDouble(c));
+                        board[i][j].setValorFila((int) Double.parseDouble(f));
+                    }
+                    else if (actual.contains("C")) {
                             // Substituim C per res per tenir només el valor i el demanem amb parseInt;
                             String digits = actual.replaceAll("C", "");
-                            System.out.println(digits);
-                            board[i][j].setValorColumna(Integer.parseInt(digits));
-                        }
-                        if (actual.contains("F")) {
+                            board[i][j].setValorColumna((int) Double.parseDouble(digits));
+                    }
+                    else if (actual.contains("F")) {
                             // Substituim F per res per tenir només el valor i el demanem amb parseInt;
                             String digits = actual.replaceAll("F", "");
-                            System.out.println(digits);
-                            board[i][j].setValorFila(Integer.parseInt(digits));
-                        }
+                            board[i][j].setValorFila((int) Double.parseDouble(digits));
+                    }
+                    else {
+                        board[i][j] = new CellaBlanca();
+                        board[i][j].intro_valor_blanca((int) Double.parseDouble(actual));
                     }
 
+
                 }
-                System.out.println(board[i][j].color() == ColorCella.Blanca ? ("Valor blanca: " + board[i][j].getValor_blanca()) : ("Valor negra: C:" + board[i][j].getValorEsquerre() + " F:" + board[i][j].getValorDret()));
                 ++linearPos;
             }
         }
+        int max = linearBoard.length;
+        String id = linearBoard[max-1];
+        Tauler t = new Tauler(tamN, tamM);
+        Kakuro kak = new Kakuro(tamN, tamM);
+        t.setCjtCelles(board);
+        kak.setTauler(t);
+        kak.setId(id);
+        return kak;
+    }
 
-        return board;
+    /**
+     * Guardar kakuro.
+     *
+     * @param id   the id
+     * @param k    the k
+     * @param time the time
+     * @throws IOException the io exception
+     */
+    public void guardarKakuro(String id, Kakuro k, double time) throws IOException {
+        try{
+            File myObj = new File("filename.txt");
+            if(myObj.createNewFile()) {
+                FileWriter myWriter = new FileWriter("filename.txt");
+                int n = k.getBoard().getDimn();
+                String s = String.valueOf(n);
+                int m = k.getBoard().getDimm();
+                String d = String.valueOf(m);
+                myWriter.write(s+","+d+"\n");
+                for(int i = 0; i < n; ++i) {
+                    for(int j = 0; j < m; ++j) {
+                        if(k.getBoard().getCella(i,j).color() == ColorCella.Negra){
+                            if(k.getBoard().getCella(i,j).getValorEsquerre() > 0 && k.getBoard().getCella(i,j).getValorDret() > 0) {
+                                s = String.valueOf(k.getBoard().getCella(i,j).getValorEsquerre());
+                                d = String.valueOf(k.getBoard().getCella(i,j).getValorDret());
+                                myWriter.write("C"+s+"F"+d);
+                            }
+                            else if(k.getBoard().getCella(i,j).getValorEsquerre() > 0) {
+                                s = String.valueOf(k.getBoard().getCella(i,j).getValorEsquerre());
+                                myWriter.write("C"+s);
+                            }
+                            else if(k.getBoard().getCella(i,j).getValorDret() > 0) {
+                                d = String.valueOf(k.getBoard().getCella(i,j).getValorDret());
+                                myWriter.write("F"+d);
+                            }
+                            else{
+                                myWriter.write("*");
+                            }
+                        }
+                        else if(k.getBoard().getCella(i,j).color() == ColorCella.Blanca){
+                            if(k.getBoard().getCella(i,j).getValor_blanca() > 0) {
+                                s = String.valueOf(k.getBoard().getCella(i,j).getValor_blanca());
+                                myWriter.write(s);
+                            }
+                            else{
+                                myWriter.write("?");
+                            }
+                        }
+                        if(j != (m - 1))
+                            myWriter.write(",");
+                    }
+                    myWriter.write("\n");
+                }
+
+                String f = String.valueOf(time);
+                myWriter.write(f);
+                myWriter.close();
+
+            }
+        } catch (IOException e) {
+            System.out.println("Hi ha hagut un error.");
+            e.printStackTrace();
+        }
     }
 }
 

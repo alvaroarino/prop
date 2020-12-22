@@ -1,13 +1,20 @@
 package domain.kakuro;
 
 import dades.CtrlDataKakuro;
-import domain.cella.Cella;
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.util.Scanner;
 
+/**
+ * The type Kakuro driver.
+ */
 public class KakuroDriver {
+    /**
+     * The entry point of application.
+     *
+     * @param args the input arguments
+     */
     public static void main(String[] args) {
         System.out.println("Driver de la classe Kakuro");
 
@@ -54,7 +61,7 @@ public class KakuroDriver {
                             }
 
                             kakuro = new Kakuro(n,m);
-                            kakuro.generar_usuario(n, m, negres, blanques);
+                            //kakuro.generar_usuario(n, m, negres, blanques);
                             break;
                         case "2": {
                             kakuro.generar();
@@ -64,10 +71,8 @@ public class KakuroDriver {
 
                         case "3":
                             CtrlDataKakuro ctrlDataKakuro = CtrlDataKakuro.getInstance();
-                            Cella[][] tauler = ctrlDataKakuro.getData("kakuro-test.txt");
-                            Kakuro kak = new Kakuro(tauler.length, tauler[0].length);
-                            kak.getBoard().setTauler(tauler);
-                            kak.getBoard().solucionar();
+                            Kakuro kak = ctrlDataKakuro.getData("kakuro-test.txt");
+                            kak.getBoard().solve();
                             break;
                         default:
                             System.out.println(opcion + " no és una opció");

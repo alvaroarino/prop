@@ -6,10 +6,19 @@ import org.junit.Test;
 
 import static org.junit.Assert.*;
 
+/**
+ * The type Cella test.
+ */
 public class CellaTest {
 
+    /**
+     * The Cella.
+     */
     Cella cella = new Cella();
 
+    /**
+     * Cella.
+     */
     @Test
     public void Cella() {
         cella = new CellaBlanca();
@@ -22,6 +31,9 @@ public class CellaTest {
         assertSame(cella.color(), ColorCella.Negra);
     }
 
+    /**
+     * Intro valor blanca test.
+     */
     @Test
     public void introValorBlancaTest(){
         cella = new CellaBlanca();
@@ -29,6 +41,9 @@ public class CellaTest {
         assertEquals(15, cella.getValor_blanca());
     }
 
+    /**
+     * Gets valor blanca test.
+     */
     @Test
     public void getValorBlancaTest() {
         cella = new CellaBlanca();
@@ -38,6 +53,9 @@ public class CellaTest {
         assertEquals(2, cella.getValor_blanca());
     }
 
+    /**
+     * Sets valor fila test.
+     */
     @Test
     public void setValorFilaTest() {
         cella = new CellaNegra();
@@ -45,6 +63,9 @@ public class CellaTest {
         assertEquals(15, cella.getValorDret());
     }
 
+    /**
+     * Sets valor columna test.
+     */
     @Test
     public void setValorColumnaTest() {
         cella = new CellaNegra();
@@ -52,6 +73,9 @@ public class CellaTest {
         assertEquals(15, cella.getValorEsquerre());
     }
 
+    /**
+     * Acumular valor derecha test.
+     */
     @Test
     public void acumularValorDerechaTest() {
         cella = new CellaNegra();
@@ -62,6 +86,9 @@ public class CellaTest {
         assertEquals(35, cella.getValorDret());
     }
 
+    /**
+     * Acumular valor izquierda test.
+     */
     @Test
     public void acumularValorIzquierdaTest() {
         cella = new CellaNegra();
@@ -72,6 +99,9 @@ public class CellaTest {
         assertEquals(120, cella.getValorEsquerre());
     }
 
+    /**
+     * Color test.
+     */
     @Test
     public void colorTest() {
         cella = new CellaBlanca();
@@ -81,6 +111,9 @@ public class CellaTest {
         assertSame(cella.color(), ColorCella.Negra);
     }
 
+    /**
+     * Gets valor dret test.
+     */
     @Test
     public void getValorDretTest() {
         cella = new CellaNegra();
@@ -90,6 +123,9 @@ public class CellaTest {
         assertTrue(cella.getValorDret() != 20);
     }
 
+    /**
+     * Gets valor esquerre test.
+     */
     @Test
     public void getValorEsquerreTest() {
         cella = new CellaNegra();

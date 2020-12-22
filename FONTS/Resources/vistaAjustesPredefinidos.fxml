@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.geometry.Rectangle2D?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+<StackPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #A5C5BB;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="presentacion.VistaAjustesPredefinidos">
+   <children>
+      <VBox alignment="TOP_CENTER" prefHeight="200.0" prefWidth="100.0">
+         <children>
+            <HBox alignment="CENTER" prefHeight="75.0" prefWidth="200.0" style="-fx-background-color: #3C4853;">
+               <children>
+                  <Button fx:id="AtrasButton" maxHeight="55.0" maxWidth="55.0" minHeight="55.0" minWidth="55.0" mnemonicParsing="false" prefHeight="55.0" prefWidth="55.0" style="-fx-background-color: rgb(0,0,0,0);">
+                     <graphic>
+                        <ImageView fitHeight="30.0" fitWidth="30.0" preserveRatio="true">
+                           <image>
+                              <Image url="@back_button.png" />
+                           </image>
+                           <viewport>
+                              <Rectangle2D />
+                           </viewport>
+                        </ImageView>
+                     </graphic>
+                  </Button>
+                  <Region HBox.hgrow="ALWAYS" />
+                  <Label text="Ajustes predefinidos" textAlignment="CENTER" textFill="WHITE">
+                     <font>
+                        <Font size="25.0" />
+                     </font>
+                  </Label>
+                  <Region HBox.hgrow="ALWAYS" />
+                  <Label fx:id="nombreUsuarioLabel1" text="Label" textAlignment="RIGHT" textFill="WHITE">
+                     <padding>
+                        <Insets right="40.0" />
+                     </padding></Label>
+               </children>
+            </HBox>
+            <HBox alignment="CENTER" prefHeight="75.0" prefWidth="200.0" style="-fx-background-color: #CCD4BD;" VBox.vgrow="ALWAYS">
+               <children>
+                  <VBox alignment="CENTER" HBox.hgrow="ALWAYS">
+                     <children>
+                        <Label text="Filas">
+                           <font>
+                              <Font size="19.0" />
+                           </font>
+                        </Label>
+                        <TextField fx:id="TextFieldFil" />
+                     </children>
+                  </VBox>
+                  <VBox alignment="CENTER">
+                     <children>
+                        <Label text="Columnas">
+                           <font>
+                              <Font size="19.0" />
+                           </font>
+                        </Label>
+                        <TextField fx:id="TextFieldCol" />
+                     </children>
+                  </VBox>
+                  <VBox alignment="CENTER">
+                     <children>
+                        <Label text="Celdas negras">
+                           <font>
+                              <Font size="19.0" />
+                           </font>
+                        </Label>
+                        <TextField fx:id="TextFieldNegras" />
+                     </children>
+                  </VBox>
+                  <VBox alignment="CENTER">
+                     <children>
+                        <Label text="Celdas con valor">
+                           <font>
+                              <Font size="19.0" />
+                           </font>
+                        </Label>
+                        <TextField fx:id="TextFieldValor" />
+                     </children>
+                  </VBox>
+               </children>
+            </HBox>
+            <Button fx:id="ButtonEmpezar" mnemonicParsing="false" prefHeight="50.0" prefWidth="250.0" text="Empezar">
+               <VBox.margin>
+                  <Insets bottom="50.0" />
+               </VBox.margin>
+            </Button>
+         </children>
+      </VBox>
+   </children>
+</StackPane>

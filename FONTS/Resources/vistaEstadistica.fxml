@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.geometry.Rectangle2D?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.Font?>
+<StackPane fx:controller="presentacion.VistaEstadistica" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <VBox prefHeight="400.0" prefWidth="640.0" style="-fx-background-color: #A5C5BB #A5C5BB;">
+         <children>
+            <HBox alignment="CENTER" prefHeight="75.0" prefWidth="200.0" style="-fx-background-color: linear-gradient(to top, #6D8294, #3C4853)linear-gradient(to top, #6D8294, #3C4853);">
+               <children>
+                  <Button fx:id="AtrasButton" maxHeight="55.0" maxWidth="55.0" minHeight="55.0" minWidth="55.0" mnemonicParsing="false" prefHeight="55.0" prefWidth="55.0" style="-fx-background-color: rgb(0,0,0,0);">
+                     <graphic>
+                        <ImageView fitHeight="30.0" fitWidth="30.0" preserveRatio="true">
+                           <image>
+                              <Image url="@back_button.png" />
+                           </image>
+                           <viewport>
+                              <Rectangle2D />
+                           </viewport>
+                        </ImageView>
+                     </graphic>
+                  </Button>
+                  <Region HBox.hgrow="ALWAYS" />
+                  <Label text="Estadísticas" textAlignment="CENTER" textFill="WHITE">
+                     <font>
+                        <Font size="24.0" />
+                     </font>
+                  </Label>
+                  <Region HBox.hgrow="ALWAYS" />
+                  <Label fx:id="nombreUsuarioLabel" text="Label" textAlignment="RIGHT" textFill="WHITE">
+                     <padding>
+                        <Insets right="50.0" />
+                     </padding>
+                  </Label>
+               </children>
+            </HBox>
+            <TableView fx:id="ranking" prefHeight="200.0" prefWidth="200.0" VBox.vgrow="ALWAYS">
+               <columns>
+
+               </columns>
+               <columnResizePolicy>
+                  <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+               </columnResizePolicy>
+               <VBox.margin>
+                  <Insets bottom="40.0" left="40.0" right="40.0" top="40.0" />
+               </VBox.margin>
+            </TableView>
+         </children>
+      </VBox>
+   </children>
+</StackPane>
