@@ -19,4 +19,8 @@ public class VistaAjustesPredefinidos {
     public TextField TextFieldNegras;
     @FXML
     public TextField TextFieldValor;
+
+    public void initialize() {
+
+    }
 }
