@@ -13,7 +13,7 @@
    <children>
       <VBox alignment="TOP_CENTER" prefHeight="200.0" prefWidth="100.0" StackPane.alignment="CENTER">
          <children>
-            <HBox alignment="CENTER" prefHeight="75.0" prefWidth="200.0" style="-fx-background-color: #3C4853;">
+            <HBox alignment="CENTER" prefHeight="75.0" prefWidth="200.0" style="-fx-background-color: linear-gradient(to top, #6D8294, #3C4853)linear-gradient(to top, #6D8294, #3C4853);">
                <children>
                   <Separator prefWidth="200.0" style="-fx-opacity: 0;" />
                   <Label text="Kakuro masters" textAlignment="CENTER" textFill="WHITE">

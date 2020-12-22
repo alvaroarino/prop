@@ -17,13 +17,13 @@
    <children>
       <VBox alignment="TOP_CENTER" prefHeight="200.0" prefWidth="100.0">
          <children>
-            <HBox alignment="CENTER" prefHeight="75.0" prefWidth="200.0" style="-fx-background-color: #3C4853;">
+            <HBox alignment="CENTER" prefHeight="75.0" prefWidth="200.0" style="-fx-background-color: linear-gradient(to top, #3C4853, #6D8294);">
                <children>
                   <Button fx:id="AtrasButton" maxHeight="55.0" maxWidth="55.0" minHeight="55.0" minWidth="55.0" mnemonicParsing="false" prefHeight="55.0" prefWidth="55.0" style="-fx-background-color: rgb(0,0,0,0);">
                      <graphic>
                         <ImageView fitHeight="30.0" fitWidth="30.0" preserveRatio="true">
                            <image>
-                              <Image url="@../../../Downloads/Group%202.png" />
+                              <Image url="@back_button.png" />
                            </image>
                            <viewport>
                               <Rectangle2D />
@@ -31,7 +31,7 @@
                         </ImageView>
                      </graphic></Button>
                   <Region HBox.hgrow="ALWAYS" />
-                  <Label text="Kakuro Masters" textAlignment="CENTER" textFill="WHITE">
+                  <Label text="Selecciona el tipo de juego" textAlignment="CENTER" textFill="WHITE">
                      <font>
                         <Font size="24.0" />
                      </font>
