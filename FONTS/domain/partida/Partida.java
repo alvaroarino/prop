@@ -1,6 +1,9 @@
 package domain.partida;
 
 import domain.kakuro.Kakuro;
+import domain.ranking.Ranking;
+import domain.usuari.Perfil;
+import domaincontrollers.CtrlDomain;
 
 public class Partida {
     private double tinicial;
@@ -8,6 +11,9 @@ public class Partida {
     private int estat;
     private Kakuro KakuroPartida;
     private String name;
+
+    CtrlDomain domain = CtrlDomain.getInstance();
+    Ranking rank = Ranking.getInstance();
 
     public Partida(int n, int m, String nom) {
         tinicial = System.currentTimeMillis();
@@ -64,4 +70,25 @@ public class Partida {
         estat = i;
     }
     public void SetName(String n) { name = n; }
+
+    public void acabarPartida() {
+        String perfil = domain.perfilActual.getNom();
+        String dif = KakuroPartida.getBoard().getDificulty();
+        double aux;
+        if(dif.equals("facil")) {
+            aux = 300 - tacumulat;
+        }
+        else if(dif.equals("medio")) {
+            aux = 600 - tacumulat;
+        }
+        else {
+            aux = 900 - tacumulat;
+        }
+        int punt = (int)aux;
+
+        if(!domain.perfilActual.conteKakuro(KakuroPartida.getId())) {
+            rank.afegirIndex(perfil, punt);
+            domain.perfilActual.addKakuro(KakuroPartida.getId());
+        }
+    }
 }

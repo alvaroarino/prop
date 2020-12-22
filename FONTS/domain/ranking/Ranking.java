@@ -19,12 +19,11 @@ public class Ranking {
     public void setRanking(Map<String, Stat> rank){puntuacioPerfils = rank;}
 
     public void afegirIndex(String nPerfil, int puntuacio) {
-        if (puntuacioPerfils.containsKey(nPerfil)) {
+        if(puntuacioPerfils.containsKey(nPerfil)) {
             int aux = puntuacioPerfils.get(nPerfil).getPuntuacio();
-            if (aux < puntuacio) {
-                Stat s = new Stat(nPerfil, puntuacio);
-                puntuacioPerfils.replace(nPerfil, s);
-            }
+            aux += puntuacio;
+            Stat s = new Stat(nPerfil, aux);
+            puntuacioPerfils.replace(nPerfil, s);
         }
         else {
             Stat s = new Stat(nPerfil, puntuacio);

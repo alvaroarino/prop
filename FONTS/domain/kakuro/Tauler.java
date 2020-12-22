@@ -17,7 +17,9 @@ public class Tauler {
     private Cella[][] SolucionKakuro;
     int cellesNegres;
     int cellesBlanques;
+    int cellesFixed;
     int inici, end;
+    String dificulty;
 
     public Tauler(){
         dimn = 0;
@@ -44,6 +46,7 @@ public class Tauler {
             }
         }
         cellesBlanques = dimn*dimm - cellesNegres;
+        cellesFixed = 0;
 
         /*Random aleat = new Random();
         int aux = aleat.nextInt(2);
@@ -57,14 +60,18 @@ public class Tauler {
         }*/
     }
 
-    public String dificultad() {
+    public void calcularDificultad(){
         double d = (double)(cellesBlanques)/(double)(dimm*dimn);
         if(d <= 0.54)
-            return "facil";
+            dificulty = "facil";
         if(d <= 0.59)
-            return "medio";
+            dificulty = "medio";
 
-        return "hard";
+        dificulty = "hard";
+    }
+
+    public String getDificulty() {
+        return dificulty;
     }
 
     public void deepCopy(Cella[][] cjt) {
@@ -247,19 +254,6 @@ public class Tauler {
             return rellenar_blancas_back(board, fila, col+1);
         }
 
-        /*Random aleat = new Random();
-        int aux = aleat.nextInt(2);
-        int inici, end;
-
-        if(aux == 0){
-            inici = 1;
-            end = 9;
-        }
-        else{
-            inici = 9;
-            end = 1;
-        }*/
-
         for (int valor= 1; valor <= 9; ++valor) {
             if (valorDuplicat(board, fila, col, valor)) {
                 board[fila][col].intro_valor_blanca(valor);
@@ -351,6 +345,7 @@ public class Tauler {
                                 CjtCelles[i][j].intro_valor_blanca(-1);
                             } else {
                                 CjtCelles[i][j].fixCellaBlanca();
+                                ++cellesFixed;
                             }
                         }
                         if (compt == m) compt = 0;

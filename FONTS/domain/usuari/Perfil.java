@@ -3,6 +3,8 @@ package domain.usuari;
 import domain.aventura.Aventura;
 import domain.partida.CjtPartida;
 
+import java.util.HashSet;
+import java.util.Set;
 import java.util.UUID;
 
 public class Perfil {
@@ -10,20 +12,24 @@ public class Perfil {
     private String _nom;
     private CjtPartida _cjtPartidas;
     private Aventura _av;
+    private Set<String> _kakurosPuntuats;
 
     public Perfil() {
         _idPerfil = UUID.randomUUID().toString();
         _nom = "";
+        _kakurosPuntuats = new HashSet<>();
     }
 
     public Perfil(String nom) {
         this._idPerfil = UUID.randomUUID().toString();
         this._nom = nom;
+        _kakurosPuntuats = new HashSet<>();
     }
 
     public Perfil(String id, String nom) {
         this._idPerfil = id;
         this._nom = nom;
+        _kakurosPuntuats = new HashSet<>();
     }
 
     public void setID(String id) {this._idPerfil = id;}
@@ -39,6 +45,15 @@ public class Perfil {
     }
     public CjtPartida getCjt() { return _cjtPartidas; }
     public Aventura getAventura() { return _av; }
+
+    public void addKakuro(String id) {
+        if(!_kakurosPuntuats.contains(id)){
+            _kakurosPuntuats.add(id);
+        }
+    }
+    public boolean conteKakuro(String id) {
+        return _kakurosPuntuats.contains(id);
+    }
 
 
 }
