@@ -97,6 +97,56 @@ public class VistaSelectorPartida {
             }
         });
 
+        CincoButton.setOnMouseClicked((event) -> {
+
+            domain.num_kakuros_aventura = 5;
+            Node node = (Node) event.getSource();
+            Stage thisStage = (Stage) node.getScene().getWindow();
+            try {
+                Parent root = FXMLLoader.load(getClass().getResource("/vistaAventura.fxml"));
+                Scene scene = new Scene(root);
+                thisStage.setTitle("KakuroMasters");
+                thisStage.setScene(scene);
+                thisStage.show();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        });
+
+        DiezButton.setOnMouseClicked((event) -> {
+
+            domain.num_kakuros_aventura = 10;
+
+            Node node = (Node) event.getSource();
+            Stage thisStage = (Stage) node.getScene().getWindow();
+            try {
+                Parent root = FXMLLoader.load(getClass().getResource("/vistaAventura.fxml"));
+                Scene scene = new Scene(root);
+                thisStage.setTitle("KakuroMasters");
+                thisStage.setScene(scene);
+                thisStage.show();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        });
+
+        QuinceButton.setOnMouseClicked((event) -> {
+
+            domain.num_kakuros_aventura = 15;
+
+            Node node = (Node) event.getSource();
+            Stage thisStage = (Stage) node.getScene().getWindow();
+            try {
+                Parent root = FXMLLoader.load(getClass().getResource("/vistaAventura.fxml"));
+                Scene scene = new Scene(root);
+                thisStage.setTitle("KakuroMasters");
+                thisStage.setScene(scene);
+                thisStage.show();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        });
+
         ImportarButton.setOnMouseClicked((event) -> {
             Node node = (Node) event.getSource();
             Stage thisStage = (Stage) node.getScene().getWindow();
