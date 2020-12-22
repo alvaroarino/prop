@@ -72,6 +72,7 @@ public class CtrlDades {
      * Leer kakuro.
      *
      * @param archivo the archivo
+     * @return the kakuro
      * @throws IOException the io exception
      */
     public Kakuro leer_kakuro(String archivo) throws IOException {

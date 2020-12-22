@@ -42,7 +42,11 @@ public class VistaPerfil {
     @FXML
     public Button ButtonAddPerfil;
 
+    /**
+     * The Perfiles.
+     */
     ObservableList<Perfil> perfiles = FXCollections.observableArrayList();
+
     /**
      * Initialize.
      */

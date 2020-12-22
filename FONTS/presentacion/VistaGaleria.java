@@ -16,16 +16,31 @@ import javafx.stage.Stage;
 import java.io.File;
 import java.io.IOException;
 
+/**
+ * The type Vista galeria.
+ */
 public class VistaGaleria {
+    /**
+     * The Panel galeria.
+     */
     @FXML
     public GridPane PanelGaleria;
 
+    /**
+     * The Atras button.
+     */
     @FXML
     public Button AtrasButton;
+    /**
+     * The Nombre usuario label.
+     */
     @FXML
     public Label nombreUsuarioLabel;
 
 
+    /**
+     * Initialize.
+     */
     public void initialize() {
         CtrlDomain domain = CtrlDomain.getInstance();
 

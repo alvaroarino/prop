@@ -115,6 +115,11 @@ public class Tauler {
         return dificulty;
     }
 
+    /**
+     * Sets dificulty.
+     *
+     * @param dif the dif
+     */
     public void setDificulty(String dif) {
         dificulty = dif;
     }
@@ -469,6 +474,8 @@ public class Tauler {
 
     /**
      * Solve.
+     *
+     * @return the int
      */
     public int solve() {
 

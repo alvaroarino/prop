@@ -28,12 +28,21 @@ public class VistaAventura  {
      */
     @FXML
     Label LabelPerfil;
+    /**
+     * The Atras button.
+     */
     @FXML
     Button AtrasButton;
+    /**
+     * The Panel aventura.
+     */
     @FXML
     GridPane panelAventura;
 
 
+    /**
+     * Initialize.
+     */
     public void initialize() {
         CtrlDomain domain = CtrlDomain.getInstance();
         LabelPerfil.setText(domain.perfilActual.getNom());

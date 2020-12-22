@@ -131,10 +131,20 @@ public class Perfil {
     }
 
 
+    /**
+     * Sets puntuats.
+     *
+     * @param puntuats the puntuats
+     */
     public void setPuntuats(Set<String> puntuats) {
         this._kakurosPuntuats = puntuats;
     }
 
+    /**
+     * Gets kakuros puntuats.
+     *
+     * @return the kakuros puntuats
+     */
     public Set<String> getKakurosPuntuats() {
         return this._kakurosPuntuats;
     }

@@ -131,8 +131,9 @@ public class CtrlDataKakuro {
     /**
      * Guardar kakuro.
      *
-     * @param id the id
-     * @param k  the k
+     * @param id   the id
+     * @param k    the k
+     * @param time the time
      * @throws IOException the io exception
      */
     public void guardarKakuro(String id, Kakuro k, double time) throws IOException {

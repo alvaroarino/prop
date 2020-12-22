@@ -20,6 +20,9 @@ import java.util.Arrays;
  */
 public class CtrlDataAventura {
     private static CtrlDataAventura singletonObject;
+    /**
+     * The Cdk.
+     */
     CtrlDataKakuro cdk = CtrlDataKakuro.getInstance();
 
     /**

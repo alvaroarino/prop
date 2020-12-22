@@ -29,6 +29,9 @@ public class CtrlDomain {
      */
     public Perfil perfilActual;
 
+    /**
+     * The Partida actual.
+     */
     public Partida partidaActual;
     /**
      * The Rank actual.
@@ -59,6 +62,9 @@ public class CtrlDomain {
      */
     public int valor;
 
+    /**
+     * The Num kakuros aventura.
+     */
     public int num_kakuros_aventura;
 
 

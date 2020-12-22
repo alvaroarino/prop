@@ -80,10 +80,21 @@ public class Cella {
      */
     public boolean cellaFixed(){return false;}
 
+    /**
+     * Fix usuari cella blanca.
+     */
     public void fixUsuariCellaBlanca(){}
 
+    /**
+     * Reset usuari cella.
+     */
     public void resetUsuariCella(){}
 
+    /**
+     * Usuari cella boolean.
+     *
+     * @return the boolean
+     */
     public boolean usuariCella(){return false;}
 
     /**

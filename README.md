@@ -28,6 +28,8 @@ Relació principal de directoris
     *   files: conté arxius necesaris pel arxius Markdown i HTML
 
 ## Llibreries externes utilitzades
+Per administrar totes les dependencies del projecte hem fet ús del Gradle.
+
 Per acabar de completar la funcionalitat del nostre programa hem fet ús de diferents llibreries que ens podien facilitar la feina
 alhora que aconseguiem funcionalitats mès completes.
 ### [JavaFX](http://openjfx.io)
