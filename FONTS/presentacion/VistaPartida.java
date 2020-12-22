@@ -65,6 +65,7 @@ public class VistaPartida {
 
     public void initialize() {
         Tauler board = generated.getBoard();
+        int nSolucions;
         System.out.println(domain.tipoEntrada);
         if (domain.tipoEntrada == 1)  {
 
@@ -82,7 +83,7 @@ public class VistaPartida {
             board = generated.getBoard();
         }
 
-
+        nSolucions = generated.getBoard().solve();
 
         for (int i = 0; i < board.getDimn(); i++) {
             for (int j = 0; j < board.getDimm(); j++) {

@@ -470,10 +470,10 @@ public class Tauler {
     /**
      * Solve.
      */
-    public void solve() {
+    public int solve() {
 
         solBack2(this.CjtCelles, 0, 0);
-        if(solucionsTrobades > 1) {
+        /*if(solucionsTrobades > 1) {
             System.out.println("El kakuro te mes d'una solucio \n");
             printSol();
         }
@@ -483,7 +483,8 @@ public class Tauler {
         }
         else {
             System.out.println("No s'ha trobat solucio \n");
-        }
+        }*/
+        return solucionsTrobades;
     }
 
     private void solBack2(Cella[][] board, int fila, int col) {
