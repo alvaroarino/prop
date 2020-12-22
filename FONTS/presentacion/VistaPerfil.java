@@ -1,7 +1,11 @@
 package presentacion;
 
+import domain.ranking.Stat;
 import domain.usuari.Perfil;
 import domaincontrollers.CtrlDomain;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableArray;
+import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.geometry.Pos;
@@ -38,13 +42,12 @@ public class VistaPerfil {
     @FXML
     public Button ButtonAddPerfil;
 
+    ObservableList<Perfil> perfiles = FXCollections.observableArrayList();
     /**
      * Initialize.
      */
     public void initialize() {
-        ArrayList<Perfil> perfiles;
-
-        perfiles = domain.getPerfils();
+        perfiles.addAll(domain.getPerfils());
 
         for (Perfil p : perfiles) {
             VBox perfilBox = new VBox();
@@ -53,7 +56,6 @@ public class VistaPerfil {
             perfilsRow.getChildren().add(perfilBox);
             boton.setOnMouseClicked((event) -> {
                 domain.setPerfilactual(p);
-
                 Node node = (Node) event.getSource();
                 Stage thisStage = (Stage) node.getScene().getWindow();
                 try {
@@ -85,32 +87,6 @@ public class VistaPerfil {
                 domain.crearPerfil(name);
                 popupwindow.close();
                 perfilsRow = new HBox();
-                ArrayList<Perfil> perfiles2;
-
-                perfiles2 = domain.getPerfils();
-
-                for (Perfil p : perfiles2) {
-                    VBox perfilBox = new VBox();
-                    Button boton = new Button(p.getNom());
-                    perfilBox.getChildren().add(boton);
-                    perfilsRow.getChildren().add(perfilBox);
-                    boton.setOnMouseClicked((e2) -> {
-                        domain.setPerfilactual(p);
-
-                        Node node = (Node) event.getSource();
-                        Stage thisStage = (Stage) node.getScene().getWindow();
-                        try {
-                            Parent root = FXMLLoader.load(getClass().getResource("/vistaPrincipal.fxml"));
-                            Scene scene = new Scene(root);
-                            thisStage.setTitle("KakuroMasters");
-                            thisStage.setScene(scene);
-                            thisStage.show();
-                        } catch (IOException exception) {
-                            exception.printStackTrace();
-                        }
-
-                    });
-                }
             });
 
             exitButton.setOnAction(e -> popupwindow.close());
