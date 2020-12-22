@@ -39,12 +39,12 @@ public class Kakuro {
         board.print();
     }
 
-    public void generar_usuario(int n, int m, int negras, int restants) {
+    public void generar_usuario( int negras, int restants) {
         board.print_negras(negras);
         board.rellenar_celdas_blancas();
         board.hacer_sumas();
         if(restants > 1) ++restants;
-        board.borrar_blancas(0);
+        board.borrar_blancas(restants);
         board.print();
     }
 

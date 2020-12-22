@@ -1,6 +1,7 @@
 package domaincontrollers;
 
 import dades.CtrlDades;
+import domain.kakuro.Kakuro;
 import domain.ranking.Ranking;
 import domain.ranking.Stat;
 import domain.usuari.Perfil;
@@ -18,6 +19,12 @@ public class CtrlDomain {
     public Usuari actualUser = new Usuari();
     public Perfil perfilActual;
     public Ranking rankActual;
+    public int tipoEntrada = 0; // 1 = aleatorio 2 = ajustes predefinidos 3 = importar fichero
+    public Kakuro kakuro ;
+    public int n;
+    public int m;
+    public int negras;
+    public int valor;
 
     public static CtrlDomain getInstance() {
         if (singletonObject == null) {

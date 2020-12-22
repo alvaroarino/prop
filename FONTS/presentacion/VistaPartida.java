@@ -36,24 +36,30 @@ public class VistaPartida {
     public Label timeLabel;
     @FXML
     public Button ButtonPausa;
-
-    @FXML
+    /*@FXML
     public Button ButtonPista;
-
     @FXML
-    public Button CheckButton;
+    public Button CheckButton;*/
     @FXML
     public GridPane KakuroGridPane;
 
     CtrlDomain domain = CtrlDomain.getInstance();
-    Kakuro generated;
+    Kakuro generated = new Kakuro();
     Timer timer = new Timer();
     int time = 0;
 
     public void initialize() {
-        generated = new Kakuro();
-        generated.generar();
         Tauler board = generated.getBoard();
+        System.out.println(domain.tipoEntrada);
+        if (domain.tipoEntrada == 1)  {
+
+            generated.generar();
+            board = generated.getBoard();
+        } else if (domain.tipoEntrada == 2) {
+            generated = new Kakuro(domain.n, domain.m);
+            generated.generar_usuario(domain.negras, domain.valor);
+            board = domain.kakuro.getBoard();
+        }
 
         for (int i = 0; i < board.getDimn(); i++) {
             for (int j = 0; j < board.getDimm(); j++) {
@@ -79,7 +85,7 @@ public class VistaPartida {
                         tf.setText(cella.getValorEsquerre() + " / " + cella.getValorDret());
                     } else if (cella.getValorEsquerre() != -1 && cella.getValorDret() == -1) {
                         tf.setText("" + cella.getValorEsquerre());
-                    } else if (cella.getValorEsquerre() == -1 && cella.getValorDret() != -1){
+                    } else if (cella.getValorEsquerre() == -1 && cella.getValorDret() != -1) {
                         tf.setText("" + cella.getValorDret());
                     } else {
                         tf.setText("");

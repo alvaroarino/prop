@@ -13,7 +13,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<StackPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #A5C5BB;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="presentacion.VistaPrincipal">
+<StackPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #A5C5BB;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="presentacion.VistaAjustesPredefinidos">
    <children>
       <VBox alignment="TOP_CENTER" prefHeight="200.0" prefWidth="100.0">
          <children>
@@ -48,22 +48,22 @@
                <children>
                   <VBox alignment="CENTER" HBox.hgrow="ALWAYS">
                      <children>
-                        <Label text="Dimensión">
+                        <Label text="Filas">
                            <font>
                               <Font size="19.0" />
                            </font>
                         </Label>
-                        <TextField fx:id="TextFieldDim" />
+                        <TextField fx:id="TextFieldFil" />
                      </children>
                   </VBox>
                   <VBox alignment="CENTER">
                      <children>
-                        <Label text="Celdas blancas">
+                        <Label text="Columnas">
                            <font>
                               <Font size="19.0" />
                            </font>
                         </Label>
-                        <TextField fx:id="TextFieldBlancas" />
+                        <TextField fx:id="TextFieldCol" />
                      </children>
                   </VBox>
                   <VBox alignment="CENTER">

@@ -53,7 +53,7 @@ public class KakuroDriver {
                             }
 
                             kakuro = new Kakuro(n,m);
-                            kakuro.generar_usuario(n, m, negres, blanques);
+                            //kakuro.generar_usuario(n, m, negres, blanques);
                             break;
                         case "2": {
                             kakuro.generar();

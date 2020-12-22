@@ -1,5 +1,6 @@
 package presentacion;
 
+import domaincontrollers.CtrlDomain;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
@@ -26,13 +27,18 @@ public class VistaSelectorPartida {
     public Button PreButton;
     @FXML
     public Button AleatButton;
-
     @FXML
     public Button ImportarButton;
 
     public void initialize() {
 
+
+
+        CtrlDomain domain = CtrlDomain.getInstance();
+        nombreUsuarioLabel.setText(domain.perfilActual.getNom());
+
         AleatButton.setOnMouseClicked((event) -> {
+            domain.tipoEntrada = 1;
             Node node = (Node) event.getSource();
             Stage thisStage = (Stage) node.getScene().getWindow();
             try {
@@ -45,6 +51,37 @@ public class VistaSelectorPartida {
                 e.printStackTrace();
             }
         });
+
+        PreButton.setOnMouseClicked((event) -> {
+            domain.tipoEntrada = 2;
+            Node node = (Node) event.getSource();
+            Stage thisStage = (Stage) node.getScene().getWindow();
+            try {
+                Parent root = FXMLLoader.load(getClass().getResource("/vistaAjustesPredefinidos.fxml"));
+                Scene scene = new Scene(root);
+                thisStage.setTitle("KakuroMasters");
+                thisStage.setScene(scene);
+                thisStage.show();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        });
+
+        ImportarButton.setOnMouseClicked((event) -> {
+            domain.tipoEntrada = 3;
+            Node node = (Node) event.getSource();
+            Stage thisStage = (Stage) node.getScene().getWindow();
+            try {
+                Parent root = FXMLLoader.load(getClass().getResource("/vistaAjustesPredefinidos.fxml"));
+                Scene scene = new Scene(root);
+                thisStage.setTitle("KakuroMasters");
+                thisStage.setScene(scene);
+                thisStage.show();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        });
+
     }
 
 }
