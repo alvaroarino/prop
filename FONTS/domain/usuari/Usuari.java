@@ -7,6 +7,8 @@ import com.google.gson.JsonObject;
 
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Set;
+import java.util.TreeSet;
 import java.util.UUID;
 
 /**
@@ -47,9 +49,8 @@ public class Usuari {
      *
      * @param user the user
      * @return the string
-     * @throws IOException the io exception
      */
-    public String toJson(Usuari user) throws IOException {
+    public String toJson(Usuari user) {
         Gson gson = new Gson();
         // 1. Java object to JSON file
         return gson.toJson(user);
@@ -74,6 +75,10 @@ public class Usuari {
             Perfil perfil = new Perfil();
             perfil.setID(id);
             perfil.setNom(nom);
+            JsonArray puntuats = obj.getAsJsonArray("puntuats");
+            Set<String> punts = new TreeSet<>();
+            puntuats.forEach((element) -> punts.add(element.getAsString()));
+            perfil.setPuntuats(punts);
             System.out.println("PERFIL:" + perfil.getNom());
             _perfils.add(perfil);
         }

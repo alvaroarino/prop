@@ -50,9 +50,7 @@ public class CtrlDataUsuaris {
                 user.fromJson(obj);
                 cjtUsuaris.add(user);
             }
-            cjtUsuaris.forEach((usuari) -> {
-                System.out.println(usuari.getNom());
-            });
+            cjtUsuaris.forEach((usuari) -> System.out.println(usuari.getNom()));
         } catch (Exception e) {
             System.out.println(e.getMessage());
         }
@@ -81,6 +79,9 @@ public class CtrlDataUsuaris {
                 JsonObject perfilObject = new JsonObject();
                 perfilObject.addProperty("id", p.getId());
                 perfilObject.addProperty("nom", p.getNom());
+                JsonArray puntuats = new JsonArray();
+                p.getKakurosPuntuats().forEach(puntuats::add);
+                perfilObject.add("puntuats", puntuats);
                 profiles.add(perfilObject);
             }
 

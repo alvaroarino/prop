@@ -131,4 +131,12 @@ public class Perfil {
     }
 
 
+    public void setPuntuats(Set<String> puntuats) {
+        this._kakurosPuntuats = puntuats;
+    }
+
+    public Set<String> getKakurosPuntuats() {
+        return this._kakurosPuntuats;
+    }
+
 }
