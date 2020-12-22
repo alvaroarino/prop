@@ -769,6 +769,10 @@ public class Tauler {
                 }
             }
             else {
+                for(int l = 0; l < 9; ++l) {
+                    presents[l] = false;
+                }
+
                 if(sumaParcial != valor) {
                     System.out.println("Suma no correcte a la columna " + (j+1));
                     return new Pair<>(-1, "Suma no correcta a la columna " + (j+1));
@@ -811,6 +815,9 @@ public class Tauler {
                 }
             }
             else{
+                for(int l = 0; l < 9; ++l) {
+                    presents[l] = false;
+                }
                 if(sumaParcial != valor) {
                     System.out.println("Suma no correcte a la fila" + (i+1));
                     return new Pair<>(-1, "Suma no correcte a la fila" + (i+1));
