@@ -2,6 +2,7 @@ package presentacion;
 
 import domain.ranking.Stat;
 import domaincontrollers.CtrlDomain;
+import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
@@ -16,6 +17,7 @@ import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
 
+import javax.security.auth.callback.Callback;
 import java.io.IOException;
 import java.util.List;
 
@@ -60,13 +62,13 @@ public class VistaEstadistica {
         }
 
         TableColumn posColumn = new TableColumn("Posicio");
-        posColumn.setCellValueFactory(new PropertyValueFactory<>("posicio"));
+        posColumn.setCellValueFactory(new PropertyValueFactory<>("posicion"));
 
         TableColumn perfilColumn = new TableColumn("Perfil");
         perfilColumn.setCellValueFactory(new PropertyValueFactory<>("perfil"));
 
         TableColumn puntColumn = new TableColumn("Puntuacion");
-        puntColumn.setCellValueFactory(new PropertyValueFactory<>("puntuacion"));
+        puntColumn.setCellValueFactory(new PropertyValueFactory<>("puntuacio"));
 
         ranking.getColumns().addAll(posColumn,perfilColumn,puntColumn);
 
