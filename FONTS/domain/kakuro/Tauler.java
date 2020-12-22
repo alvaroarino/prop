@@ -115,6 +115,10 @@ public class Tauler {
         return dificulty;
     }
 
+    public void setDificulty(String dif) {
+        dificulty = dif;
+    }
+
     /**
      * Deep copy.
      *
