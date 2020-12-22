@@ -40,6 +40,7 @@ public class VistaAjustesPredefinidos {
             domain.negras = Integer.parseInt(TextFieldNegras.getText());
             domain.valor = Integer.parseInt(TextFieldValor.getText());
 
+
             Node node = (Node) event.getSource();
             Stage thisStage = (Stage) node.getScene().getWindow();
             try {

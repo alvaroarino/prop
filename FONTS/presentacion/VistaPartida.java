@@ -6,9 +6,11 @@ import domain.kakuro.Kakuro;
 import domain.kakuro.Tauler;
 import domaincontrollers.CtrlDomain;
 import javafx.application.Platform;
+import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.geometry.Pos;
+import javafx.print.Collation;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
@@ -16,6 +18,9 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.GridPane;
+import javafx.scene.layout.HBox;
+import javafx.scene.layout.VBox;
+import javafx.stage.Modality;
 import javafx.stage.Stage;
 
 import java.io.IOException;
@@ -31,10 +36,8 @@ public class VistaPartida {
     public Label timeLabel;
     @FXML
     public Button ButtonPausa;
-    /*@FXML
-    public Button ButtonPista;
     @FXML
-    public Button CheckButton;*/
+    public Button CheckButton;
     @FXML
     public GridPane KakuroGridPane;
 
@@ -42,6 +45,18 @@ public class VistaPartida {
     Kakuro generated = new Kakuro();
     Timer timer = new Timer();
     int time = 0;
+
+    public Node getNodeByRowColumnIndex(final int row,final int column,GridPane gridPane) {
+        Node result = null;
+        ObservableList<Node> childrens = gridPane.getChildren();
+        for(Node node : childrens) {
+            if(gridPane.getRowIndex(node) == row && gridPane.getColumnIndex(node) == column) {
+                result = node;
+                break;
+            }
+        }
+        return result;
+    }
 
     public void initialize() {
         Tauler board = generated.getBoard();
@@ -55,6 +70,14 @@ public class VistaPartida {
             generated.generar_usuario(domain.negras, domain.valor);
             board = generated.getBoard();
         }
+
+        else if (domain.tipoEntrada == 3) {
+            generated = new Kakuro(domain.n, domain.m);
+            generated.generar_usuario(domain.negras, domain.valor);
+            board = generated.getBoard();
+        }
+
+
 
         for (int i = 0; i < board.getDimn(); i++) {
             for (int j = 0; j < board.getDimm(); j++) {
@@ -113,6 +136,45 @@ public class VistaPartida {
             } catch (IOException e) {
                 e.printStackTrace();
             }
+
+        });
+
+
+        CheckButton.setOnMouseClicked((event) -> {
+            Kakuro kComprobar = generated;
+            Tauler b = kComprobar.getBoard();
+            for (int i = 0; i < b.getDimn(); i++) {
+                for (int j = 0; j < b.getDimm(); j++) {
+                    if (b.getCella(i,j).color() == ColorCella.Blanca) {
+                        int old = b.getCella(i, j).getValor_blanca();
+                        int actual = Integer.parseInt(((TextField) getNodeByRowColumnIndex(i,j,KakuroGridPane)).getText());
+                        if (old != actual) b.setCellaBlanca(i, j, actual);
+                    }
+                }
+            }
+            String value = b.validar();
+
+            Stage popupwindow = new Stage();
+
+            popupwindow.initModality(Modality.APPLICATION_MODAL);
+            popupwindow.setTitle("Validación del Kakuro");
+
+            Button saveButton = new Button("Ok");
+            saveButton.setOnAction(e -> {
+                popupwindow.close();
+            });
+
+            Label validLabel = new Label(value);
+
+            VBox layout = new VBox(10);
+            layout.getChildren().addAll(validLabel, saveButton);
+            layout.setAlignment(Pos.CENTER);
+
+            Scene scene1 = new Scene(layout, 300, 250);
+            popupwindow.setScene(scene1);
+            popupwindow.showAndWait();
+
+
 
         });
 

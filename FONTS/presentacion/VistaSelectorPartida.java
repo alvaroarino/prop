@@ -31,9 +31,6 @@ public class VistaSelectorPartida {
     public Button ImportarButton;
 
     public void initialize() {
-
-
-
         CtrlDomain domain = CtrlDomain.getInstance();
         nombreUsuarioLabel.setText(domain.perfilActual.getNom());
 
@@ -72,7 +69,7 @@ public class VistaSelectorPartida {
             Node node = (Node) event.getSource();
             Stage thisStage = (Stage) node.getScene().getWindow();
             try {
-                Parent root = FXMLLoader.load(getClass().getResource("/vistaAjustesPredefinidos.fxml"));
+                Parent root = FXMLLoader.load(getClass().getResource("/vistaPartida.fxml"));
                 Scene scene = new Scene(root);
                 thisStage.setTitle("KakuroMasters");
                 thisStage.setScene(scene);

@@ -2,6 +2,8 @@ package presentacion;
 
 import domain.ranking.Stat;
 import domaincontrollers.CtrlDomain;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
@@ -20,10 +22,16 @@ public class VistaEstadistica {
     public TableView<Stat> ranking = new TableView<>();
     CtrlDomain domain = CtrlDomain.getInstance();
 
-    public void initialize() {
-        List<Stat> rank;
+    private final ObservableList<Stat> data = FXCollections.observableArrayList();
 
-        rank = domain.getRanking();
+    public void initialize() {
+        List<Stat> rank = domain.getRanking();
+        int pos = 1;
+        for (Stat t : rank) {
+            t.setPosicion(pos);
+            ++pos;
+            data.add(t);
+        }
 
         TableColumn posColumn = new TableColumn("Posicio");
         posColumn.setCellValueFactory(new PropertyValueFactory<>("posicio"));
@@ -36,11 +44,7 @@ public class VistaEstadistica {
 
         ranking.getColumns().addAll(posColumn,perfilColumn,puntColumn);
 
-        int pos = 1;
-        for (Stat t : rank) {
-            t.setPosicion(pos);
-            ++pos;
-            ranking.getItems().add(t);
-        }
+        ranking.setItems(data);
+        ranking.getColumns().addAll(posColumn, perfilColumn, puntColumn);
     }
 }

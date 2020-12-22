@@ -1,9 +1,11 @@
 package domain.kakuro;
 
+import com.sun.javafx.image.impl.IntArgb;
 import domain.cella.Cella;
 import domain.cella.CellaBlanca;
 import domain.cella.CellaNegra;
 import domain.cella.ColorCella;
+import javafx.util.Pair;
 
 import java.util.Random;
 
@@ -15,6 +17,7 @@ public class Tauler {
     private Cella[][] SolucionKakuro;
     int cellesNegres;
     int cellesBlanques;
+    int inici, end;
 
     public Tauler(){
         dimn = 0;
@@ -41,6 +44,17 @@ public class Tauler {
             }
         }
         cellesBlanques = dimn*dimm - cellesNegres;
+
+        /*Random aleat = new Random();
+        int aux = aleat.nextInt(2);
+        if(aux == 0){
+            inici = 1;
+            end = 9;
+        }
+        else{
+            inici = 9;
+            end = 1;
+        }*/
     }
 
     public String dificultad() {
@@ -219,7 +233,7 @@ public class Tauler {
         rellenar_blancas_back(this.CjtCelles, 0, 0);
     }
 
-    private static boolean rellenar_blancas_back(Cella[][] board, int fila, int col) {
+    private boolean rellenar_blancas_back(Cella[][] board, int fila, int col) {
         final int nFila = board.length;
         final int nCol = board[0].length;
 
@@ -233,7 +247,20 @@ public class Tauler {
             return rellenar_blancas_back(board, fila, col+1);
         }
 
-        for (int valor=1; valor <= 9; ++valor) {
+        /*Random aleat = new Random();
+        int aux = aleat.nextInt(2);
+        int inici, end;
+
+        if(aux == 0){
+            inici = 1;
+            end = 9;
+        }
+        else{
+            inici = 9;
+            end = 1;
+        }*/
+
+        for (int valor= 1; valor <= 9; ++valor) {
             if (valorDuplicat(board, fila, col, valor)) {
                 board[fila][col].intro_valor_blanca(valor);
                 if (rellenar_blancas_back(board, fila, col+1)) {
@@ -569,86 +596,95 @@ public class Tauler {
         return false;
     }
 
-    public void validar() {
+    public String validar() {
         for(int i = 0; i < dimn; ++i) {
             for(int j = 0; j < dimm; ++j) {
                 if(CjtCelles[i][j].color() == ColorCella.Negra) {
                     if(CjtCelles[i][j].getValorEsquerre() != -1) {
-                        int x = comprovarColumna(i,j,CjtCelles[i][j].getValorEsquerre());
-                        if(x == -1) {
-                            break;
+                        Pair<Integer, String> x = comprovarColumna(i,j,CjtCelles[i][j].getValorEsquerre());
+                        if(x.getKey() == -1) {
+                            return x.getValue();
                         }
                     }
                     else if(CjtCelles[i][j].getValorDret() != -1) {
-                        int x = comprovarFila(i,j,CjtCelles[i][j].getValorDret());
-                        if(x == -1) {
-                            break;
+                        Pair<Integer, String> x = comprovarFila(i,j,CjtCelles[i][j].getValorDret());
+                        if(x.getKey() == -1) {
+                            return x.getValue();
                         }
                     }
                 }
             }
         }
-        System.out.println("Enhorabona, has solucionat el kakuro!");
+       return "Enhorabona, has solucionat el kakuro!" ;
+
     }
 
-    private int comprovarColumna(int i, int j, int valor) {
+    private Pair<Integer,String> comprovarColumna(int i, int j, int valor) {
+
         int sumaParcial = 0;
         boolean[] presents = new boolean[9];
+
         for(int l = 0; l < 9; ++l) {
+            //Aquest vector serveix per saber si hi ha repetits
             presents[l] = false;
         }
         for(int x = i+1; x < dimn; ++x) {
             if(CjtCelles[x][j].color() == ColorCella.Blanca) {
+                if(CjtCelles[x][j].getValor_blanca() < 1 || CjtCelles[x][j].getValor_blanca() > 9)  return new Pair<>(-1, "Valor no valid a la columna " + (j+1));
+
                 if(CjtCelles[x][j].getValor_blanca() == -1 || CjtCelles[x][j].getValor_blanca() == 0) {
-                    System.out.println("Valor no valid");
-                    return -1;
+                    System.out.println("Valor no valid a la columna " + (j+1));
+                    return new Pair<>(-1, "Valor no valid a la columna " + (j+1));
                 }
                 else if(presents[CjtCelles[x][j].getValor_blanca() - 1]){
-                    System.out.println("Valor repetit");
-                    return -1;
+                    System.out.println("Valor repetit a la columna " + (j+1));
+                    return new Pair<>(-1, "Valor repetit a la columna " + (j+1));
                 }
                 else if(sumaParcial >= valor) {
-                    System.out.println("Error");
-                    return -1;
+                    System.out.println("Error de suma a la columna " + (j+1));
+                    return new Pair<>(-1, "Error de suma a la columna " + (j+1));
                 }
-                else{
+                else {
                     sumaParcial += CjtCelles[x][j].getValor_blanca();
                     presents[CjtCelles[x][j].getValor_blanca()-1] = true;
                 }
             }
-            else{
+            else {
                 if(sumaParcial != valor) {
-                    System.out.println("Suma no correcte");
-                    return -1;
+                    System.out.println("Suma no correcte a la columna " + (j+1));
+                    return new Pair<>(-1, "Suma no correcta a la columna " + (j+1));
                 }
             }
         }
-        if(sumaParcial != valor) {
+        if (sumaParcial != valor) {
             System.out.println("Suma no correcte");
-            return -1;
+            return new Pair<>(-1, "Suma no correcte a la columna " + (j+1));
         }
-        return 0; //correcto
+        return new Pair<>(0, "Correcto"); //correcto
     }
 
-    private int comprovarFila(int i, int j, int valor) {
+    private Pair<Integer, String> comprovarFila(int i, int j, int valor) {
         int sumaParcial = 0;
         boolean[] presents = new boolean[9];
+
         for(int l = 0; l < 9; ++l) {
             presents[l] = false;
         }
         for(int x = j+1; x < dimm; ++x) {
             if(CjtCelles[i][x].color() == ColorCella.Blanca) {
+                if(CjtCelles[i][x].getValor_blanca() < 1 || CjtCelles[i][j].getValor_blanca() > 9)  return new Pair<>(-1, "Valor no valid a la fila " + (i+1));
+
                 if(CjtCelles[i][x].getValor_blanca() == -1 || CjtCelles[i][x].getValor_blanca() == 0) {
-                    System.out.println("Valor no valid");
-                    return -1;
+                    System.out.println("Valor no valid en fila " + (i+1));
+                    return new Pair<>(-1, "Valor no valid en fila " + (i+1));
                 }
                 else if(presents[CjtCelles[i][x].getValor_blanca() - 1]){
-                    System.out.println("Valor repetit");
-                    return -1;
+                    System.out.println("Valor repetit en fila " + (i+1));
+                    return new Pair<>(-1, "Valor repetit en fila " + (i+1));
                 }
                 else if(sumaParcial >= valor) {
-                    System.out.println("Error");
-                    return -1;
+                    System.out.println("Error de suma a la fila" + (i+1));
+                    return new Pair<>(-1, "Error de suma a la fila" + (i+1));
                 }
                 else{
                     sumaParcial += CjtCelles[i][x].getValor_blanca();
@@ -657,16 +693,20 @@ public class Tauler {
             }
             else{
                 if(sumaParcial != valor) {
-                    System.out.println("Suma no correcte");
-                    return -1;
+                    System.out.println("Suma no correcte a la fila" + (i+1));
+                    return new Pair<>(-1, "Suma no correcte a la fila" + (i+1));
                 }
             }
         }
         if(sumaParcial != valor) {
-            System.out.println("Suma no correcte");
-            return -1;
+            System.out.println("Suma no correcte a la fila" + (i+1));
+            return new Pair<>(-1, "Suma no correcte a la fila" + (i+1));
         }
-        return 0; //correcto
+        return new Pair<>(0, "Correcto"); //correcto
+    }
+
+    public void setCellaBlanca (int i, int j, int actual) {
+        CjtCelles[i][j].intro_valor_blanca(actual);
     }
 
     public void setCjtCelles(Cella[][] c) {
