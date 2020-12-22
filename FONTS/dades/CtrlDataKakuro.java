@@ -1,6 +1,9 @@
 package dades;
 
-import domain.cella.*;
+import domain.cella.Cella;
+import domain.cella.CellaBlanca;
+import domain.cella.CellaNegra;
+import domain.cella.ColorCella;
 import domain.kakuro.Kakuro;
 import domain.kakuro.Tauler;
 

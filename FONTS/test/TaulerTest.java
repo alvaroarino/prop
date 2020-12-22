@@ -1,11 +1,11 @@
-import static org.junit.Assert.*;
-
 import domain.cella.Cella;
 import domain.cella.CellaBlanca;
 import domain.cella.CellaNegra;
 import domain.cella.ColorCella;
 import domain.kakuro.Tauler;
 import org.junit.Test;
+
+import static org.junit.Assert.*;
 
 public class TaulerTest {
 

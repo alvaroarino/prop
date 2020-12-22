@@ -1,11 +1,9 @@
 package presentacion;
 
-import dades.CtrlDades;
 import domain.cella.Cella;
 import domain.cella.ColorCella;
 import domain.kakuro.Kakuro;
 import domain.kakuro.Tauler;
-import domain.partida.Partida;
 import domaincontrollers.CtrlDomain;
 import javafx.application.Platform;
 import javafx.fxml.FXML;
@@ -17,12 +15,9 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
-import javafx.scene.layout.ColumnConstraints;
 import javafx.scene.layout.GridPane;
-import javafx.scene.layout.RowConstraints;
 import javafx.stage.Stage;
 
-import javax.sound.midi.SysexMessage;
 import java.io.IOException;
 import java.util.Timer;
 import java.util.TimerTask;
@@ -58,7 +53,7 @@ public class VistaPartida {
         } else if (domain.tipoEntrada == 2) {
             generated = new Kakuro(domain.n, domain.m);
             generated.generar_usuario(domain.negras, domain.valor);
-            board = domain.kakuro.getBoard();
+            board = generated.getBoard();
         }
 
         for (int i = 0; i < board.getDimn(); i++) {

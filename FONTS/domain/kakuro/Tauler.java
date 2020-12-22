@@ -5,7 +5,7 @@ import domain.cella.CellaBlanca;
 import domain.cella.CellaNegra;
 import domain.cella.ColorCella;
 
-import java.util.*;
+import java.util.Random;
 
 public class Tauler {
 

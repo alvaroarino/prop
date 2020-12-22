@@ -1,5 +1,3 @@
-import static org.junit.Assert.*;
-
 import dades.CtrlDataKakuro;
 import domain.cella.Cella;
 import domain.cella.CellaBlanca;

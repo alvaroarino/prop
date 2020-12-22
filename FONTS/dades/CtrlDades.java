@@ -3,7 +3,6 @@ package dades;
 import domain.kakuro.Kakuro;
 import domain.usuari.Perfil;
 import domain.usuari.Usuari;
-import presentacion.CtrlPresentacion;
 
 import java.io.IOException;
 import java.util.ArrayList;

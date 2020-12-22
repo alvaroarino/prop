@@ -46,7 +46,7 @@ public class VistaGestionPartida {
             Stage thisStage = (Stage) node.getScene().getWindow();
 
             try {
-                Parent root = FXMLLoader.load(getClass().getResource("/VistaPartida.fxml"));
+                Parent root = FXMLLoader.load(getClass().getResource("/vistaPartida.fxml"));
                 Scene scene = new Scene(root);
                 thisStage.setTitle("KakuroMasters");
                 thisStage.setScene(scene);
@@ -63,7 +63,7 @@ public class VistaGestionPartida {
             Stage thisStage = (Stage) node.getScene().getWindow();
             Parent root = null;
             try {
-                root = FXMLLoader.load(getClass().getResource("/VistaPartida.fxml"));
+                root = FXMLLoader.load(getClass().getResource("/vistaPartida.fxml"));
             } catch (IOException e) {
                 e.printStackTrace();
             }

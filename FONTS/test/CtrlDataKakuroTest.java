@@ -1,7 +1,5 @@
 import dades.CtrlDataKakuro;
 import domain.cella.Cella;
-import static org.junit.Assert.*;
-
 import domain.cella.CellaBlanca;
 import domain.cella.CellaNegra;
 import domain.cella.ColorCella;
@@ -9,6 +7,8 @@ import domain.kakuro.Kakuro;
 import org.junit.Test;
 
 import java.io.IOException;
+
+import static org.junit.Assert.assertEquals;
 
 public class CtrlDataKakuroTest {
     @Test

@@ -43,7 +43,7 @@ public class Kakuro {
         board.print_negras(negras);
         board.rellenar_celdas_blancas();
         board.hacer_sumas();
-        if(restants > 1) ++restants;
+        if (restants > 1) ++restants;
         board.borrar_blancas(restants);
         board.print();
     }

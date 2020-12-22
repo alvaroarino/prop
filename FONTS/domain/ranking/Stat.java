@@ -1,7 +1,5 @@
 package domain.ranking;
 
-import java.util.UUID;
-
 public class Stat {
     int posicion;
     String perfil;

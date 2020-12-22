@@ -1,33 +1,24 @@
 package presentacion;
 
-import domain.usuari.Perfil;
+import domain.ranking.Stat;
 import domaincontrollers.CtrlDomain;
-import javafx.collections.FXCollections;
-import javafx.fxml.FXMLLoader;
-import javafx.geometry.Insets;
-import javafx.scene.Group;
-import javafx.scene.Node;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
+import javafx.fxml.FXML;
 import javafx.scene.control.Button;
-import javafx.scene.control.Tab;
+import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
-import domain.ranking.Stat;
-import javafx.collections.ObservableList;
-import javafx.fxml.FXML;
 import javafx.scene.control.cell.PropertyValueFactory;
-import javafx.scene.layout.VBox;
-import javafx.stage.Stage;
 
-import java.io.IOException;
-import java.util.ArrayList;
 import java.util.List;
 
 public class VistaEstadistica {
-    CtrlDomain domain = CtrlDomain.getInstance();
     @FXML
-    private TableView<Stat> ranking = new TableView<Stat>();
+    public Button AtrasButton;
+    @FXML
+    public Label nombreUsuarioLabel;
+    @FXML
+    public TableView<Stat> ranking = new TableView<>();
+    CtrlDomain domain = CtrlDomain.getInstance();
 
     public void initialize() {
         List<Stat> rank;

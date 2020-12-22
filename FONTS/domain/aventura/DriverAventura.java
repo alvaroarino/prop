@@ -1,18 +1,13 @@
 package domain.aventura;
 
-import domain.aventura.Aventura;
-import domain.kakuro.Kakuro;
-
 import domain.cella.Cella;
 import domain.cella.ColorCella;
+import domain.kakuro.Kakuro;
 import domain.kakuro.Tauler;
-
 
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
-
-import static java.lang.Integer.parseInt;
 
 public class DriverAventura {
     public static void main(String[] args) throws IOException {

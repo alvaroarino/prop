@@ -1,6 +1,5 @@
 package presentacion;
 
-import dades.CtrlDades;
 import domain.usuari.Perfil;
 import domaincontrollers.CtrlDomain;
 import javafx.fxml.FXML;
@@ -10,7 +9,6 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
-import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;

@@ -3,7 +3,6 @@ package dades;
 import domain.kakuro.Kakuro;
 import domain.partida.CjtPartida;
 import domain.partida.Partida;
-import dades.CtrlDataKakuro;
 
 import java.io.BufferedWriter;
 import java.io.File;
