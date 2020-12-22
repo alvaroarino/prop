@@ -56,6 +56,9 @@ public class CtrlDomain {
      */
     public int valor;
 
+    public int num_kakuros_aventura;
+
+
     /**
      * Gets instance.
      *
