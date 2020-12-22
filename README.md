@@ -28,13 +28,15 @@ Relació principal de directoris
     *   files: conté arxius necesaris pel arxius Markdown i HTML
 
 ## Llibreries externes utilitzades
-Per mantenir les llibreries actualitzades hem fet us del Gradle, ja que permet tenir les mateixes llibreries automaticament a qualsevol ordinador, també dona la capacitat de generar l'aplicació fàcilment
 ### [Gson](https://github.com/google/gson)
 Per guardar d'una forma estructurada y ordenada les dades, fem ús d'archius JSON i per codificar i 
 descodificar fem ús d'aquesta clase
 > Gson is a Java library that can be used to convert Java Objects into their JSON representation. It can also be used to convert a JSON string to an equivalent Java object. 
-### [JavaFX](https://openjfx.io)
-Per tal de fer una UI amb mès riquessa visual i ja que permet fer les vistes amb mès rapidessa mitjançant el SceneBuilder, vam decidir de fer ús d'aquesta llibreria
 
 ## Distribució de la feina
 ![image](DOCS/work_distribution.jpg)
+
+## Comentaris sobre l'entrega 1
+* El generador no acaba de funcionar bé quan el nombre de caselles és gran.
+* El solucionador a priori funciona bé però no identifica si hi ha més d'una solució.
+* Alguns drivers no els hem acabat de fer perquè no teníem molt clar com enfocar-los.

@@ -47,18 +47,249 @@
 			</ul>
 		</ul>
 		<h2 id="llibreries-externes-utilitzades">Llibreries externes utilitzades</h2>
-		<p>Per mantenir les llibreries actualitzades hem fet us del Gradle, ja que permet tenir les mateixes llibreries automaticament a qualsevol ordinador, també dona la capacitat de generar l'aplicació fàcilment</p>
 		<h3 id="-gson-https-github-com-google-gson-"><a href="https://github.com/google/gson">Gson</a></h3>
 		<p>Per guardar d&#39;una forma estructurada y ordenada les dades, fem ús d&#39;archius JSON i per codificar i 
 		descodificar fem ús d&#39;aquesta clase</p>
 		<blockquote>
 		<p>Gson is a Java library that can be used to convert Java Objects into their JSON representation. It can also be used to convert a JSON string to an equivalent Java object. </p>
 		</blockquote>
-		<a href="https://openjfx.io"><h3>JavaFX</h3></a>
-		<p>Per tal de fer una UI amb mès riquessa visual i ja que permet fer les vistes amb mès rapidessa mitjançant el SceneBuilder, vam decidir de fer ús d'aquesta llibreria</p>
 		<h2 id="distribuci-de-la-feina">Distribució de la feina</h2>
 		<br>
-		<img style="max-width: 90%;" src="DOCS/work_distribution.jpg" alt="feina">
+		<table border="1" cellspacing="0" cellpadding="0">
+			<thead>
+				<tr>
+			  <td>
+					<p align="center">
+						<strong>Quí?</strong>
+					</p>
+				</td>
+			  <td >
+					<p align="center">
+						<strong>Clase</strong>
+					</p>
+				</td>
+				<td >
+					<p align="center">
+						<strong>Controlador de domini</strong>
+					</p>
+				</td>
+			  <td >
+					<p align="center">
+						<strong>Capa de dades</strong>
+					</p>
+				</td>
+			  <td >
+					<p align="center">
+						<strong>Capa de presentaci&#243;</strong>
+					</p>
+				</td>
+			</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<td rowspan="3" style="background-color: rgba(255,229,153,1.00)">
+						<p align="center">
+							ALVARO
+						</p>
+					</td>
+					<td style="background-color: rgba(255,229,153,1.00)">
+						<p align="center">
+							Usuari
+						</p>
+					</td>
+					<td rowspan="3" style="background-color: rgba(255,229,153,1.00)">
+						<p align="center">
+							Usuarios
+						</p>
+					</td>
+					<td rowspan="5" style="background-color: rgba(255,229,153,1.00)">
+						<p align="center">
+							Ctrl Dades Usuari
+						</p>
+					</td>
+					<td rowspan="3" style="background-color: rgba(255,229,153,1.00)">
+						<p align="center">
+							Vista Gesti&#243; d&#8217;usuaris
+						</p>
+					</td>
+				</tr>
+				<tr>
+					<td style="background-color: rgba(255,229,153,1.00)">
+						<p align="center">
+							Perfil
+						</p>
+					</td>
+				</tr>
+				<tr>
+					<td style="background-color: rgba(255,229,153,1.00)">
+						<p align="center">
+							CjtPerfils
+						</p>
+					</td>
+				</tr>
+				<tr>
+					<td  rowspan="2" style="background-color: rgba(147,196,125,1.00)">
+						<p align="center">
+							VICTOR L
+						</p>
+					</td>
+					<td style="background-color: rgba(147,196,125,1.00)">
+						<p align="center">
+							CjtPartides
+						</p>
+					</td>
+					<td  rowspan="2" style="background-color: rgba(147,196,125,1.00)">
+						<p align="center">
+							Partidas
+						</p>
+					</td>
+					<td  rowspan="2" style="background-color: rgba(147,196,125,1.00)">
+						<p align="center">
+							Vista Partida
+						</p>
+					</td>
+				</tr>
+				<tr>
+					<td style="background-color: rgba(147,196,125,1.00)">
+						<p align="center">
+							Partida
+						</p>
+					</td>
+				</tr>
+				<tr>
+					<td >
+						<p align="center">
+						  TOTS
+						</p>
+					</td>
+					<td >
+						<p align="center">
+							Kakuro
+						</p>
+					</td>
+					<td  rowspan="6">
+						<p align="center">
+							Kakuros
+						</p>
+					</td>
+					<td  rowspan="6" style="background-color: rgba(255,229,153,1.00)">
+						<p align="center">
+							Ctrl Dades Kakuros
+						</p>
+					</td>
+					<td  rowspan="6" style="background-color: rgba(224,102,102,1.00)">
+						<p align="center">
+							Vista Kakuros
+						</p>
+					</td>
+				</tr>
+				<tr>
+					<td >
+						<p align="center">
+							ALVARO I ALBERT
+						</p>
+					</td>
+					<td >
+						<p align="center">
+							Registre Kakuro
+						</p>
+					</td>
+				</tr>
+				<tr>
+					<td rowspan="4" style="background-color: rgba(224,102,102,1.00)">
+						<p align="center">
+							VICTOR D
+						</p>
+					</td>
+					<td style="background-color: rgba(224,102,102,1.00)">
+						<p align="center">
+							Tauler
+						</p>
+					</td>
+				</tr>
+				<tr>
+					<td style="background-color: rgba(224,102,102,1.00)">
+						<p align="center">
+							Cel&#183;la
+						</p>
+					</td>
+				</tr>
+				<tr>
+					<td style="background-color: rgba(224,102,102,1.00)">
+						<p align="center">
+							Cel&#183;la blanca
+						</p>
+					</td>
+				</tr>
+				<tr>
+					<td style="background-color: rgba(224,102,102,1.00)">
+						<p align="center">
+							Cel&#183;la negra
+						</p>
+					</td>
+				</tr>
+				<tr>
+				  <td  rowspan="2" style="background-color: rgba(109,158,235,1.00)">
+						<p align="center">
+							ALBERT
+						</p>
+					</td>
+				  <td style="background-color: rgba(109,158,235,1.00)">
+						<p align="center">
+							Estad&#237;stica
+						</p>
+					</td>
+				  <td  rowspan="2" style="background-color: rgba(109,158,235,1.00)">
+						<p align="center" >
+							Estad&#237;sticas
+						</p>
+					</td>
+					<td  rowspan="2" style="background-color: rgba(255,229,153,1.00)">
+						<p align="center">
+							Ctrl Dades Estadística
+						</p>
+					</td>
+				  <td  rowspan="2" style="background-color: rgba(109,158,235,1.00)">
+						<p align="center">
+							Vista Estadisticas
+						</p>
+					</td>
+				</tr>
+				<tr>
+					<td style="background-color: rgba(109,158,235,1.00)">
+						<p align="center">
+							R&#224;nquing
+						</p>
+					</td>
+				</tr>
+				<tr>
+					<td >
+						<p align="center">
+					    VICTOR D. i VICTOR L.&nbsp; &nbsp; </p>
+					</td>
+					<td >
+						<p align="center">
+						  Aventura
+						</p>
+					</td>
+					<td> 
+						<p align="center">
+							Aventura
+						</p>
+					</td>
+					<td style="background-color: rgba(255,229,153,1.00)">
+						<p align="center">
+							Ctrl Dades Aventura
+						</p>
+					</td>
+					<td >
+						<p align="center">
+							Vista Aventura
+						</p>
+					</td>
+				</tr>
+			</tbody>
+		</table>
 		<p>La distribució s'ha fet d'una forma equitativa la carrega de treball de cada classe:</p>
 		<p>Alguns apunts de la ditribució:</p>
 		<ul>
@@ -68,10 +299,10 @@
 			<li>Cada membre programarà la Vista de la capa de presentació de la seva classe.</li>
 		</ul>
 		<center><a href="files/work_distribution.jpg"><button>Distribució en format .jpg</button></a></center>
-		<hr>
+		<!--<hr>
 		<h2>Documentació JavaDOC</h2>
 		<p>Per accedir a la documentacó generada amb JavaDOC cliqueu el següent botó</p>
-		<center><a href="DOCS/javadoc.html"><button>Accedir a la documentació</button></a></center>
+		<center><a href="DOCS/javadoc.html"><button>Accedir a la documentació</button></a></center>-->
 		<hr>
 		<a href="data-files/index.html"><h3>data-files</h3></a>
 		<p>Conté els arxius de dades. En aquesta carpeta és on trobem totes les dades guardades en format JSON en general y en format .txt quan el JSON no es el format mès idoni per la funcionalitat requerida.</p>
