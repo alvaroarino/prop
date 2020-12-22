@@ -67,7 +67,6 @@ public class VistaPerfil {
                 } catch (IOException e) {
                     e.printStackTrace();
                 }
-
             });
         }
 
@@ -86,7 +85,18 @@ public class VistaPerfil {
                 String name = nameField.getText();
                 domain.crearPerfil(name);
                 popupwindow.close();
-                perfilsRow = new HBox();
+                try {
+                    Node node = (Node) event.getSource();
+                    Stage stage = (Stage) node.getScene().getWindow();
+                    Parent root = FXMLLoader.load(getClass().getResource("/vistaPerfil.fxml"));
+                    Scene scene = new Scene(root);
+                    stage.setTitle("KakuroMasters");
+                    stage.setScene(scene);
+                    stage.show();
+                } catch (IOException exception) {
+                    exception.printStackTrace();
+                }
+
             });
 
             exitButton.setOnAction(e -> popupwindow.close());
