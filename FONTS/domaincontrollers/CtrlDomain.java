@@ -187,4 +187,6 @@ public class CtrlDomain {
         return rankActual.obtenirRankingOrdenat();
     }
 
+    public void storeRanking(){dades.guardar_estadisticas();}
+
 }

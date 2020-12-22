@@ -146,21 +146,24 @@ public class Partida {
     public void acabarPartida() {
         String perfil = domain.perfilActual.getNom();
         String dif = KakuroPartida.getBoard().getDificulty();
-        double aux;
+        double aux = 0;
         if(dif.equals("facil")) {
             aux = 300 - tacumulat;
         }
         else if(dif.equals("medio")) {
             aux = 600 - tacumulat;
         }
-        else {
+        else if(dif.equals("hard")){
             aux = 900 - tacumulat;
         }
         int punt = (int)aux;
 
-        if(!domain.perfilActual.conteKakuro(KakuroPartida.getId())) {
-            rank.afegirIndex(perfil, punt);
-            domain.perfilActual.addKakuro(KakuroPartida.getId());
+        if(aux != 0) {
+            if (!domain.perfilActual.conteKakuro(KakuroPartida.getId())) {
+                rank.afegirIndex(perfil, punt);
+                domain.perfilActual.addKakuro(KakuroPartida.getId());
+                domain.storeRanking();
+            }
         }
     }
 }

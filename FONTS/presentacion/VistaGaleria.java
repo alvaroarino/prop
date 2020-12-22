@@ -63,6 +63,7 @@ public class VistaGaleria {
                     File f = new File(getClass().getResource("/Facil" + finalX + ".txt").getPath());
                     domain.kakuro = dades.leer_kakuro(f.getAbsolutePath());
                     domain.kakuro.getBoard().print();
+                    domain.kakuro.getBoard().setDificulty("facil");
                     Parent root = FXMLLoader.load(getClass().getResource("/vistaPartida.fxml"));
                     Scene scene = new Scene(root);
                     thisStage.setTitle("KakuroMasters");
@@ -93,6 +94,7 @@ public class VistaGaleria {
                     File f = new File(getClass().getResource("/Medio" + finalX + ".txt").getPath());
                     domain.kakuro = dades.leer_kakuro(f.getAbsolutePath());
                     domain.kakuro.getBoard().print();
+                    domain.kakuro.getBoard().setDificulty("medio");
                     Parent root = FXMLLoader.load(getClass().getResource("/vistaPartida.fxml"));
                     Scene scene = new Scene(root);
                     thisStage.setTitle("KakuroMasters");
@@ -124,6 +126,7 @@ public class VistaGaleria {
                     File f = new File(getClass().getResource("/Hard" + finalX + ".txt").getPath());
                     domain.kakuro = dades.leer_kakuro(f.getAbsolutePath());
                     domain.kakuro.getBoard().print();
+                    domain.kakuro.getBoard().setDificulty("hard");
                     Parent root = FXMLLoader.load(getClass().getResource("/vistaPartida.fxml"));
                     Scene scene = new Scene(root);
                     thisStage.setTitle("KakuroMasters");
