@@ -10,9 +10,17 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 
+/**
+ * The type Ctrl presentacion.
+ */
 public class CtrlPresentacion extends Application {
     private static CtrlPresentacion singletonObject;
 
+    /**
+     * Gets instance.
+     *
+     * @return the instance
+     */
     public static CtrlPresentacion getInstance() {
         if (singletonObject == null)
             singletonObject = new CtrlPresentacion() {
@@ -20,6 +28,9 @@ public class CtrlPresentacion extends Application {
         return singletonObject;
     }
 
+    /**
+     * The Presentacion stage.
+     */
     Stage presentacionStage;
 
     @Override
@@ -41,10 +52,20 @@ public class CtrlPresentacion extends Application {
         }
     }
 
+    /**
+     * Main.
+     *
+     * @param args the args
+     */
     public void main(String[] args) {
         launch(args);
     }
 
+    /**
+     * Cambiar vista.
+     *
+     * @param vistaFile the vista file
+     */
     public void cambiarVista(String vistaFile) {
         try {
             Parent root = FXMLLoader.load(getClass().getResource(vistaFile));

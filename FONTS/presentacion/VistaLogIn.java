@@ -14,18 +14,39 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 
+/**
+ * The type Vista log in.
+ */
 public class VistaLogIn {
+    /**
+     * The Error message.
+     */
     @FXML
     public Label errorMessage;
+    /**
+     * The Username text field.
+     */
     @FXML
     public TextField usernameTextField;
+    /**
+     * The Pass text field.
+     */
     @FXML
     public PasswordField passTextField;
+    /**
+     * The Login button.
+     */
     @FXML
     public Button loginButton;
+    /**
+     * The Signup button.
+     */
     @FXML
     public Button signupButton;
 
+    /**
+     * Initialize.
+     */
     public void initialize() {
         errorMessage.setOpacity(0.0);
         loginButton.setOnMouseClicked((event) -> {
@@ -73,11 +94,21 @@ public class VistaLogIn {
         });
     }
 
+    /**
+     * Log in boolean.
+     *
+     * @return the boolean
+     */
     boolean logIn() {
         CtrlDomain domain = CtrlDomain.getInstance();
         return domain.checkUsuari("login", usernameTextField.getText(), passTextField.getText());
     }
 
+    /**
+     * Sign up boolean.
+     *
+     * @return the boolean
+     */
     boolean signUp() {
         CtrlDomain domain = CtrlDomain.getInstance();
         boolean exists = domain.checkUsuari("signup", usernameTextField.getText(), passTextField.getText());

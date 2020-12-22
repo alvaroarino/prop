@@ -15,11 +15,22 @@ import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.Arrays;
 
+/**
+ * The type Ctrl data aventura.
+ */
 public class CtrlDataAventura {
     private static CtrlDataAventura singletonObject;
 
+    /**
+     * The constant ENCODING.
+     */
     final static Charset ENCODING = StandardCharsets.UTF_8;
 
+    /**
+     * Gets instance.
+     *
+     * @return the instance
+     */
     public static CtrlDataAventura getInstance() {
         if (singletonObject == null)
             singletonObject = new CtrlDataAventura() {
@@ -67,6 +78,13 @@ public class CtrlDataAventura {
 
     }
 
+    /**
+     * Cargar aventura aventura.
+     *
+     * @param nom the nom
+     * @return the aventura
+     * @throws IOException the io exception
+     */
     public Aventura cargarAventura (String nom) throws IOException {
         Aventura av = new Aventura();
 
@@ -98,6 +116,13 @@ public class CtrlDataAventura {
         return av;
     }
 
+    /**
+     * Guardar aventura.
+     *
+     * @param av  the av
+     * @param nom the nom
+     * @throws IOException the io exception
+     */
     public void guardarAventura (Aventura av, String nom) throws IOException {
         String separador_SO = System.getProperty("file.separator");
         String path_fitxer_dades = (new File("data-files")).getAbsolutePath();

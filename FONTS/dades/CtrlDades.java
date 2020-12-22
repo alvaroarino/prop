@@ -7,6 +7,9 @@ import domain.usuari.Usuari;
 import java.io.IOException;
 import java.util.ArrayList;
 
+/**
+ * CONTROLADOR DE DADES
+ */
 public class CtrlDades {
     private final CtrlDataPerfil perfil = CtrlDataPerfil.getInstance();
     private final CtrlDataAventura aventura = CtrlDataAventura.getInstance();
@@ -17,6 +20,11 @@ public class CtrlDades {
 
     private static CtrlDades singletonObject;
 
+    /**
+     * Gets instance.
+     *
+     * @return the instance
+     */
     public static CtrlDades getInstance() {
         if (singletonObject == null)
             singletonObject = new CtrlDades() {
@@ -27,35 +35,80 @@ public class CtrlDades {
     private CtrlDades() {};
 
 
+    /**
+     * Guardar kakuro.
+     *
+     * @param id the id
+     * @param k  the k
+     * @throws IOException the io exception
+     */
     public void guardar_kakuro(int id, Kakuro k) throws IOException {
         kakuro.guardarKakuro(String.valueOf(id), k);
     }
 
+    /**
+     * Guardar perfil.
+     *
+     * @param p   the p
+     * @param nom the nom
+     * @throws IOException the io exception
+     */
     public void guardar_perfil(Perfil p, String nom) throws IOException {
         perfil.guardarPerfil(p,nom);
     }
 
+    /**
+     * Leer perfil.
+     *
+     * @param nom the nom
+     * @throws IOException the io exception
+     */
     public void leer_perfil(String nom) throws IOException {
         perfil.getPerfil(nom);
     }
 
+    /**
+     * Leer kakuro.
+     *
+     * @param archivo the archivo
+     * @throws IOException the io exception
+     */
     public void leer_kakuro(String archivo) throws IOException {
         kakuro.getData(archivo);
     }
 
+    /**
+     * Leer estadisticas.
+     *
+     * @throws IOException the io exception
+     */
     public void leer_estadisticas() throws IOException {
         ranking.obtenirRanking();
     }
 
+    /**
+     * Guardar estadisticas.
+     */
     public void guardar_estadisticas() {
 
       //  ranking.guardarRanking();
     }
 
+    /**
+     * Gets usuaris.
+     *
+     * @return the usuaris
+     * @throws IOException the io exception
+     */
     public ArrayList<Usuari> getUsuaris() throws IOException {
         return usuaris.getData();
     }
 
+    /**
+     * Update usuaris.
+     *
+     * @param cjtUsuaris the cjt usuaris
+     */
     public void updateUsuaris(ArrayList<Usuari> cjtUsuaris) {
         usuaris.updateData(cjtUsuaris);
     }

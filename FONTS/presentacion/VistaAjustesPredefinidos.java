@@ -14,24 +14,54 @@ import javafx.stage.Stage;
 import java.io.IOException;
 
 
+/**
+ * The type Vista ajustes predefinidos.
+ */
 public class VistaAjustesPredefinidos {
+    /**
+     * The Button empezar.
+     */
     @FXML
     public Button ButtonEmpezar;
+    /**
+     * The Atras button.
+     */
     @FXML
     public Button AtrasButton;
+    /**
+     * The Nombre usuario label 1.
+     */
     @FXML
     public Label nombreUsuarioLabel1;
+    /**
+     * The Text field col.
+     */
     @FXML
     public TextField TextFieldCol;
+    /**
+     * The Text field negras.
+     */
     @FXML
     public TextField TextFieldNegras;
+    /**
+     * The Text field fil.
+     */
     @FXML
     public TextField TextFieldFil;
+    /**
+     * The Text field valor.
+     */
     @FXML
     public TextField TextFieldValor;
 
+    /**
+     * The Domain.
+     */
     CtrlDomain domain = CtrlDomain.getInstance();
 
+    /**
+     * Initialize.
+     */
     public void initialize() {
         nombreUsuarioLabel1.setText(domain.perfilActual.getNom());
 

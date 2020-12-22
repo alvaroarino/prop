@@ -27,25 +27,66 @@ import java.io.IOException;
 import java.util.Timer;
 import java.util.TimerTask;
 
+/**
+ * The type Vista partida.
+ */
 public class VistaPartida {
+    /**
+     * The Button salir.
+     */
     @FXML
     public Button ButtonSalir;
+    /**
+     * The Label perfil.
+     */
     @FXML
     public Label LabelPerfil;
+    /**
+     * The Time label.
+     */
     @FXML
     public Label timeLabel;
+    /**
+     * The Button pausa.
+     */
     @FXML
     public Button ButtonPausa;
+    /**
+     * The Check button.
+     */
     @FXML
     public Button CheckButton;
+    /**
+     * The Kakuro grid pane.
+     */
     @FXML
     public GridPane KakuroGridPane;
 
+    /**
+     * The Domain.
+     */
     CtrlDomain domain = CtrlDomain.getInstance();
+    /**
+     * The Generated.
+     */
     Kakuro generated = new Kakuro();
+    /**
+     * The Timer.
+     */
     Timer timer = new Timer();
+    /**
+     * The Time.
+     */
     int time = 0;
 
+    /**
+     * Gets node by row column index.
+     *
+     * @param row      the row
+     * @param column   the column
+     * @param gridPane the grid pane
+     * @return the node by row column index
+     */
     public Node getNodeByRowColumnIndex(final int row,final int column,GridPane gridPane) {
         Node result = null;
         ObservableList<Node> childrens = gridPane.getChildren();
@@ -58,11 +99,13 @@ public class VistaPartida {
         return result;
     }
 
+    /**
+     * Initialize.
+     */
     public void initialize() {
         Tauler board = generated.getBoard();
         System.out.println(domain.tipoEntrada);
         if (domain.tipoEntrada == 1)  {
-
             generated.generar();
             board = generated.getBoard();
         } else if (domain.tipoEntrada == 2) {

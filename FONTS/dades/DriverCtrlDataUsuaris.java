@@ -6,7 +6,15 @@ import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
 
+/**
+ * The type Driver ctrl data usuaris.
+ */
 public class DriverCtrlDataUsuaris {
+    /**
+     * The entry point of application.
+     *
+     * @param args the input arguments
+     */
     public static void main(String[] args) {
         System.out.println("Driver de la classe del controlador de Dades d'Usuari");
         System.out.println("Actualement només es pot llegir dades");

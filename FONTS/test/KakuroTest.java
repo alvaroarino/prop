@@ -7,8 +7,14 @@ import org.junit.Test;
 
 import java.io.IOException;
 
+/**
+ * The type Kakuro test.
+ */
 public class KakuroTest {
 
+    /**
+     * Test generar.
+     */
     @Test
     public void testGenerar() {
         int n = 9;
@@ -20,6 +26,11 @@ public class KakuroTest {
         //assertTrue(kk.getBoard().getDimm() == m && kk.getBoard().getDimn() == n);
     }
 
+    /**
+     * Test solver.
+     *
+     * @throws IOException the io exception
+     */
     @Test
     public void testSolver() throws IOException {
         CtrlDataKakuro ctrlDataKakuro = CtrlDataKakuro.getInstance();

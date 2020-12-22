@@ -6,7 +6,15 @@ import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.util.Scanner;
 
+/**
+ * The type Kakuro driver.
+ */
 public class KakuroDriver {
+    /**
+     * The entry point of application.
+     *
+     * @param args the input arguments
+     */
     public static void main(String[] args) {
         System.out.println("Driver de la classe Kakuro");
 

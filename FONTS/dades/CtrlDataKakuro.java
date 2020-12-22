@@ -18,11 +18,22 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.Arrays;
 
+/**
+ * The type Ctrl data kakuro.
+ */
 public class CtrlDataKakuro {
     private static CtrlDataKakuro singletonObject;
 
+    /**
+     * The constant ENCODING.
+     */
     final static Charset ENCODING = StandardCharsets.UTF_8;
 
+    /**
+     * Gets instance.
+     *
+     * @return the instance
+     */
     public static CtrlDataKakuro getInstance() {
         if (singletonObject == null)
             singletonObject = new CtrlDataKakuro() {
@@ -32,6 +43,13 @@ public class CtrlDataKakuro {
 
     private CtrlDataKakuro() {}
 
+    /**
+     * Gets data.
+     *
+     * @param filename the filename
+     * @return the data
+     * @throws IOException the io exception
+     */
     public Kakuro getData(String filename) throws IOException {
         Cella[][] board;
 
@@ -114,6 +132,13 @@ public class CtrlDataKakuro {
         return kak;
     }
 
+    /**
+     * Guardar kakuro.
+     *
+     * @param id the id
+     * @param k  the k
+     * @throws IOException the io exception
+     */
     public void guardarKakuro(String id, Kakuro k) throws IOException {
         String separador = System.getProperty("file.separator");
         String path_fitxer_dades = (new File("data-files")).getAbsolutePath();

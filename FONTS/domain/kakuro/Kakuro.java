@@ -2,11 +2,29 @@ package domain.kakuro;
 
 import java.util.Random;
 
+/**
+ * The type Kakuro.
+ */
 public class Kakuro {
+    /**
+     * The Id.
+     */
     String id;
+    /**
+     * The Aleat.
+     */
     final Random aleat;
+    /**
+     * The Board.
+     */
     Tauler board;
 
+    /**
+     * Instantiates a new Kakuro.
+     *
+     * @param n the n
+     * @param m the m
+     */
     public Kakuro(int n, int m) {
         aleat = new Random();
         board = new Tauler(n, m);
@@ -14,6 +32,9 @@ public class Kakuro {
         id = id2+"";
     }
 
+    /**
+     * Instantiates a new Kakuro.
+     */
     public Kakuro() {
         aleat = new Random();
 
@@ -27,6 +48,9 @@ public class Kakuro {
         id = id2+"";
     }
 
+    /**
+     * Generar.
+     */
     public void generar() {
 
         int minimo = Math.min(board.getDimn(), board.getDimm());
@@ -39,6 +63,12 @@ public class Kakuro {
         board.print();
     }
 
+    /**
+     * Generar usuario.
+     *
+     * @param negras   the negras
+     * @param restants the restants
+     */
     public void generar_usuario( int negras, int restants) {
         board.print_negras(negras);
         board.rellenar_celdas_blancas();
@@ -49,21 +79,45 @@ public class Kakuro {
     }
 
 
-
+    /**
+     * Gets board.
+     *
+     * @return the board
+     */
     public Tauler getBoard() {
         return board;
     }
 
+    /**
+     * Get id string.
+     *
+     * @return the string
+     */
     public String getId(){return id; }
 
+    /**
+     * Sets id.
+     *
+     * @param Identif the identif
+     */
     public void setId(String Identif) {
         id = Identif;
     }
 
+    /**
+     * Sets tauler.
+     *
+     * @param t the t
+     */
     public void setTauler(Tauler t) {
         board = t;
     }
 
+    /**
+     * Sets kakuro.
+     *
+     * @param k the k
+     */
     public void setKakuro(Kakuro k) {
         id = k.getId();
         board = k.getBoard();

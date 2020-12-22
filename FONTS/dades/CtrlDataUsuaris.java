@@ -13,9 +13,17 @@ import java.io.IOException;
 import java.io.Reader;
 import java.util.ArrayList;
 
+/**
+ * The type Ctrl data usuaris.
+ */
 public class CtrlDataUsuaris {
     private static CtrlDataUsuaris singletonObject;
 
+    /**
+     * Gets instance.
+     *
+     * @return the instance
+     */
     public static CtrlDataUsuaris getInstance() {
         if (singletonObject == null)
             singletonObject = new CtrlDataUsuaris() {
@@ -25,6 +33,12 @@ public class CtrlDataUsuaris {
 
     private CtrlDataUsuaris() {}
 
+    /**
+     * Gets data.
+     *
+     * @return the data
+     * @throws IOException the io exception
+     */
     public ArrayList<Usuari> getData() throws IOException {
         Gson gson = new Gson();
         ArrayList<Usuari> cjtUsuaris = new ArrayList<>();
@@ -48,6 +62,11 @@ public class CtrlDataUsuaris {
         return cjtUsuaris;
     }
 
+    /**
+     * Update data.
+     *
+     * @param cjtUsuaris the cjt usuaris
+     */
     public void updateData(ArrayList<Usuari> cjtUsuaris) {
         JsonArray array = new JsonArray();
         for (Usuari usuari: cjtUsuaris) {

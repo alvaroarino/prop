@@ -5,7 +5,15 @@ import domain.kakuro.Kakuro;
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 
+/**
+ * The type Driver ctrl data kakuro.
+ */
 public class DriverCtrlDataKakuro {
+    /**
+     * The entry point of application.
+     *
+     * @param args the input arguments
+     */
     public static void main(String[] args) {
         System.out.println("Driver de la classe del controlador de Dades de Kakuro");
         System.out.println("Actualement només es pot llegir dades");

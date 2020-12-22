@@ -15,11 +15,22 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.Arrays;
 
+/**
+ * The type Ctrl data partida.
+ */
 public class CtrlDataPartida {
     private static CtrlDataPartida singletonObject;
 
+    /**
+     * The constant ENCODING.
+     */
     final static Charset ENCODING = StandardCharsets.UTF_8;
 
+    /**
+     * Gets instance.
+     *
+     * @return the instance
+     */
     public static CtrlDataPartida getInstance() {
         if (singletonObject == null)
             singletonObject = new CtrlDataPartida() {
@@ -67,6 +78,13 @@ public class CtrlDataPartida {
 
     }
 
+    /**
+     * Gets cjt partida.
+     *
+     * @param filename the filename
+     * @return the cjt partida
+     * @throws IOException the io exception
+     */
     public CjtPartida getCjtPartida(String filename) throws IOException {
         CjtPartida part = new CjtPartida();
 
@@ -92,6 +110,13 @@ public class CtrlDataPartida {
 
     }
 
+    /**
+     * Guardar cjt partida.
+     *
+     * @param p   the p
+     * @param nom the nom
+     * @throws IOException the io exception
+     */
     public void guardarCjtPartida(CjtPartida p, String nom) throws IOException {
         String separador_SO = System.getProperty("file.separator");
         String path_fitxer_dades = (new File("data-files")).getAbsolutePath();
@@ -106,6 +131,13 @@ public class CtrlDataPartida {
 
     }
 
+    /**
+     * Gets partida.
+     *
+     * @param filename the filename
+     * @return the partida
+     * @throws IOException the io exception
+     */
     public Partida getPartida(String filename) throws IOException {
         Partida part = new Partida();
 
@@ -145,6 +177,13 @@ public class CtrlDataPartida {
 
     }
 
+    /**
+     * Guardar partida.
+     *
+     * @param p   the p
+     * @param nom the nom
+     * @throws IOException the io exception
+     */
     public void guardarPartida(Partida p, String nom) throws IOException {
         String separador_SO = System.getProperty("file.separator");
         String path_fitxer_dades = (new File("data-files")).getAbsolutePath();

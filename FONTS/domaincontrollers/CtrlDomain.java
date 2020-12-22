@@ -11,21 +11,56 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * The type Ctrl domain.
+ */
 public class CtrlDomain {
     private static CtrlDomain singletonObject;
 
     private CtrlDades dades = CtrlDades.getInstance();
     private ArrayList<Usuari> cjtUsuarios;
+    /**
+     * The Actual user.
+     */
     public Usuari actualUser = new Usuari();
+    /**
+     * The Perfil actual.
+     */
     public Perfil perfilActual;
+    /**
+     * The Rank actual.
+     */
     public Ranking rankActual = Ranking.getInstance();
+    /**
+     * The Tipo entrada.
+     */
     public int tipoEntrada = 0; // 1 = aleatorio 2 = ajustes predefinidos 3 = importar fichero
+    /**
+     * The Kakuro.
+     */
     public Kakuro kakuro ;
+    /**
+     * The N.
+     */
     public int n;
+    /**
+     * The M.
+     */
     public int m;
+    /**
+     * The Negras.
+     */
     public int negras;
+    /**
+     * The Valor.
+     */
     public int valor;
 
+    /**
+     * Gets instance.
+     *
+     * @return the instance
+     */
     public static CtrlDomain getInstance() {
         if (singletonObject == null) {
             System.out.println("Init Domini");
@@ -38,7 +73,9 @@ public class CtrlDomain {
     private CtrlDomain() {};
 
 
-
+    /**
+     * Init data.
+     */
     public void initData() {
         System.out.println("Getting data");
         try {
@@ -51,6 +88,14 @@ public class CtrlDomain {
         }
     }
 
+    /**
+     * Check usuari boolean.
+     *
+     * @param op       the op
+     * @param username the username
+     * @param password the password
+     * @return the boolean
+     */
     public boolean checkUsuari(String op, String username, String password) {
         switch (op) {
             case "login":
@@ -73,6 +118,12 @@ public class CtrlDomain {
         return false;
     }
 
+    /**
+     * Add usuari.
+     *
+     * @param username the username
+     * @param password the password
+     */
     public void addUsuari(String username, String password) {
         Usuari user = new Usuari(username, username);
         user.setPass(password);
@@ -80,16 +131,31 @@ public class CtrlDomain {
         dades.updateUsuaris(cjtUsuarios);
     }
 
+    /**
+     * Gets perfils.
+     *
+     * @return the perfils
+     */
     public ArrayList<Perfil> getPerfils() {
         System.out.println(this.actualUser.getId());
         return actualUser.getPerfils();
 
     }
 
+    /**
+     * Sets perfilactual.
+     *
+     * @param p the p
+     */
     public void setPerfilactual(Perfil p) {
         perfilActual = p;
     }
 
+    /**
+     * Crear perfil.
+     *
+     * @param nom the nom
+     */
     public void crearPerfil(String nom) {
         Perfil p = new Perfil(nom);
         actualUser.addProfile(p);
@@ -99,6 +165,11 @@ public class CtrlDomain {
         dades.updateUsuaris(cjtUsuarios);
     }
 
+    /**
+     * Gets ranking.
+     *
+     * @return the ranking
+     */
     public List<Stat> getRanking() {
         return rankActual.obtenirRankingOrdenat();
     }

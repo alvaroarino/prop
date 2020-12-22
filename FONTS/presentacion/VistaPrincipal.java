@@ -12,23 +12,54 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 
+/**
+ * The type Vista principal.
+ */
 public class VistaPrincipal {
+    /**
+     * The Nombre usuario label.
+     */
     @FXML
     public Label nombreUsuarioLabel;
+    /**
+     * The Jugar button.
+     */
     @FXML
     public Button JugarButton;
+    /**
+     * The Galeria button.
+     */
     @FXML
     public Button GaleriaButton;
+    /**
+     * The Estadisticas button.
+     */
     @FXML
     public Button EstadisticasButton;
+    /**
+     * The Ajustes button.
+     */
     @FXML
     public Button AjustesButton;
+    /**
+     * The Perfil button.
+     */
     @FXML
     public Button PerfilButton;
+    /**
+     * The Salir button.
+     */
     @FXML
     public Button SalirButton;
 
+    /**
+     * The Domain.
+     */
     CtrlDomain domain = CtrlDomain.getInstance();
+
+    /**
+     * Initialize.
+     */
     public void initialize() {
         nombreUsuarioLabel.setText(domain.perfilActual.getNom());
 

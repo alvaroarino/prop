@@ -9,7 +9,16 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 
+/**
+ * The type Driver aventura.
+ */
 public class DriverAventura {
+    /**
+     * The entry point of application.
+     *
+     * @param args the input arguments
+     * @throws IOException the io exception
+     */
     public static void main(String[] args) throws IOException {
         BufferedReader b = new BufferedReader(new InputStreamReader(System.in));
 
@@ -58,6 +67,12 @@ public class DriverAventura {
         }
     }
 
+    /**
+     * Jugar.
+     *
+     * @param av the av
+     * @throws IOException the io exception
+     */
     public static void jugar(Aventura av) throws IOException {
         BufferedReader b = new BufferedReader(new InputStreamReader(System.in));
         int estat = 1;

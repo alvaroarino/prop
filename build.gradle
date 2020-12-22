@@ -1,22 +1,20 @@
 plugins {
-    id 'java'
     id 'application'
     id 'org.openjfx.javafxplugin' version '0.0.9'
 }
 
-apply plugin: 'java'
 apply plugin: 'application'
 apply plugin: 'org.openjfx.javafxplugin'
 
-group 'subgrup.prop.42'
-version '1.0-SNAPSHOT'
+group 'subgrup.prop'
+version '1.0'
 targetCompatibility = '11.0.8'
 sourceCompatibility = '11.0.8'
 
-mainClassName = 'Main'
+mainClassName = "Main"
 jar {
     manifest {
-        attributes 'Main-Class': 'Main'
+        attributes 'Main-Class': "Main"
     }
     from {
         configurations.compile.collect { it.isDirectory() ? it : zipTree(it) }
@@ -32,6 +30,7 @@ javafx {
     modules = [ 'javafx.controls', 'javafx.fxml' ]
 }
 
+
 sourceSets {
     main {
         java {
@@ -46,14 +45,6 @@ sourceSets {
             srcDirs = ['FONTS/test']
         }
     }
-}
-
-task customFatJar(type: Jar) {
-    manifest {
-        attributes 'Main-Class': 'Main'
-    }
-    from { configurations.compile.collect { it.isDirectory() ? it : zipTree(it) } }
-    with jar
 }
 
 dependencies {

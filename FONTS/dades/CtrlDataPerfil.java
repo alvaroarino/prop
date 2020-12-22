@@ -15,11 +15,22 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.Arrays;
 
+/**
+ * The type Ctrl data perfil.
+ */
 public class CtrlDataPerfil {
     private static CtrlDataPerfil singletonObject;
 
+    /**
+     * The constant ENCODING.
+     */
     final static Charset ENCODING = StandardCharsets.UTF_8;
 
+    /**
+     * Gets instance.
+     *
+     * @return the instance
+     */
     public static CtrlDataPerfil getInstance() {
         if (singletonObject == null)
             singletonObject = new CtrlDataPerfil() {
@@ -27,6 +38,13 @@ public class CtrlDataPerfil {
         return singletonObject;
     }
 
+    /**
+     * Gets perfil.
+     *
+     * @param filename the filename
+     * @return the perfil
+     * @throws IOException the io exception
+     */
     public Perfil getPerfil(String filename) throws IOException {
         Perfil p = new Perfil();
 
@@ -55,6 +73,13 @@ public class CtrlDataPerfil {
 
     }
 
+    /**
+     * Guardar perfil.
+     *
+     * @param p   the p
+     * @param nom the nom
+     * @throws IOException the io exception
+     */
     public void guardarPerfil (Perfil p, String nom) throws IOException {
         String separador_SO = System.getProperty("file.separator");
         String path_fitxer_dades = (new File("data-files")).getAbsolutePath();

@@ -7,8 +7,14 @@ import org.junit.Test;
 
 import static org.junit.Assert.*;
 
+/**
+ * The type Tauler test.
+ */
 public class TaulerTest {
 
+    /**
+     * Test constructor.
+     */
     @Test
     public void testConstructor() {
         Tauler t;
@@ -20,6 +26,9 @@ public class TaulerTest {
     }
 
 
+    /**
+     * Testset tauler.
+     */
     @Test
     public void testsetTauler() {
         Tauler nou = new Tauler(9,9);
@@ -53,6 +62,9 @@ public class TaulerTest {
     }
 
 
+    /**
+     * Test get dimn.
+     */
     @Test
     public void testGetDimn() {
         int n = 7;
@@ -62,6 +74,9 @@ public class TaulerTest {
         assertEquals(t.getDimn(), n);
     }
 
+    /**
+     * Test get dimm.
+     */
     @Test
     public void testGetDimm() {
         int m = 7;
@@ -71,6 +86,9 @@ public class TaulerTest {
         assertEquals(t.getDimm(), m);
     }
 
+    /**
+     * Test pintar celda.
+     */
     @Test
     public void testPintar_celda() {
         Tauler nou = new Tauler(8,8);
@@ -78,9 +96,15 @@ public class TaulerTest {
         assertSame(nou.getCella(4, 4).color(), ColorCella.Negra);
     }
 
+    /**
+     * Testpintar negras.
+     */
     @Test
     public void testpintar_negras() {}
 
+    /**
+     * Testno presente.
+     */
     @Test
     public void testnoPresente() {
         Tauler t = new Tauler(3,3);
@@ -97,6 +121,9 @@ public class TaulerTest {
 
     }
 
+    /**
+     * Test rellenar blancas 1.
+     */
     @Test
     public void testRellenar_blancas1() {
 
@@ -116,6 +143,9 @@ public class TaulerTest {
 
     }
 
+    /**
+     * Testhacer sumas.
+     */
     @Test
     public void testhacer_sumas() {
 
@@ -133,6 +163,9 @@ public class TaulerTest {
         assertEquals(9, t.getCella(2, 0).getValorDret());
     }
 
+    /**
+     * Test solucionar.
+     */
     @Test
     public void testSolucionar(){
 

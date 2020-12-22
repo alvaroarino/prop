@@ -19,17 +19,35 @@ import javafx.stage.Stage;
 import java.io.IOException;
 import java.util.List;
 
+/**
+ * The type Vista estadistica.
+ */
 public class VistaEstadistica {
+    /**
+     * The Atras button.
+     */
     @FXML
     public Button AtrasButton;
+    /**
+     * The Nombre usuario label.
+     */
     @FXML
     public Label nombreUsuarioLabel;
+    /**
+     * The Ranking.
+     */
     @FXML
     public TableView<Stat> ranking = new TableView<>();
+    /**
+     * The Domain.
+     */
     CtrlDomain domain = CtrlDomain.getInstance();
 
     private final ObservableList<Stat> data = FXCollections.observableArrayList();
 
+    /**
+     * Initialize.
+     */
     public void initialize() {
 
         nombreUsuarioLabel.setText(domain.perfilActual.getNom());

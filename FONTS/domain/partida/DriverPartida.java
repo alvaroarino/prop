@@ -10,7 +10,16 @@ import java.io.InputStreamReader;
 
 import static java.lang.Integer.parseInt;
 
+/**
+ * The type Driver partida.
+ */
 public class DriverPartida {
+    /**
+     * The entry point of application.
+     *
+     * @param args the input arguments
+     * @throws IOException the io exception
+     */
     public static void main(String[] args) throws IOException {
         BufferedReader b = new BufferedReader(new InputStreamReader(System.in));
 
@@ -64,6 +73,12 @@ public class DriverPartida {
 
     }
 
+    /**
+     * Jugar.
+     *
+     * @param p the p
+     * @throws IOException the io exception
+     */
     public static void jugar(Partida p) throws IOException {
         BufferedReader b = new BufferedReader(new InputStreamReader(System.in));
         int estat = 1;

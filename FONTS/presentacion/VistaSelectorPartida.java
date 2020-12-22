@@ -12,24 +12,54 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 
+/**
+ * The type Vista selector partida.
+ */
 public class VistaSelectorPartida {
+    /**
+     * The Atras button.
+     */
     @FXML
     public Button AtrasButton;
+    /**
+     * The Nombre usuario label.
+     */
     @FXML
     public Label nombreUsuarioLabel;
+    /**
+     * The Cinco button.
+     */
     @FXML
     public Button CincoButton;
+    /**
+     * The Diez button.
+     */
     @FXML
     public Button DiezButton;
+    /**
+     * The Quince button.
+     */
     @FXML
     public Button QuinceButton;
+    /**
+     * The Pre button.
+     */
     @FXML
     public Button PreButton;
+    /**
+     * The Aleat button.
+     */
     @FXML
     public Button AleatButton;
+    /**
+     * The Importar button.
+     */
     @FXML
     public Button ImportarButton;
 
+    /**
+     * Initialize.
+     */
     public void initialize() {
         CtrlDomain domain = CtrlDomain.getInstance();
         nombreUsuarioLabel.setText(domain.perfilActual.getNom());

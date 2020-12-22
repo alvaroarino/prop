@@ -10,7 +10,13 @@ import java.io.IOException;
 
 import static org.junit.Assert.assertEquals;
 
+/**
+ * The type Ctrl data kakuro test.
+ */
 public class CtrlDataKakuroTest {
+    /**
+     * Test get data.
+     */
     @Test
     public void testGetData() {
         CtrlDataKakuro ctrlDataKakuro = CtrlDataKakuro.getInstance();

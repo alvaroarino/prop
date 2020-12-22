@@ -18,14 +18,29 @@ import javafx.stage.Stage;
 import java.io.IOException;
 import java.util.ArrayList;
 
+/**
+ * The type Vista perfil.
+ */
 public class VistaPerfil {
+    /**
+     * The Domain.
+     */
     CtrlDomain domain = CtrlDomain.getInstance();
+    /**
+     * The Perfils row.
+     */
     @FXML
     public HBox perfilsRow;
 
+    /**
+     * The Button add perfil.
+     */
     @FXML
     public Button ButtonAddPerfil;
 
+    /**
+     * Initialize.
+     */
     public void initialize() {
         updateProfiles();
 

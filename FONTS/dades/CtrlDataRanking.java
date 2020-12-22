@@ -6,9 +6,17 @@ import java.io.*;
 import java.util.Map;
 import java.util.TreeMap;
 
+/**
+ * The type Ctrl data ranking.
+ */
 public class CtrlDataRanking {
     private static CtrlDataRanking singletonObject;
 
+    /**
+     * Gets instance.
+     *
+     * @return the instance
+     */
     public static CtrlDataRanking getInstance() {
         if (singletonObject == null)
             singletonObject = new CtrlDataRanking() {
@@ -18,6 +26,12 @@ public class CtrlDataRanking {
 
     private CtrlDataRanking() {}
 
+    /**
+     * Obtenir ranking map.
+     *
+     * @return the map
+     * @throws IOException the io exception
+     */
     public Map<String, Stat> obtenirRanking() throws IOException {
         String separador = System.getProperty("file.separator");
         String path_fitxer_dades = (new File("data-files")).getAbsolutePath();
@@ -40,6 +54,12 @@ public class CtrlDataRanking {
         return ranking;
     }
 
+    /**
+     * Guardar ranking.
+     *
+     * @param rank the rank
+     * @throws IOException the io exception
+     */
     public void guardarRanking(Map<String, Stat> rank) throws IOException{
         String separador_SO = System.getProperty("file.separator");
         String path_fitxer_dades = (new File("data-files")).getAbsolutePath();
@@ -55,6 +75,11 @@ public class CtrlDataRanking {
         bw.close();
     }
 
+    /**
+     * Crea fitxer ranking.
+     *
+     * @throws IOException the io exception
+     */
     public void creaFitxerRanking() throws IOException {
         String separador_SO = System.getProperty("file.separator");
         String path_fitxer_dades = (new File("data-files")).getAbsolutePath();
