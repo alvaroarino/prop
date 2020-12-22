@@ -32,64 +32,94 @@ public class VistaGaleria {
         nombreUsuarioLabel.setText(domain.perfilActual.getNom());
 
         int n = 20;
+        int x = 1;
+        for (int i = 0; i < 10; i++) {
+            Button button = new Button();
+            button.setText("Easy");
+            button.setPrefWidth(100);
+            int finalX = x;
+            button.setOnMouseClicked(event -> {
+                Node node = (Node) event.getSource();
+                Stage thisStage = (Stage) node.getScene().getWindow();
+                domain.tipoEntrada = 3;
+                try {
+                    CtrlDades dades = CtrlDades.getInstance();
+                    System.out.println((getClass().getResource("/Facil" + finalX + ".txt").getPath()));
+                    File f = new File(getClass().getResource("/Facil" + finalX + ".txt").getPath());
+                    domain.kakuro = dades.leer_kakuro(f.getAbsolutePath());
+                    domain.kakuro.getBoard().print();
+                    Parent root = FXMLLoader.load(getClass().getResource("/vistaPartida.fxml"));
+                    Scene scene = new Scene(root);
+                    thisStage.setTitle("KakuroMasters");
+                    thisStage.setScene(scene);
+                    thisStage.show();
 
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            });
 
-            int x = 1;
-            for (int i = 0; i < 10; i++) {
-                Button button = new Button();
-                button.setText("Easy");
-                button.setPrefWidth(100);
-
-                int finalX = x;
-                button.setOnMouseClicked(event -> {
-
-                    Node node = (Node) event.getSource();
-                    Stage thisStage = (Stage) node.getScene().getWindow();
-
-                    domain.tipoEntrada = 3;
-
-                    try {
-
-
-
-                            CtrlDades dades = CtrlDades.getInstance();
-                            System.out.println((getClass().getResource("/Facil" + finalX + ".txt").getPath()));
-                            File f = new File(getClass().getResource("/Facil" + finalX + ".txt").getPath());
-                            domain.kakuro = dades.leer_kakuro(f.getAbsolutePath());
-                            domain.kakuro.getBoard().print();
-                            Parent root = FXMLLoader.load(getClass().getResource("/vistaPartida.fxml"));
-                            Scene scene = new Scene(root);
-                            thisStage.setTitle("KakuroMasters");
-                            thisStage.setScene(scene);
-                            thisStage.show();
-
-
-
-                    } catch (IOException e) {
-                        e.printStackTrace();
-                    }
-
-
-
-
-                });
-
-                PanelGaleria.add(button,i,0);
-                ++x;
-
-            }
+            PanelGaleria.add(button,i,0);
+            ++x;
+        }
+        x = 1;
         for (int i = 0; i < 5; i++) {
             Button button = new Button();
             button.setText("Medium");
             button.setPrefWidth(100);
+            int finalX = x;
+            button.setOnMouseClicked(event -> {
+                Node node = (Node) event.getSource();
+                Stage thisStage = (Stage) node.getScene().getWindow();
+                domain.tipoEntrada = 3;
+                try {
+                    CtrlDades dades = CtrlDades.getInstance();
+                    System.out.println((getClass().getResource("/Medio" + finalX + ".txt").getPath()));
+                    File f = new File(getClass().getResource("/Medio" + finalX + ".txt").getPath());
+                    domain.kakuro = dades.leer_kakuro(f.getAbsolutePath());
+                    domain.kakuro.getBoard().print();
+                    Parent root = FXMLLoader.load(getClass().getResource("/vistaPartida.fxml"));
+                    Scene scene = new Scene(root);
+                    thisStage.setTitle("KakuroMasters");
+                    thisStage.setScene(scene);
+                    thisStage.show();
+
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            });
+
             PanelGaleria.add(button,i,1);
             ++x;
         }
 
+        x = 1;
         for (int i = 0; i < 5; i++) {
             Button button = new Button();
             button.setText("Hard");
             button.setPrefWidth(100);
+            int finalX = x;
+            button.setOnMouseClicked(event -> {
+                Node node = (Node) event.getSource();
+                Stage thisStage = (Stage) node.getScene().getWindow();
+                domain.tipoEntrada = 3;
+                try {
+                    CtrlDades dades = CtrlDades.getInstance();
+                    System.out.println((getClass().getResource("/Hard" + finalX + ".txt").getPath()));
+                    File f = new File(getClass().getResource("/Hard" + finalX + ".txt").getPath());
+                    domain.kakuro = dades.leer_kakuro(f.getAbsolutePath());
+                    domain.kakuro.getBoard().print();
+                    Parent root = FXMLLoader.load(getClass().getResource("/vistaPartida.fxml"));
+                    Scene scene = new Scene(root);
+                    thisStage.setTitle("KakuroMasters");
+                    thisStage.setScene(scene);
+                    thisStage.show();
+
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            });
+
             PanelGaleria.add(button,i,2);
             ++x;
         }

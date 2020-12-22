@@ -94,7 +94,7 @@ public class VistaPartida {
                     tf.setPrefWidth(50);
                     tf.setAlignment(Pos.CENTER);
                     tf.setEditable(true);
-                    if (cella.getValor_blanca() != -1) {
+                    if (cella.getValor_blanca() != -1 || cella.getValor_blanca() != 0 ) {
                         tf.setText("" + cella.getValor_blanca());
                     } else {
                         tf.setText("");
