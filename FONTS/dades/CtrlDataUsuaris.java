@@ -7,10 +7,7 @@ import com.google.gson.JsonObject;
 import domain.usuari.Perfil;
 import domain.usuari.Usuari;
 
-import java.io.FileReader;
-import java.io.FileWriter;
-import java.io.IOException;
-import java.io.Reader;
+import java.io.*;
 import java.util.ArrayList;
 
 /**

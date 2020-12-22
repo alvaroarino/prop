@@ -55,16 +55,16 @@ public class VistaLogIn {
                 // CAMBIO DE PANTALLA
                 Node node = (Node) event.getSource();
                 Stage thisStage = (Stage) node.getScene().getWindow();
-                Parent root = null;
                 try {
-                    root = FXMLLoader.load(getClass().getResource("/vistaPerfil.fxml"));
+                    Parent root = FXMLLoader.load(getClass().getResource("/vistaPerfil.fxml"));
+                    Scene scene = new Scene(root);
+                    thisStage.setTitle("KakuroMasters");
+                    thisStage.setScene(scene);
+                    thisStage.show();
                 } catch (IOException e) {
                     e.printStackTrace();
                 }
-                Scene scene = new Scene(root);
-                thisStage.setTitle("KakuroMasters");
-                thisStage.setScene(scene);
-                thisStage.show();
+
             } else {
                 errorMessage.setOpacity(1.0);
                 errorMessage.setText("El usuario o la contraseña contienen errores");
@@ -77,16 +77,16 @@ public class VistaLogIn {
                 // CAMBIO DE PANTALLA
                 Node node = (Node) event.getSource();
                 Stage thisStage = (Stage) node.getScene().getWindow();
-                Parent root = null;
                 try {
-                    root = FXMLLoader.load(getClass().getResource("/vistaPerfil.fxml"));
+                    Parent root = FXMLLoader.load(getClass().getResource("/vistaPerfil.fxml"));
+                    Scene scene = new Scene(root);
+                    thisStage.setTitle("KakuroMasters");
+                    thisStage.setScene(scene);
+                    thisStage.show();
                 } catch (IOException e) {
                     e.printStackTrace();
                 }
-                Scene scene = new Scene(root);
-                thisStage.setTitle("KakuroMasters");
-                thisStage.setScene(scene);
-                thisStage.show();
+
             } else {
                 errorMessage.setOpacity(1.0);
                 errorMessage.setText("Usuario ya registrado");

@@ -134,6 +134,7 @@ public class CtrlDomain {
         Usuari user = new Usuari(username, username);
         user.setPass(password);
         cjtUsuarios.add(user);
+        this.actualUser = user;
         dades.updateUsuaris(cjtUsuarios);
     }
 
