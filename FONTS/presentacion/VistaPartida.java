@@ -223,7 +223,7 @@ public class VistaPartida {
             saveButton.setOnAction(e -> {
                 if(value.equals("Enhorabona, has solucionat el kakuro!")){
                     String dif = generated.getBoard().getDificulty();
-                    double aux = 0;
+                    int aux = 0;
                     if(dif.equals("facil")) {
                         aux = 300 - time;
                     }

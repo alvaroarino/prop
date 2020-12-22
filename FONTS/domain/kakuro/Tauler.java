@@ -790,8 +790,7 @@ public class Tauler {
                     System.out.println("Suma no correcte a la columna " + (j+1));
                     return new Pair<>(-1, "Suma no correcta a la columna " + (j+1));
                 }
-                if(x != dimn - 1)
-                    sumaParcial = 0;
+                return new Pair<>(0, "Correcto"); //correcto
             }
         }
         if (sumaParcial != valor) {
@@ -837,8 +836,7 @@ public class Tauler {
                     System.out.println("Suma no correcte a la fila" + (i+1));
                     return new Pair<>(-1, "Suma no correcta a la fila" + (i+1));
                 }
-                if( x != dimm - 1)
-                    sumaParcial = 0;
+                return new Pair<>(0, "Correcto"); //correcto
             }
         }
         if(sumaParcial != valor) {
