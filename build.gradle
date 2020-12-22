@@ -9,7 +9,7 @@ apply plugin: 'application'
 apply plugin: 'org.openjfx.javafxplugin'
 
 group 'subgrup.prop.42'
-version '1.0-SNAPSHOT'
+version '1.0'
 targetCompatibility = '11.0.8'
 sourceCompatibility = '11.0.8'
 
@@ -19,7 +19,7 @@ jar {
         attributes 'Main-Class': 'Main'
     }
     from {
-        configurations.compile.collect { it.isDirectory() ? it : zipTree(it) }
+        configurations.runtimeClasspath.collect { it.isDirectory() ? it : zipTree(it) }
     }
 }
 
@@ -46,14 +46,6 @@ sourceSets {
             srcDirs = ['FONTS/test']
         }
     }
-}
-
-task customFatJar(type: Jar) {
-    manifest {
-        attributes 'Main-Class': 'Main'
-    }
-    from { configurations.compile.collect { it.isDirectory() ? it : zipTree(it) } }
-    with jar
 }
 
 dependencies {
