@@ -9,10 +9,9 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-
-<StackPane fx:controller="presentacion.VistaPrincipal" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #A5C5BB;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
+<StackPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #A5C5BB;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="presentacion.VistaPrincipal">
    <children>
-      <VBox alignment="TOP_CENTER" prefHeight="200.0" prefWidth="100.0">
+      <VBox alignment="TOP_CENTER" prefHeight="200.0" prefWidth="100.0" StackPane.alignment="CENTER">
          <children>
             <HBox alignment="CENTER" prefHeight="75.0" prefWidth="200.0" style="-fx-background-color: #3C4853;">
                <children>
@@ -26,25 +25,37 @@
                   <Label fx:id="nombreUsuarioLabel" text="Label" textAlignment="RIGHT" textFill="WHITE" />
                </children>
             </HBox>
-            <Button fx:id="JugarButton" mnemonicParsing="false" text="Jugar">
+            <Button fx:id="JugarButton" maxWidth="1.7976931348623157E308" mnemonicParsing="false" prefHeight="150.0" text="Jugar">
                <VBox.margin>
-                  <Insets top="40.0" />
+                  <Insets bottom="5.0" left="40.0" right="40.0" top="40.0" />
                </VBox.margin>
+               <font>
+                  <Font size="30.0" />
+               </font>
             </Button>
-            <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" spacing="20.0">
+            <HBox alignment="CENTER" maxWidth="1.7976931348623157E308" spacing="20.0">
                <children>
-                  <Button fx:id="GaleriaButton" mnemonicParsing="false" text="Galeria" />
-                  <Button fx:id="EstadisticasButton" mnemonicParsing="false" text="Estadísticas" />
+                  <Button fx:id="GaleriaButton" maxWidth="1.7976931348623157E308" mnemonicParsing="false" prefHeight="75.0" text="Galeria" HBox.hgrow="ALWAYS" />
+                  <Button fx:id="EstadisticasButton" maxWidth="1.7976931348623157E308" mnemonicParsing="false" prefHeight="75.0" text="Estadísticas" HBox.hgrow="ALWAYS" />
                </children>
+               <VBox.margin>
+                  <Insets left="40.0" right="40.0" />
+               </VBox.margin>
             </HBox>
-            <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" spacing="20.0">
+            <HBox alignment="CENTER" maxWidth="1.7976931348623157E308" spacing="20.0">
                <children>
-                  <Button fx:id="AjustesButton" mnemonicParsing="false" text="Ajustes" />
-                  <Button fx:id="PerfilButton" mnemonicParsing="false" text="Perfil" />
-                  <Button fx:id="SalirButton" mnemonicParsing="false" text="Salir" />
+                  <Button fx:id="AjustesButton" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" text="Ajustes" HBox.hgrow="ALWAYS" />
+                  <Button fx:id="PerfilButton" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" text="Perfil" HBox.hgrow="ALWAYS" />
+                  <Button fx:id="SalirButton" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" text="Salir" HBox.hgrow="ALWAYS" />
                </children>
+               <VBox.margin>
+                  <Insets bottom="40.0" left="40.0" right="40.0" top="5.0" />
+               </VBox.margin>
             </HBox>
          </children>
+         <StackPane.margin>
+            <Insets />
+         </StackPane.margin>
       </VBox>
    </children>
 </StackPane>

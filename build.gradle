@@ -5,6 +5,7 @@ plugins {
 }
 
 apply plugin: 'java'
+apply plugin: 'application'
 apply plugin: 'org.openjfx.javafxplugin'
 
 group 'subgrup.prop.42'
@@ -45,6 +46,14 @@ sourceSets {
             srcDirs = ['FONTS/test']
         }
     }
+}
+
+task customFatJar(type: Jar) {
+    manifest {
+        attributes 'Main-Class': 'Main'
+    }
+    from { configurations.compile.collect { it.isDirectory() ? it : zipTree(it) } }
+    with jar
 }
 
 dependencies {
