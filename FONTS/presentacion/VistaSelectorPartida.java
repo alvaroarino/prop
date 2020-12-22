@@ -1,5 +1,6 @@
 package presentacion;
 
+import dades.CtrlDades;
 import domaincontrollers.CtrlDomain;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -8,8 +9,10 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 
+import java.io.File;
 import java.io.IOException;
 
 /**
@@ -95,15 +98,27 @@ public class VistaSelectorPartida {
         });
 
         ImportarButton.setOnMouseClicked((event) -> {
-            domain.tipoEntrada = 3;
             Node node = (Node) event.getSource();
             Stage thisStage = (Stage) node.getScene().getWindow();
+
+            domain.tipoEntrada = 3;
+
             try {
-                Parent root = FXMLLoader.load(getClass().getResource("/vistaPartida.fxml"));
-                Scene scene = new Scene(root);
-                thisStage.setTitle("KakuroMasters");
-                thisStage.setScene(scene);
-                thisStage.show();
+                FileChooser fileChooser = new FileChooser();
+                fileChooser.setTitle("Open Resource File");
+                File file = fileChooser.showOpenDialog(thisStage);
+                if (file != null) {
+                    CtrlDades dades = CtrlDades.getInstance();
+                    dades.leer_kakuro(file.getPath());
+
+                    Parent root = FXMLLoader.load(getClass().getResource("/vistaPartida.fxml"));
+                    Scene scene = new Scene(root);
+                    thisStage.setTitle("KakuroMasters");
+                    thisStage.setScene(scene);
+                    thisStage.show();
+                }
+
+
             } catch (IOException e) {
                 e.printStackTrace();
             }
