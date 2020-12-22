@@ -221,6 +221,28 @@ public class VistaPartida {
 
             Button saveButton = new Button("Ok");
             saveButton.setOnAction(e -> {
+                if(value.equals("Enhorabona, has solucionat el kakuro!")){
+                    String dif = generated.getBoard().getDificulty();
+                    double aux = 0;
+                    if(dif.equals("facil")) {
+                        aux = 300 - time;
+                    }
+                    else if(dif.equals("medio")) {
+                        aux = 600 - time;
+                    }
+                    else if(dif.equals("hard")){
+                        aux = 900 - time;
+                    }
+                    int punt = (int)aux;
+
+                    if(aux != 0) {
+                        if (!domain.perfilActual.conteKakuro(domain.kakuro.getId())) {
+                            domain.rankActual.afegirIndex(domain.perfilActual.getNom(), punt);
+                            domain.perfilActual.addKakuro(domain.kakuro.getId());
+                            domain.storeRanking();
+                        }
+                    }
+                }
                 popupwindow.close();
             });
 
