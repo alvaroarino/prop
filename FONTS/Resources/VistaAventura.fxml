@@ -11,11 +11,11 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<VBox fx:controller="presentacion.VistaAventura" prefHeight="1024.0" prefWidth="1440.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
+<VBox prefHeight="1024.0" prefWidth="1440.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="presentacion.VistaAventura">
     <HBox alignment="CENTER" prefHeight="150.0" prefWidth="200.0" spacing="150.0" style="-fx-background-color: linear-gradient(to top, #6D8294, #3C4853)linear-gradient(to top, #6D8294, #3C4853);">
       <Button fx:id="AtrasButton" maxHeight="55.0" maxWidth="55.0" minHeight="55.0" minWidth="55.0" mnemonicParsing="false" prefHeight="55.0" prefWidth="55.0" style="-fx-background-color: rgb(0,0,0,0);">
          <graphic>
-            <ImageView  fitHeight="30.0" fitWidth="30.0" preserveRatio="true">
+            <ImageView fitHeight="30.0" fitWidth="30.0" preserveRatio="true">
                <image>
                   <Image url="@back_button.png" />
                </image>
@@ -33,7 +33,7 @@
         <ImageView fitHeight="150.0" fitWidth="177.0" pickOnBounds="true" preserveRatio="true" />
     </HBox>
     <AnchorPane style="-fx-background-color: #A5C5BB;" VBox.vgrow="ALWAYS">
-        <GridPane layoutX="71.0" layoutY="59.0" prefHeight="252.0" prefWidth="842.0" AnchorPane.bottomAnchor="200.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="200.0">
+        <GridPane fx:id="panel_aventuras" layoutX="71.0" layoutY="59.0" prefHeight="252.0" prefWidth="842.0" AnchorPane.bottomAnchor="200.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="200.0">
           
         </GridPane>
     </AnchorPane>

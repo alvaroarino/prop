@@ -9,6 +9,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.layout.GridPane;
 import javafx.stage.Stage;
 
 import java.io.IOException;
@@ -27,11 +28,55 @@ public class VistaAventura  {
     Label LabelPerfil;
     @FXML
     Button AtrasButton;
+    @FXML
+    GridPane panel_aventuras;
 
 
     public void initialize() {
         CtrlDomain domain = CtrlDomain.getInstance();
         LabelPerfil.setText(domain.perfilActual.getNom());
+        Button uno = new Button();
+
+
+        int n = domain.num_kakuros_aventura;
+
+
+        if(n == 5) {
+            int x = 1;
+            for (int i = 0; i < n; i++) {
+
+                    uno.setText("nivel" + x );
+                    panel_aventuras.add(uno,0,i);
+                    ++x;
+
+            }
+
+        }
+
+        if(n == 10) {
+            int x = 1;
+            for (int i = 0; i < 2; i++) {
+                for (int j = 0; j < 5; j++) {
+                    uno.setText("nivel" + x );
+                    panel_aventuras.add(uno,i,j);
+                    ++x;
+                }
+            }
+
+        }
+
+        if(n == 15) {
+            int x = 1;
+            for (int i = 0; i < 3; i++) {
+                for (int j = 0; j < 5; j++) {
+                    uno.setText("nivel" + x );
+                    panel_aventuras.add(uno,i,j);
+                    ++x;
+                }
+            }
+
+        }
+
 
 
         AtrasButton.setOnMouseClicked((event) -> {
