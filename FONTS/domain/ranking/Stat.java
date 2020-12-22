@@ -37,6 +37,12 @@ public class Stat {
         puntuacio = punt;
     }
 
+    public Stat(int pos, String  nom, int punt) {
+        posicion = pos;
+        perfil = nom;
+        puntuacio = punt;
+    }
+
     /**
      * Gets puntuacio.
      *
@@ -50,6 +56,8 @@ public class Stat {
      * @return the perfil
      */
     public String getPerfil() {return perfil;}
+
+    public int getPosicion() {return posicion;}
 
     /**
      * Sets puntuacio.

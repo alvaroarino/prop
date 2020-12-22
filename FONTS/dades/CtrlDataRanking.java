@@ -34,21 +34,21 @@ public class CtrlDataRanking {
      */
     public Map<String, Stat> obtenirRanking() throws IOException {
         String separador = System.getProperty("file.separator");
-        String path_fitxer_dades = (new File("data-files")).getAbsolutePath();
+        String path_fitxer_dades = (new File("Resources")).getAbsolutePath();
         File problema = new File(path_fitxer_dades, "ranking.csv");
         FileReader ff = new FileReader(problema);
         BufferedReader br = new BufferedReader(ff);
         String linea;
         Map<String, Stat> ranking = new TreeMap();
-        String user,perfil;
-        int puntuacion;
+        String perfil;
+        int pos,puntuacion;
         while ((linea = br.readLine()) != null) {
             String[] atr = linea.split(";");
-            user = atr[0];
+            pos = Integer.parseInt(atr[0]);
             perfil = atr[1];
             puntuacion = Integer.parseInt(atr[2]);
-            Stat estadistica = new Stat(perfil,puntuacion);
-            ranking.put(user,estadistica);
+            Stat estadistica = new Stat(pos,perfil,puntuacion);
+            ranking.put(perfil,estadistica);
         }
         br.close();
         return ranking;
@@ -62,15 +62,16 @@ public class CtrlDataRanking {
      */
     public void guardarRanking(Map<String, Stat> rank) throws IOException{
         String separador_SO = System.getProperty("file.separator");
-        String path_fitxer_dades = (new File("data-files")).getAbsolutePath();
+        String path_fitxer_dades = (new File("Resources")).getAbsolutePath();
         File problema = new File(path_fitxer_dades, "ranking.csv");
-        BufferedWriter bw = new BufferedWriter(new FileWriter(problema,true));
+        BufferedWriter bw = new BufferedWriter(new FileWriter(problema,false));
         for (Map.Entry<String, Stat> stat : rank.entrySet()) {
-            String user = stat.getKey();
+            int pos = stat.getValue().getPosicion();
+            String po = String.valueOf(pos);
             String perfil = stat.getValue().getPerfil();
             int punt = stat.getValue().getPuntuacio();
             String p = String.valueOf(punt);
-            bw.write(user + ";" + perfil + ";" + p + "\n");
+            bw.write(po + ";" + perfil + ";" + p + "\n");
         }
         bw.close();
     }
@@ -82,7 +83,7 @@ public class CtrlDataRanking {
      */
     public void creaFitxerRanking() throws IOException {
         String separador_SO = System.getProperty("file.separator");
-        String path_fitxer_dades = (new File("data-files")).getAbsolutePath();
+        String path_fitxer_dades = (new File("Resources")).getAbsolutePath();
         File problema = new File(path_fitxer_dades, "ranking.csv");
         problema.createNewFile();
     }
