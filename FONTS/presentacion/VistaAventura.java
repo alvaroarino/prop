@@ -29,55 +29,38 @@ public class VistaAventura  {
     @FXML
     Button AtrasButton;
     @FXML
-    GridPane panel_aventuras;
+    GridPane panelAventura;
 
 
     public void initialize() {
         CtrlDomain domain = CtrlDomain.getInstance();
         LabelPerfil.setText(domain.perfilActual.getNom());
-        Button uno = new Button();
-
 
         int n = domain.num_kakuros_aventura;
 
-
-        if(n == 5) {
+        if (n == 5) {
             int x = 1;
             for (int i = 0; i < n; i++) {
-
-                    uno.setText("nivel" + x );
-                    panel_aventuras.add(uno,0,i);
-                    ++x;
-
+                Button button = new Button();
+                button.setText("Nivel" + x );
+                button.setPrefWidth(100);
+                panelAventura.add(button,i,0);
+                ++x;
             }
-
         }
 
-        if(n == 10) {
+        if (n == 10 || n == 15) {
             int x = 1;
-            for (int i = 0; i < 2; i++) {
+            for (int i = 0; i < n/5; i++) {
                 for (int j = 0; j < 5; j++) {
-                    uno.setText("nivel" + x );
-                    panel_aventuras.add(uno,i,j);
+                    Button button = new Button();
+                    button.setText("Nivel" + x );
+                    button.setPrefWidth(100);
+                    panelAventura.add(button,j,i);
                     ++x;
                 }
             }
-
         }
-
-        if(n == 15) {
-            int x = 1;
-            for (int i = 0; i < 3; i++) {
-                for (int j = 0; j < 5; j++) {
-                    uno.setText("nivel" + x );
-                    panel_aventuras.add(uno,i,j);
-                    ++x;
-                }
-            }
-
-        }
-
-
 
         AtrasButton.setOnMouseClicked((event) -> {
             Node node = (Node) event.getSource();
