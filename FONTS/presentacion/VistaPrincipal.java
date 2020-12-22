@@ -128,7 +128,7 @@ public class VistaPrincipal {
             Stage thisStage = (Stage) node.getScene().getWindow();
             Parent root = null;
             try {
-                root = FXMLLoader.load(getClass().getResource("/vistaPerfilPropio.fxml"));
+                root = FXMLLoader.load(getClass().getResource("/vistaPerfil.fxml"));
             } catch (IOException e) {
                 e.printStackTrace();
             }

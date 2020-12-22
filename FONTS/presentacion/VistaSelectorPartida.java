@@ -109,8 +109,8 @@ public class VistaSelectorPartida {
                 File file = fileChooser.showOpenDialog(thisStage);
                 if (file != null) {
                     CtrlDades dades = CtrlDades.getInstance();
-                    dades.leer_kakuro(file.getPath());
-
+                    domain.kakuro = dades.leer_kakuro(file.getPath());
+                    domain.kakuro.getBoard().print();
                     Parent root = FXMLLoader.load(getClass().getResource("/vistaPartida.fxml"));
                     Scene scene = new Scene(root);
                     thisStage.setTitle("KakuroMasters");

@@ -73,8 +73,8 @@ public class CtrlDades {
      * @param archivo the archivo
      * @throws IOException the io exception
      */
-    public void leer_kakuro(String archivo) throws IOException {
-        kakuro.getData(archivo);
+    public Kakuro leer_kakuro(String archivo) throws IOException {
+        return kakuro.getData(archivo);
     }
 
     /**

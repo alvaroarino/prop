@@ -46,14 +46,13 @@ public class CtrlDataKakuro {
     /**
      * Gets data.
      *
-     * @param filename the filename
+     * @param fileRoute the filename
      * @return the data
      * @throws IOException the io exception
      */
-    public Kakuro getData(String filename) throws IOException {
+    public Kakuro getData(String fileRoute) throws IOException {
         Cella[][] board;
 
-        String fileRoute = "data-files" + File.separator + filename;
 
         Path path = Paths.get(fileRoute);
         String content = Files.readString(path);
@@ -61,19 +60,22 @@ public class CtrlDataKakuro {
 
         // Separem el contingut en comes y separadors de linea
         String[] linearBoard = content.split("[,\\n]");
-        System.out.println(Arrays.toString(linearBoard));
+        //System.out.println(Arrays.toString(linearBoard));
+        System.out.println((linearBoard[0]));
+        System.out.println((linearBoard[1]));
 
         // A la pos 0 i 1 tenim el tamany del Kakuro
-        int tamN = Integer.parseInt(linearBoard[0]);
-        int tamM = Integer.parseInt(linearBoard[1]);
+        int tamN = (int) Double.parseDouble((linearBoard[0]));
+        int tamM = (int) Double.parseDouble((linearBoard[1]));
+
 
         board = new Cella[tamN][tamM];
 
         int linearPos = 2; // Serveix per mourens per el vector linearBoard que conté tots els valors del txt
         for (int i = 0; i < tamN; ++i) {
-            if (linearPos >= linearBoard.length-2) break; // Si em acabat el vector d'entrada cal sortir del for
+            if (linearPos >= linearBoard.length) break; // Si em acabat el vector d'entrada cal sortir del for
             for (int j = 0; j < tamM; ++j) {
-                if (linearPos >= linearBoard.length-2) break; // Si em acabat el vector d'entrada cal sortir del for
+                if (linearPos >= linearBoard.length) break; // Si em acabat el vector d'entrada cal sortir del for
                 String actual = linearBoard[linearPos];
                 if (actual.contains("?")) {
                     // Si es ? creem una cel.la blanca
@@ -98,8 +100,8 @@ public class CtrlDataKakuro {
                         String f = digits[1]; //Com que em separat per F abans ja no tenim lletra
                         System.out.println(c + " " + f);
 
-                        board[i][j].setValorColumna(Integer.parseInt(c));
-                        board[i][j].setValorFila(Integer.parseInt(f));
+                        board[i][j].setValorColumna((int) Double.parseDouble(c));
+                        board[i][j].setValorFila((int) Double.parseDouble(f));
                     } else {
                         System.out.print(actual + " contains one with digits: ");
                         // Si conté només C o F cal extreure un valor
@@ -107,13 +109,13 @@ public class CtrlDataKakuro {
                             // Substituim C per res per tenir només el valor i el demanem amb parseInt;
                             String digits = actual.replaceAll("C", "");
                             System.out.println(digits);
-                            board[i][j].setValorColumna(Integer.parseInt(digits));
+                            board[i][j].setValorColumna((int) Double.parseDouble(digits));
                         }
                         if (actual.contains("F")) {
                             // Substituim F per res per tenir només el valor i el demanem amb parseInt;
                             String digits = actual.replaceAll("F", "");
                             System.out.println(digits);
-                            board[i][j].setValorFila(Integer.parseInt(digits));
+                            board[i][j].setValorFila((int) Double.parseDouble(digits));
                         }
                     }
 
