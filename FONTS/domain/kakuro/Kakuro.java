@@ -39,14 +39,11 @@ public class Kakuro {
         board.print();
     }
 
-    public void generar_usuario(int n, int m, int negras, int blancas) {
-        if (negras + blancas != (n*m)) {
-            System.out.println("La quantitat de caselles introduïdes no coincideix amb la dimensió escollida");
-            return;
-        }
+    public void generar_usuario(int n, int m, int negras, int restants) {
         board.print_negras(negras);
         board.rellenar_celdas_blancas();
         board.hacer_sumas();
+        if(restants > 1) ++restants;
         board.borrar_blancas(0);
         board.print();
     }
