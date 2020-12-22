@@ -1,6 +1,7 @@
 package dades;
 
 import domain.kakuro.Kakuro;
+import domain.partida.Partida;
 import domain.usuari.Perfil;
 import domain.usuari.Usuari;
 
@@ -43,7 +44,7 @@ public class CtrlDades {
      * @throws IOException the io exception
      */
     public void guardar_kakuro(int id, Kakuro k) throws IOException {
-        kakuro.guardarKakuro(String.valueOf(id), k);
+        //kakuro.guardarKakuro(String.valueOf(id), k);
     }
 
     /**
@@ -112,9 +113,5 @@ public class CtrlDades {
     public void updateUsuaris(ArrayList<Usuari> cjtUsuaris) {
         usuaris.updateData(cjtUsuaris);
     }
-
-
-
-
 
 }

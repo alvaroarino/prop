@@ -20,6 +20,7 @@ import java.util.Arrays;
  */
 public class CtrlDataAventura {
     private static CtrlDataAventura singletonObject;
+    CtrlDataKakuro cdk = CtrlDataKakuro.getInstance();
 
     /**
      * The constant ENCODING.
@@ -103,8 +104,7 @@ public class CtrlDataAventura {
 
         for (int i = 0; i < nKakuros; ++i) {
             String nomKakuros = linearBoard[i+3];
-            CtrlDataKakuro k = CtrlDataKakuro.getInstance();
-            Kakuro kak = k.getData("kakuro"+nomKakuros+".csv");
+            Kakuro kak = cdk.getData("kakuro"+nomKakuros+".csv");
             kak.setKakuro(kak);
             llista.add(kak);
         }
@@ -136,8 +136,7 @@ public class CtrlDataAventura {
 
         for (Kakuro kakuro : llista) {
             bw.write(kakuro.getId() + "\n");
-            CtrlDataKakuro cdk = CtrlDataKakuro.getInstance();
-            cdk.guardarKakuro(kakuro.getId(), kakuro);
+            //cdk.guardarKakuro(kakuro.getId(), kakuro);
         }
 
     }

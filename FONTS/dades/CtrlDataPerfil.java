@@ -88,9 +88,6 @@ public class CtrlDataPerfil {
 
         bw.write(nom+"\n");
 
-        CtrlDataAventura cda = CtrlDataAventura.getInstance();
-        cda.guardarAventura(p.getAventura(), nom);
-
         CtrlDataPartida cdp = CtrlDataPartida.getInstance();
         cdp.guardarCjtPartida(p.getCjt(), nom);
 

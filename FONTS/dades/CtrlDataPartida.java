@@ -20,6 +20,7 @@ import java.util.Arrays;
  */
 public class CtrlDataPartida {
     private static CtrlDataPartida singletonObject;
+    CtrlDataKakuro cdk = CtrlDataKakuro.getInstance();
 
     /**
      * The constant ENCODING.
@@ -164,7 +165,6 @@ public class CtrlDataPartida {
 
         time = atoiTemps(linearBoard[5]);
         id = linearBoard[7];
-        CtrlDataKakuro cdk = CtrlDataKakuro.getInstance();
 
         Kakuro kak = cdk.getData("kakuro"+id+".csv");
 
@@ -200,7 +200,6 @@ public class CtrlDataPartida {
 
         bw.write("IDKakuro:"+(p.getKakuro()).getId()+"\n");
 
-        CtrlDataKakuro cdk = CtrlDataKakuro.getInstance();
-        cdk.guardarKakuro((p.getKakuro()).getId(), p.getKakuro());
+        cdk.guardarKakuro((p.getKakuro()).getId(), p.getKakuro(), p.getTime());
     }
 }

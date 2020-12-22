@@ -6,6 +6,7 @@ import domain.cella.CellaNegra;
 import domain.cella.ColorCella;
 import domain.kakuro.Kakuro;
 import domain.kakuro.Tauler;
+import domain.partida.Partida;
 import domaincontrollers.CtrlDomain;
 
 import java.io.BufferedWriter;
@@ -24,7 +25,6 @@ import java.util.Arrays;
  */
 public class CtrlDataKakuro {
     private static CtrlDataKakuro singletonObject;
-    CtrlDomain domain = CtrlDomain.getInstance();
 
     /**
      * The constant ENCODING.
@@ -135,7 +135,7 @@ public class CtrlDataKakuro {
      * @param k  the k
      * @throws IOException the io exception
      */
-    public void guardarKakuro(String id, Kakuro k) throws IOException {
+    public void guardarKakuro(String id, Kakuro k, double time) throws IOException {
         try{
             File myObj = new File("filename.txt");
             if(myObj.createNewFile()) {
@@ -180,7 +180,7 @@ public class CtrlDataKakuro {
                     myWriter.write("\n");
                 }
 
-                String f = String.valueOf(domain.partidaActual.getTime());
+                String f = String.valueOf(time);
                 myWriter.write(f);
                 myWriter.close();
 
