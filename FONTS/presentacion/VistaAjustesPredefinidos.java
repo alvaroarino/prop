@@ -18,6 +18,8 @@ public class VistaAjustesPredefinidos {
     @FXML
     public Button ButtonEmpezar;
     @FXML
+    public Button AtrasButton;
+    @FXML
     public Label nombreUsuarioLabel1;
     @FXML
     public TextField TextFieldCol;
@@ -53,5 +55,20 @@ public class VistaAjustesPredefinidos {
                 e.printStackTrace();
             }
         });
+
+        AtrasButton.setOnMouseClicked((event) -> {
+            Node node = (Node) event.getSource();
+            Stage thisStage = (Stage) node.getScene().getWindow();
+            try {
+                Parent root = FXMLLoader.load(getClass().getResource("/vistaSelectorPartida.fxml"));
+                Scene scene = new Scene(root);
+                thisStage.setTitle("KakuroMasters");
+                thisStage.setScene(scene);
+                thisStage.show();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        });
+
     }
 }

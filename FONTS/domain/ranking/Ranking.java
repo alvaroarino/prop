@@ -14,18 +14,14 @@ public class Ranking {
         return single_instance;
     }
 
-    private Ranking(){}
-
-    public void inicialitzarValors() {
-        puntuacioPerfils = new TreeMap();
-    }
+    private Ranking(){puntuacioPerfils = new TreeMap();}
 
     public void setRanking(Map<String, Stat> rank){puntuacioPerfils = rank;}
 
     public void afegirIndex(String nPerfil, int puntuacio) {
-        if(puntuacioPerfils.containsKey(nPerfil)) {
+        if (puntuacioPerfils.containsKey(nPerfil)) {
             int aux = puntuacioPerfils.get(nPerfil).getPuntuacio();
-            if(aux < puntuacio) {
+            if (aux < puntuacio) {
                 Stat s = new Stat(nPerfil, puntuacio);
                 puntuacioPerfils.replace(nPerfil, s);
             }

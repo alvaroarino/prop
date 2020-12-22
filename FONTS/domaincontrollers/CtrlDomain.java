@@ -18,7 +18,7 @@ public class CtrlDomain {
     private ArrayList<Usuari> cjtUsuarios;
     public Usuari actualUser = new Usuari();
     public Perfil perfilActual;
-    public Ranking rankActual;
+    public Ranking rankActual = Ranking.getInstance();
     public int tipoEntrada = 0; // 1 = aleatorio 2 = ajustes predefinidos 3 = importar fichero
     public Kakuro kakuro ;
     public int n;

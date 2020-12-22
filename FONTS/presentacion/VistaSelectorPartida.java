@@ -79,6 +79,20 @@ public class VistaSelectorPartida {
             }
         });
 
+        AtrasButton.setOnMouseClicked((event) -> {
+            Node node = (Node) event.getSource();
+            Stage thisStage = (Stage) node.getScene().getWindow();
+            try {
+                Parent root = FXMLLoader.load(getClass().getResource("/vistaPrincipal.fxml"));
+                Scene scene = new Scene(root);
+                thisStage.setTitle("KakuroMasters");
+                thisStage.setScene(scene);
+                thisStage.show();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        });
+
     }
 
 }
