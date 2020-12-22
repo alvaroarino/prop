@@ -187,6 +187,6 @@ public class CtrlDomain {
         return rankActual.obtenirRankingOrdenat();
     }
 
-    public void storeRanking(){dades.guardar_estadisticas();}
+    public void storeRanking() throws IOException {dades.guardar_estadisticas(rankActual.getRanking());}
 
 }

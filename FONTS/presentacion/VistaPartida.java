@@ -239,7 +239,11 @@ public class VistaPartida {
                         if (!domain.perfilActual.conteKakuro(domain.kakuro.getId())) {
                             domain.rankActual.afegirIndex(domain.perfilActual.getNom(), punt);
                             domain.perfilActual.addKakuro(domain.kakuro.getId());
-                            domain.storeRanking();
+                            try{
+                                domain.storeRanking();
+                            } catch(IOException p) {
+                                p.printStackTrace();
+                            }
                         }
                     }
                 }

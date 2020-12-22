@@ -5,6 +5,8 @@ import domain.ranking.Ranking;
 import domain.usuari.Perfil;
 import domaincontrollers.CtrlDomain;
 
+import java.io.IOException;
+
 /**
  * The type Partida.
  */
@@ -162,7 +164,11 @@ public class Partida {
             if (!domain.perfilActual.conteKakuro(KakuroPartida.getId())) {
                 rank.afegirIndex(perfil, punt);
                 domain.perfilActual.addKakuro(KakuroPartida.getId());
+                try{
                 domain.storeRanking();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
             }
         }
     }

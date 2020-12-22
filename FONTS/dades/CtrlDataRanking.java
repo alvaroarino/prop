@@ -61,10 +61,7 @@ public class CtrlDataRanking {
      * @throws IOException the io exception
      */
     public void guardarRanking(Map<String, Stat> rank) throws IOException{
-        String separador_SO = System.getProperty("file.separator");
-        String path_fitxer_dades = (new File("Resources")).getAbsolutePath();
-        File problema = new File(path_fitxer_dades, "ranking.csv");
-        BufferedWriter bw = new BufferedWriter(new FileWriter(problema,false));
+        BufferedWriter bw = new BufferedWriter(new FileWriter("ranking.csv"));
         for (Map.Entry<String, Stat> stat : rank.entrySet()) {
             int pos = stat.getValue().getPosicion();
             String po = String.valueOf(pos);

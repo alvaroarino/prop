@@ -34,6 +34,7 @@ public class Ranking {
      */
     public void setRanking(Map<String, Stat> rank){puntuacioPerfils = rank;}
 
+    public Map<String, Stat> getRanking() {return puntuacioPerfils;}
     /**
      * Afegir index.
      *

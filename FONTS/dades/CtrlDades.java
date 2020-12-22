@@ -2,11 +2,13 @@ package dades;
 
 import domain.kakuro.Kakuro;
 import domain.partida.Partida;
+import domain.ranking.Stat;
 import domain.usuari.Perfil;
 import domain.usuari.Usuari;
 
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Map;
 
 /**
  * The type Ctrl dades.
@@ -91,9 +93,9 @@ public class CtrlDades {
     /**
      * Guardar estadisticas.
      */
-    public void guardar_estadisticas() {
+    public void guardar_estadisticas(Map<String, Stat> rank) throws IOException {
 
-      //  ranking.guardarRanking();
+      ranking.guardarRanking(rank);
     }
 
     /**
