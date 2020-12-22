@@ -28,6 +28,10 @@ Relació principal de directoris
     *   files: conté arxius necesaris pel arxius Markdown i HTML
 
 ## Llibreries externes utilitzades
+Per acabar de completar la funcionalitat del nostre programa hem fet ús de diferents llibreries que ens podien facilitar la feina
+alhora que aconseguiem funcionalitats mès completes.
+### [JavaFX](http://openjfx.io)
+Per aconseguir una interfaç gràfica mès rica, fem ús de les capacitats gràfiques que JavaFX aporta.
 ### [Gson](https://github.com/google/gson)
 Per guardar d'una forma estructurada y ordenada les dades, fem ús d'archius JSON i per codificar i 
 descodificar fem ús d'aquesta clase
@@ -35,8 +39,3 @@ descodificar fem ús d'aquesta clase
 
 ## Distribució de la feina
 ![image](DOCS/work_distribution.jpg)
-
-## Comentaris sobre l'entrega 1
-* El generador no acaba de funcionar bé quan el nombre de caselles és gran.
-* El solucionador a priori funciona bé però no identifica si hi ha més d'una solució.
-* Alguns drivers no els hem acabat de fer perquè no teníem molt clar com enfocar-los.
