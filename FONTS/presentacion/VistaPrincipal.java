@@ -1,6 +1,7 @@
 package presentacion;
 
 import domaincontrollers.CtrlDomain;
+import javafx.application.HostServices;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
@@ -10,6 +11,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.stage.Stage;
 
+import java.io.File;
 import java.io.IOException;
 
 /**
@@ -40,7 +42,7 @@ public class VistaPrincipal {
      * The Ajustes button.
      */
     @FXML
-    public Button AjustesButton;
+    public Button manualButton;
     /**
      * The Perfil button.
      */
@@ -108,19 +110,9 @@ public class VistaPrincipal {
             thisStage.show();
         });
 
-        AjustesButton.setOnMouseClicked((event) -> {
-            Node node = (Node) event.getSource();
-            Stage thisStage = (Stage) node.getScene().getWindow();
-            Parent root = null;
-            try {
-                root = FXMLLoader.load(getClass().getResource("/vistaAjustes.fxml"));
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-            Scene scene = new Scene(root);
-            thisStage.setTitle("KakuroMasters");
-            thisStage.setScene(scene);
-            thisStage.show();
+        manualButton.setOnMouseClicked((event) -> {
+            HostServices hostServices = CtrlPresentacion.getInstance().getHostServices();
+            hostServices.showDocument(getClass().getResource("/manual.pdf").toString());
         });
 
         PerfilButton.setOnMouseClicked((event) -> {

@@ -39,7 +39,7 @@
             </HBox>
             <HBox alignment="CENTER" maxWidth="1.7976931348623157E308" spacing="20.0">
                <children>
-                  <Button fx:id="AjustesButton" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" text="Ajustes" HBox.hgrow="ALWAYS" />
+                  <Button fx:id="manualButton" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" text="Manual" HBox.hgrow="ALWAYS" />
                   <Button fx:id="PerfilButton" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" text="Perfil" HBox.hgrow="ALWAYS" />
                   <Button fx:id="SalirButton" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" text="Salir" HBox.hgrow="ALWAYS" />
                </children>
