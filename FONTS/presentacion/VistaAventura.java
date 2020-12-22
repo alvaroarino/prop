@@ -42,7 +42,7 @@ public class VistaAventura  {
             int x = 1;
             for (int i = 0; i < n; i++) {
                 Button button = new Button();
-                button.setText("Nivel" + x );
+                button.setText("Nivel" + x + " medio");
                 button.setPrefWidth(100);
                 panelAventura.add(button,i,0);
                 ++x;
@@ -54,7 +54,7 @@ public class VistaAventura  {
             for (int i = 0; i < n/5; i++) {
                 for (int j = 0; j < 5; j++) {
                     Button button = new Button();
-                    button.setText("Nivel" + x );
+                    button.setText("Nivel" + x + " medio");
                     button.setPrefWidth(100);
                     panelAventura.add(button,j,i);
                     ++x;
