@@ -64,6 +64,10 @@ public class VistaPartida {
     }
 
     public void initialize() {
+
+
+
+
         Tauler board = generated.getBoard();
         int nSolucions;
         System.out.println(domain.tipoEntrada);
@@ -83,7 +87,7 @@ public class VistaPartida {
             board = generated.getBoard();
         }
 
-        nSolucions = generated.getBoard().solve();
+
 
         for (int i = 0; i < board.getDimn(); i++) {
             for (int j = 0; j < board.getDimm(); j++) {
@@ -94,7 +98,7 @@ public class VistaPartida {
                     tf.setPrefWidth(50);
                     tf.setAlignment(Pos.CENTER);
                     tf.setEditable(true);
-                    if (cella.getValor_blanca() != -1 || cella.getValor_blanca() != 0 ) {
+                    if (cella.getValor_blanca() != -1  ) {
                         tf.setText("" + cella.getValor_blanca());
                     } else {
                         tf.setText("");
@@ -118,6 +122,10 @@ public class VistaPartida {
                 KakuroGridPane.add(tf, j, i);
             }
         }
+
+        nSolucions = generated.getBoard().solve();
+
+        LabelSol.setText(String.valueOf(nSolucions));
 
         LabelPerfil.setText(domain.perfilActual.getNom());
         timeLabel.setText(String.format("%s seg", time));

@@ -1,5 +1,6 @@
 package presentacion;
 
+import dades.CtrlDades;
 import domaincontrollers.CtrlDomain;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -12,6 +13,7 @@ import javafx.scene.control.Label;
 import javafx.scene.layout.GridPane;
 import javafx.stage.Stage;
 
+import java.io.File;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -41,9 +43,31 @@ public class VistaAventura  {
         if (n == 5) {
             int x = 1;
             for (int i = 0; i < n; i++) {
+
                 Button button = new Button();
                 button.setText("Nivel" + x + " medio");
                 button.setPrefWidth(100);
+                int finalX = x;
+                button.setOnMouseClicked(event -> {
+                    Node node = (Node) event.getSource();
+                    Stage thisStage = (Stage) node.getScene().getWindow();
+                    domain.tipoEntrada = 3;
+                    try {
+                        CtrlDades dades = CtrlDades.getInstance();
+                        System.out.println((getClass().getResource("/Aventura" + finalX + ".txt").getPath()));
+                        File f = new File(getClass().getResource("/Aventura" + finalX + ".txt").getPath());
+                        domain.kakuro = dades.leer_kakuro(f.getAbsolutePath());
+                        domain.kakuro.getBoard().print();
+                        Parent root = FXMLLoader.load(getClass().getResource("/vistaPartida.fxml"));
+                        Scene scene = new Scene(root);
+                        thisStage.setTitle("KakuroMasters");
+                        thisStage.setScene(scene);
+                        thisStage.show();
+
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    }
+                });
                 panelAventura.add(button,i,0);
                 ++x;
             }
@@ -56,6 +80,28 @@ public class VistaAventura  {
                     Button button = new Button();
                     button.setText("Nivel" + x + " medio");
                     button.setPrefWidth(100);
+
+                    int finalX = x;
+                    button.setOnMouseClicked(event -> {
+                        Node node = (Node) event.getSource();
+                        Stage thisStage = (Stage) node.getScene().getWindow();
+                        domain.tipoEntrada = 3;
+                        try {
+                            CtrlDades dades = CtrlDades.getInstance();
+                            System.out.println((getClass().getResource("/Aventura" + finalX + ".txt").getPath()));
+                            File f = new File(getClass().getResource("/Aventura" + finalX + ".txt").getPath());
+                            domain.kakuro = dades.leer_kakuro(f.getAbsolutePath());
+                            domain.kakuro.getBoard().print();
+                            Parent root = FXMLLoader.load(getClass().getResource("/vistaPartida.fxml"));
+                            Scene scene = new Scene(root);
+                            thisStage.setTitle("KakuroMasters");
+                            thisStage.setScene(scene);
+                            thisStage.show();
+
+                        } catch (IOException e) {
+                            e.printStackTrace();
+                        }
+                    });
                     panelAventura.add(button,j,i);
                     ++x;
                 }
